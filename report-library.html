@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shared report library | n1.care</title>
+  <meta name="description" content="Explore anonymised, consent-led health report examples in a searchable learning library.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23376361'/%3E%3Ctext x='6' y='22' fill='white' font-family='Arial' font-weight='700' font-size='16'%3En1%3C/text%3E%3C/svg%3E">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap");
+    :root { --ink:#202523; --teal:#376361; --bright:#48a9a6; --deep:#244b49; --cream:#f3ede2; --paper:#fffdf9; --mist:#c9d8d4; --muted:#64706c; --serif:Georgia,'Times New Roman',serif; --sans:'Work Sans',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; }
+    * { box-sizing:border-box; }
+    html { background:var(--cream); scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:linear-gradient(180deg,#e6f0ed 0,#f3ede2 420px); font-family:var(--sans); }
+    button,input,select { font:inherit; }
+    a { color:inherit; }
+    .shell { width:min(1240px,calc(100% - 40px)); margin-inline:auto; }
+    .site-head { position:sticky; z-index:20; top:0; padding:12px 0; }
+    .nav { min-height:58px; display:flex; align-items:center; gap:28px; padding:0 20px; border:1px solid rgba(255,255,255,.16); border-radius:8px; color:#fff; background:var(--teal); box-shadow:0 14px 35px rgba(28,49,45,.13); }
+    .brand { margin-right:auto; color:#fff; font:400 29px/1 var(--sans); text-decoration:none; letter-spacing:-.04em; }
+    .brand b { font-weight:800; }
+    .nav a:not(.brand) { font-size:12px; text-decoration:none; }
+    .nav .cta { padding:10px 13px; border-radius:6px; color:var(--ink); background:var(--cream); font-weight:800; }
+    .hero { display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(40px,8vw,110px); align-items:end; padding:88px 0 68px; }
+    .eyebrow { margin:0 0 16px; color:#2f7773; font-size:10px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; }
+    h1 { max-width:760px; margin:0; font:400 clamp(48px,7vw,82px)/.94 var(--serif); letter-spacing:-.045em; }
+    .hero-copy { max-width:540px; margin:0 0 4px; color:#56625e; font-size:16px; line-height:1.7; }
+    .consent-note { display:grid; grid-template-columns:38px 1fr; gap:13px; margin-top:24px; padding:16px; border:1px solid #b9cec9; border-radius:12px; color:#46524e; background:rgba(255,253,249,.72); font-size:11px; line-height:1.55; }
+    .consent-note i { width:38px; height:38px; display:grid; place-items:center; border-radius:10px; color:var(--deep); background:#dcecea; font-style:normal; }
+    .consent-note b { display:block; margin-bottom:3px; color:var(--deep); font-size:12px; }
+    .library { padding:32px 0 96px; }
+    .library-head { display:flex; align-items:end; justify-content:space-between; gap:28px; padding-bottom:20px; border-bottom:1px solid #bfc9c5; }
+    .library-head h2 { margin:0; font:400 34px/1.05 var(--serif); }
+    .count { color:var(--muted); font-size:12px; }
+    .toolbar { display:grid; grid-template-columns:minmax(220px,1fr) auto; gap:14px; align-items:center; padding:20px 0 16px; }
+    .search { position:relative; }
+    .search input { width:100%; min-height:44px; padding:0 14px 0 40px; border:1px solid #b9c8c4; border-radius:8px; color:var(--ink); background:rgba(255,253,249,.92); outline:none; }
+    .search::before { position:absolute; top:13px; left:15px; color:#62706b; content:'⌕'; font-size:18px; }
+    .search input:focus, select:focus { border-color:var(--bright); box-shadow:0 0 0 3px rgba(72,169,166,.15); }
+    select { min-height:44px; padding:0 36px 0 12px; border:1px solid #b9c8c4; border-radius:8px; color:var(--deep); background:var(--paper); }
+    .filters { display:flex; gap:7px; overflow:auto; padding:0 0 22px; scrollbar-width:none; }
+    .filters::-webkit-scrollbar { display:none; }
+    .filter { flex:none; padding:8px 11px; border:1px solid #b9c8c4; border-radius:999px; color:#57635f; background:rgba(255,253,249,.68); font-size:10px; font-weight:700; cursor:pointer; }
+    .filter.is-active { color:#fff; border-color:var(--teal); background:var(--teal); }
+    .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .report { min-height:270px; display:flex; flex-direction:column; padding:18px; border:1px solid #c9d3cf; border-radius:14px; background:var(--paper); box-shadow:0 18px 45px -40px rgba(35,56,50,.55); transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
+    .report:hover { border-color:#8db7b0; box-shadow:0 22px 48px -34px rgba(35,56,50,.42); transform:translateY(-3px); }
+    .report-top { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .report-type { color:#2f7773; font-size:8px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+    .shared { display:flex; align-items:center; gap:5px; color:#55716b; font-size:8px; font-weight:700; }
+    .shared::before { width:6px; height:6px; border-radius:50%; background:#48a987; content:''; }
+    .report h3 { margin:34px 0 10px; font:400 24px/1.08 var(--serif); letter-spacing:-.02em; }
+    .report p { margin:0; color:#67716e; font-size:11px; line-height:1.55; }
+    .meta { display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-top:auto; padding-top:24px; }
+    .meta span { padding:8px; border-radius:7px; color:#6a7470; background:#f1f4f2; font-size:8px; }
+    .meta b { display:block; margin-top:3px; color:#2d3935; font-size:10px; }
+    .open { width:100%; margin-top:11px; padding:9px; border:1px solid #b7c8c4; border-radius:7px; color:var(--deep); background:#fff; font-size:9px; font-weight:800; cursor:pointer; }
+    .open:hover { color:#fff; border-color:var(--teal); background:var(--teal); }
+    .more-wrap { display:flex; justify-content:center; padding-top:30px; }
+    .more { padding:12px 17px; border:1px solid var(--teal); border-radius:8px; color:#fff; background:var(--teal); font-size:11px; font-weight:800; cursor:pointer; }
+    .empty { grid-column:1/-1; padding:80px 20px; border:1px dashed #aebdb9; border-radius:14px; color:var(--muted); text-align:center; }
+    dialog { width:min(660px,calc(100% - 28px)); padding:0; overflow:hidden; border:1px solid #9fbdb7; border-radius:16px; background:var(--paper); box-shadow:0 40px 90px rgba(25,44,39,.32); }
+    dialog::backdrop { background:rgba(26,47,43,.58); backdrop-filter:blur(5px); }
+    .dialog-head { display:flex; align-items:center; justify-content:space-between; padding:18px 20px; color:#fff; background:var(--teal); }
+    .dialog-head b { font-family:var(--serif); font-size:20px; font-weight:400; }
+    .dialog-head button { width:32px; height:32px; border:1px solid rgba(255,255,255,.35); border-radius:7px; color:#fff; background:transparent; cursor:pointer; }
+    .dialog-body { padding:26px; }
+    .dialog-body h3 { margin:0; font:400 34px/1.05 var(--serif); }
+    .dialog-body p { color:#606b67; font-size:13px; line-height:1.65; }
+    .placeholder-sheet { margin-top:24px; padding:20px; border:1px solid #d4dedb; border-radius:10px; background:#f6f8f7; }
+    .placeholder-sheet span { display:block; height:7px; margin-top:9px; border-radius:9px; background:#dce6e3; }
+    .placeholder-sheet span:nth-child(2) { width:82%; }.placeholder-sheet span:nth-child(3) { width:64%; }.placeholder-sheet span:nth-child(4) { width:90%; }
+    footer.site-footer { padding:30px 0; color:#cfdfdc; background:#244b49; font-size:10px; }
+    .footer-row { display:flex; justify-content:space-between; gap:20px; }
+    @media (max-width:980px) { .grid{grid-template-columns:repeat(2,1fr)} .hero{grid-template-columns:1fr;gap:26px} }
+    @media (max-width:620px) { .shell{width:min(100% - 28px,1240px)} .site-head{padding:8px 0}.nav{padding:0 14px}.nav a:not(.brand):not(.cta){display:none}.hero{padding:58px 0 42px}.toolbar{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.report{min-height:240px}.library-head{align-items:start;flex-direction:column;gap:8px}.footer-row{flex-direction:column} }
+  </style>
+</head>
+<body>
+  <header class="site-head"><div class="shell"><nav class="nav" aria-label="Primary"><a class="brand" href="index.html"><b>n1.</b>care</a><a href="index.html#reports">Reports</a><a href="compliance.html">Compliance</a><a class="cta" href="index.html#contact">Book a walkthrough</a></nav></div></header>
+  <main>
+    <section class="hero shell">
+      <div><p class="eyebrow">Shared report library · Sample</p><h1>Learn from reports shared by choice.</h1></div>
+      <div><p class="hero-copy">A patient may choose to share a report after a doctor checks it. Others can learn from the layout, trends, and care path. We do not show names, ID details, or source files.</p><div class="consent-note"><i aria-hidden="true">✓</i><span><b>Shared by choice</b>This sample shows how the library will work. The reports use made-up data until shared reports are ready.</span></div></div>
+    </section>
+    <section class="library shell" aria-labelledby="library-title">
+      <header class="library-head"><h2 id="library-title">Reports you can read</h2><span class="count" data-count>56 sample reports</span></header>
+      <div class="toolbar"><label class="search"><span hidden>Search reports</span><input type="search" data-search placeholder="Search by topic or report type"></label><label><span hidden>Sort reports</span><select data-sort><option value="recent">New first</option><option value="oldest">Old first</option><option value="type">Report type</option><option value="sources">Most source files</option></select></label></div>
+      <div class="filters" data-filters aria-label="Filter by health topic"></div>
+      <div class="grid" data-grid></div>
+      <div class="more-wrap"><button class="more" type="button" data-more>Show more reports</button></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-row"><span>Sample library · made-up reports</span><span>Names and source files stay private</span></div></footer>
+  <dialog data-dialog><div class="dialog-head"><b>Report sample</b><button type="button" data-close aria-label="Close">×</button></div><div class="dialog-body"><p class="eyebrow">Made-up report</p><h3 data-dialog-title></h3><p data-dialog-copy></p><div class="placeholder-sheet" aria-label="Report sample"><b>Doctor-checked report</b><span></span><span></span><span></span><span></span></div></div></dialog>
+  <script>
+    (() => {
+      const areas=['Metabolic','Cardiovascular','Longitudinal','Supplements','Genetics','Women’s health','Endocrine'];
+      const types=['Health Summary','Health Over Time','Focused Review','Supplement Review','Genetic Predisposition'];
+      const topics={Metabolic:['HbA1c trend and lipid review','Metabolic markers over 24 months','Glucose control and follow-up'],Cardiovascular:['Blood pressure and lipid context','Cardiovascular risk marker review','Recovery after medication change'],Longitudinal:['Five-year laboratory timeline','Change across four laboratory panels','From first record to latest follow-up'],Supplements:['Supplement safety and monitoring','Vitamin D response and review','Regimen review with source checks'],Genetics:['Cardiometabolic variants in context','Medication-response variant review','Family history and genetic context'],'Women’s health':['Hormone pattern and symptom timeline','Iron status across care events','Cycle, thyroid, and metabolic context'],Endocrine:['Thyroid trend and reference ranges','Endocrine markers over time','TSH review with clinical notes']};
+      const reports=Array.from({length:56},(_,i)=>{const area=areas[i%areas.length];return{id:i+1,area,type:types[(i*3)%types.length],title:topics[area][i%3],sources:3+(i*7)%22,year:2026-Math.floor(i/19),month:12-(i*5)%12,summary:['A short view of change, linked facts, and checks made before sign-off.','Each fact in this report links to its source page.','A doctor-checked view of trends, gaps, and what to ask next.'][i%3]};});
+      const grid=document.querySelector('[data-grid]');const filters=document.querySelector('[data-filters]');const search=document.querySelector('[data-search]');const sort=document.querySelector('[data-sort]');const count=document.querySelector('[data-count]');const more=document.querySelector('[data-more]');const dialog=document.querySelector('[data-dialog]');let active='All';let shown=12;
+      ['All',...areas].forEach(area=>{const b=document.createElement('button');b.type='button';b.className='filter'+(area==='All'?' is-active':'');b.textContent=area;b.addEventListener('click',()=>{active=area;shown=12;[...filters.children].forEach(x=>x.classList.toggle('is-active',x===b));render();});filters.appendChild(b);});
+      function current(){const q=search.value.trim().toLowerCase();const result=reports.filter(r=>(active==='All'||r.area===active)&&(!q||(r.area+' '+r.type+' '+r.title+' '+r.summary).toLowerCase().includes(q)));return result.sort((a,b)=>sort.value==='oldest'?a.year-b.year||a.month-b.month:sort.value==='type'?a.type.localeCompare(b.type):sort.value==='sources'?b.sources-a.sources:b.year-a.year||b.month-a.month);}
+      function render(){const list=current();count.textContent=list.length+' sample report'+(list.length===1?'':'s');grid.innerHTML='';list.slice(0,shown).forEach(r=>{const card=document.createElement('article');card.className='report';card.innerHTML=`<div class="report-top"><span class="report-type">${r.type}</span><span class="shared">Shared by choice</span></div><h3>${r.title}</h3><p>${r.summary}</p><div class="meta"><span>Health topic<b>${r.area}</b></span><span>Source files<b>${r.sources}</b></span></div><button class="open" type="button">Open report →</button>`;card.querySelector('button').addEventListener('click',()=>{dialog.querySelector('[data-dialog-title]').textContent=r.title;dialog.querySelector('[data-dialog-copy]').textContent=`This is sample report ${String(r.id).padStart(3,'0')}. It has no names, ID data, or source files.`;dialog.showModal();});grid.appendChild(card);});if(!list.length)grid.innerHTML='<p class="empty">No reports match this search.</p>';more.hidden=shown>=list.length;}
+      search.addEventListener('input',()=>{shown=12;render();});sort.addEventListener('change',render);more.addEventListener('click',()=>{shown+=12;render();});dialog.querySelector('[data-close]').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});render();
+    })();
+  </script>
+</body>
+</html>

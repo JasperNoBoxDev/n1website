@@ -1,0 +1,46 @@
+# Image sources
+
+Video sources are recorded separately in [`videos/SOURCES.md`](videos/SOURCES.md).
+
+## Team photography
+
+| Local asset | Source |
+| --- | --- |
+| `team-life/n1-team-table.webp` | n1 office, supplied by Jasper (`latest-docs/Team Photos/N1-82.jpg`) |
+| `team-life/n1-team-conversation.webp` | n1 office, supplied by Jasper (`latest-docs/Team Photos/N1-53.jpg`) |
+| `team-life/n1-team-building.webp` | n1 office, supplied by Jasper (`latest-docs/Team Photos/N1-52.jpg`) |
+| `team/*` | Individual headshots, carried over from the marketing site |
+
+These are photographs of actual n1 people, so they are captioned as such and shown
+without the grading applied to stock.
+
+## Illustrative practice photography
+
+| Local asset | Derived from |
+| --- | --- |
+| `n1-practice-consulting-room.webp` | `n1-testimonial-clinician-1.webp` |
+| `n1-practice-review.webp` | `n1-testimonial-clinician-2.webp` (cropped to remove a neighbouring figure) |
+| `n1-practice-lab.webp` | `n1-testimonial-lab-1.webp` (cropped to remove a neighbouring figure) |
+
+The three `n1-testimonial-*.webp` originals were supplied for an earlier version of
+the homepage and their licence is not recorded here — **confirm it before this goes
+public.** They are stock or generated portraits, not photographs of n1 users.
+
+They were previously captioned with invented doctor names, credentials and quotes
+("Dr. Alex Mercer · Functional Medicine", and two others). That was a fabricated
+endorsement and has been removed. The photographs are now used only to illustrate
+the settings the product is used in, on `clinicians.html`, with captions that name
+the setting and not a person, and the strip carries the line "Illustrative
+photography. The people shown are not n1 users and do not endorse n1."
+
+Do not reattach names, quotes, titles or credentials to these images.
+
+## Illustrative patient photography
+
+| Local asset | Source |
+| --- | --- |
+| `n1-patient-consultation.webp` | Credited on `patients.html` as "Concept photography · Pexels" |
+
+The specific Pexels URL and creator for this one were never recorded — **confirm the
+source before this goes public.** It is used decoratively (`alt=""`) and captioned as
+concept photography, so it is not presented as a photograph of an n1 patient.
