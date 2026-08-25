@@ -1506,8 +1506,9 @@
     .approval-report-body { padding-top: 28px; }
     .approval-report-body > small { color: #2f7773; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
     .approval-report-body > p { max-width: 650px; margin: 13px 0 24px; color: #3f4946; font: 400 clamp(20px,2vw,27px)/1.45 var(--serif); }
-    .approval-report-body mark { position: relative; padding: 1px 4px; color: #244b49; background: linear-gradient(90deg,#cfe9e4,#cfe9e4) 0 100% / 0 100% no-repeat; box-shadow: none; transition: background-size .7s cubic-bezier(.22,.75,.25,1), box-shadow .35s ease; }
+    .approval-report-body mark { position: relative; padding: 1px 4px; color: #244b49; background: linear-gradient(90deg,#cfe9e4,#cfe9e4) 0 100% / 0 100% no-repeat; box-shadow: none; opacity: 1; transition: background-size .7s cubic-bezier(.22,.75,.25,1), box-shadow .35s ease, opacity .28s ease; }
     .approval-report-body mark.is-selected { background-size: 100% 100%; box-shadow: 0 0 0 2px rgba(72,169,166,.12); }
+    .approval-report-body mark.is-changing { opacity: 0; }
     .approval-edit { display: grid; gap: 12px; padding: 15px; border: 1px solid #a9c8c2; border-radius: 14px; background: rgba(255,255,255,.98); box-shadow: 0 18px 42px -28px rgba(31,52,47,.3); }
     .approval-edit > header { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #244b49; }
     .approval-edit > header b { font: 400 22px/1.1 var(--serif); }
@@ -1522,7 +1523,7 @@
     .approval-edit-mode { min-height: 31px; padding: 0 10px; border: 1px solid #ccd9d5; border-radius: 8px; color: #49615d; background: #fff; font: 700 9px/1 var(--sans); cursor: pointer; transition: color .25s ease, border-color .25s ease, background-color .25s ease, transform .25s ease; }
     .approval-edit-mode:hover { border-color: #7fb3ab; transform: translateY(-1px); }
     .approval-edit-mode.is-active { border-color: #376361; color: #fff; background: #376361; box-shadow: 0 7px 16px -12px rgba(36,75,73,.8); }
-    .approval-edit-workspace { display: grid; gap: 7px; transition: opacity .22s ease, transform .22s ease; }
+    .approval-edit-workspace { display: grid; gap: 7px; transition: opacity .28s ease, transform .3s ease; }
     .approval-edit.is-updating .approval-edit-workspace { opacity: .35; transform: translateY(2px); }
     .approval-edit label, .approval-edit-field-label { color: #71807b; font-size: 8px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
     .approval-edit-prompt { width: 100%; min-height: 42px; box-sizing: border-box; resize: none; padding: 9px 10px; border: 1px solid #d5dfdc; border-radius: 8px; outline: 0; color: #2a3330; background: #f8faf9; font: 500 11px/1.45 var(--sans); transition: border-color .25s ease, background-color .25s ease; }
@@ -1539,7 +1540,10 @@
     .approval-edit.has-ai-result .approval-edit-result { opacity: 1; transform: translateY(-1px); }
     .approval-edit.has-ai-result .approval-edit-result::after { opacity: 1; }
     @keyframes approval-prompt-caret { 50% { opacity: 0; } }
-    .approval-edit footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 1px; }
+    .approval-edit footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 1px; transition: opacity .28s ease, transform .3s ease; }
+    .approval-edit.is-scenario-changing .approval-edit-selection,
+    .approval-edit.is-scenario-changing .approval-edit-workspace,
+    .approval-edit.is-scenario-changing footer { opacity: 0; transform: translateY(5px); }
     .approval-edit footer span { color: #71807b; font-size: 9px; }
     .approval-apply { min-height: 32px; display: inline-flex; align-items: center; justify-content: center; padding: 0 12px; border: 0; border-radius: 8px; color: #fff; background: #376361; font: 800 9px/1 var(--sans); cursor: pointer; transition: background-color .25s ease, transform .25s ease; }
     .approval-apply:hover { background: #244b49; transform: translateY(-1px); }
@@ -2985,7 +2989,7 @@
             <header><span><small>Health Summary</small><b>Draft for review</b></span><i>In review</i></header>
             <div class="approval-report-body">
               <small>Executive summary</small>
-              <p>The patient’s metabolic markers are moving in the right direction, while <mark id="approvalSelection">LDL remains above the patient-specific target</mark>.</p>
+              <p>The current review notes: <mark id="approvalSelection">LDL remains above the patient-specific target</mark>.</p>
               <aside class="approval-edit" aria-label="Rewrite selected report text">
                 <header><b>Refine selected text</b><span>Clinician controlled</span></header>
                 <div class="approval-edit-selection"><span aria-hidden="true">T</span><div><small>Selected text</small><p class="approval-edit-quote">“LDL remains above the patient-specific target”</p></div></div>
@@ -4669,14 +4673,24 @@
       var selection = document.getElementById('approvalSelection');
       if (!editor || !selection) return;
       var directEdit = editor.querySelector('.approval-direct-edit');
+      var selectedQuote = editor.querySelector('.approval-edit-quote');
       var prompt = editor.querySelector('[data-approval-prompt]');
       var result = editor.querySelector('.approval-edit-result');
       var status = editor.querySelector('[data-approval-status]');
       var apply = editor.querySelector('.approval-apply');
-      var originalText = 'LDL remains above the patient-specific target';
-      var directText = 'LDL is still above the patient-specific target.';
-      var promptText = 'Add the latest LDL value and result date from the source.';
-      var finalText = 'LDL is 116 mg/dL, above the patient-specific target (2025-Mar-14).';
+      var scenarios = [
+        { selected: 'LDL remains above the patient-specific target', direct: 'LDL is still above the patient-specific target.', prompt: 'Add the latest LDL value and result date from the source.', final: 'LDL is 116 mg/dL, above the patient-specific target (2025-Mar-14)' },
+        { selected: 'HbA1c is moving in the right direction', direct: 'HbA1c has improved over time.', prompt: 'Replace “improved” with the first and latest values and dates.', final: 'HbA1c fell from 7.1% (2024-Jan-12) to 6.1% (2026-Aug-14)' },
+        { selected: 'Vitamin D remains below target', direct: 'Vitamin D is still below the patient-specific target.', prompt: 'Add the latest value, unit, and result date from the source.', final: 'Vitamin D is 71 nmol/L, below the patient-specific target (2025-Mar-14)' },
+        { selected: 'Homocysteine remains elevated', direct: 'Homocysteine remains above the patient-specific target.', prompt: 'Use neutral clinical wording and add the latest measurement.', final: 'Homocysteine is 14.2 µmol/L, above the patient-specific target (2025-Mar-14)' },
+        { selected: 'hs-CRP should continue to be monitored', direct: 'Continue monitoring hs-CRP.', prompt: 'Make this specific by adding the latest sourced result.', final: 'Latest hs-CRP: 1.8 mg/L (2025-Mar-14); continue monitoring in context' },
+        { selected: 'Ferritin has changed since the previous review', direct: 'The latest ferritin result is available for review.', prompt: 'Replace the vague change with the latest value and date.', final: 'Latest ferritin: 84 µg/L (2024-Nov-22)' },
+        { selected: 'TSH is stable', direct: 'The latest TSH result is available.', prompt: 'State the exact result without interpreting the trend.', final: 'Latest TSH: 2.1 mIU/L (2025-Mar-14)' },
+        { selected: 'Fasting glucose remains reassuring', direct: 'The latest fasting glucose result is available.', prompt: 'Remove the judgement and state the sourced value.', final: 'Latest fasting glucose: 5.2 mmol/L (2025-Mar-14)' },
+        { selected: 'LDL is improving', direct: 'LDL has fallen but remains above target.', prompt: 'Make this patient-friendly and retain the current value.', final: 'Your latest LDL is 116 mg/dL and remains above your personal target (2025-Mar-14)' },
+        { selected: 'The source supports this finding', direct: 'The finding matches the linked laboratory result.', prompt: 'Name the marker, value, date, and source page.', final: 'HbA1c is 6.1%, linked to Metro Pathology, Page 3 (2026-Aug-14)' }
+      ];
+      var scenarioIndex = 0;
       var timers = [];
       var typingTimer = null;
       var inView = false;
@@ -4688,12 +4702,16 @@
         typingTimer = null;
       }
       function later(callback, delay) { timers.push(setTimeout(callback, delay)); }
+      function currentScenario() { return scenarios[scenarioIndex]; }
       function reset() {
-        editor.classList.remove('is-editing', 'is-prompting', 'has-ai-result');
+        var scenario = currentScenario();
+        editor.classList.remove('is-editing', 'is-prompting', 'has-ai-result', 'is-scenario-changing');
         editor.classList.add('has-selection');
+        selection.classList.remove('is-changing');
         selection.classList.add('is-selected');
-        selection.textContent = originalText;
-        directEdit.textContent = originalText;
+        selection.textContent = scenario.selected;
+        selectedQuote.textContent = '“' + scenario.selected + '”';
+        directEdit.textContent = scenario.selected;
         prompt.textContent = '';
         result.textContent = 'Waiting for an instruction…';
         status.textContent = 'Only the selected text will change';
@@ -4701,6 +4719,7 @@
         apply.disabled = false;
       }
       function typePrompt() {
+        var promptText = currentScenario().prompt;
         var index = 0;
         prompt.textContent = '';
         editor.classList.add('is-prompting');
@@ -4715,7 +4734,7 @@
         }, 24);
       }
       function applyResult() {
-        selection.textContent = finalText;
+        selection.textContent = currentScenario().final;
         apply.textContent = 'Applied ✓';
         apply.disabled = true;
         status.textContent = 'Selected text updated';
@@ -4723,40 +4742,63 @@
       function play() {
         clearTimers();
         reset();
+        var scenario = currentScenario();
         if (reduceMotion) {
-          directEdit.textContent = directText;
-          prompt.textContent = promptText;
-          result.textContent = finalText;
+          directEdit.textContent = scenario.direct;
+          prompt.textContent = scenario.prompt;
+          result.textContent = scenario.final;
           editor.classList.add('has-ai-result');
           applyResult();
           return;
         }
         later(function () {
           editor.classList.add('is-editing');
-          directEdit.textContent = directText;
+          directEdit.textContent = scenario.direct;
           status.textContent = 'Clinician edit made';
-        }, 850);
+        }, 700);
         later(function () {
           editor.classList.remove('is-editing');
           typePrompt();
-        }, 1900);
+        }, 1650);
         later(function () {
           editor.classList.remove('is-prompting');
           editor.classList.add('has-ai-result');
-          prompt.textContent = promptText;
-          result.textContent = finalText;
-          status.textContent = 'Value and date added from the source';
-        }, 3900);
-        later(applyResult, 5150);
-        later(function () { if (inView && !document.hidden) play(); }, 7200);
+          prompt.textContent = scenario.prompt;
+          result.textContent = scenario.final;
+          status.textContent = 'Suggested rewrite ready';
+        }, 3500);
+        later(applyResult, 4550);
+        later(function () {
+          editor.classList.add('is-scenario-changing');
+          selection.classList.add('is-changing');
+        }, 5550);
+        later(function () {
+          scenarioIndex = (scenarioIndex + 1) % scenarios.length;
+          var next = currentScenario();
+          editor.classList.remove('is-editing', 'is-prompting', 'has-ai-result');
+          selection.textContent = next.selected;
+          selectedQuote.textContent = '“' + next.selected + '”';
+          directEdit.textContent = next.selected;
+          prompt.textContent = '';
+          result.textContent = 'Waiting for an instruction…';
+          status.textContent = 'Only the selected text will change';
+          apply.textContent = 'Apply change';
+          apply.disabled = false;
+        }, 5830);
+        later(function () {
+          editor.classList.remove('is-scenario-changing');
+          selection.classList.remove('is-changing');
+        }, 5910);
+        later(function () { if (inView && !document.hidden) play(); }, 6350);
       }
       function stop() { clearTimers(); }
       function start() { if (inView && !document.hidden) play(); }
 
       apply.addEventListener('click', function () {
         clearTimers();
-        prompt.textContent = promptText;
-        result.textContent = finalText;
+        var scenario = currentScenario();
+        prompt.textContent = scenario.prompt;
+        result.textContent = scenario.final;
         editor.classList.remove('is-editing', 'is-prompting');
         editor.classList.add('has-ai-result');
         applyResult();
