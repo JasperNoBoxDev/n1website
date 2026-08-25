@@ -207,11 +207,11 @@
     .proof-item b { margin-bottom: 7px; color: var(--wine); font-size: 14px; }
     .proof-item span { color: #554f49; font-size: 12px; line-height: 1.5; }
     .trust-showcase { overflow: clip; border-block: 1px solid #c6d8d3; background: #eef4f2; }
-    .trust-showcase-head { position: relative; max-width: 1040px; margin: 0 auto; padding: clamp(96px,10vw,146px) 0; text-align: center; }
-    .trust-showcase-head .eyebrow { margin-bottom: 25px; color: #2f7773; }
+    .trust-showcase-head { position: relative; max-width: 1040px; margin: 0 auto; padding: clamp(80px,8vw,112px) 0; text-align: center; }
+    .trust-showcase-head .eyebrow { margin-bottom: 22px; color: #2f7773; }
     .trust-showcase-quote { margin: 0; }
-    .trust-showcase-quote p { max-width: 960px; margin: 0 auto; color: #171817 !important; font: 400 clamp(38px,4.6vw,60px)/1.05 var(--serif); letter-spacing: -.03em; text-wrap: balance; }
-    .trust-quote-attribution { display: flex; align-items: center; justify-content: center; gap: 13px; margin-top: 28px; }
+    .trust-showcase-quote p { max-width: 960px; margin: 0 auto; color: #171817 !important; font: 400 clamp(34px,3.7vw,46px)/1.12 var(--serif); letter-spacing: -.025em; text-wrap: pretty; }
+    .trust-quote-attribution { display: flex; align-items: center; justify-content: center; gap: 13px; margin-top: 22px; }
     .trust-quote-attribution img { width: 64px; height: 64px; border: 1px solid rgba(55,99,97,.24); border-radius: 50%; object-fit: cover; object-position: center; }
     .trust-showcase-quote cite { color: #45635f; font-size: 11px; font-style: normal; font-weight: 700; letter-spacing: .08em; text-align: left; text-transform: uppercase; }
     .trust-showcase-head > .trust-showcase-intro { max-width: 650px; margin: 28px auto 0; color: #626864; font-size: 15px; line-height: 1.65; }
@@ -239,15 +239,22 @@
     .trust-showcase .evidence-head > p { max-width: 680px; }
     .trust-showcase .control-grid { display: none; }
     .trust-showcase .privacy-choice-grid { gap: 12px; padding: 12px; border: 0; border-radius: 18px; background: rgba(255,255,255,.5); }
-    .trust-showcase .privacy-choice-card { min-height: 0; padding: 18px 20px 20px; border: 1px solid #d6cdc0; border-radius: 13px; background: #fffdf9; }
-    .privacy-card-top { display: flex; align-items: center; gap: 10px; }
+    .security-grid-group { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; margin: 2px 4px -2px; color: #526762; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .security-grid-group::after { height: 1px; flex: 1; background: #d6dfdc; content: ''; }
+    .security-grid-group.is-safeguards { margin-top: 10px; color: #2f7773; }
+    .trust-showcase .privacy-choice-card { min-height: 190px; display: grid; grid-template-columns: auto minmax(0,1fr); grid-template-rows: auto 1fr; column-gap: 14px; padding: 22px; border: 1px solid #d6cdc0; border-radius: 13px; background: #fffdf9; }
+    .trust-showcase .privacy-choice-card.is-choice { background: linear-gradient(145deg,#fffdf9,#fbf5eb); }
+    .trust-showcase .privacy-card-top { display: contents; }
     .privacy-card-icon { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px; color: #376361; background: #e3efec; }
     .privacy-card-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-    .trust-showcase .privacy-choice-card h3 { max-width: none; margin: 14px 0 8px; font-size: clamp(18px,1.35vw,22px); letter-spacing: -.025em; white-space: nowrap; }
+    .trust-showcase .privacy-card-icon,
+    .trust-showcase .security-seal { grid-column: 1; grid-row: 1; }
+    .trust-showcase .privacy-choice-card h3 { grid-column: 2; grid-row: 1; align-self: center; max-width: none; margin: 0; font-size: clamp(22px,1.6vw,26px); letter-spacing: -.025em; white-space: nowrap; }
+    .trust-showcase .privacy-choice-card > p { grid-column: 1 / -1; grid-row: 2; align-self: start; margin-top: 20px; font-size: 15px; line-height: 1.58; }
     .privacy-choice-card.is-control { background: #f8faf9; }
     .privacy-choice-card.is-control { position: relative; overflow: hidden; border-color: #b8d0ca; box-shadow: 0 16px 36px -34px rgba(35,75,70,.65); }
     .privacy-choice-card.is-control::before { position: absolute; top: 0; right: 0; left: 0; height: 3px; background: linear-gradient(90deg,#244b49,#48a9a6); content: ''; }
-    .privacy-choice-card.is-control h3 { max-width: none; margin-top: 14px; color: #183b38; font-size: clamp(18px,1.35vw,22px); white-space: nowrap; }
+    .privacy-choice-card.is-control h3 { max-width: none; margin-top: 0; color: #183b38; font-size: clamp(22px,1.6vw,26px); }
     .security-seal { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #b8d5cf; border-radius: 12px; color: #244b49; background: linear-gradient(145deg,#f8fcfb,#dceeea); box-shadow: inset 0 0 0 4px rgba(255,255,255,.5); }
     .security-seal svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
     .privacy-grid-note { margin: 16px 8px 0; color: #66716d; font-size: 9px; line-height: 1.55; }
@@ -758,10 +765,11 @@
     .walk-marker-row strong { display: block; color: #202523; font-size: 9px; }
     .walk-marker-row strong small { margin-top: 3px; font-weight: 500; }
     .walk-marker-row i { color: #376361; font-size: 13px; font-style: normal; text-align: center; }
-    .walk-marker-sparkline { width: 42px; height: 18px; display: block; justify-self: end; }
+    .walk-marker-sparkline { width: 42px; height: 18px; display: block; justify-self: end; color: #0d7377; }
     .walk-marker-sparkline svg { width: 100%; height: 100%; display: block; overflow: visible; }
-    .walk-marker-sparkline path { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-    .walk-marker-sparkline circle { fill: #fff; stroke: currentColor; stroke-width: 1.6; }
+    .walk-marker-sparkline .spark-range { fill: rgba(34,197,94,.1); stroke: none; }
+    .walk-marker-sparkline .spark-line { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; stroke-opacity: .6; }
+    .walk-marker-sparkline .spark-alert { fill: #ef4444; stroke: none; }
     .walk-marker-list > p { margin: 16px 13px; color: #7b8581; font-size: 9px; line-height: 1.5; }
     .walk-marker-scroll { min-height: 280px; overflow: hidden; will-change: transform; }
     .walk-marker-handoff { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 8px 10px 9px; padding: 7px 9px; border: 1px solid #cce2dd; border-radius: 7px; color: #53605c; background: #f6fbf9; box-shadow: 0 5px 16px rgba(35,58,52,.08); font-size: 7px; }
@@ -805,7 +813,9 @@
     .walk-chart-plot { position: relative; width: 100%; aspect-ratio: 500 / 150; }
     .walk-mini-chart svg { width: 100%; height: auto; display: block; overflow: visible; }
     .walk-chart-grid line { stroke: #dde5e2; stroke-width: 1; stroke-dasharray: 3 3; }
-    .walk-chart-range { fill: rgba(56,161,105,.12); transform-box: fill-box; transform-origin: center bottom; }
+    .walk-chart-range { fill: rgba(34,197,94,.1); transform-box: fill-box; transform-origin: center bottom; }
+    .walk-chart-range-boundary { stroke: #22c55e; stroke-width: 1.5; stroke-dasharray: 6 4; stroke-opacity: .5; }
+    .walk-chart-line { fill: none; stroke: #0d7377; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .walk-chart-axis { fill: #7b8581; font: 7px var(--sans); }
     .walk-chart-axis-line { stroke: #aebbb7; stroke-width: 1; }
     .walk-mini-chart path { stroke-dasharray: 500; stroke-dashoffset: 0; }
@@ -814,7 +824,8 @@
     .walkthrough-panel.is-manual-marker .walk-insight-empty { opacity: 0; pointer-events: none; transform: translateX(8px); }
     .walkthrough-panel.is-active.is-manual-marker .walk-range-cursor, .walkthrough-panel.is-active.is-manual-marker .walk-chart-auto-tooltip { display: none; }
     @keyframes walk-chart-draw { from { stroke-dashoffset: 500; } }
-    .walk-mini-chart circle { fill: currentColor; stroke: #fff; stroke-width: 2; cursor: help; transition: r .15s ease, filter .15s ease; }
+    .walk-mini-chart circle { fill: #0d7377; stroke: #0d7377; stroke-width: 2; cursor: help; transition: r .15s ease, filter .15s ease; }
+    .walk-mini-chart circle.walk-outlier { fill: #ef4444; stroke: #ef4444; }
     .walk-mini-chart circle:hover, .walk-mini-chart circle:focus { r: 6px; outline: none; filter: drop-shadow(0 0 4px rgba(72,169,166,.55)); }
     .walk-chart-auto-tooltip { position: absolute; z-index: 4; top: 8px; left: 12%; width: max-content; max-width: 168px; padding: 9px 10px; border: 1px solid #e2e8f0; border-radius: 8px; color: #0f172a; background: #fff; box-shadow: 0 8px 22px rgba(15,23,42,.12); font-size: 7px; line-height: 1.4; opacity: 0; pointer-events: none; transform: translate(-12%, -100%); }
     .walk-range-cursor { position: absolute; z-index: 9; top: 124px; right: 20px; width: 16px; height: 21px; opacity: 0; filter: drop-shadow(0 2px 2px rgba(25,42,37,.28)); pointer-events: none; }
@@ -881,6 +892,10 @@
     .walk-report-open-cursor::after { position: absolute; top: -7px; left: -8px; width: 23px; height: 23px; border: 2px solid #48a9a6; border-radius: 50%; opacity: 0; content: ''; }
 
     .walk-source-review-layout { position: relative; min-height: 350px; overflow: hidden; border: 1px solid #dfe4e2; border-radius: 10px; background: #f8faf9; }
+    .walk-review-phase { position: absolute; z-index: 12; top: 72px; left: 50%; display: grid; min-width: 126px; padding: 7px 12px; border: 1px solid rgba(55,99,97,.18); border-radius: 999px; color: #244b49; background: rgba(255,255,255,.94); box-shadow: 0 8px 24px rgba(31,52,47,.12); font-size: 8px; font-weight: 800; letter-spacing: .035em; text-align: center; transform: translateX(-50%); pointer-events: none; backdrop-filter: blur(8px); }
+    .walk-review-phase span { grid-area: 1 / 1; opacity: 0; transform: translateY(5px); transition: opacity .24s ease, transform .32s cubic-bezier(.22,.8,.28,1); }
+    .walk-review-phase span::before { display: inline-block; width: 5px; height: 5px; margin-right: 6px; border-radius: 50%; background: #48a987; box-shadow: 0 0 0 3px rgba(72,169,135,.12); content: ''; vertical-align: 1px; }
+    .walk-review-phase span.is-active { opacity: 1; transform: none; }
 
     .walk-report-layout { display: grid; grid-template-columns: 1.08fr .92fr; gap: 16px; min-height: 350px; }
     .walk-report-page, .walk-share-panel { border: 1px solid #dfe4e2; border-radius: 10px; background: #fff; }
@@ -1029,7 +1044,7 @@
     .walk-note-editor header b, .walk-note-editor header small { display: block; }
     .walk-note-editor header b { color: #202523; font-size: 11px; }
     .walk-note-editor header small { margin-top: 3px; color: #7a8380; font-size: 7px; }
-    .walk-note-editor header i { color: #28775e; font-size: 7px; font-style: normal; opacity: 0; }
+    .walk-note-editor header i { color: #28775e; font-size: 7px; font-style: normal; font-weight: 800; opacity: 0; transform: translateY(3px); transition: opacity .2s ease, transform .25s cubic-bezier(.22,.8,.28,1); }
     .walk-note-editor textarea { min-height: 250px; margin: 14px 0; padding: 13px; resize: none; border: 1px solid #ccd6d3; border-radius: 8px; color: #303735; background: #fff; font: 9px/1.6 var(--sans); }
     .walk-note-editor footer { color: #7a8380; font-size: 7px; }
     .walk-diagnosis-note { position: absolute; z-index: 10; top: 82px; right: 26px; width: min(390px,calc(100% - 52px)); box-sizing: border-box; padding: 14px; border: 1px solid #cbd8d4; border-radius: 10px; background: #fff; box-shadow: 0 20px 52px rgba(31,52,47,.2); opacity: 0; transform: translateY(8px) scale(.99); transition: opacity .2s ease, transform .2s ease; }
@@ -1043,6 +1058,9 @@
     .walk-diagnosis-note [data-diagnosis-saved] { color: #28775e; font-weight: 700; opacity: 0; }
     .walk-aux-panel.is-diagnosis-note-saved .walk-diagnosis-note [data-diagnosis-saved] { opacity: 1; }
     .walk-note-editor footer button { padding: 7px 10px; border: 0; border-radius: 6px; color: #fff; background: #376361; font: 700 8px var(--sans); }
+    .walk-note-editor footer button.is-saved { background: #28775e; animation: walk-note-save .46s cubic-bezier(.22,.8,.28,1); }
+    .walk-note-editor.is-saved header i { opacity: 1 !important; transform: none; }
+    @keyframes walk-note-save { 0% { transform: scale(1); } 42% { transform: scale(.94); } 100% { transform: scale(1); } }
     .walk-report-source-button span { color: #376361; }
     .walk-report-detail-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; margin-top: 12px; }
     .walk-report-detail-grid span, .walk-report-next { padding: 9px; border: 1px solid #e0e5e3; border-radius: 7px; background: #fafbfb; }
@@ -1082,7 +1100,10 @@
     .walk-reason-data { display: grid; }
     .walk-reason-data span { display: grid; grid-template-columns: 1fr auto auto; gap: 7px; align-items: center; padding: 8px 0; border-bottom: 1px solid #eef1f0; color: #56625e; font-size: 7px; }
     .walk-reason-data span:last-child { border-bottom: 0; }
-    .walk-reason-data svg { width: 52px; height: 16px; }
+    .walk-reason-data svg { width: 52px; height: 16px; overflow: visible; }
+    .walk-reason-data .spark-range { fill: rgba(34,197,94,.1); stroke: none; }
+    .walk-reason-data .spark-line { fill: none; stroke: #0d7377; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; stroke-opacity: .6; }
+    .walk-reason-data .spark-alert { fill: #ef4444; stroke: none; }
     .walk-reason-data b { color: #a84d3d; font-size: 7px; }
     .walk-source-document { margin: 10px 14px 0; padding: 10px; border: 1px solid #dfe4e2; border-radius: 7px; background: #fafbfb; opacity: .68; transition: opacity .2s ease, border-color .2s ease, background .2s ease; }
     .walk-source-document.is-open { border-color: #48a9a6; background: #f0f7f6; opacity: 1; }
@@ -1104,9 +1125,10 @@
     .walkthrough-panel.is-range-edited .walk-range-lab-value, .walkthrough-panel.is-range-edited .walk-range-label-lab, .walkthrough-panel.is-range-edited .walk-range-edit-label { animation: none; opacity: 0; }
     .walkthrough-panel.is-range-edited .walk-range-custom-value, .walkthrough-panel.is-range-edited .walk-range-label-custom, .walkthrough-panel.is-range-edited .walk-reference-custom, .walkthrough-panel.is-range-edited .walk-range-saved { animation: none; opacity: 1; }
     .walkthrough-panel.is-range-edited .walk-reference-card [data-marker-reference] { opacity: 0; }
-    .walkthrough-panel.is-range-edited .walk-range-editor > span:first-child::before, .walkthrough-panel.is-range-edited .walk-chart-legend::before { background: rgba(72,169,166,.24); }
-    .walkthrough-panel.is-range-edited .walk-chart-range { fill: rgba(72,169,166,.15); transform: scaleY(.8); transition: transform .55s cubic-bezier(.22,.8,.28,1), fill .3s ease; }
-    .walkthrough-panel.is-range-edited .walk-outlier { fill: #b8684d; color: #b8684d; }
+    .walkthrough-panel.is-range-edited .walk-range-editor > span:first-child::before, .walkthrough-panel.is-range-edited .walk-chart-legend::before { background: rgba(168,85,247,.12); }
+    .walkthrough-panel.is-range-edited .walk-chart-range { fill: rgba(168,85,247,.08); transform: scaleY(.8); transition: transform .55s cubic-bezier(.22,.8,.28,1), fill .3s ease; }
+    .walkthrough-panel.is-range-edited .walk-chart-range-boundary { stroke: #a855f7; stroke-dasharray: 2 3; stroke-opacity: .6; }
+    .walkthrough-panel.is-range-edited .walk-outlier { fill: #ef4444; stroke: #ef4444; color: #ef4444; }
     .walkthrough-panel.is-active .walk-source-review-layout.is-evidence-open > .walk-evidence-drawer, .walkthrough-panel.is-active .walk-source-review-layout.is-reasoning-open > .walk-reasoning-drawer { animation: none; opacity: 1; transform: none; }
     .product-walkthrough .walk-global-cursor.is-clicking i { animation: walk-menu-click .34s ease-out both !important; }
     .product-walkthrough.is-timeline-paused .walk-global-cursor i { animation-play-state: paused !important; }
@@ -1174,6 +1196,31 @@
     .tonal-patterns-media.is-static-extraction .step-visualise { opacity: 1; }
     .tonal-patterns-media.is-static-extraction .screen-progress span { transform: scaleX(.72); animation: none; }
     .screen-edit-state { float: right; margin-top: 2px; color: #2f7773; font: 700 8px var(--sans); letter-spacing: .02em; }
+    .settings-screen-body { padding: 18px 22px 22px; }
+    .settings-screen-head { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-bottom: 13px; border-bottom: 1px solid #d9dfdc; }
+    .settings-screen-title { display: flex; align-items: center; gap: 10px; }
+    .settings-screen-title > span { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 9px; color: #2f7773; background: #dfeeea; font-size: 14px; font-weight: 800; }
+    .settings-screen-title strong, .settings-screen-title small { display: block; }
+    .settings-screen-title strong { color: #202523; font: 400 18px/1.1 var(--serif); }
+    .settings-screen-title small { margin-top: 3px; color: #78827e; font-size: 8px; }
+    .settings-saved { display: inline-flex; align-items: center; gap: 5px; color: #3d756e; font-size: 8px; font-weight: 800; }
+    .settings-saved::before { width: 6px; height: 6px; border-radius: 50%; background: #49a27f; box-shadow: 0 0 0 3px rgba(73,162,127,.12); content: ''; }
+    .settings-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; margin-top: 13px; }
+    .settings-card { min-height: 84px; padding: 10px; border: 1px solid #d8e0dd; border-radius: 10px; background: #fff; }
+    .settings-card-head { display: grid; grid-template-columns: 25px minmax(0,1fr); gap: 8px; align-items: center; }
+    .settings-card-icon { width: 25px; height: 25px; display: grid; place-items: center; border-radius: 7px; color: #376361; background: #e5f0ed; font-size: 9px; font-weight: 900; }
+    .settings-card b, .settings-card small { display: block; }
+    .settings-card b { overflow: hidden; color: #28322f; font-size: 9px; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+    .settings-card small { margin-top: 2px; color: #7a8581; font-size: 7px; line-height: 1.2; }
+    .settings-control { min-height: 26px; display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 8px; padding: 5px 7px; border-radius: 7px; color: #315d59; background: #f2f7f5; font-size: 8px; font-weight: 700; }
+    .settings-control i { color: #2f7773; font-size: 7px; font-style: normal; }
+    .settings-unit-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; padding: 3px; }
+    .settings-unit-toggle span { min-height: 20px; display: grid; place-items: center; border-radius: 5px; color: #78827e; font-size: 7px; }
+    .settings-unit-toggle span.is-active { color: #fff; background: #376361; }
+    .settings-chip-row { justify-content: flex-start; flex-wrap: wrap; }
+    .settings-chip-row span { padding: 3px 5px; border: 1px solid #c9dad5; border-radius: 999px; color: #49645f; background: #fff; font-size: 7px; }
+    .settings-report-control span { display: inline-flex; align-items: center; gap: 4px; }
+    .settings-report-control span::before { width: 11px; height: 14px; border: 1px solid #8fb2ab; border-radius: 2px; background: linear-gradient(#8fb2ab,#8fb2ab) 3px 4px / 5px 1px no-repeat, linear-gradient(#8fb2ab,#8fb2ab) 3px 7px / 5px 1px no-repeat; content: ''; }
 
     .feature-study-cta { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-top: 22px; padding: 22px 26px; border: 1px solid var(--line); border-radius: 15px; background: var(--paper); }
     .feature-study-cta p { max-width: 700px; margin: 0; color: #554f49; font-size: 14px; line-height: 1.55; }
@@ -1209,15 +1256,16 @@
     .trace-result { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 15px clamp(24px,3vw,40px); border-top: 1px solid #b8cbc6; color: #244b49; background: #dcece8; }
     .trace-result b { font-size: 12px; }
     .trace-result span { color: #5f6c68; font-size: 10px; }
-    .traceability-flow { margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); overflow: hidden; border: 1px solid #b8cbc6; border-radius: 22px; background: #fbfaf7; box-shadow: 0 24px 60px -42px rgba(35,56,50,.38); list-style: none; }
-    .traceability-step { position: relative; min-width: 0; min-height: 300px; display: flex; flex-direction: column; padding: 24px 20px 20px; border-right: 1px solid #d7e0dd; }
+    .traceability-flow { margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); overflow: hidden; border: 1px solid #c7d5d1; border-radius: 22px; background: #fbfaf7; box-shadow: 0 24px 60px -42px rgba(35,56,50,.3); list-style: none; }
+    .traceability-step { position: relative; min-width: 0; min-height: 310px; display: flex; flex-direction: column; padding: 25px 20px 20px; border-right: 1px solid #dce4e1; background: #fbfaf7; transition: background-color .45s ease, box-shadow .45s ease; }
     .traceability-step:last-child { border-right: 0; }
-    .traceability-step::after { position: absolute; z-index: 2; top: 50%; right: -12px; width: 23px; height: 23px; display: grid; place-items: center; border: 1px solid #c8d8d4; border-radius: 50%; color: #376361; background: #fbfaf7; font-size: 13px; content: '→'; transform: translateY(-50%); }
+    .traceability-step::before { position: absolute; top: 0; right: 0; left: 0; height: 3px; background: #3f8f88; content: ''; opacity: 0; transform: scaleX(.25); transform-origin: left; transition: opacity .35s ease, transform .45s ease; }
+    .traceability-step::after { position: absolute; z-index: 2; top: 50%; right: -9px; width: 18px; height: 28px; display: grid; place-items: center; color: #78908b; background: #fbfaf7; font-size: 18px; content: '›'; transform: translateY(-50%); transition: color .35s ease, background-color .35s ease; }
     .traceability-step:last-child::after { display: none; }
-    .traceability-step > small { color: #2f7773; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-    .traceability-step > h3 { margin: 12px 0 8px; color: #202523; font: 400 24px/1.05 var(--serif); }
-    .traceability-step > p { margin: 0; color: #65716d; font-size: 13px; line-height: 1.45; }
-    .traceability-ui { min-height: 108px; display: grid; align-content: center; gap: 8px; margin-top: auto; padding: 14px; border: 1px solid #d7e1de; border-radius: 10px; background: #fff; }
+    .traceability-step > small { color: #55746f; font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; transition: color .35s ease; }
+    .traceability-step > h3 { min-height: 51px; margin: 12px 0 7px; color: #202523; font: 400 24px/1.06 var(--serif); }
+    .traceability-step > p { min-height: 38px; margin: 0; color: #65716d; font-size: 13px; line-height: 1.45; }
+    .traceability-ui { height: 178px; min-height: 178px; display: grid; align-content: center; gap: 8px; margin-top: 20px; padding: 14px; overflow: hidden; border: 1px solid #d7e1de; border-radius: 11px; background: rgba(255,255,255,.88); box-shadow: 0 8px 22px -22px rgba(35,56,50,.35); transition: border-color .45s ease, background-color .45s ease, box-shadow .45s ease, transform .45s ease; }
     .traceability-ui span { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #68746f; font-size: 12px; }
     .traceability-ui b { color: #244b49; font-size: 14px; }
     .traceability-ui i { color: #2f7773; font-size: 12px; font-style: normal; font-weight: 800; }
@@ -1225,17 +1273,35 @@
     .trace-record-name, .trace-table-name { display: block; font-size: 16px; line-height: 1.15; }
     .trace-extract-counts { display: grid; gap: 5px; padding-top: 4px; border-top: 1px solid #d7e1de; }
     .trace-extract-counts span { justify-content: flex-start; gap: 6px; }
+    .trace-data-grid { display: grid; gap: 0; }
+    .trace-data-grid span { min-height: 27px; border-top: 1px solid #e0e7e4; }
+    .trace-data-grid span:first-child { border-top: 0; }
+    .trace-finding-context { margin: 0; color: #68746f; font-size: 9px; line-height: 1.45; }
+    .trace-finding { padding: 9px; border-left: 3px solid #48a9a6; border-radius: 0 7px 7px 0; color: #244b49; background: #e8f4f1; font-size: 11px !important; line-height: 1.35; }
+    .trace-check-list { display: grid; gap: 5px; }
+    .trace-check-list span { justify-content: flex-start; gap: 7px; font-size: 9px; }
+    .trace-check-list i { width: 16px; height: 16px; flex: none; display: grid; place-items: center; border-radius: 50%; background: #e5f2ed; font-size: 8px; }
     .traceability-ui.is-table table { width: 100%; border-collapse: collapse; }
     .traceability-ui.is-table th, .traceability-ui.is-table td { padding: 5px 0; border-top: 1px solid #d7e1de; color: #68746f; font-size: 12px; font-weight: 600; text-align: left; }
     .traceability-ui.is-table td { color: #244b49; font-weight: 800; text-align: right; }
-    .traceability-step.is-linked .traceability-ui.is-table th, .traceability-step.is-linked .traceability-ui.is-table td { border-top-color: rgba(255,255,255,.16); color: #fff; }
-    .traceability-step.is-ai { background: #eef6f4; }
-    .traceability-step.is-verified .traceability-ui { border-color: #a9d2c5; background: #edf8f2; }
-    .traceability-step.is-linked { color: #fff; background: #244b49; }
-    .traceability-step.is-linked > small, .traceability-step.is-linked > h3 { color: #fff !important; }
-    .traceability-step.is-linked > p { color: #c9deda; }
-    .traceability-step.is-linked .traceability-ui { border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.08); }
-    .traceability-step.is-linked .traceability-ui span, .traceability-step.is-linked .traceability-ui b, .traceability-step.is-linked .traceability-ui i { color: #fff; }
+    .traceability-step.is-active { z-index: 1; background: #eef6f4; box-shadow: inset 0 0 0 1px rgba(63,143,136,.08); }
+    .traceability-step.is-active::before { opacity: 1; transform: scaleX(1); }
+    .traceability-step.is-active::after { color: #376361; background: #eef6f4; }
+    .traceability-step.is-active > small { color: #24746e; }
+    .traceability-step.is-active .traceability-ui { border-color: #9fc8c1; background: #fff; box-shadow: 0 15px 30px -24px rgba(35,90,82,.52); transform: translateY(-3px); }
+    .traceability-flow.is-paused .traceability-step { transition-duration: .2s; }
+    .trace-link-demo { align-content: start; }
+    .trace-link-sentence { margin: 0; color: #44514d; font-size: 10px; line-height: 1.45; }
+    .trace-link-sentence button { padding: 0; border: 0; border-bottom: 1px solid #2f7773; color: #244b49; background: transparent; font-family: var(--sans); font-size: inherit; font-weight: 800; cursor: pointer; }
+    .trace-link-source-card { display: grid; grid-template-columns: 1fr auto; gap: 4px 8px; max-height: 0; margin-top: 0; padding: 0 9px; overflow: hidden; border: 1px solid transparent; border-radius: 8px; opacity: 0; color: #63716c; background: #f5f9f8; font-size: 8px; transform: translateY(-3px); }
+    .trace-link-source-card b { grid-column: 1 / -1; font-size: 9px; }
+    .traceability-step.is-active .trace-link-source-card { animation: trace-source-reveal 2.15s ease both; }
+    .trace-link-demo.is-manual-open .trace-link-source-card { max-height: 72px; margin-top: 7px; padding-top: 8px; padding-bottom: 8px; border-color: #bdd5cf; opacity: 1; transform: none; animation: none; }
+    @keyframes trace-source-reveal {
+      0%,18% { max-height: 0; margin-top: 0; padding-top: 0; padding-bottom: 0; border-color: transparent; opacity: 0; transform: translateY(-3px); }
+      35%,82% { max-height: 72px; margin-top: 7px; padding-top: 8px; padding-bottom: 8px; border-color: #bdd5cf; opacity: 1; transform: none; }
+      100% { max-height: 0; margin-top: 0; padding-top: 0; padding-bottom: 0; border-color: transparent; opacity: 0; transform: translateY(-3px); }
+    }
     .control-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-block: 1px solid var(--line); }
     .control-item { padding: 30px clamp(18px,2.4vw,34px); border-left: 1px solid var(--line); }
     .control-item:first-child { padding-left: 0; border-left: 0; }
@@ -1253,22 +1319,41 @@
     .approval-report-body { padding-top: 28px; }
     .approval-report-body > small { color: #2f7773; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
     .approval-report-body > p { max-width: 650px; margin: 13px 0 24px; color: #3f4946; font: 400 clamp(20px,2vw,27px)/1.45 var(--serif); }
-    .approval-report-body mark { padding: 1px 4px; color: #244b49; background: #cfe9e4; box-shadow: 0 0 0 2px rgba(72,169,166,.12); }
-    .approval-edit { display: grid; gap: 8px; padding: 12px; border: 1px solid #a9c8c2; border-radius: 12px; background: rgba(255,255,255,.98); box-shadow: 0 16px 38px rgba(31,52,47,.1); }
-    .approval-edit header { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #244b49; font-size: 11px; }
-    .approval-edit header span { color: #74817d; font-size: 10px; font-weight: 600; }
-    .approval-edit-quote { margin: 0; color: #376361; font: 600 12px/1.4 var(--sans); }
-    .approval-edit label { color: #71807b; font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-    .approval-edit-prompt, .approval-edit-result { padding: 9px 10px; border: 1px solid #d5dfdc; border-radius: 7px; color: #2a3330; background: #f8faf9; font: 500 12px/1.45 var(--sans); }
-    .approval-edit-result { border-color: #b9d8ca; background: #edf8f2; }
-    .approval-edit footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 2px; }
-    .approval-edit footer span { color: #71807b; font-size: 10px; }
-    .approval-apply { display: inline-flex; align-items: center; justify-content: center; padding: 8px 11px; border-radius: 7px; color: #fff; background: #376361; font-size: 10px; font-style: normal; font-weight: 800; }
+    .approval-report-body mark { position: relative; padding: 1px 4px; color: #244b49; background: linear-gradient(90deg,#cfe9e4,#cfe9e4) 0 100% / 0 100% no-repeat; box-shadow: none; transition: background-size .7s cubic-bezier(.22,.75,.25,1), box-shadow .35s ease; }
+    .approval-report-body mark.is-selected { background-size: 100% 100%; box-shadow: 0 0 0 2px rgba(72,169,166,.12); }
+    .approval-report-body mark.is-selected::after { position: absolute; top: -2px; right: -2px; bottom: -2px; width: 2px; border-radius: 2px; background: #2f7773; content: ''; animation: approval-caret 1s step-end 2; }
+    @keyframes approval-caret { 50% { opacity: 0; } }
+    .approval-edit { display: grid; gap: 12px; padding: 15px; border: 1px solid #a9c8c2; border-radius: 14px; background: rgba(255,255,255,.98); box-shadow: 0 18px 42px -28px rgba(31,52,47,.3); }
+    .approval-edit > header { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #244b49; }
+    .approval-edit > header b { font: 400 22px/1.1 var(--serif); }
+    .approval-edit > header span { color: #74817d; font-size: 9px; font-weight: 700; }
+    .approval-edit-selection { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 9px 10px; border: 1px solid #d7e2df; border-radius: 9px; background: #f7faf9; opacity: .45; transform: translateY(3px); transition: opacity .4s ease, transform .4s ease; }
+    .approval-edit.has-selection .approval-edit-selection { opacity: 1; transform: none; }
+    .approval-edit-selection > span { width: 23px; height: 23px; flex: none; display: grid; place-items: center; border-radius: 6px; color: #2f7773; background: #e2efec; font-size: 11px; font-weight: 800; }
+    .approval-edit-selection div { min-width: 0; }
+    .approval-edit-selection small { display: block; color: #71807b; font-size: 8px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .approval-edit-quote { overflow: hidden; margin: 3px 0 0; color: #315d59; font: 600 11px/1.35 var(--sans); text-overflow: ellipsis; white-space: nowrap; }
+    .approval-edit-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+    .approval-edit-mode { min-height: 31px; padding: 0 10px; border: 1px solid #ccd9d5; border-radius: 8px; color: #49615d; background: #fff; font: 700 9px/1 var(--sans); cursor: pointer; transition: color .25s ease, border-color .25s ease, background-color .25s ease, transform .25s ease; }
+    .approval-edit-mode:hover { border-color: #7fb3ab; transform: translateY(-1px); }
+    .approval-edit-mode.is-active { border-color: #376361; color: #fff; background: #376361; box-shadow: 0 7px 16px -12px rgba(36,75,73,.8); }
+    .approval-edit-workspace { display: grid; gap: 7px; transition: opacity .22s ease, transform .22s ease; }
+    .approval-edit.is-updating .approval-edit-workspace { opacity: .35; transform: translateY(2px); }
+    .approval-edit label { color: #71807b; font-size: 8px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+    .approval-edit-prompt { width: 100%; min-height: 42px; box-sizing: border-box; resize: none; padding: 9px 10px; border: 1px solid #d5dfdc; border-radius: 8px; outline: 0; color: #2a3330; background: #f8faf9; font: 500 11px/1.45 var(--sans); transition: border-color .25s ease, background-color .25s ease; }
+    .approval-edit-prompt:focus { border-color: #72aaa2; background: #fff; box-shadow: 0 0 0 3px rgba(72,169,166,.1); }
+    .approval-edit-result { position: relative; min-height: 39px; padding: 9px 32px 9px 10px; border: 1px solid #b9d8ca; border-radius: 8px; color: #214844; background: #edf8f2; font: 600 11px/1.45 var(--sans); }
+    .approval-edit-result::after { position: absolute; top: 9px; right: 10px; color: #3c9872; content: '✓'; font-size: 11px; font-weight: 900; }
+    .approval-edit footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 1px; }
+    .approval-edit footer span { color: #71807b; font-size: 9px; }
+    .approval-apply { min-height: 32px; display: inline-flex; align-items: center; justify-content: center; padding: 0 12px; border: 0; border-radius: 8px; color: #fff; background: #376361; font: 800 9px/1 var(--sans); cursor: pointer; transition: background-color .25s ease, transform .25s ease; }
+    .approval-apply:hover { background: #244b49; transform: translateY(-1px); }
     .approval-actions { display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: clamp(30px,4vw,52px); background: #f7faf9; }
     .approval-step { display: grid; grid-template-columns: 38px 1fr; column-gap: 12px; align-items: center; padding: 15px; border: 1px solid #d9e2df; border-radius: 11px; background: #fff; }
     .approval-step > i, .approval-step img, .approval-patient-mark { grid-row: 1 / 3; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; color: #376361; background: #e4f1ef; font-size: 11px; font-style: normal; font-weight: 800; }
     .approval-step img { display: block; object-fit: cover; }
     .approval-patient-mark { color: #244b49; background: #dcece8; letter-spacing: .04em; }
+    .approval-patient-mark svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
     .approval-step b { color: #29322f; font-size: 13px; }
     .approval-step small { margin-top: 3px; color: #74807c; font-size: 10px; }
     .approval-step.is-done > i { color: #fff; background: #3c9872; }
@@ -1329,6 +1414,15 @@
       .nav-menu .nav-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 14px; }
       .nav-menu .nav-actions .button { width: 100%; }
       .nav-menu .nav-actions .login { min-height: 40px; display: flex; grid-column: 1 / -1; grid-row: 2; align-items: center; justify-content: center; }
+    }
+    @media (max-width: 1100px) {
+      .trust-showcase .privacy-choice-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .trust-showcase .privacy-choice-card { grid-template-rows: auto auto 1fr auto; }
+      .trust-showcase .privacy-card-state,
+      .trust-showcase .partner-lockups { grid-column: 1 / -1; grid-row: 2; justify-self: start; margin-top: 12px; }
+      .trust-showcase .privacy-choice-card > p { grid-row: 3; }
+      .trust-showcase .privacy-choice-setting,
+      .trust-showcase .security-assurance { grid-row: 4; }
     }
     @media (min-width: 901px) and (max-height: 950px) {
       .doctor-features { padding: 76px 0 64px; }
@@ -1480,10 +1574,13 @@
       .traceability-step { min-height: 0; border-right: 0; border-bottom: 1px solid #d7e0dd; }
       .traceability-step:last-child { border-bottom: 0; }
       .traceability-step::after { top: auto; right: 50%; bottom: -12px; content: '↓'; transform: translateX(50%); }
-      .traceability-ui { margin-top: 18px; }
-      .trust-showcase .privacy-choice-grid { gap: 8px; padding: 8px; }
-      .trust-showcase .privacy-choice-card { min-height: 0; border: 1px solid #d6cdc0; }
-      .privacy-choice-card h3 { margin-top: 14px; }
+      .traceability-step > h3, .traceability-step > p { min-height: 0; }
+      .traceability-ui { height: auto; min-height: 150px; margin-top: 18px; }
+      .trust-showcase .privacy-choice-grid { grid-template-columns: 1fr; gap: 8px; padding: 8px; }
+      .trust-showcase .privacy-choice-card { min-height: 0; grid-template-columns: auto minmax(0,1fr); grid-template-rows: auto 1fr; column-gap: 10px; border: 1px solid #d6cdc0; }
+      .trust-showcase .security-seal { width: 38px; height: 38px; }
+      .trust-showcase .privacy-choice-card h3 { grid-column: 2; grid-row: 1; margin-top: 0; font-size: clamp(19px,5vw,22px); }
+      .trust-showcase .privacy-choice-card > p { grid-row: 2; }
       .feature-study-head { margin-bottom: 30px; }
       .feature-study-head h2 { font-size: 35px; line-height: 1.02; }
       .walk-demo-access { align-items: stretch; flex-direction: column; text-align: center; }
@@ -1836,8 +1933,9 @@
   .report-carousel-head h2 { color: #202523 !important; }
   .report-carousel-head h2 em { color: #2f7773 !important; }
   .report-carousel-head .report-carousel-sub { color: #5f6b67 !important; }
-  .report-card.is-center { opacity: 1 !important; filter: none !important; }
-  .report-card.is-left, .report-card.is-right { opacity: .76; filter: saturate(.82) contrast(.98) !important; }
+  .report-card.is-center { opacity: 1 !important; filter: none !important; transform: none !important; }
+  .report-card.is-center:hover { transform: translateY(-2px) !important; }
+  .report-card.is-left, .report-card.is-right { opacity: .86; filter: none !important; }
   .report-cover { border: 1px solid #a9c6c0 !important; background: #fffdf9 !important; box-shadow: 0 38px 70px -38px rgba(35,56,50,.35),0 14px 32px rgba(35,56,50,.12) !important; }
   .report-cover-head { color: #fffdf9 !important; background: #244b49 !important; }
   .report-cover-tag { color: #fffdf9 !important; }
@@ -1851,7 +1949,34 @@
   .report-thumb { border-color: #d2dedb !important; background: #fffdf9 !important; box-shadow: 0 12px 26px -18px rgba(35,56,50,.28) !important; }
   .thumb-row .dot.ok { background: #48a9a6 !important; }
   .thumb-row .dot.warn { background: #b8684d !important; }
-  .thumb-row b, .thumb-spark .sp-line, .thumb-spark .sp-dot { color: #2f7773 !important; stroke: #2f7773 !important; fill: #2f7773 !important; }
+  .thumb-row b { color: #2f7773 !important; }
+  .thumb-spark .sp-band { fill: rgba(34,197,94,.1) !important; }
+  .thumb-spark .sp-bound { fill: none; stroke: #22c55e !important; stroke-width: 1.5; stroke-dasharray: 6 4; stroke-opacity: .5; }
+  .thumb-spark .sp-line { fill: none !important; stroke: #0d7377 !important; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .thumb-spark .sp-point, .thumb-spark .sp-dot { fill: #0d7377 !important; stroke: #0d7377 !important; stroke-width: 2; }
+  .thumb-spark .sp-point.is-outlier { fill: #ef4444 !important; stroke: #ef4444 !important; stroke-width: 2; }
+  .thumb-biomarker-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-top: 2px; color: #64706c; font-size: 7px; }
+  .thumb-biomarker-head b { color: #202523; font-size: 10px; }
+  .thumb-biomarker-head em { color: #64706c; font-size: 7px; font-style: normal; }
+  .thumb-biomarker-spark { width: 100%; height: 70px; overflow: visible; }
+  .thumb-biomarker-spark .sp-grid { fill: none; stroke: #dce5e2; stroke-width: 1; stroke-dasharray: 3 3; }
+  .thumb-biomarker-spark .sp-axis-labels { fill: #7b8581; font: 8px var(--sans); }
+  .thumb-timeline { position: relative; display: grid; gap: 6px; margin-top: 8px; padding-left: 15px; }
+  .thumb-timeline::before { position: absolute; top: 8px; bottom: 8px; left: 4px; width: 1px; background: #b9d1cc; content: ''; }
+  .thumb-timeline-item { position: relative; min-height: 39px; display: grid; grid-template-columns: 58px minmax(0,1fr) auto; gap: 7px; align-items: center; padding: 6px 7px; border: 1px solid #dce5e2; border-radius: 7px; background: #fff; }
+  .thumb-timeline-item::before { position: absolute; top: 50%; left: -15px; width: 7px; height: 7px; border: 2px solid #fffdf9; border-radius: 50%; background: #2f7773; box-shadow: 0 0 0 1px #8fb8b1; content: ''; transform: translateY(-50%); }
+  .thumb-timeline-item.is-latest { border-color: #9fc8c1; background: #eef7f4; }
+  .thumb-timeline-item time { color: #70807b; font-size: 7px; font-weight: 700; }
+  .thumb-timeline-item span { min-width: 0; }
+  .thumb-timeline-item b, .thumb-timeline-item small { display: block; }
+  .thumb-timeline-item b { color: #293531; font-size: 8px; }
+  .thumb-timeline-item small { margin-top: 2px; color: #75817d; font-size: 7px; }
+  .thumb-timeline-item > em { color: #2f7773; font-size: 8px; font-style: normal; font-weight: 800; }
+  .thumb-supp-table { width: 100%; margin-top: 8px; border-collapse: separate; border-spacing: 0; overflow: hidden; border: 1px solid #dce5e2; border-radius: 8px; }
+  .thumb-supp-table th, .thumb-supp-table td { padding: 7px 6px; border-top: 1px solid #e2e9e6; color: #5f6d68; font-size: 7px; text-align: left; }
+  .thumb-supp-table thead th { border-top: 0; color: #75817d; background: #f4f8f6; font-size: 6px; letter-spacing: .05em; text-transform: uppercase; }
+  .thumb-supp-table td:first-child { color: #293531; font-weight: 800; }
+  .thumb-supp-table td:last-child { color: #2f7773; font-weight: 800; }
   .report-cover-link { color: #fffdf9 !important; background: #376361 !important; }
   .report-cover-link:hover { background: #244b49 !important; }
   .report-nav { border-color: #9ebdb7 !important; color: #244b49 !important; background: rgba(255,253,249,.88) !important; box-shadow: 0 9px 22px rgba(35,56,50,.12); }
@@ -1860,17 +1985,17 @@
   .report-dot, .report-dot.is-active { background: transparent !important; }
   .report-card.is-center:focus-visible .report-cover { box-shadow: 0 0 0 3px #48a9a6,0 38px 70px -38px rgba(35,56,50,.35) !important; }
 
-  /* Keep the original coverflow composition, with a slightly quieter scale and
-     more air around the report stack. */
+  /* The centre report is physically larger, not transform-scaled, so text and
+     charts remain crisp. Side reports retain the former visual footprint. */
   .report-carousel-stage { padding: 24px 0 34px; }
-  .report-card.is-left { transform: translateX(-62%) translateZ(-180px) rotateY(0deg) scale(.84); }
-  .report-card.is-right { transform: translateX(62%) translateZ(-180px) rotateY(0deg) scale(.84); }
+  .report-card.is-left { transform: translateX(-52%) scale(.7); }
+  .report-card.is-right { transform: translateX(52%) scale(.7); }
   @media (min-width: 801px) {
-    .report-track { height: 360px; }
-    .report-card { width: 600px; margin-left: -300px; }
-    .report-cover { height: 360px; }
-    .report-nav.prev { left: max(14px,calc(50% - 340px)); }
-    .report-nav.next { right: max(14px,calc(50% - 340px)); }
+    .report-track { height: 432px; }
+    .report-card { width: 720px; margin-left: -360px; }
+    .report-cover { height: 432px; }
+    .report-nav.prev { left: max(14px,calc(50% - 400px)); }
+    .report-nav.next { right: max(14px,calc(50% - 400px)); }
   }
   @media (max-width: 800px) {
     .report-card.is-left { transform: translateX(-48%) translateZ(-120px) rotateY(0deg) scale(.84); }
@@ -2115,7 +2240,7 @@
           <div class="shell tonal-hero-inner">
             <div class="tonal-copy-block">
               <p class="eyebrow">Secure AI for clinicians</p>
-              <h1 id="tonal-title">Take one patient record.<br><span class="hero-trust-line">Check the report before you <em>share it.</em></span></h1>
+              <h1 id="tonal-title">Turn patient records into<br><span class="hero-trust-line">health data <em>you can trust.</em></span></h1>
               <div class="tonal-hero-bottom hero-actions-only">
                 <div class="hero-actions">
                   <a class="button" href="https://app.n1.care/signup">Start free trial <span aria-hidden="true">→</span></a>
@@ -2250,13 +2375,13 @@
                           <div class="walk-marker-list">
                             <div class="walk-marker-head"><span>Marker</span><span>Latest</span><span>Trend</span></div>
                             <div class="walk-marker-scroll">
-                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="hba1c"><span><b>HbA1c</b><small>Blood · 6 readings</small></span><strong>6.4%<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Falling trend across six readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 3 L9 5 L16 6 L24 9 L32 10 L40 13"/><circle cx="2" cy="3" r="1.1"/><circle cx="9" cy="5" r="1.1"/><circle cx="16" cy="6" r="1.1"/><circle cx="24" cy="9" r="1.1"/><circle cx="32" cy="10" r="1.1"/><circle cx="40" cy="13" r="2.2"/></svg></i></button>
-                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="ldl"><span><b>LDL cholesterol</b><small>Blood · 7 readings</small></span><strong>116 mg/dL<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Falling trend across seven readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 4 L8 5 L14 7 L21 6 L28 10 L34 11 L40 13"/><circle cx="2" cy="4" r="1.1"/><circle cx="8" cy="5" r="1.1"/><circle cx="14" cy="7" r="1.1"/><circle cx="21" cy="6" r="1.1"/><circle cx="28" cy="10" r="1.1"/><circle cx="34" cy="11" r="1.1"/><circle cx="40" cy="13" r="2.2"/></svg></i></button>
-                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="crp"><span><b>hs-CRP</b><small>Blood · 5 readings</small></span><strong>1.8 mg/L<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Falling trend across five readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 3 L11 7 L20 6 L30 11 L40 14"/><circle cx="2" cy="3" r="1.1"/><circle cx="11" cy="7" r="1.1"/><circle cx="20" cy="6" r="1.1"/><circle cx="30" cy="11" r="1.1"/><circle cx="40" cy="14" r="2.2"/></svg></i></button>
-                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="vitd"><span><b>Vitamin D</b><small>Blood · 6 readings</small></span><strong>71 nmol/L<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Rising trend across six readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 14 L9 12 L17 13 L25 8 L33 7 L40 4"/><circle cx="2" cy="14" r="1.1"/><circle cx="9" cy="12" r="1.1"/><circle cx="17" cy="13" r="1.1"/><circle cx="25" cy="8" r="1.1"/><circle cx="33" cy="7" r="1.1"/><circle cx="40" cy="4" r="2.2"/></svg></i></button>
-                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="homocysteine"><span><b>Homocysteine</b><small>Blood · 5 readings</small></span><strong>14.2 µmol/L<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Stable trend across five readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 9 L11 8 L20 10 L30 8 L40 9"/><circle cx="2" cy="9" r="1.1"/><circle cx="11" cy="8" r="1.1"/><circle cx="20" cy="10" r="1.1"/><circle cx="30" cy="8" r="1.1"/><circle cx="40" cy="9" r="2.2"/></svg></i></button>
-                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="tsh"><span><b>TSH</b><small>Blood · 6 readings</small></span><strong>2.1 mIU/L<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Stable trend across six readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 8 L9 10 L16 7 L24 9 L32 8 L40 9"/><circle cx="2" cy="8" r="1.1"/><circle cx="9" cy="10" r="1.1"/><circle cx="16" cy="7" r="1.1"/><circle cx="24" cy="9" r="1.1"/><circle cx="32" cy="8" r="1.1"/><circle cx="40" cy="9" r="2.2"/></svg></i></button>
-                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="ferritin"><span><b>Ferritin</b><small>Blood · 5 readings</small></span><strong>84 µg/L<small>2024-Nov-22</small></strong><i class="walk-marker-sparkline" aria-label="Rising trend across five readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 13 L11 11 L20 12 L30 7 L40 4"/><circle cx="2" cy="13" r="1.1"/><circle cx="11" cy="11" r="1.1"/><circle cx="20" cy="12" r="1.1"/><circle cx="30" cy="7" r="1.1"/><circle cx="40" cy="4" r="2.2"/></svg></i></button>
+                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="hba1c"><span><b>HbA1c</b><small>Blood · 6 readings</small></span><strong>6.4%<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Falling trend across six readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path class="spark-range" d="M2 10H40V15H2Z"/><path class="spark-line" d="M2,3 C2.58,3.17 7.83,4.75 9,5 C10.17,5.25 14.75,5.67 16,6 C17.25,6.33 22.67,8.67 24,9 C25.33,9.33 30.67,9.67 32,10 C33.33,10.33 39.33,12.75 40,13"/><circle class="spark-alert" cx="2" cy="3" r="2"/></svg></i></button>
+                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="ldl"><span><b>LDL cholesterol</b><small>Blood · 7 readings</small></span><strong>116 mg/dL<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Falling trend across seven readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path class="spark-range" d="M2 10H40V15H2Z"/><path class="spark-line" d="M2,4 C2.5,4.08 7,4.75 8,5 C9,5.25 12.92,6.92 14,7 C15.08,7.08 19.83,5.75 21,6 C22.17,6.25 26.92,9.58 28,10 C29.08,10.42 33,10.75 34,11 C35,11.25 39.5,12.83 40,13"/><circle class="spark-alert" cx="2" cy="4" r="2"/></svg></i></button>
+                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="crp"><span><b>hs-CRP</b><small>Blood · 5 readings</small></span><strong>1.8 mg/L<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Falling trend across five readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path class="spark-range" d="M2 10H40V16H2Z"/><path class="spark-line" d="M2,3 C2.75,3.33 9.5,6.75 11,7 C12.5,7.25 18.42,5.67 20,6 C21.58,6.33 28.33,10.33 30,11 C31.67,11.67 39.17,13.75 40,14"/><circle class="spark-alert" cx="2" cy="3" r="2"/></svg></i></button>
+                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="vitd"><span><b>Vitamin D</b><small>Blood · 6 readings</small></span><strong>71 nmol/L<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Rising trend across six readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path class="spark-range" d="M2 3H40V9H2Z"/><path class="spark-line" d="M2,14 C2.58,13.83 7.75,12.08 9,12 C10.25,11.92 15.67,13.33 17,13 C18.33,12.67 23.67,8.5 25,8 C26.33,7.5 31.75,7.33 33,7 C34.25,6.67 39.42,4.25 40,4"/><circle class="spark-alert" cx="2" cy="14" r="2"/></svg></i></button>
+                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="homocysteine"><span><b>Homocysteine</b><small>Blood · 5 readings</small></span><strong>14.2 µmol/L<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Stable trend across five readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path class="spark-range" d="M2 10H40V15H2Z"/><path class="spark-line" d="M2,9 C2.75,8.92 9.5,7.92 11,8 C12.5,8.08 18.42,10 20,10 C21.58,10 28.33,8.08 30,8 C31.67,7.92 39.17,8.92 40,9"/><circle class="spark-alert" cx="40" cy="9" r="2"/></svg></i></button>
+                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="tsh"><span><b>TSH</b><small>Blood · 6 readings</small></span><strong>2.1 mIU/L<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Stable trend across six readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path class="spark-range" d="M2 5H40V12H2Z"/><path class="spark-line" d="M2,8 C2.58,8.17 7.83,10.08 9,10 C10.17,9.92 14.75,7.08 16,7 C17.25,6.92 22.67,8.92 24,9 C25.33,9.08 30.67,8 32,8 C33.33,8 39.33,8.92 40,9"/></svg></i></button>
+                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="ferritin"><span><b>Ferritin</b><small>Blood · 5 readings</small></span><strong>84 µg/L<small>2024-Nov-22</small></strong><i class="walk-marker-sparkline" aria-label="Rising trend across five readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path class="spark-range" d="M2 3H40V14H2Z"/><path class="spark-line" d="M2,13 C2.75,12.83 9.5,11.08 11,11 C12.5,10.92 18.42,12.33 20,12 C21.58,11.67 28.33,7.67 30,7 C31.67,6.33 39.17,4.25 40,4"/></svg></i></button>
                             </div>
                             <div class="walk-marker-handoff"><span><b>83 biomarkers ready</b></span><small>From 3 processed records</small></div>
                           </div>
@@ -2268,7 +2393,7 @@
                             <div class="walk-range-editor"><span class="walk-range-labels"><span class="walk-range-label-lab">Lab range</span><span class="walk-range-label-custom">Custom range</span></span><span class="walk-range-values"><span class="walk-range-lab-value">4.0–7.2%</span><span class="walk-range-custom-value">4.0–6.8%</span></span><button type="button"><span class="walk-range-edit-label">Edit range</span><span class="walk-range-saved">✓ Saved</span></button></div>
                             <div class="walk-chart-legend"><span class="walk-range-labels"><span class="walk-range-label-lab">Lab range</span><span class="walk-range-label-custom">Custom range</span></span></div>
                             <span class="walk-range-cursor" aria-hidden="true"></span>
-                            <div class="walk-mini-chart" data-marker-chart><div class="walk-chart-plot"><svg viewBox="0 0 500 150" preserveAspectRatio="xMidYMid meet" aria-label="HbA1c readings over time" data-chart-svg><rect class="walk-chart-range" x="42" y="25" width="446" height="90" rx="2"/><g class="walk-chart-grid"><line x1="42" y1="15" x2="488" y2="15"/><line x1="42" y1="48" x2="488" y2="48"/><line x1="42" y1="81" x2="488" y2="81"/><line x1="42" y1="115" x2="488" y2="115"/></g><line class="walk-chart-axis-line" x1="42" y1="115" x2="488" y2="115"/><g class="walk-chart-axis"><text x="3" y="18" data-chart-y-high>7.5</text><text x="3" y="51" data-chart-y-mid>5.6</text><text x="3" y="84" data-chart-y-low>3.7</text><text x="54" y="139" text-anchor="start" data-chart-date-start>Mar 2023</text><text x="265" y="139" text-anchor="middle" data-chart-date-mid>Nov 2024</text><text x="488" y="139" text-anchor="end" data-chart-date-end>Mar 2025</text></g><path d="M54 26 L271 37 L488 45" fill="none" stroke="currentColor" stroke-width="2.5"/><g data-chart-points></g></svg><div class="walk-chart-tooltip" data-chart-tooltip hidden></div><div class="walk-chart-auto-tooltip is-out-of-range"><strong>2023-Mar-14</strong><span class="walk-tooltip-value"><i>↑</i>Value: 7.1%</span><small>Custom max: 6.8%</small><small>Metro Pathology · page 3</small></div></div></div>
+                            <div class="walk-mini-chart" data-marker-chart><div class="walk-chart-plot"><svg viewBox="0 0 500 150" preserveAspectRatio="xMidYMid meet" aria-label="HbA1c readings over time" data-chart-svg><rect class="walk-chart-range" x="42" y="25" width="446" height="90" rx="2"/><line class="walk-chart-range-boundary" x1="42" x2="488" y1="25" y2="25" data-chart-range-high/><line class="walk-chart-range-boundary" x1="42" x2="488" y1="115" y2="115" data-chart-range-low/><g class="walk-chart-grid"><line x1="42" y1="15" x2="488" y2="15"/><line x1="42" y1="48" x2="488" y2="48"/><line x1="42" y1="81" x2="488" y2="81"/><line x1="42" y1="115" x2="488" y2="115"/></g><line class="walk-chart-axis-line" x1="42" y1="115" x2="488" y2="115"/><g class="walk-chart-axis"><text x="3" y="18" data-chart-y-high>7.5</text><text x="3" y="51" data-chart-y-mid>5.6</text><text x="3" y="84" data-chart-y-low>3.7</text><text x="54" y="139" text-anchor="start" data-chart-date-start>Mar 2023</text><text x="265" y="139" text-anchor="middle" data-chart-date-mid>Nov 2024</text><text x="488" y="139" text-anchor="end" data-chart-date-end>Mar 2025</text></g><path class="walk-chart-line" d="M54 26 C90 28 180 35 271 37 S430 43 488 45"/><g data-chart-points></g></svg><div class="walk-chart-tooltip" data-chart-tooltip hidden></div><div class="walk-chart-auto-tooltip is-out-of-range"><strong>2023-Mar-14</strong><span class="walk-tooltip-value"><i>↑</i>Value: 7.1%</span><small>Custom max: 6.8%</small><small>Metro Pathology · page 3</small></div></div></div>
                             <div class="walk-insight-note"><span><i data-marker-arrow>↘</i><b data-marker-direction>Moving down</b></span><p data-marker-note>HbA1c fell across three tests. One earlier result is above the custom range.</p></div>
                           </aside>
                         </div>
@@ -2292,6 +2417,7 @@
 
                       <section class="walkthrough-panel" id="walkthrough-panel-sources" role="tabpanel" aria-labelledby="walkthrough-tab-reports" aria-hidden="true" data-walkthrough-panel="4">
                         <div class="walk-page-head"><div><span><i data-patient-name>John Doe</i> · Review before sharing</span><h4>Health Summary</h4></div><button class="walk-report-status" type="button" data-walk-approve>Approve report</button></div>
+                        <div class="walk-review-phase" aria-hidden="true" data-walk-review-phase><span class="is-active">Review report</span><span>Refine the draft</span><span>Verify evidence</span><span>Approve &amp; share</span><span>Continue care</span></div>
                         <div class="walk-empty-state"><i>▤</i><b>No report to review</b><p>Generate a report after the patient data is ready.</p></div>
                         <div class="walk-source-review-layout">
                           <article class="walk-report-page">
@@ -2356,7 +2482,7 @@
                             <header><b>HbA1c <span class="walk-status-badge">Out of range</span></b><button class="walk-sidebar-close" type="button" aria-label="Close evidence sidebar" data-walk-close-evidence>×</button></header>
                             <div class="walk-drawer-body">
                               <div class="walk-evidence-cards"><span><small>Latest value</small><b>6.4%</b></span><span><small>Date</small><b>2025-Mar-14</b></span><span><small>Reference</small><b>4.0–5.6%</b></span></div>
-                              <div class="walk-evidence-chart"><span>Lab range</span><svg viewBox="0 0 360 126" role="img" aria-label="HbA1c trend across three readings"><rect x="34" y="54" width="306" height="39" rx="3" fill="rgba(79,171,124,.14)"></rect><g stroke="#e6ebe9" stroke-width="1"><line x1="34" y1="22" x2="340" y2="22"></line><line x1="34" y1="54" x2="340" y2="54"></line><line x1="34" y1="93" x2="340" y2="93"></line></g><g fill="#84908b" font-size="8" font-family="Arial,sans-serif"><text x="6" y="25">7.2</text><text x="6" y="57">6.4</text><text x="6" y="96">5.6</text><text x="34" y="116">Mar 2023</text><text x="165" y="116">Nov 2024</text><text x="303" y="116">Mar 2025</text></g><path d="M48 27 C105 32 137 40 181 45 S281 56 326 58" fill="none" stroke="#0f766e" stroke-width="2.5" stroke-linecap="round"></path><g fill="#fff" stroke="#b8684d" stroke-width="2"><circle cx="48" cy="27" r="4"></circle><circle cx="181" cy="45" r="4"></circle><circle cx="326" cy="58" r="4"></circle></g></svg></div>
+                              <div class="walk-evidence-chart"><span>Lab range</span><svg viewBox="0 0 360 126" role="img" aria-label="HbA1c trend across three readings"><rect x="34" y="54" width="306" height="39" rx="3" fill="rgba(34,197,94,.1)"></rect><g stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6 4" stroke-opacity=".5"><line x1="34" y1="54" x2="340" y2="54"></line><line x1="34" y1="93" x2="340" y2="93"></line></g><g stroke="#e6ebe9" stroke-width="1"><line x1="34" y1="22" x2="340" y2="22"></line></g><g fill="#84908b" font-size="8" font-family="Arial,sans-serif"><text x="6" y="25">7.2</text><text x="6" y="57">6.4</text><text x="6" y="96">5.6</text><text x="34" y="116">Mar 2023</text><text x="165" y="116">Nov 2024</text><text x="303" y="116">Mar 2025</text></g><path d="M48,27 C59.08,28.5 158.5,42.42 181,45 C203.5,47.58 313.92,56.92 326,58" fill="none" stroke="#0d7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><g fill="#ef4444" stroke="#ef4444" stroke-width="2"><circle cx="48" cy="27" r="4"></circle><circle cx="181" cy="45" r="4"></circle><circle cx="326" cy="58" r="4"></circle></g></svg></div>
                               <div class="walk-reading-table"><span><i>Date</i><i>Value</i><i>Reference</i><i></i></span><span><i>2025-Mar-14</i><b>6.4%</b><i>4.0–5.6%</i><i>▤</i></span><span><i>2024-Nov-22</i><b>6.8%</b><i>4.0–5.6%</i><i>▤</i></span><span><i>2023-Mar-08</i><b>7.1%</b><i>4.0–5.6%</i><i>▤</i></span></div>
                               <div class="walk-source-document is-open" data-walk-source-document><header><b>Metro Pathology</b><span>Page 3 of 12</span></header><p>HbA1c &nbsp; <mark>6.4%</mark> &nbsp; Reference 4.0–5.6%</p></div>
                             </div>
@@ -2365,7 +2491,7 @@
                             <header><b>Why this appears</b><button class="walk-sidebar-close" type="button" aria-label="Close reasoning sidebar" data-walk-close-reasoning>×</button></header>
                             <div class="walk-drawer-body">
                               <div class="walk-reason-block"><h6>Reasoning</h6><p>Three source-linked HbA1c readings show a steady fall from 7.1% to 6.4%. The confirmed metformin plan supports an improving metabolic trend, while the latest value remains above the stated lab range.</p></div>
-                              <div class="walk-reason-block"><h6>Data</h6><div class="walk-reason-data"><span><i>HbA1c</i><svg viewBox="0 0 52 16"><path d="M2 3L26 8L50 13" fill="none" stroke="#0f766e" stroke-width="1.5"></path></svg><b>6.4%</b></span><span><i>Fasting glucose</i><svg viewBox="0 0 52 16"><path d="M2 7L26 9L50 8" fill="none" stroke="#0f766e" stroke-width="1.5"></path></svg><b>5.8 mmol/L</b></span><span><i>hs-CRP</i><svg viewBox="0 0 52 16"><path d="M2 11L26 9L50 7" fill="none" stroke="#0f766e" stroke-width="1.5"></path></svg><b>1.8 mg/L</b></span></div></div>
+                              <div class="walk-reason-block"><h6>Data</h6><div class="walk-reason-data"><span><i>HbA1c</i><svg viewBox="0 0 52 16"><path class="spark-range" d="M2 10H50V15H2Z"></path><path class="spark-line" d="M2,3 C4,3.42 22,7.17 26,8 C30,8.83 48,12.58 50,13"></path><circle class="spark-alert" cx="2" cy="3" r="2"></circle><circle class="spark-alert" cx="26" cy="8" r="2"></circle><circle class="spark-alert" cx="50" cy="13" r="2"></circle></svg><b>6.4%</b></span><span><i>Fasting glucose</i><svg viewBox="0 0 52 16"><path class="spark-range" d="M2 7H50V13H2Z"></path><path class="spark-line" d="M2,7 C4,7.17 22,8.92 26,9 C30,9.08 48,8.08 50,8"></path></svg><b>5.8 mmol/L</b></span><span><i>hs-CRP</i><svg viewBox="0 0 52 16"><path class="spark-range" d="M2 7H50V14H2Z"></path><path class="spark-line" d="M2,11 C4,10.83 22,9.33 26,9 C30,8.67 48,7.17 50,7"></path></svg><b>1.8 mg/L</b></span></div></div>
                               <div class="walk-reason-block"><h6>What would change this</h6><p>A repeat HbA1c, a change in treatment, or conflicting fasting glucose results would alter the strength and direction of this finding.</p></div>
                             </div>
                           </aside>
@@ -2380,7 +2506,7 @@
                           <div class="walk-aux-card"><header><b data-aux-list-title>Recent patient activity</b><small>Source linked</small></header><div data-aux-list><span><i>01</i><b>Three records processed</b><small>All data ready</small></span><span><i>02</i><b>Health Summary generated</b><small>Ready to review</small></span><span><i>03</i><b>One clinical note</b><small>Private to care team</small></span></div></div>
                         </div>
                         <div class="walk-note-view">
-                          <div class="walk-note-editor"><header><span><b>New patient note</b><small>Private to the care team</small></span><i>Saved</i></header><textarea id="walk-clinical-note" name="clinical-note" aria-label="Patient note" data-walk-note placeholder="Write a brief note about this patient…"></textarea><footer><span>Linked to <i data-patient-name>John Doe</i></span><button type="button" data-walk-note-save>Save note</button></footer></div>
+                          <div class="walk-note-editor"><header><span><b>New patient note</b><small>Private to the care team</small></span><i>Patient note saved ✓</i></header><textarea id="walk-clinical-note" name="clinical-note" aria-label="Patient note" data-walk-note placeholder="Write a brief note about this patient…"></textarea><footer><span>Linked to <i data-patient-name>John Doe</i></span><button type="button" data-walk-note-save>Save note</button></footer></div>
                         </div>
                         <aside class="walk-diagnosis-note" aria-label="Add note to diagnosis"><header><b>Add note to Prediabetes</b><span data-diagnosis-saved>Saved ✓</span></header><textarea id="walk-diagnosis-note" name="diagnosis-note" data-diagnosis-note aria-label="Diagnosis note" placeholder="Add clinical context…"></textarea><footer><span>Linked to this diagnosis · Care team only</span><button type="button" data-diagnosis-save>Save note</button></footer></aside>
                       </section>
@@ -2413,12 +2539,14 @@
       <div class="shell">
         <header class="privacy-choice-head">
           <div><p class="eyebrow">Protected at every step</p><h2 id="privacy-choice-title">Secure &amp; compliant by design.</h2></div>
-          <p class="privacy-choice-intro">Records stay encrypted in transit and at rest. Choose how each source record is handled for the patient and workflow.<a class="text-link" href="compliance.html">See security and data handling →</a></p>
+          <p class="privacy-choice-intro">Records stay encrypted in transit and at rest. Choose how each source record is handled for the patient and workflow.<a class="text-link" href="compliance.html">Read more about security and data handling →</a></p>
         </header>
         <div class="privacy-choice-grid">
-          <article class="privacy-choice-card"><div class="privacy-card-top"><span class="privacy-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 2.8 8 7 10 4.2-2 7-5.6 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-5"/></svg></span></div><h3>Full anonymisation</h3><p>Remove identifying patient data before records enter the AI workflow.</p></article>
-          <article class="privacy-choice-card"><div class="privacy-card-top"><span class="privacy-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5z"/><path d="m4 20 16-16"/></svg></span></div><h3>No record storage</h3><p>Process source records without retaining them on n1 servers.</p></article>
-          <article class="privacy-choice-card"><div class="privacy-card-top"><span class="privacy-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"/></svg></span></div><h3>Localised storage</h3><p>Keep encrypted records in the selected region when continued access and source review are needed.</p></article>
+          <p class="security-grid-group">Data-handling choices</p>
+          <article class="privacy-choice-card is-choice"><div class="privacy-card-top"><span class="privacy-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 2.8 8 7 10 4.2-2 7-5.6 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-5"/></svg></span></div><h3>Full anonymisation</h3><p>Remove identifying patient data before records enter the AI workflow.</p></article>
+          <article class="privacy-choice-card is-choice"><div class="privacy-card-top"><span class="privacy-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5z"/><path d="m4 20 16-16"/></svg></span></div><h3>No record storage</h3><p>Process source records without retaining them on n1 servers.</p></article>
+          <article class="privacy-choice-card is-choice"><div class="privacy-card-top"><span class="privacy-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"/></svg></span></div><h3>Localised storage</h3><p>Keep encrypted records in the selected region when continued access and source review are needed.</p></article>
+          <p class="security-grid-group is-safeguards">Platform safeguards</p>
           <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M12 15v2"/></svg></span></div><h3>TLS 1.3 in transit</h3><p>Every public connection is encrypted at the edge before patient data enters the platform.</p></article>
           <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span></div><h3>AES-256 at rest</h3><p>Stored source records and cloud data stores remain encrypted when they are not in use.</p></article>
           <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M15 12v2"/></svg></span></div><h3>KMS-managed keys</h3><p>AWS KMS and Secrets Manager keep keys and credentials out of code and deployment files.</p></article>
@@ -2433,75 +2561,42 @@
     <section class="tonal-patterns" id="product" aria-labelledby="patterns-title">
       <div class="shell tonal-patterns-grid">
         <div class="tonal-patterns-copy">
-          <p class="eyebrow">Structured patient data · Synthetic example</p>
-          <h2 id="patterns-title">Exact, editable<br><em>extraction.</em></h2>
+          <p class="eyebrow">Built around your workflow</p>
+          <h2 id="patterns-title">Set it up exactly<br><em>how you work.</em></h2>
           <ul class="tonal-check-list">
-            <li><span class="tonal-check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="currentColor" opacity=".16"></circle><path d="M4 8.4l2.6 2.6L12 5.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Review every value pulled from each record</li>
-            <li><span class="tonal-check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="currentColor" opacity=".16"></circle><path d="M4 8.4l2.6 2.6L12 5.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Edit values and patient-specific ranges</li>
-            <li><span class="tonal-check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="currentColor" opacity=".16"></circle><path d="M4 8.4l2.6 2.6L12 5.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Keep every correction linked to its source</li>
+            <li><span class="tonal-check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="currentColor" opacity=".16"></circle><path d="M4 8.4l2.6 2.6L12 5.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Set custom reference ranges</li>
+            <li><span class="tonal-check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="currentColor" opacity=".16"></circle><path d="M4 8.4l2.6 2.6L12 5.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Choose conventional or SI units</li>
+            <li><span class="tonal-check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="currentColor" opacity=".16"></circle><path d="M4 8.4l2.6 2.6L12 5.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Apply patient-wide report settings</li>
+            <li><span class="tonal-check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="currentColor" opacity=".16"></circle><path d="M4 8.4l2.6 2.6L12 5.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Build your own custom reports</li>
           </ul>
         </div>
-        <div class="tonal-patterns-media is-static-extraction">
-          <div class="projected-screen" role="img" aria-label="n1 patient record showing editable, source-linked extracted biomarkers">
+        <div class="tonal-patterns-media is-static-settings">
+          <div class="projected-screen" role="img" aria-label="n1 workflow settings showing custom reference ranges, unit preferences, patient-wide report settings, and a custom report builder">
             <div class="screen-chrome">
-              <span class="screen-brand"><i></i>n1 patient record</span>
+              <span class="screen-brand"><i></i>n1 workflow settings</span>
               <span class="screen-dots" aria-hidden="true"><i></i><i></i><i></i></span>
             </div>
-            <div class="screen-body">
-              <div class="screen-patient">
-                <span class="screen-avatar">JR</span>
-                <div><strong>John Doe</strong><small>Synthetic history · 2018–2026</small></div>
+            <div class="settings-screen-body">
+              <div class="settings-screen-head">
+                <div class="settings-screen-title"><span aria-hidden="true">≡</span><div><strong>Practice defaults</strong><small>Applied consistently across patient reports</small></div></div>
+                <span class="settings-saved">Saved</span>
               </div>
-              <div class="screen-progress" aria-hidden="true"><span></span></div>
-              <div class="screen-steps">
-                <div class="screen-step step-upload">
-                  <strong class="screen-steptitle">Upload records</strong>
-                  <div class="screen-dropzone" aria-hidden="true">
-                    <span class="screen-dropzone-doc"><i></i>Drop files here or browse</span>
-                    <span class="screen-dropzone-action">Browse</span>
-                  </div>
-                  <p class="screen-formats">PDF · TXT · CSV · TSV — up to 50 MB each</p>
-                  <ul class="screen-doctype">
-                    <li>Lab reports</li>
-                    <li>Pathology</li>
-                    <li>Prescriptions &amp; lists</li>
-                    <li>Genetic raw data</li>
-                  </ul>
+              <div class="settings-grid">
+                <div class="settings-card">
+                  <div class="settings-card-head"><span class="settings-card-icon">R</span><div><b>Custom reference ranges</b><small>Patient-specific targets</small></div></div>
+                  <div class="settings-control"><span>HbA1c · 4.8–5.6%</span><i>Custom</i></div>
                 </div>
-                <div class="screen-step step-extract">
-                  <strong class="screen-steptitle">n1 reads and structures it</strong>
-                  <ul class="screen-extract">
-                    <li>Biomarkers<span>83</span></li>
-                    <li>Diagnoses<span>2</span></li>
-                    <li>Procedures<span>1</span></li>
-                    <li>Medications<span>5</span></li>
-                    <li>Supplements<span>7</span></li>
-                    <li>Genetics<span>1</span></li>
-                  </ul>
+                <div class="settings-card">
+                  <div class="settings-card-head"><span class="settings-card-icon">U</span><div><b>Units</b><small>Use one system throughout</small></div></div>
+                  <div class="settings-control settings-unit-toggle"><span>Conventional</span><span class="is-active">SI units</span></div>
                 </div>
-                <div class="screen-step step-visualise">
-                  <strong class="screen-steptitle">Review extracted data <span class="screen-edit-state">Source linked · Editable</span></strong>
-                  <ul class="screen-biomarkers">
-                    <li><span class="bm-name">HbA1c<small>ref &lt; 5.7%</small></span><b class="bm-value">6.1%</b><span class="bm-flag above">Above</span></li>
-                    <li><span class="bm-name">25-Hydroxyvitamin D<small>ref ≥ 75 nmol/l</small></span><b class="bm-value">71<i>nmol/l</i></b><span class="bm-flag below">Below</span></li>
-                    <li><span class="bm-name">Homocysteine<small>ref &lt; 10 µmol/l</small></span><b class="bm-value">14.2<i>µmol/l</i></b><span class="bm-flag above">Above</span></li>
-                  </ul>
+                <div class="settings-card">
+                  <div class="settings-card-head"><span class="settings-card-icon">P</span><div><b>Patient-wide settings</b><small>Defaults for every report</small></div></div>
+                  <div class="settings-control settings-chip-row"><span>Sources on</span><span>Trends on</span><span>Plain language</span></div>
                 </div>
-                <div class="screen-step step-review">
-                  <strong class="screen-steptitle">See the trend over time</strong>
-                  <div class="screen-chart">
-                    <div class="screen-chart-head">
-                      <span class="chart-label">HbA1c</span>
-                      <b class="chart-value">6.1%</b>
-                      <span class="chart-trend-up">↑ 0.4 since 2022</span>
-                    </div>
-                    <svg class="screen-chart-svg" viewBox="0 0 240 70" role="img" aria-label="HbA1c trending upward from 2022 to now, now above reference">
-                      <path class="chart-ref" d="M0 44H240"></path>
-                      <path class="chart-line" d="M6 42 L52 40 L100 34 L148 26 L196 18 L234 12"></path>
-                      <circle class="chart-dot" cx="234" cy="12" r="3.5"></circle>
-                    </svg>
-                    <div class="chart-axis"><span>2022</span><span>2023</span><span>2024</span><span>Now</span></div>
-                  </div>
+                <div class="settings-card">
+                  <div class="settings-card-head"><span class="settings-card-icon">+</span><div><b>Custom reports</b><small>Choose your own sections</small></div></div>
+                  <div class="settings-control settings-report-control"><span>Cardiometabolic review</span><i>6 sections</i></div>
                 </div>
               </div>
             </div>
@@ -2551,6 +2646,8 @@
                       <div class="thumb-row"><i class="dot ok"></i><span class="nm">Hepatic</span><b>Stable</b></div>
                       <div class="thumb-row"><i class="dot warn"></i><span class="nm">Endocrine</span><b>Watch</b></div>
                       <div class="thumb-row"><i class="dot ok"></i><span class="nm">Renal</span><b>Stable</b></div>
+                      <div class="thumb-biomarker-head"><span>HbA1c trend</span><b>6.4%</b><em>6 readings</em></div>
+                      <svg class="thumb-spark thumb-biomarker-spark" viewBox="0 0 320 92" preserveAspectRatio="none"><rect class="sp-band" x="20" y="55" width="292" height="24" rx="2"></rect><path class="sp-bound" d="M20 55H312M20 79H312"></path><g class="sp-grid"><path d="M20 18H312M20 37H312"></path></g><path class="sp-line" d="M20,20 C24.08,20.58 60.67,25.33 69,27 C77.33,28.67 109.75,31.92 119,32 C128.25,32.08 168.58,37.5 178,40 C187.42,42.5 225.33,49.42 234,52 C242.67,54.58 307.17,65.58 312,67"></path><circle class="sp-point is-outlier" cx="20" cy="20" r="4"></circle><circle class="sp-point is-outlier" cx="69" cy="27" r="4"></circle><circle class="sp-point is-outlier" cx="119" cy="32" r="4"></circle><circle class="sp-point is-outlier" cx="178" cy="40" r="4"></circle><circle class="sp-point" cx="234" cy="52" r="4"></circle><circle class="sp-point" cx="312" cy="67" r="4"></circle></svg>
                       <div class="thumb-meta">45 biomarkers · clinician review</div>
                     </div>
                   </div>
@@ -2569,17 +2666,14 @@
                 <div class="report-cover-body">
                   <div class="report-thumb is-trend" aria-hidden="true">
                     <div class="thumb-body">
-                      <div class="thumb-trend-head"><span><small>HbA1c trend</small><b>6.4%</b></span><em>1 above range</em></div>
-                      <div class="thumb-range-key"><i></i><span>Custom range 4.0–6.8%</span></div>
-                      <svg class="thumb-spark" viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet">
-                        <rect class="sp-band" x="34" y="50" width="276" height="68" rx="3"></rect>
-                        <g class="sp-grid"><path d="M34 20H310M34 50H310M34 84H310M34 118H310"></path></g>
-                        <path class="sp-axis" d="M34 118H310"></path>
-                        <g class="sp-axis-labels"><text x="4" y="23">7.5</text><text x="4" y="53">6.8</text><text x="4" y="121">4.0</text><text x="42" y="154">Mar 2023</text><text x="174" y="154" text-anchor="middle">Nov 2024</text><text x="310" y="154" text-anchor="end">Mar 2025</text></g>
-                        <path class="sp-line" d="M42 30 C62 36 76 46 95 52 S130 60 148 64 S184 72 202 76 S238 82 256 86 S292 92 308 95"></path>
-                        <circle class="sp-point is-outlier" cx="42" cy="30" r="5"></circle><circle class="sp-point" cx="95" cy="52" r="4"></circle><circle class="sp-point" cx="148" cy="64" r="4"></circle><circle class="sp-point" cx="202" cy="76" r="4"></circle><circle class="sp-point" cx="256" cy="86" r="4"></circle><circle class="sp-point is-latest" cx="308" cy="95" r="5"></circle>
-                      </svg>
-                      <div class="thumb-meta">6 readings · each point source-linked</div>
+                      <div class="thumb-kicker"><span>Patient timeline</span><b>2018–2026</b></div>
+                      <div class="thumb-timeline">
+                        <div class="thumb-timeline-item"><time>2023-Mar-08</time><span><b>HbA1c reviewed</b><small>Metro Pathology · Page 3</small></span><em>7.1%</em></div>
+                        <div class="thumb-timeline-item"><time>2024-Nov-22</time><span><b>Treatment updated</b><small>Metformin plan confirmed</small></span><em>Plan</em></div>
+                        <div class="thumb-timeline-item is-latest"><time>2025-Mar-14</time><span><b>HbA1c improved</b><small>Source-linked result</small></span><em>6.4%</em></div>
+                        <div class="thumb-timeline-item"><time>2026-Aug-14</time><span><b>Health Summary</b><small>Clinician reviewed</small></span><em>Report</em></div>
+                      </div>
+                      <div class="thumb-meta">Tests, treatment, and reports in one timeline</div>
                     </div>
                   </div>
                   <div class="report-cover-text">
@@ -2600,7 +2694,7 @@
                       <div class="thumb-kicker"><span>Current regimen</span><b>2 items</b></div>
                       <div class="thumb-safety-row"><span><i>VD</i><b>Vitamin D3</b><small>2,000 IU daily</small></span><em class="is-clear">In range</em></div>
                       <div class="thumb-safety-row"><span><i>MG</i><b>Magnesium</b><small>200 mg daily</small></span><em>Check dose</em></div>
-                      <div class="thumb-checks"><span>✓ Lab context</span><span>✓ Interactions</span><span>• Monitoring</span></div>
+                      <table class="thumb-supp-table"><thead><tr><th>Supplement</th><th>Dose</th><th>Evidence</th><th>Status</th></tr></thead><tbody><tr><td>Vitamin D3</td><td>2,000 IU</td><td>71 nmol/L</td><td>Continue</td></tr><tr><td>Magnesium</td><td>200 mg</td><td>No recent test</td><td>Review</td></tr><tr><td>Omega-3</td><td>—</td><td>Not recorded</td><td>Discuss</td></tr></tbody></table>
                       <div class="thumb-meta">Safety review · clinician approval</div>
                     </div>
                   </div>
@@ -2617,7 +2711,6 @@
           <button class="report-nav next" type="button" aria-label="Next report">›</button>
         </div>
         <div class="report-carousel-foot">
-          <p class="report-caption" id="report-caption" aria-live="polite">A made-up summary of 45 markers, drafted but not yet checked.</p>
           <div class="report-dots" role="tablist" aria-label="Choose report">
             <button class="report-dot is-active" id="report-tab-1" type="button" role="tab" data-index="0" aria-selected="true" aria-controls="report-panel-1" aria-label="Health Summary" tabindex="0"></button>
             <button class="report-dot" id="report-tab-2" type="button" role="tab" data-index="1" aria-selected="false" aria-controls="report-panel-2" aria-label="Health Over Time Report" tabindex="-1"></button>
@@ -2669,15 +2762,15 @@
     <section class="security-summary" id="security" aria-labelledby="security-title">
       <div class="shell">
         <header class="evidence-head">
-          <div><p class="eyebrow">From source file to linked report</p><h2 id="security-title">See how n1 builds each fact.</h2></div>
-          <p>Each step adds one piece. First the record, then the biomarker, then the finding, then the check, then the table the doctor and patient can open.</p>
+          <div><p class="eyebrow">From source file to linked report</p><h2 id="security-title">Every fact stays linked to its source.</h2></div>
+          <p>Follow each fact from the patient record to the final report. See the saved value, the AI draft, each check, and the source link that the doctor and patient can open.</p>
         </header>
         <ol class="traceability-flow" aria-label="Five steps from a source record to a validated, source-linked report">
           <li class="traceability-step"><small>01 · Record</small><h3>Extract the record.</h3><p>Take the original page from the file.</p><div class="traceability-ui is-record"><b class="trace-record-name">Metro Pathology</b><span>Laboratory report <i>Page 3</i></span><div class="trace-extract-counts"><span><b>83</b> Biomarkers</span><span><b>2</b> Diagnoses</span><span><b>1</b> Procedure</span><span><b>5</b> Medications</span></div></div></li>
-          <li class="traceability-step"><small>02 · Data</small><h3>Save the data.</h3><p>Keep the biomarker and its value.</p><div class="traceability-ui"><span>HbA1c <b>6.1%</b></span></div></li>
-          <li class="traceability-step is-ai"><small>03 · AI</small><h3>Secure pass to AI.</h3><p>The record is passed to the AI on a locked path.</p><div class="traceability-ui"><b>HbA1c is above the stated range.</b></div></li>
-          <li class="traceability-step is-verified"><small>04 · Check</small><h3>Check every fact.</h3><p>Confirm each fact matches the saved data.</p><div class="traceability-ui"><span><i>✓</i> Value and unit match</span><span><i>✓</i> Date and range match</span></div></li>
-          <li class="traceability-step is-linked"><small>05 · Links</small><h3>Show the links.</h3><p>Doctor and patient can open the source.</p><div class="traceability-ui is-table"><b class="trace-table-name">HbA1c</b><table><tbody><tr><th>Value</th><td>6.1%</td></tr><tr><th>Range</th><td>&lt;5.7%</td></tr><tr><th>Source</th><td>Page 3 ↗</td></tr></tbody></table></div></li>
+          <li class="traceability-step"><small>02 · Data</small><h3>Save the data.</h3><p>Keep the biomarker and its full context.</p><div class="traceability-ui"><div class="trace-data-grid"><span>Biomarker <b>HbA1c</b></span><span>Value <b>6.1%</b></span><span>Reference <b>&lt;5.7%</b></span><span>Date <b>2026-Aug-14</b></span><span>Source <b>Page 3</b></span></div></div></li>
+          <li class="traceability-step is-ai"><small>03 · AI</small><h3>Secure pass to AI.</h3><p>Only the saved clinical context is passed on.</p><div class="traceability-ui"><p class="trace-finding-context">Six HbA1c results were reviewed against the stated laboratory range.</p><b class="trace-finding">HbA1c is above the stated range.</b><span>Drafted from the saved value, range, date, and source.</span></div></li>
+          <li class="traceability-step is-verified"><small>04 · Check</small><h3>Check every fact.</h3><p>Test each statement against the saved record.</p><div class="traceability-ui"><div class="trace-check-list"><span><i>✓</i> Value and unit match</span><span><i>✓</i> Date and range match</span><span><i>✓</i> Finding matches the data</span><span><i>✓</i> Source page opens</span><span><i>✓</i> No unsupported claim</span></div></div></li>
+          <li class="traceability-step is-linked"><small>05 · Links</small><h3>Show the links.</h3><p>Open the evidence without leaving the report.</p><div class="traceability-ui trace-link-demo"><p class="trace-link-sentence"><button type="button" aria-label="Open the HbA1c source" aria-expanded="false">HbA1c</button> is above the stated range.</p><div class="trace-link-source-card"><b>Laboratory report · Page 3</b><span>HbA1c</span><strong>6.1%</strong><span>Reference</span><strong>&lt;5.7%</strong></div><span>Source-linked finding · clinician can inspect</span></div></li>
         </ol>
       </div>
     </section>
@@ -2693,15 +2786,23 @@
             <header><span><small>Health Summary</small><b>Draft for review</b></span><i>In review</i></header>
             <div class="approval-report-body">
               <small>Executive summary</small>
-              <p>The patient’s metabolic markers are <mark>moving in the right direction</mark>, while LDL remains above the patient-specific target.</p>
+              <p>The patient’s metabolic markers are <mark id="approvalSelection">moving in the right direction</mark>, while LDL remains above the patient-specific target.</p>
               <aside class="approval-edit" aria-label="Rewrite selected report text">
-                <header><b>Rewrite selection</b><span>AI-assisted edit</span></header>
-                <p class="approval-edit-quote">“moving in the right direction”</p>
-                <label>Instruction</label>
-                <div class="approval-edit-prompt">Say the actual change in plain words. Keep the source fact.</div>
-                <label>Suggested rewrite</label>
-                <div class="approval-edit-result">HbA1c fell from 7.1% to 6.4%.</div>
-                <footer><span>Only the selected text will change</span><i class="approval-apply">Apply rewrite</i></footer>
+                <header><b>Edit selected text</b><span>Clinician controlled</span></header>
+                <div class="approval-edit-selection"><span aria-hidden="true">T</span><div><small>Selected text</small><p class="approval-edit-quote">“moving in the right direction”</p></div></div>
+                <div class="approval-edit-tools" role="group" aria-label="Ways to edit the selected text">
+                  <button class="approval-edit-mode" type="button" data-edit-mode="summarize">Summarize</button>
+                  <button class="approval-edit-mode" type="button" data-edit-mode="direct">Direct edit</button>
+                  <button class="approval-edit-mode" type="button" data-edit-mode="tone">Change tone</button>
+                  <button class="approval-edit-mode" type="button" data-edit-mode="prompt">Use prompt</button>
+                </div>
+                <div class="approval-edit-workspace">
+                  <label for="approvalEditPrompt">Instruction</label>
+                  <textarea class="approval-edit-prompt" id="approvalEditPrompt" rows="2">Say the actual change in plain words. Keep the source fact.</textarea>
+                  <label>Preview</label>
+                  <div class="approval-edit-result">HbA1c fell from 7.1% to 6.4%.</div>
+                </div>
+                <footer><span>Only the selection will change</span><button class="approval-apply" type="button">Apply rewrite</button></footer>
               </aside>
             </div>
           </article>
@@ -2709,7 +2810,7 @@
             <span class="approval-step is-done"><i>✓</i><b>Data checked</b><small>83 extracted items reviewed</small></span>
             <span class="approval-step is-done"><i>✓</i><b>Sources checked</b><small>Every finding has a page link</small></span>
             <span class="approval-step is-done is-person"><img src="assets/n1-practice-review.webp" alt="Illustrative reviewing clinician" loading="lazy"><b>Approved by Dr Tanaka</b><small>Signed after the rewrite</small></span>
-            <span class="approval-step is-share is-person"><span class="approval-patient-mark" aria-hidden="true">JD</span><b>Shared with patient</b><small>John Doe · patient portal</small></span>
+            <span class="approval-step is-share is-person"><span class="approval-patient-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M5 21c.7-4.6 3-7 7-7s6.3 2.4 7 7"></path></svg></span><b>Shared with John Doe</b><small>Patient portal · access recorded</small></span>
           </article>
         </div>
       </div>
@@ -2841,7 +2942,7 @@
       var globalCursor = root.querySelector('.walk-global-cursor');
       var cursorAnimation = null;
       var active = 0;
-      var stageDurations = [14000, 10000, 18000, 10000, 56000];
+      var stageDurations = [14000, 10000, 13000, 10000, 56000];
       var tourTotal = stageDurations.reduce(function (total, duration) { return total + duration; }, 0);
       var delay = stageDurations[0];
       var remaining = delay;
@@ -3042,16 +3143,18 @@
           });
           var note = panel.querySelector('[data-walk-note]');
           if (progress >= .38) performGuidedAction('note-focus', note);
-          if (note && progress >= .39 && progress < .54) {
-            typeToLength(note, guidedNote, Math.floor((progress - .39) / .14 * guidedNote.length));
+          if (note && progress >= .39 && progress < .86) {
+            typeToLength(note, guidedNote, Math.floor((progress - .39) / .46 * guidedNote.length));
           }
-          if (progress >= .54) typeToLength(note, guidedNote, guidedNote.length);
-          if (progress >= .56) performGuidedAction('note-save', panel.querySelector('[data-walk-note-save]'));
+          if (progress >= .86) typeToLength(note, guidedNote, guidedNote.length);
+          if (progress >= .88) performGuidedAction('note-save', panel.querySelector('[data-walk-note-save]'));
         } else if (active === 3) {
           if (progress >= .1) performGuidedAction('report-select', panel.querySelector('[data-walk-report="Health Summary"]'));
           if (progress >= .24) performGuidedAction('report-generate', panel.querySelector('.walk-report-generate'));
           if (progress >= .72) performGuidedAction('report-open', panel.querySelector('.walk-report-generate'));
         } else if (active === 4) {
+          var reviewPhase = progress < .23 ? 0 : progress < .38 ? 1 : progress < .67 ? 2 : progress < .82 ? 3 : 4;
+          setReviewPhase(reviewPhase);
           if (progress >= .03) performGuidedScroll('report-scroll-body', panel.querySelector('.walk-report-page'), 220);
           if (progress >= .07) performGuidedScroll('report-scroll-body-deep', panel.querySelector('.walk-report-page'), 260);
           if (progress >= .11) performGuidedScroll('report-scroll-patterns', panel.querySelector('.walk-report-page'), 220);
@@ -3122,6 +3225,9 @@
 
       function cursorPoint(element, xRatio, yRatio) {
         var productRect = product.getBoundingClientRect();
+        if (!element || typeof element.getBoundingClientRect !== 'function') {
+          return { x: productRect.width / 2, y: productRect.height / 2 };
+        }
         var rect = element.getBoundingClientRect();
         return {
           x: rect.left - productRect.left + rect.width * (xRatio == null ? .72 : xRatio),
@@ -3227,9 +3333,9 @@
           var noteField = panel.querySelector('[data-walk-note]');
           var noteSave = panel.querySelector('[data-walk-note-save]');
           var noteFieldStart = cursorFrame(noteField, .38, .32, .28);
-          var noteFieldEnd = cursorFrame(noteField, .54, .32, .28);
-          var noteSaveStart = cursorFrame(noteSave, .56, .62, .55);
-          var noteSaveEnd = cursorFrame(noteSave, .66, .62, .55);
+          var noteFieldEnd = cursorFrame(noteField, .86, .32, .28);
+          var noteSaveStart = cursorFrame(noteSave, .88, .62, .55);
+          var noteSaveEnd = cursorFrame(noteSave, .92, .62, .55);
           panel.setAttribute('data-aux-mode', previousAuxMode);
           frames = [
             cursorFrame(aux('diagnoses'), 0, .78, .55),
@@ -3242,7 +3348,7 @@
             noteFieldEnd,
             noteSaveStart,
             noteSaveEnd,
-            cursorFrame(menuItemForStep(3), .9, .78, .55),
+            cursorFrame(menuItemForStep(3), .95, .78, .55),
             cursorFrame(menuItemForStep(3), 1, .78, .55)
           ];
         } else if (step === 3) {
@@ -3307,6 +3413,14 @@
         }
       }
 
+      function setReviewPhase(index) {
+        var phase = panels[4] && panels[4].querySelector('[data-walk-review-phase]');
+        if (!phase) return;
+        Array.prototype.forEach.call(phase.children, function (item, itemIndex) {
+          item.classList.toggle('is-active', itemIndex === index);
+        });
+      }
+
       function render(next, restart) {
         active = (next % panels.length + panels.length) % panels.length;
         delay = stageDurations[active];
@@ -3349,6 +3463,7 @@
           if (pickerCount) pickerCount.textContent = 'No files selected';
           if (pickerOpen) pickerOpen.disabled = true;
           if (active === 4) {
+            setReviewPhase(0);
             var sourceLayout = selectedPanel.querySelector('.walk-source-review-layout');
             var sourceDocument = selectedPanel.querySelector('[data-walk-source-document]');
             var sourceScrollContent = selectedPanel.querySelector('.walk-report-scroll-content');
@@ -3378,6 +3493,10 @@
             selectedPanel.classList.remove('is-diagnosis-note-open', 'is-diagnosis-note-saved');
             var savedState = selectedPanel.querySelector('.walk-note-editor header i');
             if (savedState) savedState.style.opacity = '0';
+            var noteEditor = selectedPanel.querySelector('.walk-note-editor');
+            var noteSaveButton = selectedPanel.querySelector('[data-walk-note-save]');
+            if (noteEditor) noteEditor.classList.remove('is-saved');
+            if (noteSaveButton) { noteSaveButton.classList.remove('is-saved'); noteSaveButton.textContent = 'Save note'; }
             showAux('diagnoses');
           }
           if (selectedPanel.id === 'walkthrough-panel-reports') {
@@ -3508,10 +3627,21 @@
       });
       var noteField = panels[2].querySelector('[data-walk-note]');
       noteField.addEventListener('input', function () {
-        panels[2].querySelector('.walk-note-editor header i').style.opacity = '0';
+        var editor = panels[2].querySelector('.walk-note-editor');
+        var saveButton = panels[2].querySelector('[data-walk-note-save]');
+        editor.classList.remove('is-saved');
+        editor.querySelector('header i').style.opacity = '0';
+        saveButton.classList.remove('is-saved');
+        saveButton.textContent = 'Save note';
       });
       panels[2].querySelector('[data-walk-note-save]').addEventListener('click', function () {
-        if (noteField.value.trim()) panels[2].querySelector('.walk-note-editor header i').style.opacity = '1';
+        if (!noteField.value.trim()) return;
+        var editor = panels[2].querySelector('.walk-note-editor');
+        var saveButton = panels[2].querySelector('[data-walk-note-save]');
+        editor.classList.add('is-saved');
+        editor.querySelector('header i').style.opacity = '1';
+        saveButton.classList.add('is-saved');
+        saveButton.textContent = 'Saved ✓';
       });
       var sourceReportPage = panels[4].querySelector('.walk-report-page');
       if (sourceReportPage) sourceReportPage.addEventListener('wheel', function (event) {
@@ -3826,6 +3956,91 @@
         tooltip.hidden = false;
       }
 
+      function smoothChartPath(points, smoothing) {
+        if (points.length < 2) return '';
+        var tension = smoothing == null ? .5 : smoothing;
+        var pathData = 'M' + points[0].x + ',' + points[0].y;
+        for (var index = 0; index < points.length - 1; index += 1) {
+          var p0 = points[Math.max(index - 1, 0)];
+          var p1 = points[index];
+          var p2 = points[index + 1];
+          var p3 = points[Math.min(index + 2, points.length - 1)];
+          var cp1x = p1.x + ((p2.x - p0.x) / 6) * tension;
+          var cp1y = p1.y + ((p2.y - p0.y) / 6) * tension;
+          var cp2x = p2.x - ((p3.x - p1.x) / 6) * tension;
+          var cp2y = p2.y - ((p3.y - p1.y) / 6) * tension;
+          pathData += ' C' + cp1x + ',' + cp1y + ' ' + cp2x + ',' + cp2y + ' ' + p2.x + ',' + p2.y;
+        }
+        return pathData;
+      }
+
+      function compactReference(data) {
+        var values = (data.reference.match(/-?\d+(?:\.\d+)?/g) || []).map(Number);
+        if (values.length > 1) return { min: values[0], max: values[1] };
+        if (values.length === 1 && data.reference.trim().charAt(0) === '<') return { min: null, max: values[0] };
+        if (values.length === 1 && data.reference.trim().charAt(0) === '>') return { min: values[0], max: null };
+        return { min: null, max: null };
+      }
+
+      function compactDomain(values, reference) {
+        var dataMin = Math.min.apply(Math, values);
+        var dataMax = Math.max.apply(Math, values);
+        var overlaps = (reference.min == null || reference.min < dataMax) && (reference.max == null || reference.max > dataMin);
+        var expandedMin = overlaps && reference.min != null ? Math.min(dataMin, reference.min) : dataMin;
+        var expandedMax = overlaps && reference.max != null ? Math.max(dataMax, reference.max) : dataMax;
+        var range = expandedMax - expandedMin || Math.abs(expandedMax) * .2 || 1;
+        var padding = range * .1;
+        var step = range < 1 ? .1 : range < 10 ? .5 : range < 100 ? 5 : 10;
+        return {
+          min: Math.max(0, Math.floor((expandedMin - padding) / step) * step),
+          max: Math.ceil((expandedMax + padding) / step) * step,
+          showBand: overlaps && (reference.min != null || reference.max != null)
+        };
+      }
+
+      function renderCompactSparklines() {
+        rows.forEach(function (row) {
+          var data = markerData[row.getAttribute('data-marker')];
+          var compact = row.querySelector('.walk-marker-sparkline svg');
+          if (!data || !compact || data.points.length < 2) return;
+          var values = data.points.map(function (point) { return point.value; });
+          var reference = compactReference(data);
+          var domain = compactDomain(values, reference);
+          var valueRange = domain.max - domain.min || 1;
+          var points = data.points.map(function (point, index) {
+            return { x: 2 + index / (data.points.length - 1) * 38, y: 2 + 14 - ((point.value - domain.min) / valueRange) * 14, value: point.value };
+          });
+          compact.replaceChildren();
+          if (domain.showBand) {
+            var high = reference.max == null ? domain.max : reference.max;
+            var low = reference.min == null ? domain.min : reference.min;
+            var top = 2 + 14 - ((high - domain.min) / valueRange) * 14;
+            var bottom = 2 + 14 - ((low - domain.min) / valueRange) * 14;
+            var band = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            band.setAttribute('class', 'spark-range');
+            band.setAttribute('d', 'M2 ' + top + 'H40V' + bottom + 'H2Z');
+            compact.appendChild(band);
+          }
+          var line = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          line.setAttribute('class', 'spark-line');
+          line.setAttribute('d', smoothChartPath(points, .5));
+          compact.appendChild(line);
+          var status = data.customReference
+            ? { min: data.customReference[0], max: data.customReference[1] }
+            : reference;
+          points.forEach(function (point) {
+            var abnormal = (status.min != null && point.value < status.min) || (status.max != null && point.value > status.max);
+            if (!abnormal) return;
+            var alert = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            alert.setAttribute('class', 'spark-alert');
+            alert.setAttribute('cx', point.x);
+            alert.setAttribute('cy', point.y);
+            alert.setAttribute('r', '2');
+            compact.appendChild(alert);
+          });
+        });
+      }
+
       function drawPoints(data) {
         var values = data.points.map(function (point) { return point.value; });
         var referenceValues = (data.reference.match(/-?\d+(?:\.\d+)?/g) || []).map(Number);
@@ -3849,9 +4064,7 @@
             data: point
           };
         });
-        path.setAttribute('d', plotted.map(function (point, index) {
-          return (index ? 'L' : 'M') + point.x + ' ' + point.y;
-        }).join(' '));
+        path.setAttribute('d', smoothChartPath(plotted, .5));
         pointGroup.replaceChildren();
         plotted.forEach(function (point, index) {
           var outOfRange = statusRange.length === 2 && (point.data.value < statusRange[0] || point.data.value > statusRange[1]);
@@ -3859,7 +4072,7 @@
           circle.setAttribute('cx', point.x);
           circle.setAttribute('cy', point.y);
           circle.setAttribute('r', '4');
-          if (outOfRange) circle.setAttribute('class', 'walk-outlier');
+          circle.setAttribute('class', outOfRange ? 'walk-chart-dot walk-outlier' : 'walk-chart-dot');
           circle.setAttribute('tabindex', '0');
           circle.setAttribute('aria-label', point.data.label + ' on ' + point.data.date + ', source ' + point.data.source);
           circle.addEventListener('mouseenter', function () { showTooltip(point.data, point.x, point.y, outOfRange, statusRange); });
@@ -3875,8 +4088,13 @@
           rangeBand.setAttribute('y', Math.max(15, refTop));
           rangeBand.setAttribute('height', Math.max(2, Math.min(115, refBottom) - Math.max(15, refTop)));
           rangeBand.style.display = '';
+          var rangeHigh = svg.querySelector('[data-chart-range-high]');
+          var rangeLow = svg.querySelector('[data-chart-range-low]');
+          if (rangeHigh) { rangeHigh.setAttribute('y1', Math.max(15, refTop)); rangeHigh.setAttribute('y2', Math.max(15, refTop)); rangeHigh.style.display = ''; }
+          if (rangeLow) { rangeLow.setAttribute('y1', Math.min(115, refBottom)); rangeLow.setAttribute('y2', Math.min(115, refBottom)); rangeLow.style.display = ''; }
         } else if (rangeBand) {
           rangeBand.style.display = 'none';
+          svg.querySelectorAll('[data-chart-range-high], [data-chart-range-low]').forEach(function (line) { line.style.display = 'none'; });
         }
         var middleValue = (plotHigh + plotLow) / 2;
         var decimals = rawSpread < 2 ? 1 : 0;
@@ -3943,6 +4161,8 @@
           renderMarker(row.getAttribute('data-marker'));
         });
       });
+      renderCompactSparklines();
+      renderMarker('hba1c');
     })();
 
     // Report tiles mirror the current platform catalogue. One selected format
@@ -4011,7 +4231,6 @@
                 <cite>Eric Topol, MD</cite>
               </footer>
             </blockquote>
-            <p class="trust-showcase-intro">n1 brings fragmented health data into one clear clinical view—without losing the safeguards, source history, or human judgment that care depends on.</p>
           </header>
           <div class="trust-flow">
             <div class="trust-scenes"></div>
@@ -4043,6 +4262,190 @@
     addEventListener('scroll', onPageScroll, {passive: true});
     updateNavState();
 
+    // Source trace — quietly move focus through the five linked stages.
+    (function () {
+      var flow = document.querySelector('.traceability-flow');
+      if (!flow) return;
+      var steps = Array.prototype.slice.call(flow.querySelectorAll('.traceability-step'));
+      var sourceButton = flow.querySelector('.trace-link-sentence button');
+      var sourceDemo = flow.querySelector('.trace-link-demo');
+      var active = 0;
+      var timer = null;
+      var inView = false;
+      var paused = false;
+
+      function render() {
+        steps.forEach(function (step, index) {
+          var isActive = !reduceMotion && index === active;
+          step.classList.toggle('is-active', isActive);
+          if (isActive) step.setAttribute('aria-current', 'step');
+          else step.removeAttribute('aria-current');
+        });
+      }
+      function stop() {
+        if (timer !== null) clearInterval(timer);
+        timer = null;
+      }
+      function start() {
+        stop();
+        if (reduceMotion || paused || !inView || document.hidden) return;
+        timer = setInterval(function () {
+          active = (active + 1) % steps.length;
+          render();
+        }, 2200);
+      }
+      function setPaused(value) {
+        paused = value;
+        flow.classList.toggle('is-paused', value);
+        if (value) stop();
+        else start();
+      }
+
+      flow.addEventListener('mouseenter', function () { setPaused(true); });
+      flow.addEventListener('mouseleave', function () { setPaused(false); });
+      flow.addEventListener('focusin', function () { setPaused(true); });
+      flow.addEventListener('focusout', function (event) {
+        if (!flow.contains(event.relatedTarget)) setPaused(false);
+      });
+      if (sourceButton && sourceDemo) sourceButton.addEventListener('click', function () {
+        sourceDemo.classList.toggle('is-manual-open');
+        sourceButton.setAttribute('aria-expanded', sourceDemo.classList.contains('is-manual-open') ? 'true' : 'false');
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) stop();
+        else start();
+      });
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          inView = entries[0].isIntersecting;
+          if (inView) start();
+          else stop();
+        }, {threshold: .12}).observe(flow);
+      } else {
+        inView = true;
+        start();
+      }
+      render();
+    })();
+
+    // Clinician edit demo — select, choose an edit path, preview, and apply.
+    (function () {
+      var editor = document.querySelector('.approval-edit');
+      var selection = document.getElementById('approvalSelection');
+      if (!editor || !selection) return;
+      var buttons = Array.prototype.slice.call(editor.querySelectorAll('[data-edit-mode]'));
+      var prompt = editor.querySelector('.approval-edit-prompt');
+      var result = editor.querySelector('.approval-edit-result');
+      var apply = editor.querySelector('.approval-apply');
+      var modes = [
+        {key: 'summarize', instruction: 'Shorten the selection without losing its meaning.', result: 'improving'},
+        {key: 'direct', instruction: 'Replace the phrase with the measured change.', result: 'showing a fall in HbA1c from 7.1% to 6.4%'},
+        {key: 'tone', instruction: 'Use clear, neutral clinical language.', result: 'showing measurable improvement'},
+        {key: 'prompt', instruction: 'Say the actual change in plain words. Keep the source fact.', result: 'improving, with HbA1c down from 7.1% to 6.4%'}
+      ];
+      var active = 3;
+      var timer = null;
+      var updateTimer = null;
+      var revealTimer = null;
+      var inView = false;
+      var paused = false;
+      var revealed = false;
+      var originalSelection = selection.textContent;
+
+      function render(index, animate) {
+        active = (index + modes.length) % modes.length;
+        var mode = modes[active];
+        buttons.forEach(function (button) {
+          var on = button.getAttribute('data-edit-mode') === mode.key;
+          button.classList.toggle('is-active', on);
+          button.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        clearTimeout(updateTimer);
+        if (animate && !reduceMotion) editor.classList.add('is-updating');
+        updateTimer = setTimeout(function () {
+          prompt.value = mode.instruction;
+          result.textContent = mode.result;
+          editor.classList.remove('is-updating');
+        }, animate && !reduceMotion ? 180 : 0);
+      }
+      function stop() {
+        if (timer !== null) clearInterval(timer);
+        timer = null;
+      }
+      function start() {
+        stop();
+        if (reduceMotion || paused || !inView || !revealed || document.hidden) return;
+        timer = setInterval(function () { render(active + 1, true); }, 3200);
+      }
+      function reveal() {
+        if (revealed) return;
+        if (reduceMotion) {
+          selection.classList.add('is-selected');
+          editor.classList.add('has-selection');
+          revealed = true;
+          render(active, false);
+          return;
+        }
+        clearTimeout(revealTimer);
+        selection.classList.add('is-selected');
+        revealTimer = setTimeout(function () {
+          editor.classList.add('has-selection');
+          revealed = true;
+          render(active, true);
+          start();
+        }, 650);
+      }
+      function setPaused(value) {
+        paused = value;
+        if (value) stop();
+        else start();
+      }
+
+      buttons.forEach(function (button, index) {
+        button.addEventListener('click', function () {
+          render(index, true);
+          start();
+        });
+      });
+      prompt.addEventListener('input', function () {
+        var promptIndex = modes.findIndex(function (mode) { return mode.key === 'prompt'; });
+        if (active !== promptIndex) render(promptIndex, false);
+      });
+      apply.addEventListener('click', function () {
+        selection.textContent = result.textContent;
+        apply.textContent = 'Applied ✓';
+        apply.disabled = true;
+        setTimeout(function () {
+          selection.textContent = originalSelection;
+          apply.textContent = 'Apply rewrite';
+          apply.disabled = false;
+        }, 2200);
+      });
+      editor.addEventListener('mouseenter', function () { setPaused(true); });
+      editor.addEventListener('mouseleave', function () { setPaused(false); });
+      editor.addEventListener('focusin', function () { setPaused(true); });
+      editor.addEventListener('focusout', function (event) {
+        if (!editor.contains(event.relatedTarget)) setPaused(false);
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) stop();
+        else start();
+      });
+
+      render(active, false);
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          inView = entries[0].isIntersecting;
+          if (inView) { reveal(); start(); }
+          else stop();
+        }, {threshold: .2}).observe(editor);
+      } else {
+        inView = true;
+        reveal();
+      }
+    })();
+
     // Report carousel — 3D coverflow.
     (function () {
       var stage = document.querySelector('.report-carousel-stage');
@@ -4052,12 +4455,6 @@
       var prevBtn = stage.querySelector('.report-nav.prev');
       var nextBtn = stage.querySelector('.report-nav.next');
       var dots = Array.prototype.slice.call(document.querySelectorAll('.report-dot'));
-      var caption = document.getElementById('report-caption');
-      var captions = [
-        'A made-up summary of 45 markers, drafted but not yet checked.',
-        'Three synthetic laboratory panels across 18 months, with trajectories and follow-up.',
-        'An unreviewed supplement draft based on synthetic laboratory data and no recorded regimen.'
-      ];
       var total = cards.length;
       var active = 0;
       var autoRotate = null;
@@ -4076,7 +4473,6 @@
           dot.setAttribute('aria-selected', on ? 'true' : 'false');
           dot.setAttribute('tabindex', on ? '0' : '-1');
         });
-        if (caption && captions[active]) caption.textContent = captions[active];
       }
       function go(n) { active = (n % total + total) % total; render(); }
       function stopAutoRotate() {
@@ -4174,6 +4570,8 @@
     })();
 
   </script>
+
+  <script src="https://api.noxspot.dev/widget/7c1880cd-387d-4807-b7ef-b5b923389f95.js" defer></script>
 
 </body>
 </html>
