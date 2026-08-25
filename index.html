@@ -1506,7 +1506,7 @@
     .approval-report header > i { padding: 6px 9px; border-radius: 999px; color: #8a5f21; background: #fff1cf; font-size: 10px; font-style: normal; font-weight: 800; }
     .approval-report-body { padding-top: 28px; }
     .approval-report-body > small { color: #2f7773; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-    .approval-report-body > p { max-width: 650px; margin: 13px 0 24px; color: #3f4946; font: 400 clamp(20px,2vw,27px)/1.45 var(--serif); }
+    .approval-report-body > p { max-width: 760px; margin: 13px 0 24px; color: #3f4946; font: 400 clamp(18px,1.75vw,24px)/1.5 var(--serif); }
     .approval-report-body mark { position: relative; padding: 1px 4px; color: #244b49; background: linear-gradient(90deg,#cfe9e4,#cfe9e4) 0 100% / 0 100% no-repeat; box-shadow: none; opacity: 1; transition: background-size .7s cubic-bezier(.22,.75,.25,1), box-shadow .35s ease, opacity .28s ease; }
     .approval-report-body mark.is-selected { background-size: 100% 100%; box-shadow: 0 0 0 2px rgba(72,169,166,.12); }
     .approval-report-body mark.is-changing { opacity: 0; }
@@ -1743,6 +1743,7 @@
     @media (max-width: 620px) {
       .security-technical-grid { grid-template-columns: 1fr; }
       .security-implementation { min-height: 0; }
+      .approval-report-body > p { min-height: 108px; }
       .doctor-features { padding: 58px 0; }
       .approval-summary { padding: 64px 0; }
       .approval-edit footer { align-items: flex-start; flex-direction: column; }
@@ -2760,12 +2761,12 @@
         <div class="security-technical">
           <p class="security-technical-head">Technical safeguards</p>
           <div class="security-technical-grid">
-            <span class="security-implementation"><i><svg viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="10" rx="2"/></svg></i><span><b>Encryption in transit</b><small>Public connections use TLS 1.3. Database connections are also required to use TLS.</small></span></span>
-            <span class="security-implementation"><i><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></i><span><b>Encryption at rest</b><small>Stored source records and files are encrypted with AES-256.</small></span></span>
-            <span class="security-implementation"><i><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M15 12v2"/></svg></i><span><b>AWS-managed secrets</b><small>Service credentials are held in AWS Secrets Manager and supplied at runtime—not stored in code.</small></span></span>
-            <span class="security-implementation"><i><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 2.8 8 7 10 4.2-2 7-5.6 7-10V6l-7-3Z"/><path d="M8 12h8"/></svg></i><span><b>WAF + DDoS protection</b><small>Managed edge controls filter malicious requests and denial-of-service traffic before it reaches n1.</small></span></span>
-            <span class="security-implementation"><i><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3.5 2.4-5.3 5.5-5.3s4.9 1.8 5.5 5.3M16 8l2 2 3-4"/></svg></i><span><b>Workforce access + 2FA</b><small>Internal tools are limited to approved work accounts protected by two-factor authentication.</small></span></span>
-            <span class="security-implementation"><i><svg viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="13" width="7" height="7" rx="1"/><path d="M10 7h4M17 11v2"/></svg></i><span><b>Separate production environment</b><small>Production and staging run in separate projects, with dedicated production infrastructure for AI processing.</small></span></span>
+            <span class="security-implementation"><i><svg viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="10" rx="2"/></svg></i><span><b>TLS 1.3 for data in transit</b><small>Traffic between the browser and n1 is encrypted with TLS 1.3. Database connections must also use TLS.</small></span></span>
+            <span class="security-implementation"><i><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></i><span><b>AES-256 for stored data</b><small>Source records and uploaded files are encrypted at rest with AES-256.</small></span></span>
+            <span class="security-implementation"><i><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M15 12v2"/></svg></i><span><b>Credentials kept in AWS Secrets Manager</b><small>API keys and service credentials stay out of the codebase. Services receive them only at runtime.</small></span></span>
+            <span class="security-implementation"><i><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 2.8 8 7 10 4.2-2 7-5.6 7-10V6l-7-3Z"/><path d="M8 12h8"/></svg></i><span><b>Managed WAF and DDoS protection</b><small>Incoming requests pass through managed firewall rules and denial-of-service protection before they reach n1 services.</small></span></span>
+            <span class="security-implementation"><i><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3.5 2.4-5.3 5.5-5.3s4.9 1.8 5.5 5.3M16 8l2 2 3-4"/></svg></i><span><b>Approved accounts with 2FA</b><small>Access to internal tools is limited to approved work accounts. A second factor is required at sign-in.</small></span></span>
+            <span class="security-implementation"><i><svg viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="13" width="7" height="7" rx="1"/><path d="M10 7h4M17 11v2"/></svg></i><span><b>Production kept separate</b><small>Production and staging run in separate environments. AI processing uses dedicated production infrastructure.</small></span></span>
           </div>
         </div>
         <a class="security-feature-link" href="compliance.html">See security and data handling →</a>
@@ -3015,13 +3016,13 @@
             <header><span><small>Health Summary</small><b>Draft for review</b></span><i>In review</i></header>
             <div class="approval-report-body">
               <small>Executive summary</small>
-              <p>The current review notes: <mark id="approvalSelection">LDL remains above the patient-specific target</mark>.</p>
+              <p><mark id="approvalSelection">LDL cholesterol remains above the patient-specific target despite improvement since the previous review.</mark></p>
               <aside class="approval-edit" aria-label="Rewrite selected report text">
                 <header><b>Refine selected text</b><span>Clinician controlled</span></header>
-                <div class="approval-edit-selection"><span aria-hidden="true">T</span><div><small>Selected text</small><p class="approval-edit-quote">“LDL remains above the patient-specific target”</p></div></div>
+                <div class="approval-edit-selection"><span aria-hidden="true">T</span><div><small>Selected text</small><p class="approval-edit-quote">“LDL cholesterol remains above the patient-specific target despite improvement since the previous review.”</p></div></div>
                 <div class="approval-edit-workspace">
                   <span class="approval-edit-field-label">Direct edit</span>
-                  <div class="approval-direct-edit">LDL remains above the patient-specific target</div>
+                  <div class="approval-direct-edit">LDL cholesterol remains above the patient-specific target despite improvement since the previous review.</div>
                   <span class="approval-edit-field-label">Ask AI</span>
                   <div class="approval-ai-prompt"><span data-approval-prompt></span><i aria-hidden="true"></i></div>
                   <span class="approval-edit-field-label">Preview</span>
@@ -4704,16 +4705,16 @@
       var status = editor.querySelector('[data-approval-status]');
       var apply = editor.querySelector('.approval-apply');
       var scenarios = [
-        { selected: 'LDL remains above the patient-specific target', direct: 'LDL is still above the patient-specific target.', prompt: 'Add the latest LDL value and result date from the source.', final: 'LDL is 116 mg/dL, above the patient-specific target (2025-Mar-14)' },
-        { selected: 'HbA1c is moving in the right direction', direct: 'HbA1c has improved over time.', prompt: 'Replace “improved” with the first and latest values and dates.', final: 'HbA1c fell from 7.1% (2024-Jan-12) to 6.1% (2026-Aug-14)' },
-        { selected: 'Vitamin D remains below target', direct: 'Vitamin D is still below the patient-specific target.', prompt: 'Add the latest value, unit, and result date from the source.', final: 'Vitamin D is 71 nmol/L, below the patient-specific target (2025-Mar-14)' },
-        { selected: 'Homocysteine remains elevated', direct: 'Homocysteine remains above the patient-specific target.', prompt: 'Use neutral clinical wording and add the latest measurement.', final: 'Homocysteine is 14.2 µmol/L, above the patient-specific target (2025-Mar-14)' },
-        { selected: 'hs-CRP should continue to be monitored', direct: 'Continue monitoring hs-CRP.', prompt: 'Make this specific by adding the latest sourced result.', final: 'Latest hs-CRP: 1.8 mg/L (2025-Mar-14); continue monitoring in context' },
-        { selected: 'Ferritin has changed since the previous review', direct: 'The latest ferritin result is available for review.', prompt: 'Replace the vague change with the latest value and date.', final: 'Latest ferritin: 84 µg/L (2024-Nov-22)' },
-        { selected: 'TSH is stable', direct: 'The latest TSH result is available.', prompt: 'State the exact result without interpreting the trend.', final: 'Latest TSH: 2.1 mIU/L (2025-Mar-14)' },
-        { selected: 'Fasting glucose remains reassuring', direct: 'The latest fasting glucose result is available.', prompt: 'Remove the judgement and state the sourced value.', final: 'Latest fasting glucose: 5.2 mmol/L (2025-Mar-14)' },
-        { selected: 'LDL is improving', direct: 'LDL has fallen but remains above target.', prompt: 'Make this patient-friendly and retain the current value.', final: 'Your latest LDL is 116 mg/dL and remains above your personal target (2025-Mar-14)' },
-        { selected: 'The source supports this finding', direct: 'The finding matches the linked laboratory result.', prompt: 'Name the marker, value, date, and source page.', final: 'HbA1c is 6.1%, linked to Metro Pathology, Page 3 (2026-Aug-14)' }
+        { selected: 'LDL cholesterol remains above the patient-specific target despite improvement since the previous review.', direct: 'LDL cholesterol has fallen since the previous review but remains above the patient-specific target.', prompt: 'Add the previous and latest LDL values and dates from the source.', final: 'LDL cholesterol fell from 142 mg/dL (2024-Nov-22) to 116 mg/dL (2025-Mar-14), but remains above the patient-specific target.' },
+        { selected: 'HbA1c is moving in the right direction, with a steady fall across the latest three results.', direct: 'HbA1c has improved across the latest three results.', prompt: 'Replace “improved” with the first and latest values and dates.', final: 'HbA1c fell from 7.1% (2024-Jan-12) to 6.1% (2026-Aug-14) across the latest three results.' },
+        { selected: 'Vitamin D has improved with supplementation but remains below the patient-specific target.', direct: 'Vitamin D has increased but remains below the patient-specific target.', prompt: 'Add the latest value, unit, and result date from the source.', final: 'Vitamin D increased to 71 nmol/L but remains below the patient-specific target (2025-Mar-14).' },
+        { selected: 'Homocysteine remains elevated and should be reviewed with vitamin B12, folate, and renal function.', direct: 'Homocysteine remains above the patient-specific target and needs clinical context.', prompt: 'Add the latest measurement and name the related markers to review.', final: 'Homocysteine is 14.2 µmol/L, above target; review it with vitamin B12, folate, and renal function (2025-Mar-14).' },
+        { selected: 'hs-CRP remains mildly raised and is more useful as a trend than as a single result.', direct: 'Continue to follow hs-CRP as part of the wider clinical trend.', prompt: 'Add the latest sourced result and date without overstating it.', final: 'hs-CRP is 1.8 mg/L (2025-Mar-14) and should be followed as part of the wider clinical trend.' },
+        { selected: 'Ferritin remains within the laboratory range, with no clear upward or downward trend.', direct: 'Ferritin is stable within the laboratory range.', prompt: 'Support “stable” with the previous and latest values and dates.', final: 'Ferritin changed from 78 µg/L (2024-Jan-12) to 84 µg/L (2024-Nov-22) and remains within the laboratory range.' },
+        { selected: 'TSH remains stable across the latest results, with no source-linked sign of a marked shift.', direct: 'TSH remains stable across the latest results.', prompt: 'Add the latest result and date while keeping the wording neutral.', final: 'TSH is 2.1 mIU/L (2025-Mar-14) and remains stable across the latest source-linked results.' },
+        { selected: 'Fasting glucose remains within the stated range and should be read with the HbA1c trend.', direct: 'Fasting glucose is within range and should be read with HbA1c.', prompt: 'Add the latest fasting glucose value and result date.', final: 'Fasting glucose is 5.2 mmol/L (2025-Mar-14), within range, and should be read with the HbA1c trend.' },
+        { selected: 'LDL cholesterol has improved, though it remains above the agreed target for this patient.', direct: 'LDL cholesterol has fallen but is still above the agreed target.', prompt: 'Make this patient-friendly and retain the current value and date.', final: 'Your LDL cholesterol has fallen, but the latest result of 116 mg/dL remains above your agreed target (2025-Mar-14).' },
+        { selected: 'The latest HbA1c finding is supported by the linked laboratory report and can be checked at its source.', direct: 'The HbA1c finding matches the linked laboratory report.', prompt: 'Name the value, date, laboratory, and source page.', final: 'HbA1c is 6.1% (2026-Aug-14), linked to Metro Pathology, Page 3, for source review.' }
       ];
       var scenarioIndex = 0;
       var timers = [];
