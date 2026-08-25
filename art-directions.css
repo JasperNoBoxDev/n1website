@@ -367,6 +367,7 @@ button { font: inherit; }
 .report-card.is-center:hover { transform: translateZ(50px) rotateY(0deg) scale(1.015); transition: transform .5s cubic-bezier(.22,.61,.36,1); }
 .report-card.is-left { transform: translateX(-62%) translateZ(-180px) rotateY(18deg) scale(.84); opacity: .68; z-index: 1; filter: saturate(.78) contrast(.96); }
 .report-card.is-right { transform: translateX(62%) translateZ(-180px) rotateY(-18deg) scale(.84); opacity: .68; z-index: 1; filter: saturate(.78) contrast(.96); }
+.report-card.is-hidden { transform: translateZ(-260px) scale(.72); opacity: 0; z-index: 0; filter: saturate(.7); visibility: hidden; }
 .report-card:focus-visible { outline: none; }
 .report-card.is-center:focus-visible .report-cover { box-shadow: 0 0 0 3px var(--peach), 0 40px 70px -30px rgba(0,0,0,.6); }
 
@@ -437,6 +438,19 @@ button { font: inherit; }
 .thumb-monitor-plan b { color: #294d49; font-size: 7.5px; }
 .thumb-monitor-plan small { margin-top: 2px; color: #6b7975; font-size: 6.5px; }
 .thumb-monitor-plan > em { color: #2f7773; font-size: 6.5px; font-style: normal; font-weight: 800; white-space: nowrap; }
+.is-genetic .thumb-body { padding-top: 16px; }
+.thumb-genetic-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.thumb-genetic-summary > span { display: flex; align-items: baseline; gap: 5px; padding: 7px; border-radius: 7px; color: #244b49; background: #edf5f3; }
+.thumb-genetic-summary b { font-size: 14px; line-height: 1; }
+.thumb-genetic-summary small { color: #65736e; font-size: 6px; line-height: 1.2; }
+.thumb-genetic-row { display: flex; align-items: center; justify-content: space-between; gap: 7px; padding: 6px 0; border-bottom: 1px solid #e4ebe8; }
+.thumb-genetic-row > span { min-width: 0; }
+.thumb-genetic-row b, .thumb-genetic-row small { display: block; }
+.thumb-genetic-row b { color: #2d3935; font-size: 7.5px; }
+.thumb-genetic-row small { margin-top: 2px; color: #77827e; font-size: 6px; }
+.thumb-genetic-row em { flex: none; padding: 4px 6px; border-radius: 999px; color: #815a20; background: #fff0cf; font-size: 6px; font-style: normal; font-weight: 800; }
+.thumb-gene-cloud { display: flex; flex-wrap: wrap; gap: 4px; }
+.thumb-gene-cloud span { padding: 4px 5px; border: 1px solid #c9ddd8; border-radius: 999px; color: #315d59; background: #f1f7f5; font-size: 5.5px; font-weight: 800; }
 .thumb-checks { display: flex; flex-wrap: wrap; gap: 4px; }
 .thumb-checks span { padding: 4px 5px; border-radius: 5px; color: #5e6b67; background: #f0f4f2; font-size: 6.5px; }
 .thumb-spark .sp-dot { fill: var(--wine); }
@@ -481,8 +495,12 @@ button { font: inherit; }
   .report-cover { height: 440px; }
   .report-cover-body { flex-direction: column; gap: 14px; padding: 18px 18px 0; }
   .cover-art { flex: none; width: 100%; }
-  .report-card.is-left, .report-card:nth-child(3) { transform: translateX(-48%) translateZ(-120px) rotateY(38deg) scale(.84); }
-  .report-card.is-right, .report-card:nth-child(2) { transform: translateX(48%) translateZ(-120px) rotateY(-38deg) scale(.84); }
+  .report-card.is-left { transform: translateX(-48%) translateZ(-120px) rotateY(38deg) scale(.84); }
+  .report-card.is-right { transform: translateX(48%) translateZ(-120px) rotateY(-38deg) scale(.84); }
+  .report-card.is-hidden { transform: translateZ(-220px) scale(.72); opacity: 0; visibility: hidden; }
+  .is-genetic .thumb-body { gap: 4px; padding: 10px; }
+  .is-genetic .thumb-genetic-summary > span { padding: 5px; }
+  .is-genetic .thumb-genetic-row { padding-block: 4px; }
   .report-nav.prev { left: 8px; }
   .report-nav.next { right: 8px; }
   .report-carousel-head h2 { font-size: 1.9rem; }

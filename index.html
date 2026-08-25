@@ -2833,7 +2833,7 @@
       <div class="shell">
         <div class="report-carousel-head">
           <p class="eyebrow">Report examples · Synthetic data</p>
-          <h2 id="reports-title">Explore three ways<br><em>to view the record.</em></h2>
+          <h2 id="reports-title">Explore four ways<br><em>to view the record.</em></h2>
           <p class="report-carousel-sub">Preview each report format, then open the full synthetic example.</p>
         </div>
         <div class="report-carousel-stage" role="region" aria-roledescription="carousel" aria-label="Sample reports">
@@ -2841,7 +2841,7 @@
           <div class="report-track">
             <div class="report-card is-center" id="report-panel-1" data-index="0" role="tabpanel" aria-labelledby="report-tab-1" aria-hidden="false">
               <div class="report-cover">
-                <header class="report-cover-head"><span class="report-cover-tag">Health Summary</span><span class="report-cover-no">01 / 03</span></header>
+                <header class="report-cover-head"><span class="report-cover-tag">Health Summary</span><span class="report-cover-no">01 / 04</span></header>
                 <div class="report-cover-body">
                   <div class="report-thumb is-summary" aria-hidden="true">
                     <div class="thumb-body">
@@ -2867,7 +2867,7 @@
             </div>
             <div class="report-card" id="report-panel-2" data-index="1" role="tabpanel" aria-labelledby="report-tab-2" aria-hidden="true">
               <div class="report-cover">
-                <header class="report-cover-head"><span class="report-cover-tag">Health Over Time</span><span class="report-cover-no">02 / 03</span></header>
+                <header class="report-cover-head"><span class="report-cover-tag">Health Over Time</span><span class="report-cover-no">02 / 04</span></header>
                 <div class="report-cover-body">
                   <div class="report-thumb is-trend" aria-hidden="true">
                     <div class="thumb-body">
@@ -2892,7 +2892,7 @@
             </div>
             <div class="report-card" id="report-panel-3" data-index="2" role="tabpanel" aria-labelledby="report-tab-3" aria-hidden="true">
               <div class="report-cover">
-                <header class="report-cover-head"><span class="report-cover-tag">Supplement Review</span><span class="report-cover-no">03 / 03</span></header>
+                <header class="report-cover-head"><span class="report-cover-tag">Supplement Review</span><span class="report-cover-no">03 / 04</span></header>
                 <div class="report-cover-body">
                   <div class="report-thumb is-supplement" aria-hidden="true">
                     <div class="thumb-body">
@@ -2914,6 +2914,28 @@
                 <footer class="report-cover-foot"><button class="report-cover-link" type="button" data-report="Supplement_demo-_1_-1.html" data-title="Supplement Report">Open full report ↗</button></footer>
               </div>
             </div>
+            <div class="report-card" id="report-panel-4" data-index="3" role="tabpanel" aria-labelledby="report-tab-4" aria-hidden="true">
+              <div class="report-cover">
+                <header class="report-cover-head"><span class="report-cover-tag">Genetic Predisposition</span><span class="report-cover-no">04 / 04</span></header>
+                <div class="report-cover-body">
+                  <div class="report-thumb is-genetic" aria-hidden="true">
+                    <div class="thumb-body">
+                      <div class="thumb-kicker"><span>Screening-grade view</span><b>116 conclusions</b></div>
+                      <div class="thumb-genetic-summary"><span><b>7</b><small>mechanisms</small></span><span><b>0</b><small>confirmed pathogenic</small></span></div>
+                      <div class="thumb-genetic-row"><span><b>Cardiovascular</b><small>Calcium phenotype present</small></span><em>Partially expressed</em></div>
+                      <div class="thumb-genetic-row"><span><b>Hepatobiliary</b><small>Fatty liver + gallstones</small></span><em>Partially expressed</em></div>
+                      <div class="thumb-gene-cloud"><span>CDKN2B-AS1</span><span>PNPLA3</span><span>ABCB4</span><span>MUC5B</span></div>
+                    </div>
+                  </div>
+                  <div class="report-cover-text">
+                    <h3 class="report-cover-title">See predisposition beside the phenotype.</h3>
+                    <p class="report-cover-desc">Group screening-grade variants by biological mechanism and weigh them against current biomarkers.</p>
+                    <div class="report-cover-proof"><i>✓</i><span>116 conclusions · Phenotype weighted</span></div>
+                  </div>
+                </div>
+                <footer class="report-cover-foot"><button class="report-cover-link" type="button" data-report="Genetic-Predisposition.html" data-title="Genetic Predisposition Report">Open full report ↗</button></footer>
+              </div>
+            </div>
           </div>
           <button class="report-nav next" type="button" aria-label="Next report">›</button>
         </div>
@@ -2922,6 +2944,7 @@
             <button class="report-dot is-active" id="report-tab-1" type="button" role="tab" data-index="0" aria-selected="true" aria-controls="report-panel-1" aria-label="Health Summary" tabindex="0"></button>
             <button class="report-dot" id="report-tab-2" type="button" role="tab" data-index="1" aria-selected="false" aria-controls="report-panel-2" aria-label="Health Over Time Report" tabindex="-1"></button>
             <button class="report-dot" id="report-tab-3" type="button" role="tab" data-index="2" aria-selected="false" aria-controls="report-panel-3" aria-label="Supplement Report" tabindex="-1"></button>
+            <button class="report-dot" id="report-tab-4" type="button" role="tab" data-index="3" aria-selected="false" aria-controls="report-panel-4" aria-label="Genetic Predisposition Report" tabindex="-1"></button>
           </div>
           <a class="report-library-cta" href="report-library.html">Browse the shared report library <span aria-hidden="true">→</span></a>
         </div>
@@ -4840,6 +4863,7 @@
           card.classList.toggle('is-center', offset === 0);
           card.classList.toggle('is-right', offset === 1);
           card.classList.toggle('is-left', offset === total - 1);
+          card.classList.toggle('is-hidden', offset > 1 && offset < total - 1);
           card.setAttribute('aria-hidden', offset === 0 ? 'false' : 'true');
           card.inert = offset !== 0;
         });
