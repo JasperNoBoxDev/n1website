@@ -195,11 +195,7 @@
     .workflow-card:nth-child(2) .workflow-story-link { color: #244b49; background: #d9eeeb; }
   .workflow-rail-note { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin-top: 20px; color: var(--muted); font-size: 10px; letter-spacing: .04em; }
   .workflow-rail-note b { color: var(--ink); font-weight: 700; }
-  .clinician-testimonial .testimonial-grid { display: block; max-width: 1080px; margin-inline: auto; }
-  .clinician-testimonial .t-card.is-featured { width: 100%; min-height: 360px; }
-  .clinician-testimonial .t-card.is-featured .t-quote { color: var(--cream) !important; }
-  .clinician-testimonial .t-card.is-featured .t-author,
-  .clinician-testimonial .t-card.is-featured .t-author b { color: rgba(244,237,223,.82); }
+  .workflow-card.is-testimonial .workflow-quote p { font-size: clamp(16px,1.35vw,20px); line-height: 1.35; text-wrap: pretty; }
 
     /* Evidence-led conversion path: product facts replace fictional partner proof. */
     .proof-strip { position: relative; z-index: 2; color: var(--ink); background: var(--cream); border-top: 1px solid var(--mist); }
@@ -2639,28 +2635,6 @@
       </div>
     </section>
 
-    <section class="testimonials clinician-testimonial" aria-labelledby="clinician-testimonial-title">
-      <div class="shell">
-        <header class="testimonials-head">
-          <p class="eyebrow">Clinician perspective</p>
-          <h2 id="clinician-testimonial-title">Less time synthesising. More time for care.</h2>
-        </header>
-        <ul class="testimonial-grid">
-          <li class="t-card is-featured">
-            <span class="t-glyph" aria-hidden="true">“</span>
-            <div class="t-avatar">
-              <div class="t-disc"><img class="t-doc" src="assets/team/dannette-kallay.webp" alt="Dannette Kallay, MD" width="320" height="275" loading="lazy" decoding="async"></div>
-            </div>
-            <div class="t-body">
-              <span class="t-label">How n1.care fits the clinical workflow</span>
-              <blockquote class="t-quote">n1.care’s platform consolidates patient records into clean, organized reports that highlight patterns of dysfunction and potential health risks. It allows me to track biomarker trends and prioritize care efficiently, without spending excessive amounts of time manually synthesising data. Integrating n1.care into my workflow optimizes my time and enhances the quality of care I’m able to provide.</blockquote>
-              <p class="t-author"><b>Dannette Kallay, MD</b><br>Integrative Physician</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
     <section class="workflow-rail-wrap" id="workflows" aria-labelledby="workflows-title">
       <div class="shell">
         <header class="evidence-head">
@@ -2678,11 +2652,11 @@
               <footer><cite>Dr Maya Chen · General practice</cite><small>Illustrative workflow based on common record-review tasks.</small><a class="workflow-story-link" href="clinician-interview-maya-chen.html">Read the interview →</a></footer>
             </blockquote>
           </article>
-          <article class="workflow-card">
-            <figure class="workflow-card-media is-consult"><img src="assets/n1-patient-consultation.webp" alt="Illustrative patient consultation" loading="lazy"><figcaption>Illustrative perspective</figcaption></figure>
+          <article class="workflow-card is-testimonial">
+            <figure class="workflow-card-media is-portrait"><img src="assets/team/dannette-kallay.webp" alt="Dannette Kallay, MD" width="320" height="275" loading="lazy" decoding="async"><figcaption>Clinician perspective</figcaption></figure>
             <blockquote class="workflow-quote">
-              <p>When a patient asks why a result matters, I can show the trend and its source on one screen. Neither of us has to trust a black box.</p>
-              <footer><cite>Dr Samira Patel · Internal medicine</cite><small>Illustrative consultation showing how a source can stay open beside a finding.</small></footer>
+              <p>n1.care’s platform consolidates patient records into clean, organized reports that highlight patterns of dysfunction and potential health risks. It allows me to track biomarker trends and prioritize care efficiently, without spending excessive amounts of time manually synthesising data. Integrating n1.care into my workflow optimizes my time and enhances the quality of care I’m able to provide.</p>
+              <footer><cite>Dannette Kallay, MD · Integrative Physician</cite><small>Clinician testimonial.</small></footer>
             </blockquote>
           </article>
           <article class="workflow-card">
@@ -2693,7 +2667,7 @@
             </blockquote>
           </article>
         </div>
-        <p class="workflow-rail-note"><span><b>Sample doctor views.</b> These are not customer quotes.</span><span>No real patient data is used.</span></p>
+        <p class="workflow-rail-note"><span><b>Clinician perspectives.</b> Dannette Kallay’s testimonial is genuine; the other two views are illustrative.</span><span>No real patient data is used.</span></p>
       </div>
     </section>
 
