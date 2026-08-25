@@ -177,13 +177,13 @@
     .workflow-card:nth-child(2) .workflow-card-media { height: 236px; }
     .workflow-card-media img { width: 100%; height: 100%; display: block; object-fit: cover; filter: none; transition: transform .7s cubic-bezier(.22,.8,.28,1); }
     .workflow-card:hover .workflow-card-media img { filter: none; transform: scale(1.025); }
-    .workflow-card-media figcaption { position: absolute; left: 12px; bottom: 12px; padding: 6px 9px; border-radius: 999px; color: #244b49; background: rgba(247,251,250,.94); font-size: 9px; font-weight: 800; letter-spacing: .04em; }
     .workflow-card-media.is-portrait img { object-position: center 28%; }
     .workflow-card-media.is-consult img { object-position: center 42%; }
     .workflow-quote { position: relative; flex: 1; display: flex; flex-direction: column; margin: 0; padding: 34px 10px 8px; }
     .workflow-quote::before { content: "“"; position: absolute; top: 15px; left: 8px; color: #48a9a6; font: 400 42px/1 var(--serif); }
     .workflow-card:nth-child(2) .workflow-quote::before { color: #91d7d1; }
     .workflow-quote p { margin: 0; color: #202523; font: 400 clamp(20px,1.8vw,25px)/1.2 var(--serif); letter-spacing: -.02em; text-wrap: balance; }
+    .workflow-quote > p:last-of-type::after { content: "”"; }
     .workflow-card:nth-child(2) .workflow-quote p { color: #fffdf9; }
     .workflow-quote footer { margin-top: auto; padding-top: 32px; }
     .workflow-quote cite { display: block; color: #244b49; font-size: 12px; font-style: normal; font-weight: 800; }
@@ -196,6 +196,9 @@
   .workflow-rail-note { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin-top: 20px; color: var(--muted); font-size: 10px; letter-spacing: .04em; }
   .workflow-rail-note b { color: var(--ink); font-weight: 700; }
   .workflow-card.is-testimonial .workflow-quote p { font-size: clamp(16px,1.35vw,20px); line-height: 1.35; text-wrap: pretty; }
+  .workflow-card.is-testimonial .workflow-quote p + p { margin-top: 12px; }
+  .workflow-card.is-testimonial .workflow-card-media { width: min(100%,320px); height: auto; aspect-ratio: 64 / 55; align-self: center; margin-top: 10px; background: #efeeea; }
+  .workflow-card.is-testimonial .workflow-card-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
     /* Evidence-led conversion path: product facts replace fictional partner proof. */
     .proof-strip { position: relative; z-index: 2; color: var(--ink); background: var(--cream); border-top: 1px solid var(--mist); }
@@ -204,31 +207,28 @@
     .proof-item:first-child { padding-left: 0; border-left: 0; }
     .proof-item b { margin-bottom: 7px; color: var(--wine); font-size: 14px; }
     .proof-item span { color: #554f49; font-size: 12px; line-height: 1.5; }
-    .trust-showcase { --trust-wash: #eef4f2; position: relative; padding: 104px 0 120px; overflow: clip; border-block: 1px solid #c6d8d3; background-color: var(--trust-wash); transition: background-color .9s cubic-bezier(.22,.8,.28,1); }
-    .trust-showcase[data-trust-active="0"] { --trust-wash: #edf3ef; }
-    .trust-showcase[data-trust-active="1"] { --trust-wash: #f0eee7; }
-    .trust-showcase[data-trust-active="2"] { --trust-wash: #dfecea; }
-    .trust-showcase[data-trust-active="3"] { --trust-wash: #edf2f0; }
-    .trust-showcase::before { position: absolute; top: 12%; right: -18vw; width: 62vw; height: 62vw; border-radius: 50%; background: radial-gradient(circle,rgba(72,169,166,.18),rgba(72,169,166,0) 68%); content: ''; transform: translateY(calc(var(--trust-shift,0) * 1px)); transition: transform .9s cubic-bezier(.22,.8,.28,1), opacity .9s ease; pointer-events: none; }
-    .trust-showcase-head { display: grid; grid-template-columns: 1fr .82fr; gap: clamp(42px,7vw,100px); align-items: end; margin-bottom: 42px; }
-    .trust-showcase-head .eyebrow { color: #2f7773; }
-    .trust-showcase-head h2 { max-width: 720px; margin: 0; color: #171817 !important; font: 400 clamp(42px,5.3vw,68px)/.98 var(--serif); letter-spacing: -.03em; }
-    .trust-showcase-head > p { max-width: 540px; margin: 0 0 5px; color: #626864; font-size: 15px; line-height: 1.65; }
-    .trust-flow { position: relative; }
-    .trust-scenes { position: relative; z-index: 1; width: min(1120px,100%); display: grid; gap: 54px; margin-inline: auto; }
-    .trust-scene { position: relative; display: block; overflow: hidden; border: 1px solid #b9cec9; border-radius: 24px; opacity: .18; scroll-margin-top: 90px; box-shadow: 0 20px 50px rgba(35,56,50,.07); transform: translateY(44px) scale(.985); transition: opacity .72s ease, transform .82s cubic-bezier(.22,.8,.28,1), border-color .6s ease, box-shadow .6s ease; }
-    .trust-scene::before { position: absolute; z-index: 4; top: 22px; right: 24px; padding: 6px 9px; border: 1px solid rgba(55,99,97,.22); border-radius: 999px; color: #376361; background: rgba(255,255,255,.72); content: attr(data-trust-chapter); font-size: 8px; font-weight: 800; letter-spacing: .1em; }
-    .trust-scene.is-revealed { opacity: .72; transform: none; }
-    .trust-scene.is-current { opacity: 1; border-color: #76aaa3; box-shadow: 0 28px 70px rgba(35,56,50,.12); }
+    .trust-showcase { overflow: clip; border-block: 1px solid #c6d8d3; background: #eef4f2; }
+    .trust-showcase-head { position: relative; max-width: 1040px; margin: 0 auto; padding: clamp(96px,10vw,146px) 0; text-align: center; }
+    .trust-showcase-head .eyebrow { margin-bottom: 25px; color: #2f7773; }
+    .trust-showcase-quote { margin: 0; }
+    .trust-showcase-quote p { max-width: 960px; margin: 0 auto; color: #171817 !important; font: 400 clamp(38px,4.6vw,60px)/1.05 var(--serif); letter-spacing: -.03em; text-wrap: balance; }
+    .trust-quote-attribution { display: flex; align-items: center; justify-content: center; gap: 13px; margin-top: 28px; }
+    .trust-quote-attribution img { width: 64px; height: 64px; border: 1px solid rgba(55,99,97,.24); border-radius: 50%; object-fit: cover; object-position: center; }
+    .trust-showcase-quote cite { color: #45635f; font-size: 11px; font-style: normal; font-weight: 700; letter-spacing: .08em; text-align: left; text-transform: uppercase; }
+    .trust-showcase-head > .trust-showcase-intro { max-width: 650px; margin: 28px auto 0; color: #626864; font-size: 15px; line-height: 1.65; }
+    .trust-flow { width: 100vw; margin-left: calc(50% - 50vw); }
+    .trust-scenes { width: 100%; }
+    .trust-scene { position: relative; display: block; overflow: visible; border: 0; border-top: 1px solid rgba(55,99,97,.20); border-radius: 0; opacity: 1; scroll-margin-top: 90px; box-shadow: none; transform: none; }
+    .trust-scene::before { display: none; }
     .trust-showcase .privacy-choice,
     .trust-showcase .security-summary,
     .trust-showcase .approval-summary,
-    .trust-showcase .tonal-patterns { padding: 74px 0 78px; }
+    .trust-showcase .tonal-patterns { padding: clamp(88px,9vw,128px) 0; }
     .trust-showcase .privacy-choice { background: #f3ede2; }
-    .trust-showcase .security-summary { background: #fbf9f5; }
-    .trust-showcase .approval-summary { color: inherit; background: #dfecea; }
-    .trust-showcase .tonal-patterns { background: #f6f8f7; }
-    .trust-showcase .trust-scene > .shell { width: auto; max-width: none; margin: 0; padding-inline: clamp(30px,5vw,66px); }
+    .trust-showcase .security-summary { background: #fffdf9; }
+    .trust-showcase .approval-summary { color: inherit; background: #dcebe7; }
+    .trust-showcase .tonal-patterns { background: #eeeae3; }
+    .trust-showcase .trust-scene > .shell { width: min(1320px,calc(100% - 64px)); max-width: none; margin-inline: auto; padding-inline: 0; }
     .trust-showcase .privacy-choice-head,
     .trust-showcase .evidence-head { margin-bottom: 38px; }
     .trust-showcase .privacy-choice-head,
@@ -1455,17 +1455,16 @@
       .doctor-features { padding: 58px 0; }
       .approval-summary { padding: 64px 0; }
       .approval-edit { grid-template-columns: 1fr; }
-      .trust-showcase { padding-top: 64px; }
-      .trust-showcase-head { margin-bottom: 28px; }
-      .trust-showcase-head h2 { font-size: 42px; }
-      .trust-scenes { gap: 26px; }
-      .trust-scene { border-radius: 17px; scroll-margin-top: 122px; }
-      .trust-scene::before { top: 14px; right: 14px; }
+      .trust-showcase-head { padding: 72px 0; }
+      .trust-showcase-quote p { font-size: 38px; }
+      .trust-scenes { gap: 0; }
+      .trust-scene { border-radius: 0; scroll-margin-top: 122px; }
+      .trust-scene::before { display: none; }
       .trust-showcase .privacy-choice,
       .trust-showcase .security-summary,
       .trust-showcase .approval-summary,
       .trust-showcase .tonal-patterns { padding-top: 48px; padding-bottom: 54px; }
-      .trust-showcase .trust-scene > .shell { padding-inline: 22px; }
+      .trust-showcase .trust-scene > .shell { width: min(100% - 38px,720px); padding-inline: 0; }
       .doctor-feature-grid { grid-template-columns: 1fr; }
       .doctor-feature { min-height: 0; }
       .doctor-feature:nth-child(n) { border-right: 0; border-bottom: 1px solid var(--mist); }
@@ -2646,21 +2645,23 @@
         </header>
         <div class="workflow-rail">
           <article class="workflow-card">
-            <figure class="workflow-card-media is-portrait"><img src="assets/n1-practice-lab.webp" alt="Illustrative laboratory clinician" loading="lazy"><figcaption>Illustrative perspective</figcaption></figure>
+            <figure class="workflow-card-media is-portrait"><img src="assets/n1-practice-lab.webp" alt="Illustrative laboratory clinician" loading="lazy"></figure>
             <blockquote class="workflow-quote">
               <p>I used to open each result and rebuild the whole trend in a sheet. Now I can check 18 months of tests, trace an odd value, and use the visit to talk about what changed.</p>
               <footer><cite>Dr Maya Chen · General practice</cite><small>Illustrative workflow based on common record-review tasks.</small><a class="workflow-story-link" href="clinician-interview-maya-chen.html">Read the interview →</a></footer>
             </blockquote>
           </article>
           <article class="workflow-card is-testimonial">
-            <figure class="workflow-card-media is-portrait"><img src="assets/team/dannette-kallay.webp" alt="Dannette Kallay, MD" width="320" height="275" loading="lazy" decoding="async"><figcaption>Clinician perspective</figcaption></figure>
+            <figure class="workflow-card-media is-portrait"><img src="assets/team/dannette-kallay.webp" alt="Dannette Kallay, MD" width="320" height="275" loading="lazy" decoding="async"></figure>
             <blockquote class="workflow-quote">
-              <p>n1.care’s platform consolidates patient records into clean, organized reports that highlight patterns of dysfunction and potential health risks. It allows me to track biomarker trends and prioritize care efficiently, without spending excessive amounts of time manually synthesising data. Integrating n1.care into my workflow optimizes my time and enhances the quality of care I’m able to provide.</p>
+              <p>n1.care’s platform consolidates patient records into clean, organized reports that highlight patterns of dysfunction and potential health risks.</p>
+              <p>It allows me to track biomarker trends and prioritize care efficiently, without spending excessive amounts of time manually synthesising data.</p>
+              <p>Integrating n1.care into my workflow optimizes my time and enhances the quality of care I’m able to provide.</p>
               <footer><cite>Dannette Kallay, MD · Integrative Physician</cite><small>Clinician testimonial.</small></footer>
             </blockquote>
           </article>
           <article class="workflow-card">
-            <figure class="workflow-card-media is-portrait"><img src="assets/n1-practice-review.webp" alt="Illustrative clinician reviewing a report" loading="lazy"><figcaption>Illustrative perspective</figcaption></figure>
+            <figure class="workflow-card-media is-portrait"><img src="assets/n1-practice-review.webp" alt="Illustrative clinician reviewing a report" loading="lazy"></figure>
             <blockquote class="workflow-quote">
               <p>The draft saves time, but it cannot leave on its own. I still edit the words, check the source, and sign off the copy the patient gets.</p>
               <footer><cite>Dr Daniel Hart · Preventive care</cite><small>Illustrative final review with edits, approval, and controlled sharing.</small></footer>
@@ -3996,8 +3997,16 @@
       trustShowcase.innerHTML = `
         <div class="shell">
           <header class="trust-showcase-head">
-            <div><p class="eyebrow">Trust, built into the workflow</p><h2 id="trust-showcase-title">Keep every record safe, clear, and in your control.</h2></div>
-            <p>See one record move from private upload to final doctor sign-off. Each safety check stays in view as you work.</p>
+            <p class="eyebrow">A foundation of clinical care</p>
+            <h2 class="sr-only" id="trust-showcase-title">Trust and patient confidentiality</h2>
+            <blockquote class="trust-showcase-quote">
+              <p>“The digital world has been in a separate orbit from our medical cocoon, and it’s time the boundaries be taken down.”</p>
+              <footer class="trust-quote-attribution">
+                <img src="assets/eric-topol.webp" alt="Eric Topol, MD" width="64" height="64" loading="lazy">
+                <cite>Eric Topol, MD</cite>
+              </footer>
+            </blockquote>
+            <p class="trust-showcase-intro">n1 brings fragmented health data into one clear clinical view—without losing the safeguards, source history, or human judgment that care depends on.</p>
           </header>
           <div class="trust-flow">
             <div class="trust-scenes"></div>
@@ -4006,31 +4015,10 @@
       reportExamples.after(trustShowcase);
       const trustScenes = trustShowcase.querySelector('.trust-scenes');
       const trustPanels = [privacyProof, sourceProof, approvalProof, extractionProof];
-      trustPanels.forEach((panel, index) => {
+      trustPanels.forEach(panel => {
         panel.classList.add('trust-scene');
-        panel.id = `trust-panel-${index}`;
-        panel.dataset.trustChapter = `0${index + 1} / 04`;
         trustScenes.append(panel);
       });
-      trustShowcase.dataset.trustActive = '0';
-      if ('IntersectionObserver' in window) {
-        const trustObserver = new IntersectionObserver(entries => {
-          const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-          entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('is-revealed');
-            else entry.target.classList.remove('is-revealed', 'is-current');
-          });
-          if (visible) {
-            const next = trustPanels.indexOf(visible.target);
-            trustShowcase.dataset.trustActive = String(next);
-            trustShowcase.style.setProperty('--trust-shift', String(next * 190));
-            trustPanels.forEach((panel, index) => panel.classList.toggle('is-current', index === next));
-          }
-        }, { rootMargin: '-10% 0px -42% 0px', threshold: [0, .12, .3, .55] });
-        trustPanels.forEach(panel => trustObserver.observe(panel));
-      } else {
-        trustPanels.forEach(panel => panel.classList.add('is-revealed'));
-      }
     }
 
     const sequence = document.querySelector('.tonal-scroll-sequence');

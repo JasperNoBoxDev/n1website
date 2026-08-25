@@ -2,6 +2,15 @@
 
 Video sources are recorded separately in [`videos/SOURCES.md`](videos/SOURCES.md).
 
+## Editorial portraits
+
+| Local asset | Source |
+| --- | --- |
+| `eric-topol.webp` | [Eric Topol leadership profile, Scripps Research](https://www.scripps.edu/about/leadership/eric-topol/) |
+
+The Eric Topol portrait is a size-optimized copy of the official Scripps Research
+headshot. It is shown only as attribution beside his quoted words.
+
 ## Team photography
 
 | Local asset | Source |
