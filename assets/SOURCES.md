@@ -50,6 +50,7 @@ Do not reattach names, quotes, titles or credentials to these images.
 | Local asset | Source |
 | --- | --- |
 | `testimonial-nathan-chen.webp` | Original fictional portrait generated with OpenAI image generation for this site |
+| `testimonial-dannette-kallay-illustrative.webp` | Original fictional US physician portrait generated with OpenAI image generation for this site |
 | `testimonial-priya-malhotra.webp` | Original fictional portrait generated with OpenAI image generation for this site |
 
 These portraits do not depict the named clinicians. They are labelled as illustrative
