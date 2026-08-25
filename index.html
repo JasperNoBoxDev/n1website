@@ -1523,9 +1523,10 @@
     .approval-edit label, .approval-edit-field-label { color: #71807b; font-size: 8px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
     .approval-edit-prompt { width: 100%; min-height: 42px; box-sizing: border-box; resize: none; padding: 9px 10px; border: 1px solid #d5dfdc; border-radius: 8px; outline: 0; color: #2a3330; background: #f8faf9; font: 500 11px/1.45 var(--sans); transition: border-color .25s ease, background-color .25s ease; }
     .approval-edit-prompt:focus { border-color: #72aaa2; background: #fff; box-shadow: 0 0 0 3px rgba(72,169,166,.1); }
-    .approval-edit-result { position: relative; min-height: 39px; padding: 9px 32px 9px 10px; border: 1px solid #b9d8ca; border-radius: 8px; color: #214844; background: #edf8f2; font: 600 11px/1.45 var(--sans); }
+    .approval-edit-result { position: relative; min-height: 39px; box-sizing: border-box; padding: 9px 78px 9px 10px; border: 1px solid #b9d8ca; border-radius: 8px; color: #214844; background: #edf8f2; font: 600 11px/1.45 var(--sans); }
     .approval-edit-result::after { position: absolute; top: 9px; right: 10px; color: #3c9872; content: '✓'; font-size: 11px; font-weight: 900; opacity: 0; transition: opacity .25s ease; }
     .approval-edit-result > i { display: none; width: 1px; height: 13px; margin-left: 2px; background: #2f7773; vertical-align: -2px; animation: approval-prompt-caret .7s step-end infinite; }
+    .approval-manual-badge { position: absolute; top: 7px; right: 8px; display: none; padding: 3px 6px; border-radius: 999px; color: #315d59; background: #d9eee9; font-size: 7px; font-style: normal; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
     .approval-ai-prompt { min-height: 39px; box-sizing: border-box; padding: 9px 10px; border: 1px solid #d5dfdc; border-radius: 8px; color: #2a3330; background: #f8faf9; font: 500 11px/1.45 var(--sans); transition: border-color .3s ease, background-color .3s ease, box-shadow .3s ease; }
     .approval-ai-prompt { color: #315d59; }
     .approval-ai-prompt i { display: none; width: 1px; height: 13px; margin-left: 1px; background: #2f7773; vertical-align: -2px; animation: approval-prompt-caret .7s step-end infinite; }
@@ -1536,6 +1537,7 @@
     .approval-edit.has-ai-result .approval-edit-result::after { opacity: 1; }
     .approval-edit.is-manual-editing .approval-edit-result::after { opacity: 0; }
     .approval-edit.is-manual-editing .approval-edit-result > i { display: inline-block; }
+    .approval-edit.is-manual-editing .approval-manual-badge { display: inline-flex; }
     @keyframes approval-prompt-caret { 50% { opacity: 0; } }
     .approval-edit footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 1px; transition: opacity .28s ease, transform .3s ease; }
     .approval-edit.is-scenario-changing .approval-edit-workspace,
@@ -1556,6 +1558,32 @@
     .approval-step.is-share { border-color: #b8d0ca; background: #f8fcfb; }
     .approval-summary .control-grid { border-color: #b8cbc6; }
     .approval-summary .control-item { border-color: #b8cbc6; }
+    .approval-copy .eyebrow { margin-bottom: 22px; }
+    .approval-copy h2 { max-width: 650px; margin: 0; font-family: var(--serif); font-size: clamp(38px,4.2vw,58px); font-weight: 400; line-height: 1.08; letter-spacing: -.03em; }
+    .approval-copy-intro { max-width: 380px; margin: 22px 0 0; color: #6a6864; font-size: 16px; line-height: 1.65; }
+
+    @media (min-width: 901px) {
+      .trust-showcase .approval-summary { padding-top: clamp(40px,4vw,52px); padding-bottom: clamp(40px,4vw,52px); }
+      .approval-summary > .shell { display: grid; grid-template-columns: minmax(340px,.78fr) minmax(0,1.22fr); gap: clamp(36px,4vw,60px); align-items: center; }
+      .approval-demo { margin-bottom: 0; }
+      .approval-demo { grid-template-columns: 1fr; }
+      .approval-report { padding: 24px; border-right: 0; border-bottom: 1px solid #d4dfdc; }
+      .approval-report > header { padding-bottom: 14px; }
+      .approval-report header b { font-size: 21px; }
+      .approval-report-body { padding-top: 16px; }
+      .approval-report-body > p { margin: 10px 0 16px; font-size: 16px; line-height: 1.45; }
+      .approval-edit { gap: 9px; padding: 12px; }
+      .approval-edit > header b { font-size: 20px; }
+      .approval-edit-workspace { gap: 5px; }
+      .approval-actions { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 7px; padding: 10px; }
+      .approval-step { grid-template-columns: 30px minmax(0,1fr); column-gap: 8px; padding: 8px; }
+      .approval-step > i, .approval-step img, .approval-patient-mark { width: 30px; height: 30px; }
+      .approval-step b { font-size: 11px; line-height: 1.2; }
+      .approval-step small { font-size: 8px; line-height: 1.35; }
+      .tonal-patterns-grid { grid-template-columns: minmax(0,1.22fr) minmax(340px,.78fr); gap: clamp(36px,4vw,60px); }
+      .tonal-patterns-copy { grid-column: 2; grid-row: 1; padding-left: clamp(12px,2vw,28px); }
+      .tonal-patterns-media { grid-column: 1; grid-row: 1; }
+    }
 
     .roadmap-wrap { padding: 76px 0; color: var(--ink); background: var(--blush); }
     .roadmap-panel { margin: 0; padding: 0; border-radius: 0; background: transparent; }
@@ -3002,9 +3030,10 @@
 
     <section class="approval-summary" aria-labelledby="approval-title">
       <div class="shell">
-        <header class="evidence-head">
-          <div><p class="eyebrow">Doctor sign-off</p><h2 id="approval-title">Edit and sign off on each report.</h2></div>
-          <p>Check and edit each report before you share it.</p>
+        <header class="approval-copy">
+          <p class="eyebrow">Doctor sign-off</p>
+          <h2 id="approval-title">Edit and sign off on each report.</h2>
+          <p class="approval-copy-intro">Check and edit each report before you share it.</p>
         </header>
         <div class="approval-demo" role="group" aria-label="A Health Summary moving through clinician review, approval, and sharing">
           <article class="approval-report">
@@ -3018,7 +3047,7 @@
                   <span class="approval-edit-field-label">Ask AI</span>
                   <div class="approval-ai-prompt"><span data-approval-prompt></span><i aria-hidden="true"></i></div>
                   <span class="approval-edit-field-label">Preview</span>
-                  <div class="approval-edit-result"><span data-approval-result>Waiting for an instruction…</span><i aria-hidden="true"></i></div>
+                  <div class="approval-edit-result"><span data-approval-result>Waiting for an instruction…</span><i aria-hidden="true"></i><em class="approval-manual-badge">Manual edit</em></div>
                 </div>
                 <footer><span data-approval-status>Only the highlighted sentence will change</span><button class="approval-apply" type="button">Accept change</button></footer>
               </aside>
@@ -4489,7 +4518,7 @@
         '.security-feature-link',
         '.security-summary .evidence-head > *',
         '.traceability-flow > .traceability-step',
-        '.approval-summary .evidence-head > *',
+        '.approval-summary .approval-copy > *',
         '.approval-demo > *',
         '.tonal-patterns-grid > *',
         '.tonal-lab-frame',
@@ -4692,20 +4721,22 @@
       if (!editor || !selection) return;
       var summary = document.getElementById('approvalSummary');
       var prompt = editor.querySelector('[data-approval-prompt]');
+      var promptBox = editor.querySelector('.approval-ai-prompt');
       var result = editor.querySelector('[data-approval-result]');
+      var resultBox = editor.querySelector('.approval-edit-result');
       var status = editor.querySelector('[data-approval-status]');
       var apply = editor.querySelector('.approval-apply');
       var scenarios = [
-        { selected: 'LDL cholesterol remains above the patient-specific target despite improvement since the previous review.', prompt: 'Add the previous and latest LDL values and dates from the source.', ai: 'LDL cholesterol fell from 142 mg/dL (2024-Nov-22) to 116 mg/dL (2025-Mar-14), but remains above target.', final: 'LDL cholesterol fell from 142 mg/dL (2024-Nov-22) to 116 mg/dL (2025-Mar-14), but remains above the patient-specific target.' },
-        { selected: 'HbA1c is moving in the right direction, with a steady fall across the latest three results.', prompt: 'Replace “improved” with the first and latest values and dates.', ai: 'HbA1c fell from 7.1% (2024-Jan-12) to 6.1% (2026-Aug-14) across the latest results.', final: 'HbA1c fell from 7.1% (2024-Jan-12) to 6.1% (2026-Aug-14) across the latest three results.' },
-        { selected: 'Vitamin D has improved with supplementation but remains below the patient-specific target.', prompt: 'Add the latest value, unit, and result date from the source.', ai: 'Vitamin D increased to 71 nmol/L but remains below target (2025-Mar-14).', final: 'Vitamin D increased to 71 nmol/L but remains below the patient-specific target (2025-Mar-14).' },
-        { selected: 'Homocysteine remains elevated and should be reviewed with vitamin B12, folate, and renal function.', prompt: 'Add the latest measurement and name the related markers to review.', ai: 'Homocysteine is 14.2 µmol/L, above target; review it with related markers (2025-Mar-14).', final: 'Homocysteine is 14.2 µmol/L, above target; review it with vitamin B12, folate, and renal function (2025-Mar-14).' },
-        { selected: 'hs-CRP remains mildly raised and is more useful as a trend than as a single result.', prompt: 'Add the latest sourced result and date without overstating it.', ai: 'hs-CRP is 1.8 mg/L (2025-Mar-14) and should be followed as part of the wider trend.', final: 'hs-CRP is 1.8 mg/L (2025-Mar-14) and should be followed as part of the wider clinical trend.' },
-        { selected: 'Ferritin remains within the laboratory range, with no clear upward or downward trend.', prompt: 'Support “stable” with the previous and latest values and dates.', ai: 'Ferritin changed from 78 µg/L (2024-Jan-12) to 84 µg/L (2024-Nov-22) and remains in range.', final: 'Ferritin changed from 78 µg/L (2024-Jan-12) to 84 µg/L (2024-Nov-22) and remains within the laboratory range.' },
-        { selected: 'TSH remains stable across the latest results, with no source-linked sign of a marked shift.', prompt: 'Add the latest result and date while keeping the wording neutral.', ai: 'TSH is 2.1 mIU/L (2025-Mar-14) and remains stable across the latest results.', final: 'TSH is 2.1 mIU/L (2025-Mar-14) and remains stable across the latest source-linked results.' },
-        { selected: 'Fasting glucose remains within the stated range and should be read with the HbA1c trend.', prompt: 'Add the latest fasting glucose value and result date.', ai: 'Fasting glucose is 5.2 mmol/L (2025-Mar-14), within range, and should be read with HbA1c.', final: 'Fasting glucose is 5.2 mmol/L (2025-Mar-14), within range, and should be read with the HbA1c trend.' },
-        { selected: 'LDL cholesterol has improved, though it remains above the agreed target for this patient.', prompt: 'Make this patient-friendly and retain the current value and date.', ai: 'Your LDL cholesterol has fallen, but the latest result of 116 mg/dL remains above your target (2025-Mar-14).', final: 'Your LDL cholesterol has fallen, but the latest result of 116 mg/dL remains above your agreed target (2025-Mar-14).' },
-        { selected: 'The latest HbA1c finding is supported by the linked laboratory report and can be checked at its source.', prompt: 'Name the value, date, laboratory, and source page.', ai: 'HbA1c is 6.1% (2026-Aug-14), linked to Metro Pathology for source review.', final: 'HbA1c is 6.1% (2026-Aug-14), linked to Metro Pathology, Page 3, for source review.' }
+        { selected: 'LDL cholesterol remains above the patient-specific target despite improvement since the previous review.', prompt: 'Add the previous and latest LDL values and dates from the source.', ai: 'LDL cholesterol fell from 142 mg/dL (2024-Nov-22) to 116 mg/dL (2025-Mar-14), but remains above the patient-specific target.', final: 'LDL cholesterol fell from 142 mg/dL (2024-Nov-22) to 116 mg/dL (2025-Mar-14), but remains above the patient-specific target. Review alongside ApoB and overall cardiovascular risk.' },
+        { selected: 'HbA1c is moving in the right direction, with a steady fall across the latest three results.', prompt: 'Add the first and latest HbA1c values and dates from the source.', ai: 'HbA1c fell from 7.1% (2024-Jan-12) to 6.1% (2026-Aug-14) across the latest three results.', final: 'HbA1c fell from 7.1% (2024-Jan-12) to 6.1% (2026-Aug-14) across the latest three results. Continue the current plan and repeat in 12 weeks.' },
+        { selected: 'Vitamin D has improved with supplementation but remains below the patient-specific target.', prompt: 'Add the latest vitamin D value, unit, and result date.', ai: 'Vitamin D increased to 71 nmol/L but remains below the patient-specific target (2025-Mar-14).', final: 'Vitamin D increased to 71 nmol/L but remains below the patient-specific target (2025-Mar-14). Continue the current dose and recheck in 12 weeks.' },
+        { selected: 'Homocysteine remains elevated and should be reviewed in its wider clinical context.', prompt: 'Add the latest homocysteine measurement and result date.', ai: 'Homocysteine is 14.2 µmol/L, above the patient-specific target (2025-Mar-14).', final: 'Homocysteine is 14.2 µmol/L, above the patient-specific target (2025-Mar-14). Review vitamin B12, folate, and renal function.' },
+        { selected: 'hs-CRP remains mildly raised and is more useful as a trend than as a single result.', prompt: 'Add the latest hs-CRP result and date without overstating it.', ai: 'hs-CRP is mildly raised at 1.8 mg/L (2025-Mar-14) and should be followed as part of the wider trend.', final: 'hs-CRP is mildly raised at 1.8 mg/L (2025-Mar-14) and should be followed as part of the wider trend. Interpret alongside recent illness and cardiovascular risk.' },
+        { selected: 'Ferritin remains within the laboratory range, with no clear upward or downward trend.', prompt: 'Add the previous and latest ferritin values and dates.', ai: 'Ferritin changed from 78 µg/L (2024-Jan-12) to 84 µg/L (2024-Nov-22) and remains within the laboratory range.', final: 'Ferritin changed from 78 µg/L (2024-Jan-12) to 84 µg/L (2024-Nov-22) and remains within the laboratory range. No change to the current monitoring plan.' },
+        { selected: 'TSH remains stable across the latest results, with no source-linked sign of a marked shift.', prompt: 'Add the latest TSH result and date while keeping the wording neutral.', ai: 'TSH is 2.1 mIU/L (2025-Mar-14) and remains stable across the latest source-linked results.', final: 'TSH is 2.1 mIU/L (2025-Mar-14) and remains stable across the latest source-linked results. Review sooner if thyroid symptoms change.' },
+        { selected: 'Fasting glucose remains within the stated range and should be read with the HbA1c trend.', prompt: 'Add the latest fasting glucose value and result date.', ai: 'Fasting glucose is 5.2 mmol/L (2025-Mar-14), within the stated range.', final: 'Fasting glucose is 5.2 mmol/L (2025-Mar-14), within the stated range. Interpret alongside the HbA1c trend.' },
+        { selected: 'LDL cholesterol has improved, though it remains above the agreed target for this patient.', prompt: 'Make this patient-friendly and retain the current LDL value and date.', ai: 'Your LDL cholesterol has fallen, but the latest result of 116 mg/dL remains above your agreed target (2025-Mar-14).', final: 'Your LDL cholesterol has fallen, but the latest result of 116 mg/dL remains above your agreed target (2025-Mar-14). We will review this together at your next visit.' },
+        { selected: 'The latest HbA1c finding is supported by the linked laboratory report and can be checked at its source.', prompt: 'Name the HbA1c value, date, laboratory, and source page.', ai: 'HbA1c is 6.1% (2026-Aug-14), linked to Metro Pathology, Page 3, for source review.', final: 'HbA1c is 6.1% (2026-Aug-14), linked to Metro Pathology, Page 3, for source review. Source checked during clinician review.' }
       ];
       var scenarioIndex = 0;
       var timers = [];
@@ -4723,16 +4754,32 @@
       function reserveSummaryHeight() {
         if (!summary) return;
         var current = selection.textContent;
+        var currentPrompt = prompt.textContent;
+        var currentResult = result.textContent;
         summary.style.minHeight = '';
+        promptBox.style.minHeight = '';
+        resultBox.style.minHeight = '';
         var maxHeight = 0;
+        var maxPromptHeight = 0;
+        var maxResultHeight = 0;
         scenarios.forEach(function (scenario) {
           [scenario.selected, scenario.final].forEach(function (text) {
             selection.textContent = text;
             maxHeight = Math.max(maxHeight, summary.scrollHeight);
           });
+          [scenario.ai, scenario.final].forEach(function (text) {
+            result.textContent = text;
+            maxResultHeight = Math.max(maxResultHeight, resultBox.scrollHeight);
+          });
+          prompt.textContent = scenario.prompt;
+          maxPromptHeight = Math.max(maxPromptHeight, promptBox.scrollHeight);
         });
         selection.textContent = current;
+        prompt.textContent = currentPrompt;
+        result.textContent = currentResult;
         summary.style.minHeight = Math.ceil(maxHeight) + 'px';
+        promptBox.style.minHeight = Math.ceil(maxPromptHeight + 2) + 'px';
+        resultBox.style.minHeight = Math.ceil(maxResultHeight + 2) + 'px';
       }
       function reset() {
         var scenario = currentScenario();
@@ -4766,28 +4813,19 @@
         var scenario = currentScenario();
         var from = scenario.ai;
         var to = scenario.final;
-        var shared = 0;
-        while (shared < from.length && shared < to.length && from[shared] === to[shared]) shared++;
-        var cursor = from.length;
+        var typed = from.length;
         editor.classList.add('is-manual-editing');
-        status.textContent = 'Clinician making a small edit';
+        status.textContent = 'Doctor adding clinical context';
         result.textContent = from;
         typingTimer = setInterval(function () {
-          cursor--;
-          result.textContent = from.slice(0, Math.max(shared, cursor));
-          if (cursor > shared) return;
+          typed++;
+          result.textContent = to.slice(0, typed);
+          if (typed < to.length) return;
           clearInterval(typingTimer);
-          var typed = shared;
-          typingTimer = setInterval(function () {
-            typed++;
-            result.textContent = to.slice(0, typed);
-            if (typed < to.length) return;
-            clearInterval(typingTimer);
-            typingTimer = null;
-            editor.classList.remove('is-manual-editing');
-            status.textContent = 'Clinician tweak ready';
-          }, 18);
-        }, 12);
+          typingTimer = null;
+          editor.classList.remove('is-manual-editing');
+          status.textContent = 'Clinical context added';
+        }, 42);
       }
       function applyResult() {
         selection.textContent = currentScenario().final;
@@ -4815,16 +4853,21 @@
           result.textContent = scenario.ai;
           status.textContent = 'AI preview generated';
         }, 2550);
-        later(typeManualTweak, 3200);
+        var manualStart = 3400;
+        var manualDuration = Math.max(0, scenario.final.length - scenario.ai.length) * 42;
+        var pressAt = manualStart + manualDuration + 650;
+        var applyAt = pressAt + 220;
+        var transitionAt = applyAt + 2400;
+        later(typeManualTweak, manualStart);
         later(function () {
           apply.classList.add('is-pressing');
           apply.textContent = 'Accepting…';
-        }, 5100);
-        later(applyResult, 5300);
+        }, pressAt);
+        later(applyResult, applyAt);
         later(function () {
           editor.classList.add('is-scenario-changing');
           selection.classList.add('is-changing');
-        }, 7100);
+        }, transitionAt);
         later(function () {
           scenarioIndex = (scenarioIndex + 1) % scenarios.length;
           var next = currentScenario();
@@ -4836,12 +4879,12 @@
           apply.classList.remove('is-pressing');
           apply.textContent = 'Accept change';
           apply.disabled = false;
-        }, 7380);
+        }, transitionAt + 280);
         later(function () {
           editor.classList.remove('is-scenario-changing');
           selection.classList.remove('is-changing');
-        }, 7460);
-        later(function () { if (inView && !document.hidden) play(); }, 7900);
+        }, transitionAt + 360);
+        later(function () { if (inView && !document.hidden) play(); }, transitionAt + 800);
       }
       function stop() { clearTimers(); }
       function start() { if (inView && !document.hidden) play(); }
