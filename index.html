@@ -1486,7 +1486,7 @@
     .control-item p { margin: 0; color: #554f49; font-size: 13px; line-height: 1.6; }
 
     .approval-summary { padding: 96px 0; background: #e8f0ee; }
-    .approval-demo { display: grid; grid-template-columns: 1.12fr .88fr; overflow: hidden; margin-bottom: 30px; border: 1px solid #b8cbc6; border-radius: 22px; background: #fff; box-shadow: 0 24px 55px rgba(35,56,50,.09); }
+    .approval-demo { position: relative; display: grid; grid-template-columns: 1.12fr .88fr; overflow: hidden; margin-bottom: 30px; border: 1px solid #b8cbc6; border-radius: 22px; background: #fff; box-shadow: 0 24px 55px rgba(35,56,50,.09); }
     .approval-report { padding: clamp(30px,4vw,52px); border-right: 1px solid #d4dfdc; background: #fff; }
     .approval-report > header { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-bottom: 20px; border-bottom: 1px solid #dce4e1; }
     .approval-report header small, .approval-report header b { display: block; }
@@ -1535,6 +1535,45 @@
     .approval-apply { min-height: 32px; display: inline-flex; align-items: center; justify-content: center; padding: 0 12px; border: 0; border-radius: 8px; color: #fff; background: #376361; font: 800 9px/1 var(--sans); cursor: pointer; transition: background-color .25s ease, transform .25s ease; }
     .approval-apply:hover { background: #244b49; transform: translateY(-1px); }
     .approval-apply.is-pressing { background: #244b49; transform: scale(.96); }
+    .approval-report-share { position: relative; min-height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; padding-top: 14px; border-top: 1px solid #dce4e1; opacity: .42; transition: opacity .35s ease; }
+    .approval-report-share > span { display: flex; align-items: center; gap: 8px; color: #71807b; font-size: 9px; font-weight: 700; }
+    .approval-report-share > span i { width: 20px; height: 20px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: #3c9872; font-size: 8px; font-style: normal; }
+    .approval-share-button { min-height: 34px; padding: 0 13px; border: 0; border-radius: 8px; color: #fff; background: #376361; font: 800 9px/1 var(--sans); opacity: 0; pointer-events: none; cursor: pointer; transform: translateY(4px); transition: opacity .3s ease, transform .3s ease, background-color .2s ease; }
+    .approval-report.is-share-ready .approval-report-share { opacity: 1; }
+    .approval-report.is-share-ready .approval-share-button { opacity: 1; pointer-events: auto; transform: none; }
+    .approval-share-button.is-pressing { background: #244b49; transform: scale(.96); }
+    .approval-share-cursor { position: absolute; z-index: 3; top: 9px; right: 54px; width: 15px; height: 19px; opacity: 0; color: #244b49; filter: drop-shadow(0 2px 2px rgba(20,45,42,.2)); pointer-events: none; transform: translate(30px,18px); transform-origin: 2px 2px; }
+    .approval-share-cursor svg { width: 100%; height: 100%; fill: #fff; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; }
+    .approval-report.is-sharing-click .approval-share-cursor { animation: approval-share-cursor-click 950ms ease-in-out both; }
+    @keyframes approval-share-cursor-click { 0% { opacity: 0; transform: translate(30px,18px) scale(1); } 18% { opacity: 1; } 58% { opacity: 1; transform: translate(0,0) scale(1); } 72% { opacity: 1; transform: translate(0,0) scale(.82); } 86% { opacity: 1; transform: translate(0,0) scale(1); } 100% { opacity: 0; transform: translate(0,0) scale(1); } }
+    .approval-share-modal { position: absolute; z-index: 8; inset: 0; display: grid; place-items: center; padding: 24px; visibility: hidden; opacity: 0; pointer-events: none; background: rgba(31,45,41,.28); backdrop-filter: blur(2px); transition: visibility 0s linear .35s, opacity .35s ease; }
+    .approval-share-modal.is-open { visibility: visible; opacity: 1; pointer-events: auto; transition-delay: 0s; }
+    .approval-share-dialog { width: min(430px,100%); overflow: hidden; border: 1px solid #c8d6d2; border-radius: 15px; background: #fff; box-shadow: 0 26px 70px -28px rgba(22,45,39,.55); transform: translateY(10px) scale(.985); transition: transform .38s cubic-bezier(.22,.75,.25,1); }
+    .approval-share-modal.is-open .approval-share-dialog { transform: none; }
+    .approval-share-dialog > header { padding: 17px 18px 13px; border-bottom: 1px solid #dfe6e3; }
+    .approval-share-dialog > header b { display: flex; align-items: center; gap: 8px; color: #202523; font: 400 20px/1.1 var(--serif); }
+    .approval-share-dialog > header b i { width: 25px; height: 25px; display: grid; place-items: center; border-radius: 7px; color: #376361; background: #e4f1ee; font: 800 12px/1 var(--sans); }
+    .approval-share-dialog > header p { margin: 6px 0 0; color: #6e7975; font-size: 10px; }
+    .approval-share-form { display: grid; gap: 11px; padding: 15px 18px; }
+    .approval-share-recipient { padding: 9px 10px; border-radius: 8px; background: #f1f4f3; }
+    .approval-share-recipient b, .approval-share-recipient small { display: block; }
+    .approval-share-recipient b { color: #29322f; font-size: 11px; }
+    .approval-share-recipient small { margin-top: 2px; color: #71807b; font-size: 8px; }
+    .approval-share-label { color: #52615c; font-size: 9px; font-weight: 750; }
+    .approval-share-label i { color: #89938f; font-style: normal; font-weight: 500; }
+    .approval-share-note { min-height: 74px; padding: 10px; border: 1px solid #ccd9d5; border-radius: 8px; color: #35443f; background: #fff; font: 500 10px/1.45 var(--sans); }
+    .approval-share-note i { display: none; width: 1px; height: 12px; margin-left: 1px; background: #2f7773; vertical-align: -2px; animation: approval-prompt-caret .7s step-end infinite; }
+    .approval-share-modal.is-typing-note .approval-share-note i { display: inline-block; }
+    .approval-share-dialog > footer { display: flex; justify-content: flex-end; gap: 8px; padding: 12px 18px 16px; }
+    .approval-share-dialog > footer button { min-height: 32px; padding: 0 12px; border: 1px solid #ccd7d4; border-radius: 7px; color: #53625d; background: #fff; font: 750 9px/1 var(--sans); }
+    .approval-share-dialog > footer .approval-send-button { border-color: #376361; color: #fff; background: #376361; }
+    .approval-send-button.is-pressing { transform: scale(.96); }
+    .approval-share-success { display: none; margin: 15px 18px 0; padding: 12px; border: 1px solid #b9dec9; border-radius: 9px; color: #286046; background: #edf8f1; }
+    .approval-share-success b, .approval-share-success span { display: block; }
+    .approval-share-success b { font-size: 11px; }
+    .approval-share-success span { margin-top: 3px; font-size: 9px; }
+    .approval-share-modal.is-sent .approval-share-form, .approval-share-modal.is-sent .approval-share-dialog > footer { display: none; }
+    .approval-share-modal.is-sent .approval-share-success { display: block; margin-bottom: 18px; animation: trace-item-in .35s ease both; }
     .approval-actions { display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: clamp(30px,4vw,52px); background: #f7faf9; }
     .approval-step { display: grid; grid-template-columns: 38px 1fr; column-gap: 12px; align-items: center; padding: 15px; border: 1px solid #d9e2df; border-radius: 11px; background: #fff; }
     .approval-step > i, .approval-step img, .approval-patient-mark { grid-row: 1 / 3; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; color: #376361; background: #e4f1ef; font-size: 11px; font-style: normal; font-weight: 800; }
@@ -3041,13 +3080,20 @@
                 <footer><span data-approval-status>Only the highlighted sentence will change</span><button class="approval-apply" type="button">Accept change</button></footer>
               </aside>
             </div>
+            <footer class="approval-report-share"><span><i>✓</i>Edits saved</span><button class="approval-share-button" type="button" aria-haspopup="dialog" aria-expanded="false">Share with patient</button><span class="approval-share-cursor" aria-hidden="true"><svg viewBox="0 0 18 22"><path d="M2 2v16l4.2-4.2 3.2 6.2 3-1.5-3.1-6.1H15L2 2Z"></path></svg></span></footer>
           </article>
-          <article class="approval-actions">
-            <span class="approval-step is-done"><i>✓</i><b>Data checked</b><small>83 extracted items reviewed</small></span>
-            <span class="approval-step is-done"><i>✓</i><b>Sources checked</b><small>Every finding has a page link</small></span>
-            <span class="approval-step is-done is-person"><img src="assets/n1-practice-review.webp" alt="Illustrative reviewing clinician" loading="lazy"><b>Approved by Dr Tanaka</b><small>Signed after the rewrite</small></span>
-            <span class="approval-step is-share is-person"><span class="approval-patient-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M5 21c.7-4.6 3-7 7-7s6.3 2.4 7 7"></path></svg></span><b>Shared with John Doe</b><small>Patient portal · access recorded</small></span>
-          </article>
+          <div class="approval-share-modal" aria-hidden="true">
+            <div class="approval-share-dialog" role="dialog" aria-modal="true" aria-label="Share Health Summary with patient">
+              <header><b><i>✉</i>Share with patient</b><p>Email “Health Summary” to the patient.</p></header>
+              <div class="approval-share-success"><b>✓ Report shared</b><span>John Doe has been notified by email.</span></div>
+              <div class="approval-share-form">
+                <div class="approval-share-recipient"><b>John Doe</b><small>On the platform</small></div>
+                <span class="approval-share-label">Message to patient <i>(optional)</i></span>
+                <div class="approval-share-note"><span data-approval-share-note></span><i aria-hidden="true"></i></div>
+              </div>
+              <footer><button type="button">Cancel</button><button class="approval-send-button" type="button">✉&nbsp; Send</button></footer>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -4690,6 +4736,13 @@
       var resultBox = editor.querySelector('.approval-edit-result');
       var status = editor.querySelector('[data-approval-status]');
       var apply = editor.querySelector('.approval-apply');
+      var report = document.querySelector('.approval-report');
+      var reportState = report ? report.querySelector(':scope > header > i') : null;
+      var shareButton = report ? report.querySelector('.approval-share-button') : null;
+      var shareModal = document.querySelector('.approval-share-modal');
+      var shareNote = shareModal ? shareModal.querySelector('[data-approval-share-note]') : null;
+      var sendButton = shareModal ? shareModal.querySelector('.approval-send-button') : null;
+      var patientMessage = 'Hi John, I’ve reviewed your latest results. Please read the summary before our next appointment, and send me any questions.';
       var scenarios = [
         { selected: 'LDL cholesterol remains above the patient-specific target despite improvement since the previous review.', prompt: 'Add the previous and latest LDL values and dates from the source.', ai: 'LDL cholesterol fell from 142 mg/dL (2024-Nov-22) to 116 mg/dL (2025-Mar-14), but remains above the patient-specific target.', final: 'LDL cholesterol fell from 142 mg/dL (2024-Nov-22) to 116 mg/dL (2025-Mar-14), but remains above the patient-specific target. Review alongside ApoB and overall cardiovascular risk.' },
         { selected: 'HbA1c is moving in the right direction, with a steady fall across the latest three results.', prompt: 'Add the first and latest HbA1c values and dates from the source.', ai: 'HbA1c fell from 7.1% (2024-Jan-12) to 6.1% (2026-Aug-14) across the latest three results.', final: 'HbA1c fell from 7.1% (2024-Jan-12) to 6.1% (2026-Aug-14) across the latest three results. Continue the current plan and repeat in 12 weeks.' },
@@ -4757,6 +4810,21 @@
         apply.classList.remove('is-pressing');
         apply.textContent = 'Accept change';
         apply.disabled = false;
+        if (report) report.classList.remove('is-share-ready', 'is-sharing-click');
+        if (reportState) reportState.textContent = 'In review';
+        if (shareButton) {
+          shareButton.classList.remove('is-pressing');
+          shareButton.setAttribute('aria-expanded', 'false');
+        }
+        if (shareModal) {
+          shareModal.classList.remove('is-open', 'is-typing-note', 'is-sent');
+          shareModal.setAttribute('aria-hidden', 'true');
+        }
+        if (shareNote) shareNote.textContent = '';
+        if (sendButton) {
+          sendButton.classList.remove('is-pressing');
+          sendButton.innerHTML = '✉&nbsp; Send';
+        }
       }
       function typePrompt() {
         var promptText = currentScenario().prompt;
@@ -4798,6 +4866,26 @@
         apply.disabled = true;
         status.textContent = 'Highlighted sentence updated';
       }
+      function typePatientMessage() {
+        if (!shareModal || !shareNote) return;
+        var typed = 0;
+        shareNote.textContent = '';
+        shareModal.classList.add('is-typing-note');
+        typingTimer = setInterval(function () {
+          typed++;
+          shareNote.textContent = patientMessage.slice(0, typed);
+          if (typed < patientMessage.length) return;
+          clearInterval(typingTimer);
+          typingTimer = null;
+          shareModal.classList.remove('is-typing-note');
+        }, 20);
+      }
+      function openShareModal() {
+        if (!shareModal || !report || !report.classList.contains('is-share-ready')) return;
+        shareModal.classList.add('is-open');
+        shareModal.setAttribute('aria-hidden', 'false');
+        if (shareButton) shareButton.setAttribute('aria-expanded', 'true');
+      }
       function play() {
         clearTimers();
         reset();
@@ -4807,6 +4895,8 @@
           result.textContent = scenario.final;
           editor.classList.add('has-ai-result');
           applyResult();
+          if (report) report.classList.add('is-share-ready');
+          if (reportState) reportState.textContent = 'Ready to share';
           return;
         }
         later(typePrompt, 650);
@@ -4821,7 +4911,14 @@
         var manualDuration = Math.max(0, scenario.final.length - scenario.ai.length) * 42;
         var pressAt = manualStart + manualDuration + 650;
         var applyAt = pressAt + 220;
-        var transitionAt = applyAt + 2400;
+        var shareReadyAt = applyAt + 700;
+        var shareClickAt = shareReadyAt + 700;
+        var sharePressAt = shareClickAt + 680;
+        var modalAt = sharePressAt;
+        var noteAt = modalAt + 500;
+        var sendAt = noteAt + patientMessage.length * 20 + 500;
+        var sentAt = sendAt + 380;
+        var transitionAt = sentAt + 2200;
         later(typeManualTweak, manualStart);
         later(function () {
           apply.classList.add('is-pressing');
@@ -4829,6 +4926,43 @@
         }, pressAt);
         later(applyResult, applyAt);
         later(function () {
+          if (report) report.classList.add('is-share-ready');
+          if (reportState) reportState.textContent = 'Ready to share';
+        }, shareReadyAt);
+        later(function () {
+          if (report) report.classList.add('is-sharing-click');
+        }, shareClickAt);
+        later(function () {
+          if (shareButton) {
+            shareButton.classList.add('is-pressing');
+            shareButton.click();
+          } else {
+            openShareModal();
+          }
+        }, sharePressAt);
+        later(function () {
+          if (shareButton) shareButton.classList.remove('is-pressing');
+          if (report) report.classList.remove('is-sharing-click');
+        }, modalAt + 180);
+        later(typePatientMessage, noteAt);
+        later(function () {
+          if (shareModal) shareModal.classList.remove('is-typing-note');
+          if (sendButton) {
+            sendButton.classList.add('is-pressing');
+            sendButton.textContent = 'Sending…';
+          }
+        }, sendAt);
+        later(function () {
+          if (sendButton) sendButton.classList.remove('is-pressing');
+          if (shareModal) shareModal.classList.add('is-sent');
+          if (reportState) reportState.textContent = 'Shared';
+        }, sentAt);
+        later(function () {
+          if (shareModal) {
+            shareModal.classList.remove('is-open');
+            shareModal.setAttribute('aria-hidden', 'true');
+          }
+          if (shareButton) shareButton.setAttribute('aria-expanded', 'false');
           editor.classList.add('is-scenario-changing');
           selection.classList.add('is-changing');
         }, transitionAt);
@@ -4862,6 +4996,7 @@
         editor.classList.add('has-ai-result');
         applyResult();
       });
+      if (shareButton) shareButton.addEventListener('click', openShareModal);
       document.addEventListener('visibilitychange', function () {
         if (document.hidden) stop();
         else start();
@@ -4875,7 +5010,7 @@
           inView = entries[0].isIntersecting;
           if (inView) start();
           else { stop(); reset(); }
-        }, {threshold: .2}).observe(editor);
+        }, {rootMargin: '0px 0px -10% 0px', threshold: .55}).observe(editor);
       } else {
         inView = true;
         start();
