@@ -159,8 +159,6 @@
     .process-kicker { display: block; margin-bottom: 10px; color: #ffd0bd; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
     .process-step h3 { max-width: 620px; margin: 0; color: var(--cream); font-family: var(--serif); font-size: clamp(28px,3vw,40px); font-weight: 400; line-height: 1.08; }
     .process-step p { max-width: 620px; margin: 13px 0 0; color: var(--blush); font-size: 14px; line-height: 1.6; }
-    .process-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
-    .process-tags span { padding: 6px 9px; border: 1px solid rgba(244,237,223,.28); border-radius: 999px; color: var(--cream); font-size: 10px; }
 
     .security-summary { padding: 96px 0; background: var(--paper); }
     .evidence-head { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end; margin-bottom: 60px; }
@@ -241,32 +239,17 @@
     .trust-showcase .evidence-head > p { max-width: 680px; }
     .trust-showcase .control-grid { display: none; }
     .trust-showcase .privacy-choice-grid { gap: 12px; padding: 12px; border: 0; border-radius: 18px; background: rgba(255,255,255,.5); }
-    .trust-showcase .privacy-choice-card { min-height: 250px; padding: 25px; border: 1px solid #d6cdc0; border-radius: 13px; background: #fffdf9; }
-    .privacy-card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .trust-showcase .privacy-choice-card { min-height: 0; padding: 18px 20px 20px; border: 1px solid #d6cdc0; border-radius: 13px; background: #fffdf9; }
+    .privacy-card-top { display: flex; align-items: center; gap: 10px; }
     .privacy-card-icon { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px; color: #376361; background: #e3efec; }
     .privacy-card-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-    .privacy-card-state { padding: 5px 7px; border-radius: 999px; color: #6e655c; background: #eee8df; font-size: 8px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
-    .trust-showcase .privacy-choice-card h3 { max-width: none; margin: 30px 0 12px; font-size: clamp(22px,1.65vw,27px); letter-spacing: -.025em; white-space: nowrap; }
-    .privacy-choice-setting { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 22px; color: #5d6864; font-size: 9px; font-weight: 700; }
-    .privacy-choice-setting i { position: relative; width: 30px; height: 17px; flex: none; border-radius: 999px; background: #376361; }
-    .privacy-choice-setting i::after { position: absolute; top: 3px; right: 3px; width: 11px; height: 11px; border-radius: 50%; background: #fff; content: ''; }
+    .trust-showcase .privacy-choice-card h3 { max-width: none; margin: 14px 0 8px; font-size: clamp(22px,1.65vw,27px); letter-spacing: -.025em; white-space: nowrap; }
     .privacy-choice-card.is-control { background: #f8faf9; }
     .privacy-choice-card.is-control { position: relative; overflow: hidden; border-color: #b8d0ca; box-shadow: 0 16px 36px -34px rgba(35,75,70,.65); }
     .privacy-choice-card.is-control::before { position: absolute; top: 0; right: 0; left: 0; height: 3px; background: linear-gradient(90deg,#244b49,#48a9a6); content: ''; }
-    .privacy-choice-card.is-control h3 { max-width: none; margin-top: 25px; color: #183b38; font-size: clamp(22px,1.65vw,27px); }
+    .privacy-choice-card.is-control h3 { max-width: none; margin-top: 14px; color: #183b38; font-size: clamp(22px,1.65vw,27px); }
     .security-seal { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #b8d5cf; border-radius: 12px; color: #244b49; background: linear-gradient(145deg,#f8fcfb,#dceeea); box-shadow: inset 0 0 0 4px rgba(255,255,255,.5); }
     .security-seal svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-    .partner-lockups { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 5px; }
-    .partner-logo { min-height: 25px; display: inline-flex; align-items: center; gap: 5px; padding: 4px 7px; border: 1px solid #d6e1de; border-radius: 7px; color: #46524e !important; background: rgba(255,255,255,.88); font-size: 7px; font-weight: 800; line-height: 1; }
-    .partner-logo i { font-style: normal; font-weight: 900; }
-    .partner-logo.is-cloudflare i { color: #f48120; font-size: 13px; line-height: .7; }
-    .partner-logo.is-aws i { position: relative; padding-bottom: 2px; color: #232f3e; font-size: 10px; letter-spacing: -.05em; }
-    .partner-logo.is-aws i::after { position: absolute; right: 0; bottom: 0; left: 1px; height: 2px; border-radius: 50%; background: #ff9900; content: ''; transform: rotate(-5deg); }
-    .partner-logo.is-google i { color: #4285f4; font-size: 11px; }
-    .security-assurance { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 22px; border-top: 1px solid #dce6e3; color: #5b6964; font-size: 8px; font-weight: 700; }
-    .security-assurance span { display: inline-flex; align-items: center; gap: 6px; color: inherit; }
-    .security-assurance span::before { width: 7px; height: 7px; border-radius: 50%; background: #48a987; box-shadow: 0 0 0 3px rgba(72,169,135,.13); content: ''; }
-    .security-assurance strong { color: #244b49; font-size: 8px; letter-spacing: .05em; text-transform: uppercase; }
     .privacy-grid-note { margin: 16px 8px 0; color: #66716d; font-size: 9px; line-height: 1.55; }
     .feature-next-action { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-top: 28px; padding: 24px 28px; border: 1px solid var(--mist); border-radius: 16px; background: var(--paper); }
     .feature-next-action p { max-width: 680px; margin: 0; color: #554f49; font-size: 15px; line-height: 1.55; }
@@ -279,10 +262,10 @@
     .privacy-choice-intro { max-width: 560px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
     .privacy-choice-intro .text-link { display: block; width: fit-content; margin-top: 18px; color: var(--wine); font-size: 12px; font-weight: 700; }
     .privacy-choice-grid { display: grid; grid-template-columns: repeat(3,1fr); overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); }
-    .privacy-choice-card { min-height: 260px; display: flex; flex-direction: column; padding: clamp(26px,3.2vw,42px); border-left: 1px solid var(--line); }
+    .privacy-choice-card { min-height: 0; display: flex; flex-direction: column; padding: clamp(20px,2.4vw,28px); border-left: 1px solid var(--line); }
     .privacy-choice-card:first-child { border-left: 0; }
     .privacy-choice-card > span { color: var(--wine); font-family: var(--serif); font-size: 15px; }
-    .privacy-choice-card h3 { margin: auto 0 13px; color: var(--ink); font-family: var(--serif); font-size: clamp(27px,2.7vw,36px); font-weight: 400; line-height: 1.06; }
+    .privacy-choice-card h3 { margin: 14px 0 10px; color: var(--ink); font-family: var(--serif); font-size: clamp(27px,2.7vw,36px); font-weight: 400; line-height: 1.06; }
     .privacy-choice-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
 
     /* Feature presentation study: ten researched structures, one n1 content system. */
@@ -1238,6 +1221,12 @@
     .traceability-ui span { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #68746f; font-size: 8px; }
     .traceability-ui b { color: #244b49; font-size: 9px; }
     .traceability-ui i { color: #2f7773; font-size: 8px; font-style: normal; font-weight: 800; }
+    .traceability-ui.is-table { align-content: start; gap: 8px; }
+    .trace-table-name { display: block; font-size: 11px; line-height: 1.1; }
+    .traceability-ui.is-table table { width: 100%; border-collapse: collapse; }
+    .traceability-ui.is-table th, .traceability-ui.is-table td { padding: 3px 0; border-top: 1px solid #d7e1de; color: #68746f; font-size: 8px; font-weight: 600; text-align: left; }
+    .traceability-ui.is-table td { color: #244b49; font-weight: 800; text-align: right; }
+    .traceability-step.is-linked .traceability-ui.is-table th, .traceability-step.is-linked .traceability-ui.is-table td { border-top-color: rgba(255,255,255,.16); color: #fff; }
     .traceability-step.is-ai { background: #eef6f4; }
     .traceability-step.is-verified .traceability-ui { border-color: #a9d2c5; background: #edf8f2; }
     .traceability-step.is-linked { color: #fff; background: #244b49; }
@@ -1262,23 +1251,26 @@
     .approval-report-body { padding-top: 28px; }
     .approval-report-body > small { color: #2f7773; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
     .approval-report-body > p { max-width: 650px; margin: 13px 0 24px; color: #3f4946; font: 400 clamp(20px,2vw,27px)/1.45 var(--serif); }
-    .approval-report-body mark { padding: 1px 4px; color: #244b49; background: #cfe9e4; }
-    .approval-edit { display: grid; grid-template-columns: auto 1fr auto; gap: 13px; align-items: center; padding: 13px; border: 1px solid #bfd3ce; border-radius: 10px; background: #f4f9f8; }
-    .approval-edit > span { color: #71807b; font-size: 10px; font-weight: 700; text-transform: uppercase; }
-    .approval-edit > b { color: #303936; font-size: 13px; }
-    .approval-apply, .approval-approve { display: inline-flex; align-items: center; justify-content: center; border-radius: 7px; color: #fff; background: #376361; font-style: normal; font-weight: 800; }
-    .approval-apply { padding: 8px 11px; font-size: 10px; }
+    .approval-report-body mark { padding: 1px 4px; color: #244b49; background: #cfe9e4; box-shadow: 0 0 0 2px rgba(72,169,166,.12); }
+    .approval-edit { display: grid; gap: 8px; padding: 12px; border: 1px solid #a9c8c2; border-radius: 12px; background: rgba(255,255,255,.98); box-shadow: 0 16px 38px rgba(31,52,47,.1); }
+    .approval-edit header { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #244b49; font-size: 11px; }
+    .approval-edit header span { color: #74817d; font-size: 10px; font-weight: 600; }
+    .approval-edit-quote { margin: 0; color: #376361; font: 600 12px/1.4 var(--sans); }
+    .approval-edit label { color: #71807b; font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .approval-edit-prompt, .approval-edit-result { padding: 9px 10px; border: 1px solid #d5dfdc; border-radius: 7px; color: #2a3330; background: #f8faf9; font: 500 12px/1.45 var(--sans); }
+    .approval-edit-result { border-color: #b9d8ca; background: #edf8f2; }
+    .approval-edit footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 2px; }
+    .approval-edit footer span { color: #71807b; font-size: 10px; }
+    .approval-apply { display: inline-flex; align-items: center; justify-content: center; padding: 8px 11px; border-radius: 7px; color: #fff; background: #376361; font-size: 10px; font-style: normal; font-weight: 800; }
     .approval-actions { display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: clamp(30px,4vw,52px); background: #f7faf9; }
-    .approval-step { display: grid; grid-template-columns: 34px 1fr; column-gap: 12px; padding: 15px; border: 1px solid #d9e2df; border-radius: 11px; background: #fff; }
-    .approval-step > i { grid-row: 1 / 3; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; color: #376361; background: #e4f1ef; font-size: 11px; font-style: normal; font-weight: 800; }
+    .approval-step { display: grid; grid-template-columns: 38px 1fr; column-gap: 12px; align-items: center; padding: 15px; border: 1px solid #d9e2df; border-radius: 11px; background: #fff; }
+    .approval-step > i, .approval-step img, .approval-patient-mark { grid-row: 1 / 3; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; color: #376361; background: #e4f1ef; font-size: 11px; font-style: normal; font-weight: 800; }
+    .approval-step img { display: block; object-fit: cover; }
+    .approval-patient-mark { color: #244b49; background: #dcece8; letter-spacing: .04em; }
     .approval-step b { color: #29322f; font-size: 13px; }
     .approval-step small { margin-top: 3px; color: #74807c; font-size: 10px; }
     .approval-step.is-done > i { color: #fff; background: #3c9872; }
-    .approval-approve { min-height: 42px; margin-top: 4px; font-size: 12px; }
-    .approval-clinician { display: grid; grid-template-columns: 38px 1fr; gap: 10px; align-items: center; margin-top: 4px; padding: 11px; border: 1px solid #d9e2df; border-radius: 11px; background: #fff; }
-    .approval-clinician img { grid-row: 1 / 3; width: 38px; height: 38px; display: block; object-fit: cover; border-radius: 50%; }
-    .approval-clinician b { color: #29322f; font-size: 11px; }
-    .approval-clinician small { color: #74807c; font-size: 9px; }
+    .approval-step.is-share { border-color: #b8d0ca; background: #f8fcfb; }
     .approval-summary .control-grid { border-color: #b8cbc6; }
     .approval-summary .control-item { border-color: #b8cbc6; }
 
@@ -1455,7 +1447,7 @@
     @media (max-width: 620px) {
       .doctor-features { padding: 58px 0; }
       .approval-summary { padding: 64px 0; }
-      .approval-edit { grid-template-columns: 1fr; }
+      .approval-edit footer { align-items: flex-start; flex-direction: column; }
       .trust-showcase-head { padding: 72px 0; }
       .trust-showcase-quote p { font-size: 38px; }
       .trust-scenes { gap: 0; }
@@ -1488,8 +1480,8 @@
       .traceability-step::after { top: auto; right: 50%; bottom: -12px; content: '↓'; transform: translateX(50%); }
       .traceability-ui { margin-top: 18px; }
       .trust-showcase .privacy-choice-grid { gap: 8px; padding: 8px; }
-      .trust-showcase .privacy-choice-card { min-height: 240px; border: 1px solid #d6cdc0; }
-      .privacy-choice-card h3 { margin-top: 38px; }
+      .trust-showcase .privacy-choice-card { min-height: 0; border: 1px solid #d6cdc0; }
+      .privacy-choice-card h3 { margin-top: 14px; }
       .feature-study-head { margin-bottom: 30px; }
       .feature-study-head h2 { font-size: 35px; line-height: 1.02; }
       .walk-demo-access { align-items: stretch; flex-direction: column; text-align: center; }
@@ -1761,7 +1753,6 @@
   .outcomes .section-head > p:last-child { color: #d3e7e3 !important; }
   .process-list, .process-step { border-color: #c7c2b944 !important; }
   .process-no { border-color: #c7c2b966 !important; color: #48a9a6 !important; }
-  .process-tags span { border-color: #c7c2b944 !important; color: #f3ede2 !important; }
   .outcome-tab { border-color: #c7c2b944 !important; color: #d3e7e3 !important; }
   .outcome-tab[aria-selected="true"] { border-color: #48a9a6 !important; background: #f3ede220 !important; color: #fff !important; }
   .outcome-panel { border-color: #c7c2b933 !important; background: #f3ede212 !important; }
@@ -2122,7 +2113,7 @@
           <div class="shell tonal-hero-inner">
             <div class="tonal-copy-block">
               <p class="eyebrow">Secure AI for clinicians</p>
-              <h1 id="tonal-title">Turn patient records into<br><span class="hero-trust-line">health data <em>you can trust.</em></span></h1>
+              <h1 id="tonal-title">Nothing is made up by AI.<br><span class="hero-trust-line">We verify every fact and link it to its <em>source.</em></span></h1>
               <div class="tonal-hero-bottom hero-actions-only">
                 <div class="hero-actions">
                   <a class="button" href="https://app.n1.care/signup">Start free trial <span aria-hidden="true">→</span></a>
@@ -2139,7 +2130,7 @@
       <div class="shell proof-grid">
         <article class="proof-item"><b>Safe from start to end</b><span>Your files stay locked as they move and while n1 stores them.</span></article>
         <article class="proof-item"><b>Each fact has a source</b><span>Open the exact page that backs up each fact.</span></article>
-        <article class="proof-item"><b>You sign off each report</b><span>Check and edit a report before you share it.</span></article>
+        <article class="proof-item"><b>Edit and sign off on each report</b><span>Check and edit a report before you share it.</span></article>
         <article class="proof-item"><b>Check and edit the data</b><span>Review each value that n1 pulls from a file.</span></article>
       </div>
     </section>
@@ -2162,7 +2153,7 @@
                   <article class="walkthrough-narration-step" data-narration-step="1"><b>Check the data, range, and source</b></article>
                   <article class="walkthrough-narration-step" data-narration-step="2"><b>Review every data type and add a patient note</b></article>
                   <article class="walkthrough-narration-step" data-narration-step="3"><b>Build a useful clinical draft</b></article>
-                  <article class="walkthrough-narration-step" data-narration-step="4"><b>Review, approve, send, and add the next patient</b></article>
+                  <article class="walkthrough-narration-step" data-narration-step="4"><b>Edit and sign off on each report</b></article>
                 </div>
               </div>
               <div class="walkthrough-playbar" aria-label="Walkthrough chapters">
@@ -2423,17 +2414,17 @@
           <p class="privacy-choice-intro">Records stay encrypted in transit and at rest. Choose how each source record is handled for the patient and workflow.<a class="text-link" href="compliance.html">See security and data handling →</a></p>
         </header>
         <div class="privacy-choice-grid">
-          <article class="privacy-choice-card"><div class="privacy-card-top"><span class="privacy-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 2.8 8 7 10 4.2-2 7-5.6 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-5"/></svg></span><span class="privacy-card-state">Optional mode</span></div><h3>Full anonymisation</h3><p>Remove identifying patient data before records enter the AI workflow.</p><div class="privacy-choice-setting"><span>De-identify before processing</span><i aria-hidden="true"></i></div></article>
-          <article class="privacy-choice-card"><div class="privacy-card-top"><span class="privacy-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5z"/><path d="m4 20 16-16"/></svg></span><span class="privacy-card-state">Optional mode</span></div><h3>No record storage</h3><p>Process source records without retaining them on n1 servers.</p><div class="privacy-choice-setting"><span>Delete source after processing</span><i aria-hidden="true"></i></div></article>
-          <article class="privacy-choice-card"><div class="privacy-card-top"><span class="privacy-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"/></svg></span><span class="privacy-card-state">Region choice</span></div><h3>Localised storage</h3><p>Keep encrypted records in the selected region when continued access and source review are needed.</p><div class="privacy-choice-setting"><span>Store in selected region</span><i aria-hidden="true"></i></div></article>
-          <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M12 15v2"/></svg></span><span class="partner-lockups"><span class="partner-logo is-cloudflare"><i>☁</i>Cloudflare</span></span></div><h3>TLS 1.3 in transit</h3><p>Every public connection is encrypted at the edge before patient data enters the platform.</p><div class="security-assurance"><span>Protected connection</span><strong>Public edge</strong></div></article>
-          <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span><span class="partner-lockups"><span class="partner-logo is-aws"><i>aws</i></span></span></div><h3>AES-256 at rest</h3><p>Stored source records and cloud data stores remain encrypted when they are not in use.</p><div class="security-assurance"><span>Encrypted storage</span><strong>At rest</strong></div></article>
-          <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M15 12v2"/></svg></span><span class="partner-lockups"><span class="partner-logo is-aws"><i>aws</i></span></span></div><h3>KMS-managed keys</h3><p>AWS KMS and Secrets Manager keep keys and credentials out of code and deployment files.</p><div class="security-assurance"><span>Managed secrets</span><strong>AWS KMS</strong></div></article>
-          <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 2.8 8 7 10 4.2-2 7-5.6 7-10V6l-7-3Z"/><path d="M8 12h8"/></svg></span><span class="partner-lockups"><span class="partner-logo is-cloudflare"><i>☁</i>Cloudflare</span></span></div><h3>Managed WAF + DDoS</h3><p>Managed rules, OWASP checks, private tunnels, and denial-of-service protection guard the public edge.</p><div class="security-assurance"><span>Threat protection</span><strong>Always on</strong></div></article>
-          <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3.5 2.4-5.3 5.5-5.3s4.9 1.8 5.5 5.3M16 8l2 2 3-4"/></svg></span><span class="partner-lockups"><span class="partner-logo is-google"><i>G</i>Google</span><span class="partner-logo is-cloudflare"><i>☁</i>Cloudflare</span></span></div><h3>Google sign-in + 2FA</h3><p>Company identity, mandatory two-factor authentication, Access, and WARP protect internal tools.</p><div class="security-assurance"><span>Identity verified</span><strong>Staff access</strong></div></article>
-          <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="13" width="7" height="7" rx="1"/><path d="M10 7h4M17 11v2"/></svg></span><span class="partner-lockups"><span class="partner-logo is-aws"><i>aws</i></span><span class="partner-logo is-google"><i>G</i>Google Cloud</span></span></div><h3>Isolated production</h3><p>Staging and production stay separate, with a dedicated production project for AI processing.</p><div class="security-assurance"><span>Separated boundary</span><strong>Production</strong></div></article>
+          <article class="privacy-choice-card"><div class="privacy-card-top"><span class="privacy-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 2.8 8 7 10 4.2-2 7-5.6 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-5"/></svg></span></div><h3>Full anonymisation</h3><p>Remove identifying patient data before records enter the AI workflow.</p></article>
+          <article class="privacy-choice-card"><div class="privacy-card-top"><span class="privacy-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5z"/><path d="m4 20 16-16"/></svg></span></div><h3>No record storage</h3><p>Process source records without retaining them on n1 servers.</p></article>
+          <article class="privacy-choice-card"><div class="privacy-card-top"><span class="privacy-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"/></svg></span></div><h3>Localised storage</h3><p>Keep encrypted records in the selected region when continued access and source review are needed.</p></article>
+          <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M12 15v2"/></svg></span></div><h3>TLS 1.3 in transit</h3><p>Every public connection is encrypted at the edge before patient data enters the platform.</p></article>
+          <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span></div><h3>AES-256 at rest</h3><p>Stored source records and cloud data stores remain encrypted when they are not in use.</p></article>
+          <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M15 12v2"/></svg></span></div><h3>KMS-managed keys</h3><p>AWS KMS and Secrets Manager keep keys and credentials out of code and deployment files.</p></article>
+          <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 2.8 8 7 10 4.2-2 7-5.6 7-10V6l-7-3Z"/><path d="M8 12h8"/></svg></span></div><h3>Managed WAF + DDoS</h3><p>Managed rules, OWASP checks, private tunnels, and denial-of-service protection guard the public edge.</p></article>
+          <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3.5 2.4-5.3 5.5-5.3s4.9 1.8 5.5 5.3M16 8l2 2 3-4"/></svg></span></div><h3>Google sign-in + 2FA</h3><p>Company identity, mandatory two-factor authentication, Access, and WARP protect internal tools.</p></article>
+          <article class="privacy-choice-card is-control"><div class="privacy-card-top"><span class="security-seal" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="13" width="7" height="7" rx="1"/><path d="M10 7h4M17 11v2"/></svg></span></div><h3>Isolated production</h3><p>Staging and production stay separate, with a dedicated production project for AI processing.</p></article>
         </div>
-        <p class="privacy-grid-note">Partner labels show infrastructure controls used by n1; they do not imply partner endorsement. Exact data handling depends on the selected workflow and region.</p>
+        <p class="privacy-grid-note">Exact data handling depends on the selected workflow and region.</p>
       </div>
     </section>
 
@@ -2677,14 +2668,14 @@
       <div class="shell">
         <header class="evidence-head">
           <div><p class="eyebrow">From source file to linked report</p><h2 id="security-title">See how n1 builds each fact.</h2></div>
-          <p>Each step stays in view. Check the data, the AI draft, the next check, and the source in the final report.</p>
+          <p>Each step adds one piece. First the record, then the biomarker, then the finding, then the check, then the table the doctor and patient can open.</p>
         </header>
         <ol class="traceability-flow" aria-label="Five steps from a source record to a validated, source-linked report">
-          <li class="traceability-step"><small>01 · Record</small><h3>Read the source.</h3><p>The original page stays intact.</p><div class="traceability-ui"><span>Laboratory report <i>Page 3</i></span><b>HbA1c result</b></div></li>
-          <li class="traceability-step"><small>02 · Extract</small><h3>Build clean data.</h3><p>Value, unit, date, and range are pulled out.</p><div class="traceability-ui"><span>HbA1c <b>6.1%</b></span><span>Reference <b>&lt;5.7%</b></span></div></li>
-          <li class="traceability-step is-ai"><small>03 · AI draft</small><h3>Draft the finding.</h3><p>AI turns the checked data into clear text.</p><div class="traceability-ui"><b>HbA1c is above the stated range.</b></div></li>
-          <li class="traceability-step is-verified"><small>04 · Validate</small><h3>Check it again.</h3><p>The draft is tested against the extracted result.</p><div class="traceability-ui"><span><i>✓</i> Value and unit match</span><span><i>✓</i> Date and range match</span></div></li>
-          <li class="traceability-step is-linked"><small>05 · Report</small><h3>Keep every link.</h3><p>The finding, data, and source page stay together.</p><div class="traceability-ui"><span>Finding <i>Open data ↗</i></span><span>Source <i>Page 3 ↗</i></span></div></li>
+          <li class="traceability-step"><small>01 · Record</small><h3>Extract the record.</h3><p>Take the original page from the file.</p><div class="traceability-ui"><span>Laboratory report <i>Page 3</i></span></div></li>
+          <li class="traceability-step"><small>02 · Data</small><h3>Save the data.</h3><p>Keep the biomarker and its value.</p><div class="traceability-ui"><span>HbA1c <b>6.1%</b></span></div></li>
+          <li class="traceability-step is-ai"><small>03 · AI</small><h3>Use only this data.</h3><p>The AI can write from saved data only.</p><div class="traceability-ui"><b>HbA1c is above the stated range.</b></div></li>
+          <li class="traceability-step is-verified"><small>04 · Check</small><h3>Check every link.</h3><p>Confirm each fact matches the saved data.</p><div class="traceability-ui"><span><i>✓</i> Value and unit match</span><span><i>✓</i> Date and range match</span></div></li>
+          <li class="traceability-step is-linked"><small>05 · Links</small><h3>Show the links.</h3><p>Doctor and patient can open the source.</p><div class="traceability-ui is-table"><b class="trace-table-name">HbA1c</b><table><tbody><tr><th>Value</th><td>6.1%</td></tr><tr><th>Range</th><td>&lt;5.7%</td></tr><tr><th>Source</th><td>Page 3 ↗</td></tr></tbody></table></div></li>
         </ol>
       </div>
     </section>
@@ -2692,20 +2683,31 @@
     <section class="approval-summary" aria-labelledby="approval-title">
       <div class="shell">
         <header class="evidence-head">
-          <div><p class="eyebrow">Doctor sign-off</p><h2 id="approval-title">You sign off each report.</h2></div>
+          <div><p class="eyebrow">Doctor sign-off</p><h2 id="approval-title">Edit and sign off on each report.</h2></div>
           <p>Check and edit each report before you share it.</p>
         </header>
-        <div class="approval-demo" role="group" aria-label="A Health Summary moving through clinician review and approval">
+        <div class="approval-demo" role="group" aria-label="A Health Summary moving through clinician review, approval, and sharing">
           <article class="approval-report">
-            <header><span><small>Health Summary</small><b>Draft for review</b></span><i>Not approved</i></header>
-            <div class="approval-report-body"><small>Executive summary</small><p>The patient’s metabolic markers are <mark>moving in the right direction</mark>, while LDL remains above the patient-specific target.</p><div class="approval-edit"><span>Selected text</span><b>Rewrite for clarity</b><i class="approval-apply">Apply edit</i></div></div>
+            <header><span><small>Health Summary</small><b>Draft for review</b></span><i>In review</i></header>
+            <div class="approval-report-body">
+              <small>Executive summary</small>
+              <p>The patient’s metabolic markers are <mark>moving in the right direction</mark>, while LDL remains above the patient-specific target.</p>
+              <aside class="approval-edit" aria-label="Rewrite selected report text">
+                <header><b>Rewrite selection</b><span>AI-assisted edit</span></header>
+                <p class="approval-edit-quote">“moving in the right direction”</p>
+                <label>Instruction</label>
+                <div class="approval-edit-prompt">Say the actual change in plain words. Keep the source fact.</div>
+                <label>Suggested rewrite</label>
+                <div class="approval-edit-result">HbA1c fell from 7.1% to 6.4%.</div>
+                <footer><span>Only the selected text will change</span><i class="approval-apply">Apply rewrite</i></footer>
+              </aside>
+            </div>
           </article>
           <article class="approval-actions">
             <span class="approval-step is-done"><i>✓</i><b>Data checked</b><small>83 extracted items reviewed</small></span>
             <span class="approval-step is-done"><i>✓</i><b>Sources checked</b><small>Every finding has a page link</small></span>
-            <span class="approval-step"><i>3</i><b>Clinician approval</b><small>Required before sharing</small></span>
-            <span class="approval-clinician"><img src="assets/n1-practice-review.webp" alt="Illustrative reviewing clinician" loading="lazy"><b>Reviewed by Dr Tanaka</b><small>Changes and checks recorded</small></span>
-            <i class="approval-approve">Approve report</i>
+            <span class="approval-step is-done is-person"><img src="assets/n1-practice-review.webp" alt="Illustrative reviewing clinician" loading="lazy"><b>Approved by Dr Tanaka</b><small>Signed after the rewrite</small></span>
+            <span class="approval-step is-share is-person"><span class="approval-patient-mark" aria-hidden="true">JD</span><b>Shared with patient</b><small>John Doe · patient portal</small></span>
           </article>
         </div>
       </div>
