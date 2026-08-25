@@ -1362,12 +1362,12 @@
     .traceability-step { position: relative; min-width: 0; min-height: 310px; display: flex; flex-direction: column; padding: 25px 20px 20px; border-right: 1px solid #dce4e1; background: #fbfaf7; transition: background-color .45s ease, box-shadow .45s ease; }
     .traceability-step:last-child { border-right: 0; }
     .traceability-step::before { position: absolute; top: 0; right: 0; left: 0; height: 3px; background: #3f8f88; content: ''; opacity: 0; transform: scaleX(.25); transform-origin: left; transition: opacity .35s ease, transform .45s ease; }
-    .traceability-step::after { position: absolute; z-index: 2; top: 50%; right: -9px; width: 18px; height: 28px; display: grid; place-items: center; color: #78908b; background: #fbfaf7; font-size: 18px; content: '›'; transform: translateY(-50%); transition: color .35s ease, background-color .35s ease; }
+    .traceability-step::after { position: absolute; z-index: 2; top: 47%; right: 8px; width: 22px; height: 22px; display: grid; place-items: center; border: 1px solid #c5d5d1; border-radius: 50%; color: #547a75; background: #fbfaf7; font: 700 12px/1 var(--sans); content: '→'; transform: translateY(-50%); transition: color .35s ease, border-color .35s ease, background-color .35s ease; }
     .traceability-step:last-child::after { display: none; }
     .traceability-step > small { color: #55746f; font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; transition: color .35s ease; }
     .traceability-step > h3 { min-height: 51px; margin: 12px 0 7px; color: #202523; font: 400 24px/1.06 var(--serif); }
     .traceability-step > p { min-height: 38px; margin: 0; color: #65716d; font-size: 13px; line-height: 1.45; }
-    .traceability-ui { height: 178px; min-height: 178px; display: grid; align-content: center; gap: 8px; margin-top: 20px; padding: 14px; overflow: hidden; border: 1px solid #d7e1de; border-radius: 11px; background: rgba(255,255,255,.88); box-shadow: 0 8px 22px -22px rgba(35,56,50,.35); transition: border-color .45s ease, background-color .45s ease, box-shadow .45s ease, transform .45s ease; }
+    .traceability-ui { height: 178px; min-height: 178px; display: grid; align-content: start; gap: 8px; margin-top: 20px; padding: 14px; overflow: hidden; border: 1px solid #d7e1de; border-radius: 11px; background: rgba(255,255,255,.88); box-shadow: 0 8px 22px -22px rgba(35,56,50,.35); transition: border-color .45s ease, background-color .45s ease, box-shadow .45s ease; }
     .traceability-ui, .traceability-ui button, .traceability-ui table { font-family: var(--sans); }
     .traceability-ui span { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #68746f; font-size: 10px; }
     .traceability-ui b, .traceability-ui strong { color: #244b49; font-size: 11px; }
@@ -1391,7 +1391,7 @@
     .traceability-step.is-active::before { opacity: 1; transform: scaleX(1); }
     .traceability-step.is-active::after { color: #376361; background: #eef6f4; }
     .traceability-step.is-active > small { color: #24746e; }
-    .traceability-step.is-active .traceability-ui { border-color: #9fc8c1; background: #fff; box-shadow: 0 15px 30px -24px rgba(35,90,82,.52); transform: translateY(-3px); }
+    .traceability-step.is-active .traceability-ui { border-color: #9fc8c1; background: #fff; box-shadow: 0 15px 30px -24px rgba(35,90,82,.52); }
     .traceability-flow.is-paused .traceability-step { transition-duration: .2s; }
     .traceability-step.is-active .trace-record-name,
     .traceability-step.is-active .traceability-ui.is-record > span,
