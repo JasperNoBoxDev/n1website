@@ -429,6 +429,14 @@ button { font: inherit; }
 .thumb-safety-row small { color: #7a8581; font-size: 7px; }
 .thumb-safety-row em { width: 58px; box-sizing: border-box; padding: 4px 6px; border-radius: 999px; color: #8b6124; background: #fff1d6; font-size: 7px; font-style: normal; font-weight: 800; text-align: center; white-space: nowrap; }
 .thumb-safety-row em.is-clear { color: #2d7958; background: #e3f2e9; }
+.is-supplement .thumb-biomarker-head { margin-top: 1px; }
+.is-supplement .thumb-supp-spark { height: 52px; }
+.thumb-monitor-plan { display: grid; grid-template-columns: 24px minmax(0,1fr) auto; gap: 7px; align-items: center; padding: 7px 8px; border: 1px solid #c8ddd7; border-radius: 7px; background: #f0f7f5; }
+.thumb-monitor-plan > i { width: 24px; height: 24px; display: grid; place-items: center; border-radius: 6px; color: #2f7773; background: #dceee9; font-size: 11px; font-style: normal; font-weight: 800; }
+.thumb-monitor-plan b, .thumb-monitor-plan small { display: block; }
+.thumb-monitor-plan b { color: #294d49; font-size: 7.5px; }
+.thumb-monitor-plan small { margin-top: 2px; color: #6b7975; font-size: 6.5px; }
+.thumb-monitor-plan > em { color: #2f7773; font-size: 6.5px; font-style: normal; font-weight: 800; white-space: nowrap; }
 .thumb-checks { display: flex; flex-wrap: wrap; gap: 4px; }
 .thumb-checks span { padding: 4px 5px; border-radius: 5px; color: #5e6b67; background: #f0f4f2; font-size: 6.5px; }
 .thumb-spark .sp-dot { fill: var(--wine); }
