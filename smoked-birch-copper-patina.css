@@ -55,14 +55,14 @@ body.marketing-page {
 
 .page-media::after {
   background:
-    linear-gradient(92deg, rgba(23, 24, 23, 0.90), rgba(55, 99, 97, 0.16) 62%),
+    linear-gradient(92deg, rgba(23, 24, 23, 0.90), rgba(23, 24, 23, 0.16) 62%),
     linear-gradient(0deg, rgba(23, 24, 23, 0.82), transparent 56%);
 }
 
 .page-media video,
 .page-media img,
 .practice-strip img {
-  filter: saturate(.78) sepia(.05) hue-rotate(112deg);
+  filter: none;
 }
 
 .workflow-visual,

@@ -40,14 +40,14 @@ body.marketing-page { color: var(--ink); background: var(--cream); }
    carries a .media-credit (defined in art-directions.css): this is concept
    footage, and the page says so rather than implying it is an n1 customer. */
 .page-media { position: relative; overflow: hidden; border-radius: var(--n1-radius-5xl); color: var(--cream); background: var(--ink); }
-.page-media video, .page-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .82; filter: saturate(.72) sepia(.12); }
+.page-media video, .page-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .82; filter: none; }
 /* Two ramps, and the split of labour matters. The vertical one carries the
    legibility — it is under the copy and does the contrast work. The horizontal
    one is only shaping, so it stays light: pushed harder it swallowed the
    subject of the shot, which on these frames is the whole point of using
    footage at all. Copy sits where the two overlap, so cream on this lands far
    past 4.5:1 even against a blown-out white pixel. */
-.page-media::after { position: absolute; inset: 0; background: linear-gradient(92deg, rgba(43,26,33,.86), rgba(43,26,33,.12) 62%), linear-gradient(0deg, rgba(43,26,33,.78), transparent 56%); content: ""; }
+.page-media::after { position: absolute; inset: 0; background: linear-gradient(92deg, rgba(23,24,23,.86), rgba(23,24,23,.12) 62%), linear-gradient(0deg, rgba(23,24,23,.78), transparent 56%); content: ""; }
 /* The credit is positioned against the frame, not laid out in the copy, so the
    copy has to leave room for it rather than push it. At full width the padding
    does that on its own; as it shrinks the last line of the paragraph drops into
@@ -377,7 +377,7 @@ body.marketing-page { color: var(--ink); background: var(--cream); }
    is the one thing these photographs must not imply. */
 .practice-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2.4vw, 30px); max-width: 900px; }
 .practice-strip figure { margin: 0; }
-.practice-strip img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; display: block; border: 1px solid var(--line); border-radius: var(--n1-radius-4xl); background: var(--paper); filter: saturate(.78) sepia(.1); }
+.practice-strip img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; display: block; border: 1px solid var(--line); border-radius: var(--n1-radius-4xl); background: var(--paper); filter: none; }
 .practice-strip figcaption { margin-top: 16px; }
 .practice-strip b { display: block; color: var(--ink); font-size: 13px; font-weight: 700; }
 .practice-strip span { display: block; margin-top: 6px; color: var(--muted); font-size: 13px; line-height: 1.65; }

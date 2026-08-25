@@ -57,10 +57,7 @@
   gap: 10px;
   padding: 10px 19px;
   border: 1px solid var(--button-border);
-  /* --n1-radius-sm, i.e. square. The token file spells the rule out: a 2px
-     button corner reads as a rendering artefact rather than a decision, and
-     --n1-radius-full must never reach a button. */
-  border-radius: var(--n1-radius-sm);
+  border-radius: var(--n1-radius-2xl);
   color: var(--button-fg);
   background: var(--button-bg);
   font-size: 13px;
@@ -103,6 +100,4 @@
 .tonal .button.sm { min-height: 40px; padding: 8px 16px; font-size: 12px; gap: 8px; }
 .tonal .button.lg { min-height: 48px; padding: 12px 24px; font-size: 14px; }
 
-/* Nav buttons are square like every other control. The navbar itself is a
-   container and softens to --n1-radius-2xl; that is a container decision and
-   does not propagate to the control inside it. */
+/* Nav buttons share the compact --n1-radius-2xl corner used by other CTAs. */

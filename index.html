@@ -29,7 +29,7 @@
       max-width: none;
       object-fit: cover;
       object-position: 58% center;
-      filter: saturate(.94) contrast(1.04);
+      filter: none;
     }
     .tonal-hero-video::after {
       position: absolute;
@@ -38,8 +38,8 @@
       background:
         /* Stops are in px, not %, because the copy column is a fixed px width.
            A percentage fade lets the text outrun the scrim on narrow windows. */
-        linear-gradient(90deg, rgba(10, 18, 17, .90) 0, rgba(10, 18, 17, .84) 420px, rgba(10, 18, 17, .72) 760px, rgba(10, 18, 17, .46) 1040px, rgba(10, 18, 17, .16) 1320px, transparent 1520px),
-        linear-gradient(180deg, rgba(7, 12, 12, .30), transparent 40%, rgba(7, 12, 12, .42));
+        linear-gradient(90deg, rgba(10, 10, 10, .90) 0, rgba(10, 10, 10, .84) 420px, rgba(10, 10, 10, .72) 760px, rgba(10, 10, 10, .46) 1040px, rgba(10, 10, 10, .16) 1320px, transparent 1520px),
+        linear-gradient(180deg, rgba(7, 7, 7, .30), transparent 40%, rgba(7, 7, 7, .42));
       pointer-events: none;
     }
     .tonal-orbit-wrap { display: none; }
@@ -62,7 +62,7 @@
       filter: blur(2px);
     }
     .tonal-scroll-sequence.is-engaged .tonal-hero-video::after {
-      background: rgba(14, 20, 20, .68);
+      background: rgba(14, 14, 14, .68);
     }
     .tonal-motion .tonal-scroll-sequence { height: 100svh; }
     .tonal-scroll-sticky { position: relative; }
@@ -175,8 +175,8 @@
     .workflow-card:nth-child(2) { color: #f7f4ed; border-color: #376361; background: #376361; transform: translateY(-18px); box-shadow: 0 30px 60px -36px rgba(35,56,50,.62); }
     .workflow-card-media { position: relative; height: 210px; margin: 0; overflow: hidden; border-radius: 13px; background: #e5ebe8; }
     .workflow-card:nth-child(2) .workflow-card-media { height: 236px; }
-    .workflow-card-media img { width: 100%; height: 100%; display: block; object-fit: cover; filter: saturate(.76); transition: transform .7s cubic-bezier(.22,.8,.28,1), filter .4s ease; }
-    .workflow-card:hover .workflow-card-media img { filter: saturate(.95); transform: scale(1.025); }
+    .workflow-card-media img { width: 100%; height: 100%; display: block; object-fit: cover; filter: none; transition: transform .7s cubic-bezier(.22,.8,.28,1); }
+    .workflow-card:hover .workflow-card-media img { filter: none; transform: scale(1.025); }
     .workflow-card-media figcaption { position: absolute; left: 12px; bottom: 12px; padding: 6px 9px; border-radius: 999px; color: #244b49; background: rgba(247,251,250,.94); font-size: 9px; font-weight: 800; letter-spacing: .04em; }
     .workflow-card-media.is-portrait img { object-position: center 28%; }
     .workflow-card-media.is-consult img { object-position: center 42%; }
@@ -193,8 +193,13 @@
     .workflow-story-link { width: max-content; min-height: 38px; display: inline-flex; align-items: center; margin-top: 16px; padding: 0 14px; border-radius: 8px; color: #fff; background: #376361; box-shadow: 0 8px 20px -14px rgba(35,56,50,.45); font-size: 11px; font-weight: 800; text-decoration: none; transition: background .2s ease, transform .2s ease; }
     .workflow-story-link:hover { background: #244b49; transform: translateY(-1px); }
     .workflow-card:nth-child(2) .workflow-story-link { color: #244b49; background: #d9eeeb; }
-    .workflow-rail-note { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin-top: 20px; color: var(--muted); font-size: 10px; letter-spacing: .04em; }
-    .workflow-rail-note b { color: var(--ink); font-weight: 700; }
+  .workflow-rail-note { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin-top: 20px; color: var(--muted); font-size: 10px; letter-spacing: .04em; }
+  .workflow-rail-note b { color: var(--ink); font-weight: 700; }
+  .clinician-testimonial .testimonial-grid { display: block; max-width: 1080px; margin-inline: auto; }
+  .clinician-testimonial .t-card.is-featured { width: 100%; min-height: 360px; }
+  .clinician-testimonial .t-card.is-featured .t-quote { color: var(--cream) !important; }
+  .clinician-testimonial .t-card.is-featured .t-author,
+  .clinician-testimonial .t-card.is-featured .t-author b { color: rgba(244,237,223,.82); }
 
     /* Evidence-led conversion path: product facts replace fictional partner proof. */
     .proof-strip { position: relative; z-index: 2; color: var(--ink); background: var(--cream); border-top: 1px solid var(--mist); }
@@ -1323,15 +1328,16 @@
     .site-footer, .site-footer .footer-tagline, .site-footer .footer-col a, .site-footer .footer-bottom, .site-footer .footer-contact .fc-label { color: #dcd3cb; }
     .site-footer .footer-cols { grid-template-columns: repeat(3, 1fr); }
     :focus-visible { outline: 3px solid var(--peach); outline-offset: 3px; }
-    @media (max-width: 1160px) {
+    @media (max-width: 1280px) {
       .tonal-motion .nav-inner { position: relative; display: flex; justify-content: space-between; }
       .nav-toggle { display: block; }
       .nav-menu { position: absolute; top: 54px; left: 0; right: 0; display: none; padding: 18px; border-radius: 18px; background: var(--berry); box-shadow: 0 18px 45px rgba(36,21,28,.35); }
       .nav-menu.is-open { display: block; }
       .nav-menu .nav-links { display: grid; gap: 0; }
       .nav-menu .nav-links a { min-height: 44px; display: flex; align-items: center; border-bottom: 1px solid rgba(244,237,223,.14); }
-      .nav-menu .nav-actions { display: block; margin-top: 14px; }
+      .nav-menu .nav-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 14px; }
       .nav-menu .nav-actions .button { width: 100%; }
+      .nav-menu .nav-actions .login { min-height: 40px; display: flex; grid-column: 1 / -1; grid-row: 2; align-items: center; justify-content: center; }
     }
     @media (min-width: 901px) and (max-height: 950px) {
       .doctor-features { padding: 76px 0 64px; }
@@ -1358,8 +1364,8 @@
       .tonal-hero-video video { object-position: 64% center; }
       .tonal-hero-video::after {
         background:
-          linear-gradient(90deg, rgba(10, 18, 17, .90), rgba(10, 18, 17, .62) 72%, rgba(10, 18, 17, .44)),
-          linear-gradient(180deg, rgba(7, 12, 12, .28), transparent 38%, rgba(7, 12, 12, .44));
+          linear-gradient(90deg, rgba(10, 10, 10, .90), rgba(10, 10, 10, .62) 72%, rgba(10, 10, 10, .44)),
+          linear-gradient(180deg, rgba(7, 7, 7, .28), transparent 38%, rgba(7, 7, 7, .44));
       }
       .tonal-motion .nav-inner { position: relative; display: flex; justify-content: space-between; }
       .nav-toggle { display: block; }
@@ -1367,8 +1373,9 @@
       .nav-menu.is-open { display: block; }
       .nav-menu .nav-links { display: grid; gap: 0; }
       .nav-menu .nav-links a { min-height: 44px; display: flex; align-items: center; border-bottom: 1px solid rgba(244,237,223,.14); }
-      .nav-menu .nav-actions { display: block; margin-top: 14px; }
+      .nav-menu .nav-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 14px; }
       .nav-menu .nav-actions .button { width: 100%; }
+      .nav-menu .nav-actions .login { min-height: 40px; display: flex; grid-column: 1 / -1; grid-row: 2; align-items: center; justify-content: center; }
       .proof-grid { grid-template-columns: repeat(2, 1fr); }
       .proof-item:nth-child(3) { padding-left: 0; border-left: 0; }
       .proof-item:nth-child(3) { padding-left: 0; border-left: 0; border-top: 1px solid var(--mist); }
@@ -1709,6 +1716,9 @@
   .tonal-motion .nav.is-past-hero.is-light-phase { color: #f3ede2 !important; }
   .tonal-motion .nav.is-past-hero.is-light-phase .nav-inner { background: #376361 !important; box-shadow: 0 12px 30px #17181725 !important; }
   .tonal-motion .nav.is-past-hero.is-light-phase .button { color: #2a2b2a !important; background: #f3ede2 !important; border-color: #f3ede2 !important; }
+  .tonal-motion .nav .nav-actions .button.secondary { color: #ffffff !important; border-color: #ffffff88 !important; background: #17181766 !important; }
+  .tonal-motion .nav.is-light-phase:not(.is-past-hero) .nav-actions .button.secondary { color: #2a2b2a !important; border-color: #2a2b2a88 !important; background: transparent !important; }
+  .tonal-motion .nav.is-past-hero.is-light-phase .nav-actions .button.secondary { color: #f3ede2 !important; border-color: #f3ede288 !important; background: transparent !important; }
 
   /* Typography & Headings */
   h1, h2, h3, h4, h5, h6 { color: #171817 !important; text-shadow: none !important; }
@@ -1819,7 +1829,7 @@
   .tonal-lab { background: #f3ede2 !important; }
   .tonal-lab-frame { background: #171817 !important; color: #ffffff !important; }
   .tonal-lab-frame::after {
-    background: linear-gradient(90deg, rgba(24,48,45,.9), rgba(24,48,45,.68) 44%, rgba(24,48,45,.18) 76%, transparent 100%),
+    background: linear-gradient(90deg, rgba(23,24,23,.9), rgba(23,24,23,.68) 44%, rgba(23,24,23,.18) 76%, transparent 100%),
                 linear-gradient(0deg, rgba(23,24,23,.42), transparent 48%) !important;
   }
   .tonal-lab-copy { color: #ffffff !important; text-shadow: none !important; }
@@ -2099,7 +2109,7 @@
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open navigation"><span></span></button>
       <div class="nav-menu" id="primary-menu">
         <div class="nav-links"><a href="product.html">Product</a><a href="clinicians.html">For clinicians</a><a href="patients.html">For patients</a><a href="labs.html">For labs</a><a href="reports.html">Reports</a><a href="compliance.html">Compliance</a><a href="pricing.html">Pricing</a><a href="about.html">About</a></div>
-        <div class="nav-actions"><a class="login" href="https://app.n1.care/login">Log in</a><a class="button" href="contact.html?intent=walkthrough">Book a walkthrough</a></div>
+        <div class="nav-actions"><a class="login" href="https://app.n1.care/login">Log in</a><a class="button" href="https://app.n1.care/signup">Start free trial</a><a class="button secondary" href="contact.html?intent=walkthrough">Book a walkthrough</a></div>
       </div>
     </div>
   </nav>
@@ -2120,7 +2130,7 @@
               <div class="tonal-hero-bottom hero-actions-only">
                 <div class="hero-actions">
                   <a class="button" href="https://app.n1.care/signup">Start free trial <span aria-hidden="true">→</span></a>
-                  <button class="button secondary" type="button" data-report="Health_summary_demo-1.html" data-title="Health Summary">Open a sample report</button>
+                  <a class="button secondary" href="contact.html?intent=walkthrough">Book a walkthrough</a>
                 </div>
               </div>
             </div>
@@ -2173,7 +2183,7 @@
                 <div class="walkthrough-product">
                   <header class="walk-product-topbar">
                     <span class="walk-product-brand"><img src="assets/n1-care-dark-green.svg" alt="n1.care"></span>
-                    <span class="walk-patient-switch"><b data-patient-initials>JR</b><span><i data-patient-name>Jordan Rivera</i><small>Synthetic patient</small></span></span>
+                    <span class="walk-patient-switch"><b data-patient-initials>JD</b><span><i data-patient-name>John Doe</i><small>Synthetic patient</small></span></span>
                     <span class="walk-product-actions">
                       <button class="walk-add-patient" type="button" data-walk-add-patient>＋ Add patient</button>
                       <span class="walk-secure-state"><i></i>Encrypted record</span>
@@ -2205,7 +2215,7 @@
                     </nav>
                     <div class="walk-product-main">
                       <section class="walkthrough-panel is-active" id="walkthrough-panel-records" role="tabpanel" aria-labelledby="walkthrough-tab-records" aria-hidden="false" data-walkthrough-panel="0">
-                        <div class="walk-page-head"><div><span data-record-count>Jordan Rivera · 14 records</span><h4>Medical Records</h4></div><button class="walk-primary-action" type="button">＋ Upload Records</button></div>
+                        <div class="walk-page-head"><div><span data-record-count>John Doe · 14 records</span><h4>Medical Records</h4></div><button class="walk-primary-action" type="button">＋ Upload Records</button></div>
                         <div class="walk-empty-state"><i>＋</i><b>No records yet</b><p>Upload the first files to build this patient history.</p></div>
                         <span class="walk-upload-cursor" aria-hidden="true"></span>
                         <aside class="walk-upload-popover" aria-hidden="true">
@@ -2237,27 +2247,27 @@
                         <div class="walk-records-statusline"><span><span class="walk-status-labels"><b class="walk-status-uploading">Uploading 3 records</b><b class="walk-status-processing">Secure processing</b><b class="walk-status-ready">All 3 records ready</b></span></span><small>Encrypted in transit</small></div>
                         <div class="walk-table walk-records-table">
                           <div class="walk-table-row walk-table-head"><span>Record</span><span>Type</span><span>Uploaded</span><span>Status</span></div>
-                          <div class="walk-table-row walk-record-row"><span><b>Metro Pathology</b><small>metro-pathology-mar-2025.pdf</small></span><span>Lab report</span><span>14 Mar 2025</span><span><em class="walk-live-status" aria-label="Metro Pathology processing status"><i aria-hidden="true"><u>✓</u></i><span class="walk-stage-labels"><u class="walk-stage-preparing">Preparing</u><u class="walk-stage-queued">Queued</u><u class="walk-stage-routing">Routing</u><u class="walk-stage-parsing">Parsing</u><u class="walk-stage-grouping">Grouping</u><u class="walk-stage-storing">Storing</u><u class="walk-stage-complete">Complete</u></span><b></b></em></span></div>
-                          <div class="walk-table-row walk-record-row"><span><b>Cardiology consult</b><small>consult-note-2025.pdf</small></span><span>Consult note</span><span>11 Mar 2025</span><span><em class="walk-live-status" aria-label="Cardiology consult processing status"><i aria-hidden="true"><u>✓</u></i><span class="walk-stage-labels"><u class="walk-stage-preparing">Preparing</u><u class="walk-stage-queued">Queued</u><u class="walk-stage-routing">Routing</u><u class="walk-stage-parsing">Parsing</u><u class="walk-stage-grouping">Grouping</u><u class="walk-stage-storing">Storing</u><u class="walk-stage-complete">Complete</u></span><b></b></em></span></div>
-                          <div class="walk-table-row walk-record-row"><span><b>Northside Imaging</b><small>cardiac-ct-2024.pdf</small></span><span>Imaging</span><span>22 Nov 2024</span><span><em class="walk-live-status" aria-label="Northside Imaging processing status"><i aria-hidden="true"><u>✓</u></i><span class="walk-stage-labels"><u class="walk-stage-preparing">Preparing</u><u class="walk-stage-queued">Queued</u><u class="walk-stage-routing">Routing</u><u class="walk-stage-parsing">Parsing</u><u class="walk-stage-grouping">Grouping</u><u class="walk-stage-storing">Storing</u><u class="walk-stage-complete">Complete</u></span><b></b></em></span></div>
+                          <div class="walk-table-row walk-record-row"><span><b>Metro Pathology</b><small>metro-pathology-mar-2025.pdf</small></span><span>Lab report</span><span>2025-Mar-14</span><span><em class="walk-live-status" aria-label="Metro Pathology processing status"><i aria-hidden="true"><u>✓</u></i><span class="walk-stage-labels"><u class="walk-stage-preparing">Preparing</u><u class="walk-stage-queued">Queued</u><u class="walk-stage-routing">Routing</u><u class="walk-stage-parsing">Parsing</u><u class="walk-stage-grouping">Grouping</u><u class="walk-stage-storing">Storing</u><u class="walk-stage-complete">Complete</u></span><b></b></em></span></div>
+                          <div class="walk-table-row walk-record-row"><span><b>Cardiology consult</b><small>consult-note-2025.pdf</small></span><span>Consult note</span><span>2025-Mar-11</span><span><em class="walk-live-status" aria-label="Cardiology consult processing status"><i aria-hidden="true"><u>✓</u></i><span class="walk-stage-labels"><u class="walk-stage-preparing">Preparing</u><u class="walk-stage-queued">Queued</u><u class="walk-stage-routing">Routing</u><u class="walk-stage-parsing">Parsing</u><u class="walk-stage-grouping">Grouping</u><u class="walk-stage-storing">Storing</u><u class="walk-stage-complete">Complete</u></span><b></b></em></span></div>
+                          <div class="walk-table-row walk-record-row"><span><b>Northside Imaging</b><small>cardiac-ct-2024.pdf</small></span><span>Imaging</span><span>2024-Nov-22</span><span><em class="walk-live-status" aria-label="Northside Imaging processing status"><i aria-hidden="true"><u>✓</u></i><span class="walk-stage-labels"><u class="walk-stage-preparing">Preparing</u><u class="walk-stage-queued">Queued</u><u class="walk-stage-routing">Routing</u><u class="walk-stage-parsing">Parsing</u><u class="walk-stage-grouping">Grouping</u><u class="walk-stage-storing">Storing</u><u class="walk-stage-complete">Complete</u></span><b></b></em></span></div>
                         </div>
                         <aside class="walk-process-note" aria-label="Processing complete"><i>✓</i><div><div class="walk-process-heading"><b>All record data is ready</b><small>3 documents processed</small></div><div class="walk-extract-grid"><span><b>83</b>Biomarkers</span><span><b>2</b>Diagnoses</span><span><b>1</b>Procedure</span><span><b>5</b>Medications</span><span><b>7</b>Supplements</span><span><b>1</b>Genetics</span></div></div></aside>
                       </section>
 
                       <section class="walkthrough-panel" id="walkthrough-panel-insights" role="tabpanel" aria-labelledby="walkthrough-tab-insights" aria-hidden="true" data-walkthrough-panel="1">
-                        <div class="walk-page-head"><div><span><i data-patient-name>Jordan Rivera</i> · 83 biomarkers from 3 records</span><h4>Biomarkers</h4></div><b class="walk-outline-action">Export</b></div>
+                        <div class="walk-page-head"><div><span><i data-patient-name>John Doe</i> · 83 biomarkers from 3 records</span><h4>Biomarkers</h4></div><b class="walk-outline-action">Export</b></div>
                         <div class="walk-empty-state"><i>⌁</i><b>No biomarkers yet</b><p>Upload a record with lab results to build the trend view.</p></div>
                         <div class="walk-evidence-layout">
                           <div class="walk-marker-list">
                             <div class="walk-marker-head"><span>Marker</span><span>Latest</span><span>Trend</span></div>
                             <div class="walk-marker-scroll">
-                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="hba1c"><span><b>HbA1c</b><small>Blood · 6 readings</small></span><strong>6.4%<small>14 Mar 2025</small></strong><i class="walk-marker-sparkline" aria-label="Falling trend across six readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 3 L9 5 L16 6 L24 9 L32 10 L40 13"/><circle cx="2" cy="3" r="1.1"/><circle cx="9" cy="5" r="1.1"/><circle cx="16" cy="6" r="1.1"/><circle cx="24" cy="9" r="1.1"/><circle cx="32" cy="10" r="1.1"/><circle cx="40" cy="13" r="2.2"/></svg></i></button>
-                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="ldl"><span><b>LDL cholesterol</b><small>Blood · 7 readings</small></span><strong>116 mg/dL<small>14 Mar 2025</small></strong><i class="walk-marker-sparkline" aria-label="Falling trend across seven readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 4 L8 5 L14 7 L21 6 L28 10 L34 11 L40 13"/><circle cx="2" cy="4" r="1.1"/><circle cx="8" cy="5" r="1.1"/><circle cx="14" cy="7" r="1.1"/><circle cx="21" cy="6" r="1.1"/><circle cx="28" cy="10" r="1.1"/><circle cx="34" cy="11" r="1.1"/><circle cx="40" cy="13" r="2.2"/></svg></i></button>
-                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="crp"><span><b>hs-CRP</b><small>Blood · 5 readings</small></span><strong>1.8 mg/L<small>14 Mar 2025</small></strong><i class="walk-marker-sparkline" aria-label="Falling trend across five readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 3 L11 7 L20 6 L30 11 L40 14"/><circle cx="2" cy="3" r="1.1"/><circle cx="11" cy="7" r="1.1"/><circle cx="20" cy="6" r="1.1"/><circle cx="30" cy="11" r="1.1"/><circle cx="40" cy="14" r="2.2"/></svg></i></button>
-                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="vitd"><span><b>Vitamin D</b><small>Blood · 6 readings</small></span><strong>71 nmol/L<small>14 Mar 2025</small></strong><i class="walk-marker-sparkline" aria-label="Rising trend across six readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 14 L9 12 L17 13 L25 8 L33 7 L40 4"/><circle cx="2" cy="14" r="1.1"/><circle cx="9" cy="12" r="1.1"/><circle cx="17" cy="13" r="1.1"/><circle cx="25" cy="8" r="1.1"/><circle cx="33" cy="7" r="1.1"/><circle cx="40" cy="4" r="2.2"/></svg></i></button>
-                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="homocysteine"><span><b>Homocysteine</b><small>Blood · 5 readings</small></span><strong>14.2 µmol/L<small>14 Mar 2025</small></strong><i class="walk-marker-sparkline" aria-label="Stable trend across five readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 9 L11 8 L20 10 L30 8 L40 9"/><circle cx="2" cy="9" r="1.1"/><circle cx="11" cy="8" r="1.1"/><circle cx="20" cy="10" r="1.1"/><circle cx="30" cy="8" r="1.1"/><circle cx="40" cy="9" r="2.2"/></svg></i></button>
-                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="tsh"><span><b>TSH</b><small>Blood · 6 readings</small></span><strong>2.1 mIU/L<small>14 Mar 2025</small></strong><i class="walk-marker-sparkline" aria-label="Stable trend across six readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 8 L9 10 L16 7 L24 9 L32 8 L40 9"/><circle cx="2" cy="8" r="1.1"/><circle cx="9" cy="10" r="1.1"/><circle cx="16" cy="7" r="1.1"/><circle cx="24" cy="9" r="1.1"/><circle cx="32" cy="8" r="1.1"/><circle cx="40" cy="9" r="2.2"/></svg></i></button>
-                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="ferritin"><span><b>Ferritin</b><small>Blood · 5 readings</small></span><strong>84 µg/L<small>22 Nov 2024</small></strong><i class="walk-marker-sparkline" aria-label="Rising trend across five readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 13 L11 11 L20 12 L30 7 L40 4"/><circle cx="2" cy="13" r="1.1"/><circle cx="11" cy="11" r="1.1"/><circle cx="20" cy="12" r="1.1"/><circle cx="30" cy="7" r="1.1"/><circle cx="40" cy="4" r="2.2"/></svg></i></button>
+                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="hba1c"><span><b>HbA1c</b><small>Blood · 6 readings</small></span><strong>6.4%<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Falling trend across six readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 3 L9 5 L16 6 L24 9 L32 10 L40 13"/><circle cx="2" cy="3" r="1.1"/><circle cx="9" cy="5" r="1.1"/><circle cx="16" cy="6" r="1.1"/><circle cx="24" cy="9" r="1.1"/><circle cx="32" cy="10" r="1.1"/><circle cx="40" cy="13" r="2.2"/></svg></i></button>
+                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="ldl"><span><b>LDL cholesterol</b><small>Blood · 7 readings</small></span><strong>116 mg/dL<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Falling trend across seven readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 4 L8 5 L14 7 L21 6 L28 10 L34 11 L40 13"/><circle cx="2" cy="4" r="1.1"/><circle cx="8" cy="5" r="1.1"/><circle cx="14" cy="7" r="1.1"/><circle cx="21" cy="6" r="1.1"/><circle cx="28" cy="10" r="1.1"/><circle cx="34" cy="11" r="1.1"/><circle cx="40" cy="13" r="2.2"/></svg></i></button>
+                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="crp"><span><b>hs-CRP</b><small>Blood · 5 readings</small></span><strong>1.8 mg/L<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Falling trend across five readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 3 L11 7 L20 6 L30 11 L40 14"/><circle cx="2" cy="3" r="1.1"/><circle cx="11" cy="7" r="1.1"/><circle cx="20" cy="6" r="1.1"/><circle cx="30" cy="11" r="1.1"/><circle cx="40" cy="14" r="2.2"/></svg></i></button>
+                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="vitd"><span><b>Vitamin D</b><small>Blood · 6 readings</small></span><strong>71 nmol/L<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Rising trend across six readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 14 L9 12 L17 13 L25 8 L33 7 L40 4"/><circle cx="2" cy="14" r="1.1"/><circle cx="9" cy="12" r="1.1"/><circle cx="17" cy="13" r="1.1"/><circle cx="25" cy="8" r="1.1"/><circle cx="33" cy="7" r="1.1"/><circle cx="40" cy="4" r="2.2"/></svg></i></button>
+                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="homocysteine"><span><b>Homocysteine</b><small>Blood · 5 readings</small></span><strong>14.2 µmol/L<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Stable trend across five readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 9 L11 8 L20 10 L30 8 L40 9"/><circle cx="2" cy="9" r="1.1"/><circle cx="11" cy="8" r="1.1"/><circle cx="20" cy="10" r="1.1"/><circle cx="30" cy="8" r="1.1"/><circle cx="40" cy="9" r="2.2"/></svg></i></button>
+                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="tsh"><span><b>TSH</b><small>Blood · 6 readings</small></span><strong>2.1 mIU/L<small>2025-Mar-14</small></strong><i class="walk-marker-sparkline" aria-label="Stable trend across six readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 8 L9 10 L16 7 L24 9 L32 8 L40 9"/><circle cx="2" cy="8" r="1.1"/><circle cx="9" cy="10" r="1.1"/><circle cx="16" cy="7" r="1.1"/><circle cx="24" cy="9" r="1.1"/><circle cx="32" cy="8" r="1.1"/><circle cx="40" cy="9" r="2.2"/></svg></i></button>
+                              <button class="walk-marker-row" type="button" aria-pressed="false" data-marker="ferritin"><span><b>Ferritin</b><small>Blood · 5 readings</small></span><strong>84 µg/L<small>2024-Nov-22</small></strong><i class="walk-marker-sparkline" aria-label="Rising trend across five readings"><svg viewBox="0 0 42 18" aria-hidden="true"><path d="M2 13 L11 11 L20 12 L30 7 L40 4"/><circle cx="2" cy="13" r="1.1"/><circle cx="11" cy="11" r="1.1"/><circle cx="20" cy="12" r="1.1"/><circle cx="30" cy="7" r="1.1"/><circle cx="40" cy="4" r="2.2"/></svg></i></button>
                             </div>
                             <div class="walk-marker-handoff"><span><b>83 biomarkers ready</b></span><small>From 3 processed records</small></div>
                           </div>
@@ -2269,14 +2279,14 @@
                             <div class="walk-range-editor"><span class="walk-range-labels"><span class="walk-range-label-lab">Lab range</span><span class="walk-range-label-custom">Custom range</span></span><span class="walk-range-values"><span class="walk-range-lab-value">4.0–7.2%</span><span class="walk-range-custom-value">4.0–6.8%</span></span><button type="button"><span class="walk-range-edit-label">Edit range</span><span class="walk-range-saved">✓ Saved</span></button></div>
                             <div class="walk-chart-legend"><span class="walk-range-labels"><span class="walk-range-label-lab">Lab range</span><span class="walk-range-label-custom">Custom range</span></span></div>
                             <span class="walk-range-cursor" aria-hidden="true"></span>
-                            <div class="walk-mini-chart" data-marker-chart><div class="walk-chart-plot"><svg viewBox="0 0 500 150" preserveAspectRatio="xMidYMid meet" aria-label="HbA1c readings over time" data-chart-svg><rect class="walk-chart-range" x="42" y="25" width="446" height="90" rx="2"/><g class="walk-chart-grid"><line x1="42" y1="15" x2="488" y2="15"/><line x1="42" y1="48" x2="488" y2="48"/><line x1="42" y1="81" x2="488" y2="81"/><line x1="42" y1="115" x2="488" y2="115"/></g><line class="walk-chart-axis-line" x1="42" y1="115" x2="488" y2="115"/><g class="walk-chart-axis"><text x="3" y="18" data-chart-y-high>7.5</text><text x="3" y="51" data-chart-y-mid>5.6</text><text x="3" y="84" data-chart-y-low>3.7</text><text x="54" y="139" text-anchor="start" data-chart-date-start>Mar 2023</text><text x="265" y="139" text-anchor="middle" data-chart-date-mid>Nov 2024</text><text x="488" y="139" text-anchor="end" data-chart-date-end>Mar 2025</text></g><path d="M54 26 L271 37 L488 45" fill="none" stroke="currentColor" stroke-width="2.5"/><g data-chart-points></g></svg><div class="walk-chart-tooltip" data-chart-tooltip hidden></div><div class="walk-chart-auto-tooltip is-out-of-range"><strong>14 Mar 2023</strong><span class="walk-tooltip-value"><i>↑</i>Value: 7.1%</span><small>Custom max: 6.8%</small><small>Metro Pathology · page 3</small></div></div></div>
+                            <div class="walk-mini-chart" data-marker-chart><div class="walk-chart-plot"><svg viewBox="0 0 500 150" preserveAspectRatio="xMidYMid meet" aria-label="HbA1c readings over time" data-chart-svg><rect class="walk-chart-range" x="42" y="25" width="446" height="90" rx="2"/><g class="walk-chart-grid"><line x1="42" y1="15" x2="488" y2="15"/><line x1="42" y1="48" x2="488" y2="48"/><line x1="42" y1="81" x2="488" y2="81"/><line x1="42" y1="115" x2="488" y2="115"/></g><line class="walk-chart-axis-line" x1="42" y1="115" x2="488" y2="115"/><g class="walk-chart-axis"><text x="3" y="18" data-chart-y-high>7.5</text><text x="3" y="51" data-chart-y-mid>5.6</text><text x="3" y="84" data-chart-y-low>3.7</text><text x="54" y="139" text-anchor="start" data-chart-date-start>Mar 2023</text><text x="265" y="139" text-anchor="middle" data-chart-date-mid>Nov 2024</text><text x="488" y="139" text-anchor="end" data-chart-date-end>Mar 2025</text></g><path d="M54 26 L271 37 L488 45" fill="none" stroke="currentColor" stroke-width="2.5"/><g data-chart-points></g></svg><div class="walk-chart-tooltip" data-chart-tooltip hidden></div><div class="walk-chart-auto-tooltip is-out-of-range"><strong>2023-Mar-14</strong><span class="walk-tooltip-value"><i>↑</i>Value: 7.1%</span><small>Custom max: 6.8%</small><small>Metro Pathology · page 3</small></div></div></div>
                             <div class="walk-insight-note"><span><i data-marker-arrow>↘</i><b data-marker-direction>Moving down</b></span><p data-marker-note>HbA1c fell across three tests. One earlier result is above the custom range.</p></div>
                           </aside>
                         </div>
                       </section>
 
                       <section class="walkthrough-panel" id="walkthrough-panel-reports" role="tabpanel" aria-labelledby="walkthrough-tab-reports" aria-hidden="true" data-walkthrough-panel="3">
-                        <div class="walk-page-head"><div><span><i data-patient-name>Jordan Rivera</i> · Build from all 17 records</span><h4>Reports</h4></div><b class="walk-outline-action">My Reports</b></div>
+                        <div class="walk-page-head"><div><span><i data-patient-name>John Doe</i> · Build from all 17 records</span><h4>Reports</h4></div><b class="walk-outline-action">My Reports</b></div>
                         <div class="walk-empty-state"><i>▤</i><b>No report data yet</b><p>Upload and review the source records before you build a report.</p></div>
                         <div class="walk-report-catalog">
                           <div class="walk-report-grid">
@@ -2292,7 +2302,7 @@
                       </section>
 
                       <section class="walkthrough-panel" id="walkthrough-panel-sources" role="tabpanel" aria-labelledby="walkthrough-tab-reports" aria-hidden="true" data-walkthrough-panel="4">
-                        <div class="walk-page-head"><div><span><i data-patient-name>Jordan Rivera</i> · Review before sharing</span><h4>Health Summary</h4></div><button class="walk-report-status" type="button" data-walk-approve>Approve report</button></div>
+                        <div class="walk-page-head"><div><span><i data-patient-name>John Doe</i> · Review before sharing</span><h4>Health Summary</h4></div><button class="walk-report-status" type="button" data-walk-approve>Approve report</button></div>
                         <div class="walk-empty-state"><i>▤</i><b>No report to review</b><p>Generate a report after the patient data is ready.</p></div>
                         <div class="walk-source-review-layout">
                           <article class="walk-report-page">
@@ -2301,7 +2311,7 @@
                             <header class="walk-summary-cover">
                               <span class="walk-report-kicker">Cross-panel findings &amp; clinical overview</span>
                               <h5>Health Summary</h5>
-                              <div class="walk-summary-meta"><span><small>Patient</small><i data-patient-name>Jordan Rivera</i></span><span><small>Records</small>17 reviewed</span><span><small>Latest labs</small>14 Mar 2025</span><span><small>Units</small>SI</span></div>
+                              <div class="walk-summary-meta"><span><small>Patient</small><i data-patient-name>John Doe</i></span><span><small>Records</small>17 reviewed</span><span><small>Latest labs</small>2025-Mar-14</span><span><small>Units</small>SI</span></div>
                             </header>
                             <div class="walk-summary-layout">
                               <nav class="walk-summary-nav" aria-label="Health Summary sections"><button class="is-active" type="button">1 · Executive Summary</button><button type="button">2 · Body Systems</button><button type="button">3 · Cross-System Patterns</button><button type="button">4 · Recommendations</button><button type="button">5 · Data Gaps</button></nav>
@@ -2349,16 +2359,16 @@
                           </aside>
                           <aside class="walk-send-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Send report to patient" data-walk-send-modal>
                             <header><b>Send approved report</b><small>The patient will receive this report in their portal.</small></header>
-                            <div class="walk-send-recipient"><i data-patient-initials>JR</i><span><b data-patient-name>Jordan Rivera</b><small>Verified patient portal</small></span></div>
+                            <div class="walk-send-recipient"><i data-patient-initials>JD</i><span><b data-patient-name>John Doe</b><small>Verified patient portal</small></span></div>
                             <footer><span>Access is logged and can be revoked</span><button type="button" data-walk-send-submit>Send report</button></footer>
                           </aside>
                           <button class="walk-drawer-shade" type="button" aria-label="Close report sidebar" aria-hidden="true" tabindex="-1" data-walk-drawer-shade></button>
                           <aside class="walk-evidence-drawer" aria-hidden="true" inert>
                             <header><b>HbA1c <span class="walk-status-badge">Out of range</span></b><button class="walk-sidebar-close" type="button" aria-label="Close evidence sidebar" data-walk-close-evidence>×</button></header>
                             <div class="walk-drawer-body">
-                              <div class="walk-evidence-cards"><span><small>Latest value</small><b>6.4%</b></span><span><small>Date</small><b>14 Mar 2025</b></span><span><small>Reference</small><b>4.0–5.6%</b></span></div>
+                              <div class="walk-evidence-cards"><span><small>Latest value</small><b>6.4%</b></span><span><small>Date</small><b>2025-Mar-14</b></span><span><small>Reference</small><b>4.0–5.6%</b></span></div>
                               <div class="walk-evidence-chart"><span>Lab range</span><svg viewBox="0 0 360 126" role="img" aria-label="HbA1c trend across three readings"><rect x="34" y="54" width="306" height="39" rx="3" fill="rgba(79,171,124,.14)"></rect><g stroke="#e6ebe9" stroke-width="1"><line x1="34" y1="22" x2="340" y2="22"></line><line x1="34" y1="54" x2="340" y2="54"></line><line x1="34" y1="93" x2="340" y2="93"></line></g><g fill="#84908b" font-size="8" font-family="Arial,sans-serif"><text x="6" y="25">7.2</text><text x="6" y="57">6.4</text><text x="6" y="96">5.6</text><text x="34" y="116">Mar 2023</text><text x="165" y="116">Nov 2024</text><text x="303" y="116">Mar 2025</text></g><path d="M48 27 C105 32 137 40 181 45 S281 56 326 58" fill="none" stroke="#0f766e" stroke-width="2.5" stroke-linecap="round"></path><g fill="#fff" stroke="#b8684d" stroke-width="2"><circle cx="48" cy="27" r="4"></circle><circle cx="181" cy="45" r="4"></circle><circle cx="326" cy="58" r="4"></circle></g></svg></div>
-                              <div class="walk-reading-table"><span><i>Date</i><i>Value</i><i>Reference</i><i></i></span><span><i>14 Mar 2025</i><b>6.4%</b><i>4.0–5.6%</i><i>▤</i></span><span><i>22 Nov 2024</i><b>6.8%</b><i>4.0–5.6%</i><i>▤</i></span><span><i>08 Mar 2023</i><b>7.1%</b><i>4.0–5.6%</i><i>▤</i></span></div>
+                              <div class="walk-reading-table"><span><i>Date</i><i>Value</i><i>Reference</i><i></i></span><span><i>2025-Mar-14</i><b>6.4%</b><i>4.0–5.6%</i><i>▤</i></span><span><i>2024-Nov-22</i><b>6.8%</b><i>4.0–5.6%</i><i>▤</i></span><span><i>2023-Mar-08</i><b>7.1%</b><i>4.0–5.6%</i><i>▤</i></span></div>
                               <div class="walk-source-document is-open" data-walk-source-document><header><b>Metro Pathology</b><span>Page 3 of 12</span></header><p>HbA1c &nbsp; <mark>6.4%</mark> &nbsp; Reference 4.0–5.6%</p></div>
                             </div>
                           </aside>
@@ -2374,14 +2384,14 @@
                       </section>
 
                       <section class="walkthrough-panel walk-aux-panel" id="walkthrough-panel-patient-data" aria-hidden="true" data-walkthrough-panel="2" data-aux-mode="diagnoses">
-                        <div class="walk-page-head"><div><span data-aux-eyebrow>Jordan Rivera · 2 source-linked diagnoses</span><h4 data-aux-title>Diagnoses</h4></div><button class="walk-outline-action" type="button" data-aux-action>Open</button></div>
+                        <div class="walk-page-head"><div><span data-aux-eyebrow>John Doe · 2 source-linked diagnoses</span><h4 data-aux-title>Diagnoses</h4></div><button class="walk-outline-action" type="button" data-aux-action>Open</button></div>
                         <div class="walk-empty-state"><i>◇</i><b>No patient data yet</b><p>Upload records to extract diagnoses, procedures, medicines, and more.</p></div>
                         <div class="walk-aux-default">
                           <div class="walk-aux-stats"><span><small data-aux-stat-label="0">Records</small><b data-aux-stat-value="0">17</b></span><span><small data-aux-stat-label="1">Structured items</small><b data-aux-stat-value="1">99</b></span><span><small data-aux-stat-label="2">Last updated</small><b data-aux-stat-value="2">Today</b></span></div>
                           <div class="walk-aux-card"><header><b data-aux-list-title>Recent patient activity</b><small>Source linked</small></header><div data-aux-list><span><i>01</i><b>Three records processed</b><small>All data ready</small></span><span><i>02</i><b>Health Summary generated</b><small>Ready to review</small></span><span><i>03</i><b>One clinical note</b><small>Private to care team</small></span></div></div>
                         </div>
                         <div class="walk-note-view">
-                          <div class="walk-note-editor"><header><span><b>New patient note</b><small>Private to the care team</small></span><i>Saved</i></header><textarea id="walk-clinical-note" name="clinical-note" aria-label="Patient note" data-walk-note placeholder="Write a brief note about this patient…"></textarea><footer><span>Linked to <i data-patient-name>Jordan Rivera</i></span><button type="button" data-walk-note-save>Save note</button></footer></div>
+                          <div class="walk-note-editor"><header><span><b>New patient note</b><small>Private to the care team</small></span><i>Saved</i></header><textarea id="walk-clinical-note" name="clinical-note" aria-label="Patient note" data-walk-note placeholder="Write a brief note about this patient…"></textarea><footer><span>Linked to <i data-patient-name>John Doe</i></span><button type="button" data-walk-note-save>Save note</button></footer></div>
                         </div>
                         <aside class="walk-diagnosis-note" aria-label="Add note to diagnosis"><header><b>Add note to Prediabetes</b><span data-diagnosis-saved>Saved ✓</span></header><textarea id="walk-diagnosis-note" name="diagnosis-note" data-diagnosis-note aria-label="Diagnosis note" placeholder="Add clinical context…"></textarea><footer><span>Linked to this diagnosis · Care team only</span><button type="button" data-diagnosis-save>Save note</button></footer></aside>
                       </section>
@@ -2392,7 +2402,7 @@
                       <header><b>Add a new patient</b><small>Create the patient record, then upload their files.</small></header>
                       <div class="walk-patient-fields">
                         <label>Full name<input id="walk-new-patient-name" name="patient-name" type="text" autocomplete="off" data-walk-new-patient-name placeholder="Enter patient name"></label>
-                        <label>Date of birth<input name="patient-dob" type="text" value="14 Jun 1982"></label>
+                        <label>Date of birth<input name="patient-dob" type="text" value="1982-Jun-14"></label>
                         <label>Patient ID<input name="patient-id" type="text" value="Auto-generated"></label>
                       </div>
                       <footer><span>Patient 2 of 10 in this demo cycle</span><button type="submit" data-walk-create-patient>Create patient</button></footer>
@@ -2451,7 +2461,7 @@
             <div class="screen-body">
               <div class="screen-patient">
                 <span class="screen-avatar">JR</span>
-                <div><strong>Jordan Rivera</strong><small>Synthetic history · 2018–2026</small></div>
+                <div><strong>John Doe</strong><small>Synthetic history · 2018–2026</small></div>
               </div>
               <div class="screen-progress" aria-hidden="true"><span></span></div>
               <div class="screen-steps">
@@ -2606,7 +2616,7 @@
                     </div>
                   </div>
                   <div class="report-cover-text">
-                    <h3 class="report-cover-title">Check the full drug plan.</h3>
+                    <h3 class="report-cover-title">Check the full supplement plan.</h3>
                     <p class="report-cover-desc">Check each dose, test, drug mix, and follow-up plan before sign-off.</p>
                     <div class="report-cover-proof"><i>✓</i><span>Safety checks · Approval required</span></div>
                   </div>
@@ -2626,6 +2636,28 @@
           </div>
           <a class="report-library-cta" href="report-library.html">Browse the shared report library <span aria-hidden="true">→</span></a>
         </div>
+      </div>
+    </section>
+
+    <section class="testimonials clinician-testimonial" aria-labelledby="clinician-testimonial-title">
+      <div class="shell">
+        <header class="testimonials-head">
+          <p class="eyebrow">Clinician perspective</p>
+          <h2 id="clinician-testimonial-title">Less time synthesising. More time for care.</h2>
+        </header>
+        <ul class="testimonial-grid">
+          <li class="t-card is-featured">
+            <span class="t-glyph" aria-hidden="true">“</span>
+            <div class="t-avatar">
+              <div class="t-disc"><img class="t-doc" src="assets/team/dannette-kallay.webp" alt="Dannette Kallay, MD" width="320" height="275" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="t-body">
+              <span class="t-label">How n1.care fits the clinical workflow</span>
+              <blockquote class="t-quote">n1.care’s platform consolidates patient records into clean, organized reports that highlight patterns of dysfunction and potential health risks. It allows me to track biomarker trends and prioritize care efficiently, without spending excessive amounts of time manually synthesising data. Integrating n1.care into my workflow optimizes my time and enhances the quality of care I’m able to provide.</blockquote>
+              <p class="t-author"><b>Dannette Kallay, MD</b><br>Integrative Physician</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -2841,7 +2873,7 @@
       var guidedNote = 'Patient confirms metformin twice daily and stable home blood pressure.';
       var guidedRewritePrompt = 'Make this clearer and more concise.';
       var sourceReportScroll = 0;
-      var patientNames = ['Jordan Rivera', 'Maya Chen', 'Elias Morgan', 'Sofia Patel', 'Noah Williams', 'Amara Okafor', 'Leo Martin', 'Priya Nair', 'Hugo Silva', 'Lena Fischer'];
+      var patientNames = ['John Doe', 'Jane Doe', 'John Doe', 'Jane Doe', 'John Doe', 'Jane Doe', 'John Doe', 'Jane Doe', 'John Doe', 'Jane Doe'];
       var currentPatientIndex = 0;
       var pendingPatientIndex = 1;
       var narrationPositioned = false;
@@ -2872,7 +2904,7 @@
       var auxViews = {
         dashboard: { title: 'Dashboard', eyebrow: 'Clinical overview', stats: [['Records','17'],['Open reviews','2'],['Reports','4']], list: [['Metabolic trend','HbA1c moving down'],['Record coverage','2018–2025'],['Latest activity','Three records processed']] },
         diagnoses: { title: 'Diagnoses', eyebrow: '2 source-linked diagnoses', stats: [['Active','2'],['Historical','1'],['Sources','3']], list: [['Essential hypertension','Confirmed · 2024'],['Prediabetes','Under review · 2025'],['Every item links to evidence','Open the source record']] },
-        procedures: { title: 'Procedures', eyebrow: '1 recorded procedure', stats: [['Procedures','1'],['Sources','1'],['Last event','2024']], list: [['Cardiac CT angiography','22 Nov 2024'],['Northside Imaging','Source attached'],['No follow-up procedure found','Record gap flagged']] },
+        procedures: { title: 'Procedures', eyebrow: '1 recorded procedure', stats: [['Procedures','1'],['Sources','1'],['Last event','2024']], list: [['Cardiac CT angiography','2024-Nov-22'],['Northside Imaging','Source attached'],['No follow-up procedure found','Record gap flagged']] },
         genetics: { title: 'Genetics', eyebrow: '1 imported genetics file', stats: [['Variants','24'],['Reviewed','8'],['Files','1']], list: [['Cardiometabolic panel','8 reviewed variants'],['Medication response','6 contextual variants'],['Raw data retained locally','Optional encrypted storage']] },
         medications: { title: 'Medications', eyebrow: '5 current medicines', stats: [['Current','5'],['Historical','3'],['Conflicts','0']], list: [['Metformin 500 mg','Current · twice daily'],['Atorvastatin 20 mg','Current · once daily'],['Medication review','Source-linked and editable']] },
         supplements: { title: 'Supplements', eyebrow: '7 current supplements', stats: [['Current','7'],['Review due','2'],['Sources','4']], list: [['Vitamin D3','Current · 2000 IU'],['Magnesium glycinate','Current · 200 mg'],['Review against medicines','Two items need confirmation']] },
@@ -3703,12 +3735,12 @@
           direction: 'Moving down', arrow: '↘',
           note: 'HbA1c fell across six tests. Earlier results are above the custom range.',
           points: [
-            { value: 7.3, label: '7.3%', date: '18 Sep 2020', source: 'Metro Pathology · page 3' },
-            { value: 7.2, label: '7.2%', date: '24 Jun 2021', source: 'Northside Medical · page 2' },
-            { value: 7.1, label: '7.1%', date: '11 Mar 2022', source: 'Metro Pathology · page 3' },
-            { value: 7.1, label: '7.1%', date: '14 Mar 2023', source: 'Metro Pathology · page 3' },
-            { value: 6.7, label: '6.7%', date: '22 Nov 2024', source: 'Northside Medical · page 2' },
-            { value: 6.4, label: '6.4%', date: '14 Mar 2025', source: 'Metro Pathology · page 3' }
+            { value: 7.3, label: '7.3%', date: '2020-Sep-18', source: 'Metro Pathology · page 3' },
+            { value: 7.2, label: '7.2%', date: '2021-Jun-24', source: 'Northside Medical · page 2' },
+            { value: 7.1, label: '7.1%', date: '2022-Mar-11', source: 'Metro Pathology · page 3' },
+            { value: 7.1, label: '7.1%', date: '2023-Mar-14', source: 'Metro Pathology · page 3' },
+            { value: 6.7, label: '6.7%', date: '2024-Nov-22', source: 'Northside Medical · page 2' },
+            { value: 6.4, label: '6.4%', date: '2025-Mar-14', source: 'Metro Pathology · page 3' }
           ]
         },
         ldl: {
@@ -3716,13 +3748,13 @@
           direction: 'Moving down', arrow: '↘',
           note: 'LDL fell across seven tests. The latest value is still above the stated range.',
           points: [
-            { value: 132, label: '132 mg/dL', date: '18 Sep 2020', source: 'Metro Pathology · page 2' },
-            { value: 130, label: '130 mg/dL', date: '24 Jun 2021', source: 'Northside Medical · page 2' },
-            { value: 128, label: '128 mg/dL', date: '14 Mar 2022', source: 'Metro Pathology · page 2' },
-            { value: 123, label: '123 mg/dL', date: '14 Mar 2023', source: 'Metro Pathology · page 2' },
-            { value: 126, label: '126 mg/dL', date: '16 Feb 2024', source: 'Northside Medical · page 2' },
-            { value: 119, label: '119 mg/dL', date: '22 Nov 2024', source: 'Northside Medical · page 2' },
-            { value: 116, label: '116 mg/dL', date: '14 Mar 2025', source: 'Metro Pathology · page 2' }
+            { value: 132, label: '132 mg/dL', date: '2020-Sep-18', source: 'Metro Pathology · page 2' },
+            { value: 130, label: '130 mg/dL', date: '2021-Jun-24', source: 'Northside Medical · page 2' },
+            { value: 128, label: '128 mg/dL', date: '2022-Mar-14', source: 'Metro Pathology · page 2' },
+            { value: 123, label: '123 mg/dL', date: '2023-Mar-14', source: 'Metro Pathology · page 2' },
+            { value: 126, label: '126 mg/dL', date: '2024-Feb-16', source: 'Northside Medical · page 2' },
+            { value: 119, label: '119 mg/dL', date: '2024-Nov-22', source: 'Northside Medical · page 2' },
+            { value: 116, label: '116 mg/dL', date: '2025-Mar-14', source: 'Metro Pathology · page 2' }
           ]
         },
         crp: {
@@ -3730,11 +3762,11 @@
           direction: 'Back in range', arrow: '↘',
           note: 'hs-CRP fell across five tests. The latest value is within the stated range.',
           points: [
-            { value: 3.6, label: '3.6 mg/L', date: '18 Sep 2020', source: 'Metro Pathology · page 4' },
-            { value: 3.1, label: '3.1 mg/L', date: '11 Mar 2022', source: 'Northside Medical · page 4' },
-            { value: 3.3, label: '3.3 mg/L', date: '14 Mar 2023', source: 'Metro Pathology · page 4' },
-            { value: 3.2, label: '3.2 mg/L', date: '22 Nov 2024', source: 'Northside Medical · page 4' },
-            { value: 1.8, label: '1.8 mg/L', date: '14 Mar 2025', source: 'Metro Pathology · page 4' }
+            { value: 3.6, label: '3.6 mg/L', date: '2020-Sep-18', source: 'Metro Pathology · page 4' },
+            { value: 3.1, label: '3.1 mg/L', date: '2022-Mar-11', source: 'Northside Medical · page 4' },
+            { value: 3.3, label: '3.3 mg/L', date: '2023-Mar-14', source: 'Metro Pathology · page 4' },
+            { value: 3.2, label: '3.2 mg/L', date: '2024-Nov-22', source: 'Northside Medical · page 4' },
+            { value: 1.8, label: '1.8 mg/L', date: '2025-Mar-14', source: 'Metro Pathology · page 4' }
           ]
         },
         vitd: {
@@ -3742,12 +3774,12 @@
           direction: 'Moving up', arrow: '↗',
           note: 'Vitamin D rose across six tests. The latest value remains just below the stated range.',
           points: [
-            { value: 48, label: '48 nmol/L', date: '18 Sep 2020', source: 'Metro Pathology · page 4' },
-            { value: 55, label: '55 nmol/L', date: '24 Jun 2021', source: 'Northside Medical · page 3' },
-            { value: 54, label: '54 nmol/L', date: '14 Mar 2023', source: 'Metro Pathology · page 4' },
-            { value: 58, label: '58 nmol/L', date: '16 Feb 2024', source: 'Northside Medical · page 3' },
-            { value: 62, label: '62 nmol/L', date: '22 Nov 2024', source: 'Northside Medical · page 3' },
-            { value: 71, label: '71 nmol/L', date: '14 Mar 2025', source: 'Metro Pathology · page 4' }
+            { value: 48, label: '48 nmol/L', date: '2020-Sep-18', source: 'Metro Pathology · page 4' },
+            { value: 55, label: '55 nmol/L', date: '2021-Jun-24', source: 'Northside Medical · page 3' },
+            { value: 54, label: '54 nmol/L', date: '2023-Mar-14', source: 'Metro Pathology · page 4' },
+            { value: 58, label: '58 nmol/L', date: '2024-Feb-16', source: 'Northside Medical · page 3' },
+            { value: 62, label: '62 nmol/L', date: '2024-Nov-22', source: 'Northside Medical · page 3' },
+            { value: 71, label: '71 nmol/L', date: '2025-Mar-14', source: 'Metro Pathology · page 4' }
           ]
         },
         homocysteine: {
@@ -3755,11 +3787,11 @@
           direction: 'Holding steady', arrow: '→',
           note: 'Homocysteine held steady across five tests and remains above the stated range.',
           points: [
-            { value: 14.0, label: '14.0 µmol/L', date: '18 Sep 2020', source: 'Metro Pathology · page 4' },
-            { value: 14.3, label: '14.3 µmol/L', date: '11 Mar 2022', source: 'Northside Medical · page 3' },
-            { value: 14.1, label: '14.1 µmol/L', date: '14 Mar 2023', source: 'Metro Pathology · page 4' },
-            { value: 14.1, label: '14.1 µmol/L', date: '22 Nov 2024', source: 'Northside Medical · page 3' },
-            { value: 14.2, label: '14.2 µmol/L', date: '14 Mar 2025', source: 'Metro Pathology · page 4' }
+            { value: 14.0, label: '14.0 µmol/L', date: '2020-Sep-18', source: 'Metro Pathology · page 4' },
+            { value: 14.3, label: '14.3 µmol/L', date: '2022-Mar-11', source: 'Northside Medical · page 3' },
+            { value: 14.1, label: '14.1 µmol/L', date: '2023-Mar-14', source: 'Metro Pathology · page 4' },
+            { value: 14.1, label: '14.1 µmol/L', date: '2024-Nov-22', source: 'Northside Medical · page 3' },
+            { value: 14.2, label: '14.2 µmol/L', date: '2025-Mar-14', source: 'Metro Pathology · page 4' }
           ]
         },
         tsh: {
@@ -3767,12 +3799,12 @@
           direction: 'Holding steady', arrow: '→',
           note: 'TSH stayed stable across six tests and remains within the stated range.',
           points: [
-            { value: 2.1, label: '2.1 mIU/L', date: '18 Sep 2020', source: 'Metro Pathology · page 5' },
-            { value: 2.3, label: '2.3 mIU/L', date: '24 Jun 2021', source: 'Northside Medical · page 4' },
-            { value: 2.0, label: '2.0 mIU/L', date: '14 Mar 2023', source: 'Metro Pathology · page 5' },
-            { value: 2.2, label: '2.2 mIU/L', date: '16 Feb 2024', source: 'Northside Medical · page 4' },
-            { value: 2.2, label: '2.2 mIU/L', date: '22 Nov 2024', source: 'Northside Medical · page 4' },
-            { value: 2.1, label: '2.1 mIU/L', date: '14 Mar 2025', source: 'Metro Pathology · page 5' }
+            { value: 2.1, label: '2.1 mIU/L', date: '2020-Sep-18', source: 'Metro Pathology · page 5' },
+            { value: 2.3, label: '2.3 mIU/L', date: '2021-Jun-24', source: 'Northside Medical · page 4' },
+            { value: 2.0, label: '2.0 mIU/L', date: '2023-Mar-14', source: 'Metro Pathology · page 5' },
+            { value: 2.2, label: '2.2 mIU/L', date: '2024-Feb-16', source: 'Northside Medical · page 4' },
+            { value: 2.2, label: '2.2 mIU/L', date: '2024-Nov-22', source: 'Northside Medical · page 4' },
+            { value: 2.1, label: '2.1 mIU/L', date: '2025-Mar-14', source: 'Metro Pathology · page 5' }
           ]
         },
         ferritin: {
@@ -3780,11 +3812,11 @@
           direction: 'Moving up', arrow: '↗',
           note: 'Ferritin rose across five tests and remains within the stated range.',
           points: [
-            { value: 68, label: '68 µg/L', date: '18 Sep 2020', source: 'Metro Pathology · page 5' },
-            { value: 74, label: '74 µg/L', date: '24 Jun 2021', source: 'Northside Medical · page 4' },
-            { value: 72, label: '72 µg/L', date: '14 Mar 2023', source: 'Metro Pathology · page 5' },
-            { value: 78, label: '78 µg/L', date: '16 Feb 2024', source: 'Metro Pathology · page 5' },
-            { value: 84, label: '84 µg/L', date: '22 Nov 2024', source: 'Northside Medical · page 4' }
+            { value: 68, label: '68 µg/L', date: '2020-Sep-18', source: 'Metro Pathology · page 5' },
+            { value: 74, label: '74 µg/L', date: '2021-Jun-24', source: 'Northside Medical · page 4' },
+            { value: 72, label: '72 µg/L', date: '2023-Mar-14', source: 'Metro Pathology · page 5' },
+            { value: 78, label: '78 µg/L', date: '2024-Feb-16', source: 'Metro Pathology · page 5' },
+            { value: 84, label: '84 µg/L', date: '2024-Nov-22', source: 'Northside Medical · page 4' }
           ]
         }
       };
