@@ -12,6 +12,56 @@
 <link rel="stylesheet" href="buttons.css">
 <link rel="stylesheet" href="brand-tokens.css">
 <link rel="stylesheet" href="smoked-birch-copper-patina.css">
+<style>
+.clinician-voices { padding: clamp(72px,8vw,116px) 0; scroll-margin-top: 120px; background: #e8f1ef; }
+.voices-heading { display: grid; grid-template-columns: minmax(0,.8fr) minmax(360px,1.2fr); gap: clamp(42px,8vw,120px); align-items: end; margin-bottom: 38px; }
+.voices-heading h2 { max-width: 620px; margin: 16px 0 0; color: #202523; font: 400 clamp(42px,5.3vw,68px)/.98 var(--serif); letter-spacing: -.04em; }
+.voices-heading h2 em { color: #2f7773; font-weight: 400; }
+.voices-heading p { max-width: 610px; margin: 0 0 5px; color: #5d6a65; font-size: 16px; line-height: 1.65; }
+.featured-clinician { display: grid; grid-template-columns: minmax(330px,.74fr) minmax(0,1.26fr); min-height: 570px; overflow: hidden; border: 1px solid #376361; border-radius: 26px; color: #fffdf9; background: #376361; box-shadow: 0 30px 70px -48px rgba(29,66,60,.7); }
+.featured-clinician figure { min-height: 100%; margin: 0; background: #dce8e5; }
+.featured-clinician img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 62% center; }
+.featured-clinician-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(40px,5.5vw,76px); }
+.featured-clinician-copy > span, .supporting-voices-head span, .more-clinician-voices > span { color: #91d7d1; font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.featured-clinician blockquote { margin: 24px 0 30px; }
+.featured-clinician blockquote::before { display: block; height: 32px; color: #91d7d1; font: 400 48px/1 var(--serif); content: '“'; }
+.featured-clinician blockquote p { margin: 0; color: #fffdf9; font: 400 clamp(24px,2.35vw,34px)/1.28 var(--serif); letter-spacing: -.018em; text-wrap: pretty; }
+.featured-clinician blockquote p::after { content: '”'; }
+.featured-clinician footer { padding-top: 19px; border-top: 1px solid rgba(255,255,255,.22); text-align: right; }
+.featured-clinician cite, .portrait-clinician cite { display: block; font-style: normal; font-weight: 800; }
+.featured-clinician cite { color: #d9eeeb; font-size: 13px; }
+.featured-clinician small { display: block; margin-top: 5px; color: #bdd6d2; font-size: 11px; }
+.featured-clinician a { min-height: 40px; display: inline-flex; align-items: center; margin-top: 18px; padding: 0 15px; border-radius: 8px; color: #244b49; background: #d9eeeb; font-size: 11px; font-weight: 800; text-decoration: none; }
+.supporting-voices-head { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin: 54px 0 20px; padding-bottom: 17px; border-bottom: 1px solid #b8cbc6; }
+.supporting-voices-head span, .more-clinician-voices > span { color: #2f7773; }
+.supporting-voices-head p { max-width: 560px; margin: 0; color: #62706b; font-size: 13px; line-height: 1.6; }
+.portrait-clinicians { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+.portrait-clinician { display: grid; grid-template-columns: minmax(190px,.72fr) minmax(0,1.28fr); min-height: 360px; overflow: hidden; border: 1px solid #bfd1cc; border-radius: 20px; background: #fffdf9; }
+.portrait-clinician figure { margin: 0; background: #dfe9e6; }
+.portrait-clinician img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.portrait-clinician blockquote { display: flex; flex-direction: column; margin: 0; padding: 30px; }
+.portrait-clinician blockquote::before { height: 28px; color: #48a9a6; font: 400 42px/1 var(--serif); content: '“'; }
+.portrait-clinician p { margin: 6px 0 26px; color: #29302d; font: 400 clamp(18px,1.55vw,22px)/1.37 var(--serif); letter-spacing: -.014em; text-wrap: pretty; }
+.portrait-clinician p::after { content: '”'; }
+.portrait-clinician footer { margin-top: auto; padding-top: 15px; border-top: 1px solid #d5dfdc; text-align: right; }
+.portrait-clinician cite { color: #244b49; font-size: 12px; }
+.portrait-clinician small { display: block; margin-top: 4px; color: #74807c; font-size: 10px; }
+.more-clinician-voices { margin-top: 74px; }
+.more-clinician-voices h3 { max-width: 760px; margin: 14px 0 28px; color: #202523; font: 400 clamp(34px,4vw,52px)/1.05 var(--serif); letter-spacing: -.035em; }
+.clinician-voice-list { border-top: 1px solid #afc5bf; }
+.clinician-voice-row { display: grid; grid-template-columns: minmax(190px,.42fr) minmax(0,1.58fr); gap: clamp(38px,7vw,100px); padding: 34px 0; border-bottom: 1px solid #afc5bf; }
+.clinician-voice-row header { display: flex; flex-direction: column; gap: 9px; }
+.clinician-voice-row header span { color: #48a9a6; font-size: 10px; font-weight: 800; letter-spacing: .13em; }
+.clinician-voice-row cite { color: #244b49; font-size: 13px; font-style: normal; font-weight: 800; line-height: 1.4; }
+.clinician-voice-row blockquote { max-width: 930px; margin: 0; }
+.clinician-voice-row blockquote p { margin: 0; color: #29302d; font: 400 clamp(21px,2.15vw,31px)/1.32 var(--serif); letter-spacing: -.016em; text-wrap: pretty; }
+.clinician-voice-row blockquote p::before { color: #48a9a6; content: '“'; }
+.clinician-voice-row blockquote p::after { color: #48a9a6; content: '”'; }
+.clinician-voices-note { margin: 24px 0 0; color: #6b7873; font-size: 11px; line-height: 1.55; text-align: right; }
+@media (max-width: 1050px) { .portrait-clinician { grid-template-columns: 1fr; } .portrait-clinician figure { height: 270px; } }
+@media (max-width: 820px) { .voices-heading, .featured-clinician, .portrait-clinicians, .clinician-voice-row { grid-template-columns: 1fr; } .featured-clinician figure { min-height: 390px; } .portrait-clinician { grid-template-columns: minmax(160px,.64fr) minmax(0,1.36fr); } .clinician-voice-row { gap: 17px; } .clinician-voice-row header { flex-direction: row; justify-content: space-between; } }
+@media (max-width: 620px) { .clinician-voices { scroll-margin-top: 168px; } .featured-clinician figure { min-height: 310px; } .featured-clinician-copy { padding: 30px 24px 32px; } .featured-clinician blockquote p { font-size: 24px; } .supporting-voices-head { align-items: flex-start; flex-direction: column; } .portrait-clinician { grid-template-columns: 1fr; } .portrait-clinician figure { height: 260px; } .portrait-clinician blockquote { padding: 26px 22px; } .more-clinician-voices { margin-top: 58px; } .clinician-voice-row { padding: 28px 0; } .clinician-voice-row blockquote p { font-size: 22px; } }
+</style>
 <script defer src="marketing-pages.js">
 </script>
 </head>
@@ -136,6 +186,33 @@
 </figure>
 </div>
 <p class="practice-credit">Photos are for illustration. The people shown do not use n1 and do not endorse it.</p>
+</div>
+</section>
+<section class="clinician-voices" id="clinician-voices" aria-labelledby="clinician-voices-title">
+<div class="shell">
+<header class="voices-heading">
+<div><span class="page-kicker">In clinicians’ words</span><h2 id="clinician-voices-title">What n1 changes <em>in practice.</em></h2></div>
+<p>Doctors and nurses describe where n1 helps: reviewing long patient histories, checking the evidence behind a conclusion, and preparing for clearer conversations.</p>
+</header>
+<article class="featured-clinician">
+<figure><img src="assets/testimonial-dannette-kallay-illustrative.webp" alt="Illustrative portrait accompanying Dr Dannette Kallay’s words" width="1200" height="600" loading="lazy"></figure>
+<div class="featured-clinician-copy"><span>Featured interview</span><blockquote><p>n1.care consolidates patient records into clean, organized reports that highlight patterns of dysfunction and potential health risks. It allows me to track biomarker trends and prioritize care efficiently, without spending excessive amounts of time manually synthesising data. Integrating n1.care into my workflow optimizes my time and enhances the quality of care I’m able to provide.</p></blockquote><footer><cite>Dr Dannette Kallay, MD</cite><small>Integrative Physician · illustrative portrait</small><a href="clinician-interview-dannette-kallay.html">Read the interview →</a></footer></div>
+</article>
+<header class="supporting-voices-head"><span>Evidence and patient conversations</span><p>Two perspectives on the same workflow: checking what supports a conclusion and making a complex case easier to discuss.</p></header>
+<div class="portrait-clinicians">
+<article class="portrait-clinician"><figure><img src="assets/testimonial-nathan-chen.webp" alt="Illustrative portrait accompanying Dr Nathan Chen’s words" width="1200" height="900" loading="lazy"></figure><blockquote><p>I particularly appreciate that the clinical conclusions are presented alongside the underlying data. Being able to immediately see the biomarkers supporting an observation gives me much more confidence in reviewing the report.</p><footer><cite>Dr Nathan Chen, MD</cite><small>Illustrative portrait</small></footer></blockquote></article>
+<article class="portrait-clinician"><figure><img src="assets/testimonial-priya-malhotra.webp" alt="Illustrative portrait accompanying Dr Priya Malhotra’s words" width="1200" height="900" loading="lazy"></figure><blockquote><p>The platform helps organize complicated cases in a way that makes patient conversations much easier. Instead of trying to explain ten interconnected issues at once, I can walk through the major priorities in a logical sequence.</p><footer><cite>Dr Priya Malhotra, MD</cite><small>Illustrative portrait</small></footer></blockquote></article>
+</div>
+<div class="more-clinician-voices"><span>More clinician voices</span><h3>Different practices. Similar pressure points.</h3><div class="clinician-voice-list">
+<article class="clinician-voice-row"><header><span>01</span><cite>Dr Amy Sanders, MD</cite></header><blockquote><p>n1.care rapidly enhances the sophistication and precision of the reports that I write. That’s worth a lot to me.</p></blockquote></article>
+<article class="clinician-voice-row"><header><span>02</span><cite>Dr Jennifer Hoskins, FNP-BC</cite></header><blockquote><p>n1.care is very clinical, which I like because then I see how it arrived at the conclusion. The recommended tests, bullet points and recommendations are really helpful. It takes a lot of pressure off because I know I haven’t left anything out.</p></blockquote></article>
+<article class="clinician-voice-row"><header><span>03</span><cite>Dr Daniel Mercer, MD</cite></header><blockquote><p>For patients with years of laboratory data, n1.care turns an overwhelming amount of information into something I can review quickly and systematically. It has made preparation for complex cases considerably easier.</p></blockquote></article>
+<article class="clinician-voice-row"><header><span>04</span><cite>Dr Elena Vasquez, MD</cite></header><blockquote><p>One of the biggest benefits is having important findings brought back to my attention. In a busy practice, it is useful to have another set of eyes helping ensure that something clinically relevant has not been overlooked.</p></blockquote></article>
+<article class="clinician-voice-row"><header><span>05</span><cite>Dr Lindsay Ledwich, MD</cite></header><blockquote><p>It brought to my attention some important points that I know but may have forgotten and not followed up on. I see it as a tool for very complicated patients with extensive lab values, providing a detailed synopsis.</p></blockquote></article>
+<article class="clinician-voice-row"><header><span>06</span><cite>Dr Breanna Champion, MSN, RN, FMACP</cite></header><blockquote><p>What a beautiful system that you have created at n1.care.</p></blockquote></article>
+<article class="clinician-voice-row"><header><span>07</span><cite>Dr Jacob Haddad, MD</cite></header><blockquote><p>With complicated metabolic patients, the data can become very difficult to synthesize. n1.care gives me a structured overview that helps me decide what deserves attention.</p></blockquote></article>
+<article class="clinician-voice-row"><header><span>08</span><cite>Julie Perry, MSN, RN, FMACP</cite></header><blockquote><p>I think it’s something my patients would really like with such detailed reports.</p></blockquote></article>
+</div><p class="clinician-voices-note">Testimonials are presented as supplied. Titles and credentials are shown with each attribution.</p></div>
 </div>
 </section>
 <section class="page-close">

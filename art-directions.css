@@ -37,7 +37,7 @@ button { font: inherit; }
 .shell { width: min(1320px, calc(100% - 64px)); margin-inline: auto; }
 .logo { width: 104px; aspect-ratio: 258/87; display: block; background: currentColor; -webkit-mask: url("assets/n1-care-dark-green.svg") center/contain no-repeat; mask: url("assets/n1-care-dark-green.svg") center/contain no-repeat; }
 .nav { position: absolute; z-index: 40; inset: 0 0 auto; height: 90px; display: flex; align-items: center; }
-.nav-inner { width: min(1440px, calc(100% - 64px)); margin: auto; display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 24px; }
+.nav-inner { width: min(1440px, calc(100% - 64px)); margin: auto; display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: center; gap: 24px; }
 .nav-links, .nav-actions { display: flex; align-items: center; gap: 22px; font-size: 13px; }
 .nav-links { justify-self: center; }
 .nav-actions { justify-self: end; gap: 10px; }
