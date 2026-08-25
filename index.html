@@ -2916,7 +2916,6 @@
             <p class="eyebrow">A doctor’s point of view</p>
             <h2 id="workflows-title">What the workflow feels like.</h2>
           </div>
-          <p>At each step, the doctor keeps the source, the report, and the final call in view.</p>
         </header>
         <div class="workflow-rail">
           <article class="workflow-card">
@@ -4476,7 +4475,7 @@
           entry.target.classList.remove('is-in-view');
           entry.target.classList.toggle('is-reveal-above', entry.boundingClientRect.bottom <= 0);
         });
-      }, {rootMargin: '8% 0px 12% 0px', threshold: .04});
+      }, {rootMargin: '-12% 0px -18% 0px', threshold: .04});
       elements.forEach(function (element) { observer.observe(element); });
     })();
 
