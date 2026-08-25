@@ -9,7 +9,7 @@ body.marketing-page { color: var(--ink); background: var(--cream); }
 /* Container radius, matching .tonal-motion .nav-inner: the top of the scale,
    not a pill. Keeping these two navbars on the same value is what makes the
    marketing pages and the homepage read as one product. */
-.marketing-nav-inner { min-height: 56px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 28px; padding: 0 20px; border-radius: var(--n1-radius-2xl); color: var(--cream); background: var(--berry); box-shadow: 0 18px 35px rgba(47,29,37,.16); }
+.marketing-nav-inner { min-height: 56px; display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: center; gap: 28px; padding: 0 20px; border-radius: var(--n1-radius-2xl); color: var(--cream); background: var(--berry); box-shadow: 0 18px 35px rgba(47,29,37,.16); }
 .marketing-nav .logo { color: var(--cream); }
 .marketing-links { display: flex; align-items: center; gap: 18px; font-size: 12px; }
 .marketing-links a { padding: 19px 0; }
