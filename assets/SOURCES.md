@@ -19,6 +19,7 @@ headshot. It is shown only as attribution beside his quoted words.
 | `team-life/n1-team-conversation.webp` | n1 office, supplied by Jasper (`latest-docs/Team Photos/N1-53.jpg`) |
 | `team-life/n1-team-building.webp` | n1 office, supplied by Jasper (`latest-docs/Team Photos/N1-52.jpg`) |
 | `team/*` | Individual headshots, carried over from the marketing site |
+| `team/dannette-kallay.webp` | [Dannette Kallay team portrait, n1.care](https://n1.care/images/team/dannette-kallay.png) |
 
 These are photographs of actual n1 people, so they are captioned as such and shown
 without the grading applied to stock.
