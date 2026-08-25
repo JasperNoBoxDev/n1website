@@ -45,6 +45,16 @@ photography. The people shown are not n1 users and do not endorse n1."
 
 Do not reattach names, quotes, titles or credentials to these images.
 
+## Generated testimonial portraits
+
+| Local asset | Source |
+| --- | --- |
+| `testimonial-nathan-chen.webp` | Original fictional portrait generated with OpenAI image generation for this site |
+| `testimonial-priya-malhotra.webp` | Original fictional portrait generated with OpenAI image generation for this site |
+
+These portraits do not depict the named clinicians. They are labelled as illustrative
+where they appear and must not be presented as photographs of the quoted people.
+
 ## Illustrative patient photography
 
 | Local asset | Source |
