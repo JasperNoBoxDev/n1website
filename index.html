@@ -4470,7 +4470,9 @@
       });
     }
 
-    // Scroll reveals — a restrained, reversible entrance in either direction.
+    // Scroll reveals — a restrained, one-time entrance. Keeping revealed content
+    // visible avoids repeat motion and prevents an element's own entrance offset
+    // from moving it back across the observer boundary.
     (function () {
       if (reduceMotion || !('IntersectionObserver' in window)) return;
       var selectors = [
@@ -4511,12 +4513,9 @@
       });
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-in-view');
-            return;
-          }
-          entry.target.classList.remove('is-in-view');
-          entry.target.classList.toggle('is-reveal-above', entry.boundingClientRect.bottom <= 0);
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-in-view');
+          observer.unobserve(entry.target);
         });
       }, {rootMargin: '-12% 0px -18% 0px', threshold: .04});
       elements.forEach(function (element) { observer.observe(element); });
