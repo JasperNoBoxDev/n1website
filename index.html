@@ -1210,21 +1210,23 @@
     .trace-result b { font-size: 12px; }
     .trace-result span { color: #5f6c68; font-size: 10px; }
     .traceability-flow { margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); overflow: hidden; border: 1px solid #b8cbc6; border-radius: 22px; background: #fbfaf7; box-shadow: 0 24px 60px -42px rgba(35,56,50,.38); list-style: none; }
-    .traceability-step { position: relative; min-width: 0; min-height: 270px; display: flex; flex-direction: column; padding: 24px 20px 20px; border-right: 1px solid #d7e0dd; }
+    .traceability-step { position: relative; min-width: 0; min-height: 300px; display: flex; flex-direction: column; padding: 24px 20px 20px; border-right: 1px solid #d7e0dd; }
     .traceability-step:last-child { border-right: 0; }
     .traceability-step::after { position: absolute; z-index: 2; top: 50%; right: -12px; width: 23px; height: 23px; display: grid; place-items: center; border: 1px solid #c8d8d4; border-radius: 50%; color: #376361; background: #fbfaf7; font-size: 13px; content: '→'; transform: translateY(-50%); }
     .traceability-step:last-child::after { display: none; }
-    .traceability-step > small { color: #2f7773; font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-    .traceability-step > h3 { margin: 12px 0 7px; color: #202523; font: 400 22px/1.05 var(--serif); }
-    .traceability-step > p { margin: 0; color: #65716d; font-size: 10px; line-height: 1.5; }
-    .traceability-ui { min-height: 78px; display: grid; align-content: center; gap: 6px; margin-top: auto; padding: 12px; border: 1px solid #d7e1de; border-radius: 10px; background: #fff; }
-    .traceability-ui span { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #68746f; font-size: 8px; }
-    .traceability-ui b { color: #244b49; font-size: 9px; }
-    .traceability-ui i { color: #2f7773; font-size: 8px; font-style: normal; font-weight: 800; }
-    .traceability-ui.is-table { align-content: start; gap: 8px; }
-    .trace-table-name { display: block; font-size: 11px; line-height: 1.1; }
+    .traceability-step > small { color: #2f7773; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .traceability-step > h3 { margin: 12px 0 8px; color: #202523; font: 400 24px/1.05 var(--serif); }
+    .traceability-step > p { margin: 0; color: #65716d; font-size: 13px; line-height: 1.45; }
+    .traceability-ui { min-height: 108px; display: grid; align-content: center; gap: 8px; margin-top: auto; padding: 14px; border: 1px solid #d7e1de; border-radius: 10px; background: #fff; }
+    .traceability-ui span { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #68746f; font-size: 12px; }
+    .traceability-ui b { color: #244b49; font-size: 14px; }
+    .traceability-ui i { color: #2f7773; font-size: 12px; font-style: normal; font-weight: 800; }
+    .traceability-ui.is-record, .traceability-ui.is-table { align-content: start; }
+    .trace-record-name, .trace-table-name { display: block; font-size: 16px; line-height: 1.15; }
+    .trace-extract-counts { display: grid; gap: 5px; padding-top: 4px; border-top: 1px solid #d7e1de; }
+    .trace-extract-counts span { justify-content: flex-start; gap: 6px; }
     .traceability-ui.is-table table { width: 100%; border-collapse: collapse; }
-    .traceability-ui.is-table th, .traceability-ui.is-table td { padding: 3px 0; border-top: 1px solid #d7e1de; color: #68746f; font-size: 8px; font-weight: 600; text-align: left; }
+    .traceability-ui.is-table th, .traceability-ui.is-table td { padding: 5px 0; border-top: 1px solid #d7e1de; color: #68746f; font-size: 12px; font-weight: 600; text-align: left; }
     .traceability-ui.is-table td { color: #244b49; font-weight: 800; text-align: right; }
     .traceability-step.is-linked .traceability-ui.is-table th, .traceability-step.is-linked .traceability-ui.is-table td { border-top-color: rgba(255,255,255,.16); color: #fff; }
     .traceability-step.is-ai { background: #eef6f4; }
@@ -2671,7 +2673,7 @@
           <p>Each step adds one piece. First the record, then the biomarker, then the finding, then the check, then the table the doctor and patient can open.</p>
         </header>
         <ol class="traceability-flow" aria-label="Five steps from a source record to a validated, source-linked report">
-          <li class="traceability-step"><small>01 · Record</small><h3>Extract the record.</h3><p>Take the original page from the file.</p><div class="traceability-ui"><span>Laboratory report <i>Page 3</i></span></div></li>
+          <li class="traceability-step"><small>01 · Record</small><h3>Extract the record.</h3><p>Take the original page from the file.</p><div class="traceability-ui is-record"><b class="trace-record-name">Metro Pathology</b><span>Laboratory report <i>Page 3</i></span><div class="trace-extract-counts"><span><b>83</b> Biomarkers</span><span><b>2</b> Diagnoses</span><span><b>1</b> Procedure</span><span><b>5</b> Medications</span></div></div></li>
           <li class="traceability-step"><small>02 · Data</small><h3>Save the data.</h3><p>Keep the biomarker and its value.</p><div class="traceability-ui"><span>HbA1c <b>6.1%</b></span></div></li>
           <li class="traceability-step is-ai"><small>03 · AI</small><h3>Use only this data.</h3><p>The AI can write from saved data only.</p><div class="traceability-ui"><b>HbA1c is above the stated range.</b></div></li>
           <li class="traceability-step is-verified"><small>04 · Check</small><h3>Check every link.</h3><p>Confirm each fact matches the saved data.</p><div class="traceability-ui"><span><i>✓</i> Value and unit match</span><span><i>✓</i> Date and range match</span></div></li>
