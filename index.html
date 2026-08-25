@@ -1314,10 +1314,10 @@
     .settings-screen-dots { display: flex; align-items: center; gap: 4px; }
     .settings-screen-dots i { width: 5px; height: 5px; border-radius: 50%; background: #b9c6c2; transition: width .3s ease, background-color .3s ease; }
     .settings-screen-dots i.is-active { width: 15px; border-radius: 999px; background: #48a9a6; }
-    .tonal-check-list li { color: #555d59; opacity: 1; transform: translateX(0); transition: color .35s ease, transform .35s ease; }
-    .tonal-check-list .tonal-check { color: #2f7773; }
-    .tonal-check-list li.is-settings-active { color: #244b49; font-weight: 750; transform: translateX(5px); }
-    .tonal-check-list li.is-settings-active .tonal-check { color: #2f7773; }
+    .tonal-check-list li { color: #555d59; font-weight: 450; opacity: 1; transition: color .35s ease, font-weight .35s ease; }
+    .tonal-check-list .tonal-check { border-radius: 50%; color: #2f7773; transition: background-color .35s ease, box-shadow .35s ease; }
+    .tonal-check-list li.is-settings-active { color: #244b49; font-weight: 700; }
+    .tonal-check-list li.is-settings-active .tonal-check { color: #2f7773; background: rgba(72,169,166,.1); box-shadow: 0 0 0 4px rgba(72,169,166,.07); }
     .settings-panel.is-active .settings-panel-body > * { animation: settings-control-in .38s ease both; }
     .settings-panel.is-active .settings-panel-body > *:nth-child(2) { animation-delay: .08s; }
     .settings-panel.is-active .settings-panel-body > *:nth-child(3) { animation-delay: .16s; }
