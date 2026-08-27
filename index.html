@@ -342,7 +342,7 @@
     .walkthrough-narration-step { grid-area: 1 / 1; max-width: 100%; opacity: 0; transition: opacity .2s ease; pointer-events: none; }
     .walkthrough-narration-step.is-active { opacity: 1; }
     .walkthrough-narration-step b { display: block; overflow: hidden; font-size: 9px; font-weight: 800; line-height: 1.25; text-overflow: ellipsis; white-space: nowrap; }
-    .walkthrough-playbar { min-width: 0; height: 28px; display: grid; grid-template-columns: 17fr 12fr 23fr 12fr 70fr; gap: 2px; align-items: center; }
+    .walkthrough-playbar { min-width: 0; height: 28px; display: grid; grid-template-columns: 14fr 10fr 13fr 10fr 43fr 15fr; gap: 2px; align-items: center; }
     .walkthrough-play { width: 28px; height: 28px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 50%; color: #244b49; background: transparent; font: 800 10px var(--sans); cursor: pointer; transition: background .2s ease; }
     .walkthrough-play:hover { background: rgba(255,255,255,.55); }
     .walkthrough-stage-control { --segment-progress: 0%; position: relative; min-width: 0; height: 28px; padding: 0; overflow: hidden; border: 0; color: transparent; background: transparent; font-size: 0; cursor: pointer; }
@@ -1020,6 +1020,40 @@
     .walk-patient-fields input { min-width: 0; box-sizing: border-box; padding: 9px; border: 1px solid #ccd8d4; border-radius: 7px; outline: 0; color: #303735; background: #fbfcfc; font: 500 9px var(--sans); }
     .walk-patient-fields input:focus { border-color: #48a9a6; box-shadow: 0 0 0 2px rgba(72,169,166,.12); }
     .walk-add-patient-dialog footer span { color: #75807c; font-size: 7px; }
+    .walk-patient-management { display: grid; gap: 12px; }
+    .walk-patient-overview { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
+    .walk-patient-overview span { padding: 11px 12px; border: 1px solid #dce5e2; border-radius: 9px; background: #f8faf9; }
+    .walk-patient-overview small, .walk-patient-overview b { display: block; }
+    .walk-patient-overview small { color: #75807c; font-size: 7px; }
+    .walk-patient-overview b { margin-top: 4px; color: #26312e; font-size: 16px; }
+    .walk-patient-toolbar { display: flex; align-items: center; gap: 8px; }
+    .walk-patient-search { min-width: 0; flex: 1; padding: 9px 11px; border: 1px solid #ccd8d4; border-radius: 8px; outline: 0; color: #303735; background: #fff; font: 500 9px var(--sans); }
+    .walk-patient-search:focus { border-color: #48a9a6; box-shadow: 0 0 0 2px rgba(72,169,166,.12); }
+    .walk-patient-filter { padding: 9px 10px; border: 1px solid #ccd8d4; border-radius: 8px; color: #5f6d68; background: #fff; font: 700 8px var(--sans); }
+    .walk-patient-list { overflow: hidden; border: 1px solid #dce5e2; border-radius: 10px; }
+    .walk-patient-row { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(0,1fr) 54px 70px; gap: 10px; align-items: center; min-height: 47px; padding: 7px 11px; border-top: 1px solid #e7ecea; color: #61706b; font-size: 8px; }
+    .walk-patient-row:first-child { border-top: 0; }
+    .walk-patient-row.is-head { min-height: 29px; color: #7b8783; background: #f5f8f7; font-size: 7px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .walk-patient-row[hidden] { display: none; }
+    .walk-patient-identity { display: grid; grid-template-columns: 30px minmax(0,1fr); gap: 9px; align-items: center; }
+    .walk-patient-identity i { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: #376361; font-size: 8px; font-style: normal; font-weight: 800; }
+    .walk-patient-identity b, .walk-patient-identity small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .walk-patient-identity b { color: #26312e; font-size: 9px; }
+    .walk-patient-identity small { margin-top: 2px; color: #7b8783; font-size: 7px; }
+    .walk-patient-row button { padding: 6px 8px; border: 1px solid #b8cbc6; border-radius: 6px; color: #376361; background: #fff; font: 800 7px var(--sans); cursor: pointer; }
+    .walk-patient-focus { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; border: 1px solid #b9d8ca; border-radius: 9px; color: #28775e; background: #edf8f2; opacity: 0; transform: translateY(5px); transition: opacity .25s ease, transform .25s ease; }
+    .walkthrough-panel.is-patient-selected .walk-patient-focus { opacity: 1; transform: none; }
+    .walk-patient-focus b, .walk-patient-focus small { display: block; }
+    .walk-patient-focus b { font-size: 9px; }
+    .walk-patient-focus small { margin-top: 2px; color: #5d786d; font-size: 7px; }
+    .walk-patient-focus span:last-child { font-size: 8px; font-weight: 800; }
+    @media (max-width: 700px) {
+      .walk-patient-overview { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .walk-patient-overview span { padding: 8px; }
+      .walk-patient-row { grid-template-columns: minmax(0,1fr) 42px 58px; gap: 6px; padding-inline: 8px; }
+      .walk-patient-row > span:nth-child(2) { display: none; }
+      .walk-patient-filter { display: none; }
+    }
     .walk-summary-cover { padding: 18px 18px 14px; color: #fff; background: #376361; }
     .walk-summary-cover .walk-report-kicker { color: #d3e7e3; }
     .walk-summary-cover h5 { margin: 5px 0 11px; color: #fff !important; font-family: var(--serif); font-size: 24px; font-weight: 400; }
@@ -1182,7 +1216,7 @@
     .walkthrough-panel.is-range-edited .walk-range-custom-value, .walkthrough-panel.is-range-edited .walk-range-label-custom, .walkthrough-panel.is-range-edited .walk-reference-custom, .walkthrough-panel.is-range-edited .walk-range-saved { animation: none; opacity: 1; }
     .walkthrough-panel.is-range-edited .walk-reference-card [data-marker-reference] { opacity: 0; }
     .walkthrough-panel.is-range-edited .walk-range-editor > span:first-child::before, .walkthrough-panel.is-range-edited .walk-chart-legend::before { background: rgba(168,85,247,.12); }
-    .walkthrough-panel.is-range-edited .walk-chart-range { fill: rgba(168,85,247,.08); transform: scaleY(.8); transition: transform .55s cubic-bezier(.22,.8,.28,1), fill .3s ease; }
+    .walkthrough-panel.is-range-edited .walk-chart-range { fill: rgba(168,85,247,.08); transition: fill .3s ease; }
     .walkthrough-panel.is-range-edited .walk-chart-range-boundary { stroke: #a855f7; stroke-dasharray: 2 3; stroke-opacity: .6; }
     .walkthrough-panel.is-range-edited .walk-outlier { fill: #ef4444; stroke: #ef4444; color: #ef4444; }
     .walkthrough-panel.is-active .walk-source-review-layout.is-evidence-open > .walk-evidence-drawer, .walkthrough-panel.is-active .walk-source-review-layout.is-reasoning-open > .walk-reasoning-drawer { animation: none; opacity: 1; transform: none; }
@@ -1542,7 +1576,7 @@
 
     .approval-summary { padding: 96px 0; background: #e8f0ee; }
     .approval-demo { position: relative; display: grid; grid-template-columns: 1.12fr .88fr; overflow: hidden; margin-bottom: 30px; border: 1px solid #b8cbc6; border-radius: 22px; background: #fff; box-shadow: 0 24px 55px rgba(35,56,50,.09); }
-    .approval-report { padding: clamp(30px,4vw,52px); border-right: 1px solid #d4dfdc; background: #fff; }
+    .approval-report { min-height: 0; display: flex; flex-direction: column; padding: clamp(30px,4vw,52px); border-right: 1px solid #d4dfdc; background: #fff; }
     .approval-report > header { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-bottom: 20px; border-bottom: 1px solid #dce4e1; }
     .approval-report header small, .approval-report header b { display: block; }
     .approval-report header small { color: #7b8783; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
@@ -1550,7 +1584,7 @@
     .approval-report header > i { padding: 6px 9px; border-radius: 999px; color: #8a5f21; background: #fff1cf; font-size: 10px; font-style: normal; font-weight: 800; }
     .approval-report.is-accepted > header > i,
     .approval-report.is-share-ready > header > i { color: #22654e; background: #e4f4eb; }
-    .approval-report-body { padding-top: 28px; }
+    .approval-report-body { min-height: 0; flex: 1; padding-top: 28px; }
     .approval-report-body > small { color: #2f7773; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
     .approval-report-body > p { max-width: 920px; margin: 13px 0 0; color: #3f4946; font: 400 clamp(16px,1.45vw,20px)/1.55 var(--serif); }
     .approval-report-body > p.approval-summary-detail { max-width: 880px; margin-top: 12px; color: #69746f; font: 500 clamp(11px,1vw,13px)/1.6 var(--sans); }
@@ -1558,7 +1592,9 @@
     .approval-report-body mark.is-selected { background-size: 100% 100%; box-shadow: 0 0 0 2px rgba(72,169,166,.12); }
     .approval-report-body mark.is-changing { opacity: 0; }
     .approval-edit { max-height: 0; display: grid; gap: 12px; margin-top: 0; overflow: hidden; padding: 0 15px; border: 1px solid transparent; border-radius: 14px; opacity: 0; background: rgba(255,255,255,.98); box-shadow: none; transform: translateY(-7px); pointer-events: none; transition: max-height .46s cubic-bezier(.22,.75,.25,1), margin-top .46s ease, padding .46s ease, border-color .3s ease, opacity .28s ease, transform .4s ease, box-shadow .35s ease; }
-    .approval-report.is-editing .approval-edit { max-height: 390px; margin-top: 22px; padding: 15px; border-color: #a9c8c2; opacity: 1; box-shadow: 0 18px 42px -28px rgba(31,52,47,.3); transform: none; pointer-events: auto; }
+    .approval-report.is-editing .approval-edit,
+    .approval-report.is-measuring-edit .approval-edit { max-height: 390px; margin-top: 22px; padding: 15px; border-color: #a9c8c2; opacity: 1; box-shadow: 0 18px 42px -28px rgba(31,52,47,.3); transform: none; pointer-events: auto; }
+    .approval-report.is-measuring-edit .approval-edit { visibility: hidden; transition: none; }
     .approval-edit > header { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #244b49; }
     .approval-edit > header b { font: 400 22px/1.1 var(--serif); }
     .approval-edit > header span { color: #74817d; font-size: 9px; font-weight: 700; }
@@ -1720,10 +1756,10 @@
       .nav-toggle { display: block; }
       .nav-menu { position: absolute; top: 54px; left: 0; right: 0; display: none; padding: 18px; border-radius: 18px; background: var(--berry); box-shadow: 0 18px 45px rgba(36,21,28,.35); }
       .nav-menu.is-open { display: block; }
-      .nav-menu .nav-links { display: grid; gap: 0; }
+      .nav-menu .nav-links { display: grid; gap: 0; font-size: 15px; }
       .nav-menu .nav-links a { min-height: 44px; display: flex; align-items: center; border-bottom: 1px solid rgba(244,237,223,.14); }
-      .nav-menu .nav-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 14px; }
-      .nav-menu .nav-actions .button { width: 100%; }
+      .nav-menu .nav-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 14px; font-size: 15px; }
+      .nav-menu .nav-actions .button { width: 100%; font-size: 14px; }
       .nav-menu .nav-actions .login { min-height: 40px; display: flex; grid-column: 1 / -1; grid-row: 2; align-items: center; justify-content: center; }
     }
     @media (max-width: 1100px) {
@@ -1735,25 +1771,38 @@
       .trust-showcase .privacy-choice-setting,
       .trust-showcase .security-assurance { grid-row: 4; }
     }
+    @media (min-width: 901px) and (max-height: 1100px) {
+      .doctor-features { padding: 56px 0 44px; }
+      .feature-study-head { margin-bottom: 18px; }
+      .feature-study-head h2 { font-size: clamp(40px,3.8vw,50px); }
+      .walkthrough-narration { margin-top: 30px; }
+      .product-walkthrough, .walkthrough-product { min-height: 540px; }
+      .walk-product-main { min-height: 482px; }
+      .walk-report-page { height: 420px; }
+      .walk-aux-default, .walk-note-view { min-height: 410px; }
+      .walk-demo-access { margin-top: 14px; }
+    }
     @media (min-width: 901px) and (max-height: 950px) {
-      .doctor-features { padding: 76px 0 64px; }
-      .feature-study-head { margin-bottom: 26px; }
-      .feature-study-head h2 { font-size: clamp(42px,4.2vw,58px); }
-      .walkthrough-narration { margin-top: 42px; }
-      .product-walkthrough, .walkthrough-product { min-height: 560px; }
-      .walk-product-main { min-height: 502px; }
-      .walk-report-page { height: 440px; }
-      .walk-aux-default, .walk-note-view { min-height: 430px; }
+      .doctor-features { padding: 48px 0 38px; }
+      .feature-study-head { margin-bottom: 14px; }
+      .feature-study-head h2 { font-size: clamp(38px,3.5vw,46px); }
+      .walkthrough-narration { margin-top: 26px; }
+      .product-walkthrough, .walkthrough-product { min-height: 500px; }
+      .walk-product-main { min-height: 442px; }
+      .walk-report-page { height: 390px; }
+      .walk-aux-default, .walk-note-view { min-height: 380px; }
     }
     @media (min-width: 901px) and (max-height: 820px) {
-      .doctor-features { padding: 68px 0 48px; }
-      .feature-study-head { margin-bottom: 18px; }
-      .feature-study-head h2 { max-width: 960px; font-size: clamp(40px,3.6vw,48px); }
-      .walkthrough-narration { margin-top: 42px; }
-      .product-walkthrough, .walkthrough-product { min-height: 536px; }
-      .walk-product-main { min-height: 478px; }
-      .walk-report-page { height: 426px; }
-      .walk-aux-default, .walk-note-view { min-height: 416px; }
+      .doctor-features { padding: 38px 0 32px; }
+      .feature-study-head { margin-bottom: 10px; }
+      .feature-study-head h2 { max-width: 960px; font-size: clamp(36px,3.2vw,42px); }
+      .doctor-features .feature-concept { width: min(1273px,113.636%); zoom: .88; }
+      .walkthrough-narration { margin-top: 22px; }
+      .product-walkthrough, .walkthrough-product { min-height: 460px; }
+      .walk-product-main { min-height: 402px; }
+      .walk-report-page { height: 350px; }
+      .walk-aux-default, .walk-note-view { min-height: 340px; }
+      .walk-demo-access { margin-top: 10px; }
     }
     @media (max-width: 900px) {
       .tonal-motion .tonal-scroll-sequence { height: auto; }
@@ -1767,10 +1816,10 @@
       .nav-toggle { display: block; }
       .nav-menu { position: absolute; top: 54px; left: 0; right: 0; display: none; padding: 18px; border-radius: 18px; background: var(--berry); box-shadow: 0 18px 45px rgba(36,21,28,.35); }
       .nav-menu.is-open { display: block; }
-      .nav-menu .nav-links { display: grid; gap: 0; }
+      .nav-menu .nav-links { display: grid; gap: 0; font-size: 15px; }
       .nav-menu .nav-links a { min-height: 44px; display: flex; align-items: center; border-bottom: 1px solid rgba(244,237,223,.14); }
-      .nav-menu .nav-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 14px; }
-      .nav-menu .nav-actions .button { width: 100%; }
+      .nav-menu .nav-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 14px; font-size: 15px; }
+      .nav-menu .nav-actions .button { width: 100%; font-size: 14px; }
       .nav-menu .nav-actions .login { min-height: 40px; display: flex; grid-column: 1 / -1; grid-row: 2; align-items: center; justify-content: center; }
       .proof-grid { grid-template-columns: repeat(2, 1fr); }
       .proof-item:nth-child(3) { padding-left: 0; border-left: 0; }
@@ -2306,9 +2355,9 @@
   .report-card.is-left { transform: translateX(-52%) scale(.7); }
   .report-card.is-right { transform: translateX(52%) scale(.7); }
   @media (min-width: 801px) {
-    .report-track { height: 432px; }
+    .report-track { height: 464px; }
     .report-card { width: 720px; margin-left: -360px; }
-    .report-cover { height: 432px; }
+    .report-cover { height: 464px; }
     .report-nav.prev { left: max(14px,calc(50% - 400px)); }
     .report-nav.next { right: max(14px,calc(50% - 400px)); }
   }
@@ -2537,8 +2586,8 @@
       <a href="#top" aria-label="n1.care home"><span class="logo" aria-hidden="true"></span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open navigation"><span></span></button>
       <div class="nav-menu" id="primary-menu">
-        <div class="nav-links"><a href="product.html">Product</a><a href="clinicians.html">For clinicians</a><a href="patients.html">For patients</a><a href="labs.html">For labs</a><a href="reports.html">Reports</a><a href="compliance.html">Compliance</a><a href="pricing.html">Pricing</a><a href="about.html">About</a></div>
-        <div class="nav-actions"><a class="login" href="https://app.n1.care/login">Log in</a><a class="button" href="https://app.n1.care/signup">Start free trial</a><a class="button secondary" href="contact.html?intent=walkthrough">Book a walkthrough</a></div>
+        <div class="nav-links"><a href="product.html">Product</a><a href="clinicians.html">Clinicians</a><a href="patients.html">Patients</a><a href="labs.html">Labs</a><a href="reports.html">Reports</a><a href="compliance.html">Compliance</a><a href="pricing.html">Pricing</a><a href="about.html">About</a></div>
+        <div class="nav-actions"><a class="login" href="https://app.n1.care/login">Log in</a><a class="button" href="https://app.n1.care/signup">Start free trial</a></div>
       </div>
     </div>
   </nav>
@@ -2559,7 +2608,7 @@
               <div class="tonal-hero-bottom hero-actions-only">
                 <div class="hero-actions">
                   <a class="button" href="https://app.n1.care/signup">Start free trial <span aria-hidden="true">→</span></a>
-                  <a class="button secondary" href="contact.html?intent=walkthrough">Book a walkthrough</a>
+                  <a class="button secondary" href="https://calendly.com/leah-n1/n1-care-discovery-call">Book a walkthrough</a>
                 </div>
               </div>
             </div>
@@ -2596,6 +2645,7 @@
                   <article class="walkthrough-narration-step" data-narration-step="2"><b>Review every data type and add a patient note</b></article>
                   <article class="walkthrough-narration-step" data-narration-step="3"><b>Build a useful clinical draft</b></article>
                   <article class="walkthrough-narration-step" data-narration-step="4"><b>Edit and sign off on each report</b></article>
+                  <article class="walkthrough-narration-step" data-narration-step="5"><b>Manage every patient from one secure workspace</b></article>
                 </div>
               </div>
               <div class="walkthrough-playbar" aria-label="Walkthrough chapters">
@@ -2604,8 +2654,9 @@
                 <button class="walkthrough-stage-control" type="button" data-walkthrough-control="2" aria-label="Jump to all patient data">All patient data</button>
                 <button class="walkthrough-stage-control" type="button" data-walkthrough-control="3" aria-label="Jump to report generation">Generate</button>
                 <button class="walkthrough-stage-control" type="button" data-walkthrough-control="4" aria-label="Jump to report review and sharing">Review &amp; send</button>
+                <button class="walkthrough-stage-control" type="button" data-walkthrough-control="5" aria-label="Jump to patient management">Patients</button>
               </div>
-              <span class="walkthrough-time" data-walkthrough-time>0:00 / 1:57</span>
+              <span class="walkthrough-time" data-walkthrough-time>0:00 / 1:45</span>
             </aside>
             <div class="product-walkthrough is-timeline-paused is-patient-empty" data-walkthrough>
               <div class="walkthrough-stage" aria-live="off">
@@ -2638,7 +2689,7 @@
                       </div>
                       <div class="walk-menu-group"><b>Patient management</b>
                         <button class="walk-menu-item walk-aux-tab" type="button" data-walk-aux="notes"><i class="walk-menu-icon"><svg viewBox="0 0 24 24"><path d="M15 4V2M9 4V2M5 8h14M6 4h12a2 2 0 0 1 2 2v14H4V6a2 2 0 0 1 2-2Z"/><path d="M8 12h8M8 16h5"/></svg></i>Patient Notes</button>
-                        <span class="walk-menu-item"><i class="walk-menu-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M3 21v-2a6 6 0 0 1 12 0v2M19 8v6M16 11h6"/></svg></i>Patient Settings</span>
+                        <button class="walkthrough-tab" id="walkthrough-tab-patients" type="button" data-walkthrough-tab="5"><i class="walk-menu-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M3 21v-2a6 6 0 0 1 12 0v2M19 8v6M16 11h6"/></svg></i>Patients</button>
                       </div>
                       <span class="walk-menu-cursor" aria-hidden="true"><i></i></span>
                     </nav>
@@ -2824,6 +2875,22 @@
                           <div class="walk-note-editor"><header><span><b>New patient note</b><small>Private to the care team</small></span><i>Patient note saved ✓</i></header><textarea id="walk-clinical-note" name="clinical-note" aria-label="Patient note" data-walk-note placeholder="Write a brief note about this patient…"></textarea><footer><span>Linked to <i data-patient-name>John Doe</i></span><button type="button" data-walk-note-save>Save note</button></footer></div>
                         </div>
                         <aside class="walk-diagnosis-note" aria-label="Add note to diagnosis"><header><b>Add note to Prediabetes</b><span data-diagnosis-saved>Saved ✓</span></header><textarea id="walk-diagnosis-note" name="diagnosis-note" data-diagnosis-note aria-label="Diagnosis note" placeholder="Add clinical context…"></textarea><footer><span>Linked to this diagnosis · Care team only</span><button type="button" data-diagnosis-save>Save note</button></footer></aside>
+                      </section>
+
+                      <section class="walkthrough-panel" id="walkthrough-panel-patients" role="tabpanel" aria-labelledby="walkthrough-tab-patients" aria-hidden="true" data-walkthrough-panel="5">
+                        <div class="walk-page-head"><div><span>Practice workspace · 10 patients</span><h4>Patient management</h4></div><button class="walk-primary-action" type="button" data-walk-manage-add>＋ Add patient</button></div>
+                        <div class="walk-patient-management">
+                          <div class="walk-patient-overview"><span><small>Active patients</small><b>10</b></span><span><small>Awaiting review</small><b>2</b></span><span><small>New this month</small><b>3</b></span></div>
+                          <div class="walk-patient-toolbar"><input class="walk-patient-search" type="search" aria-label="Search patients" placeholder="Search by patient name or ID" data-walk-patient-search><span class="walk-patient-filter">Status: All</span></div>
+                          <div class="walk-patient-list" role="table" aria-label="Patients">
+                            <div class="walk-patient-row is-head" role="row"><span>Patient</span><span>Latest activity</span><span>Records</span><span></span></div>
+                            <div class="walk-patient-row" role="row" data-patient-row data-patient-search-name="jane doe n1-1042"><span class="walk-patient-identity"><i>JD</i><span><b>Jane Doe</b><small>N1-1042 · 1982-Jun-14</small></span></span><span>Report approved · Today</span><b>17</b><button type="button" data-patient-open>Open →</button></div>
+                            <div class="walk-patient-row" role="row" data-patient-row data-patient-search-name="john doe n1-1038"><span class="walk-patient-identity"><i>JD</i><span><b>John Doe</b><small>N1-1038 · 1978-Feb-03</small></span></span><span>Records processed · Today</span><b>14</b><button type="button" data-patient-open>Open →</button></div>
+                            <div class="walk-patient-row" role="row" data-patient-row data-patient-search-name="maya chen n1-1031"><span class="walk-patient-identity"><i>MC</i><span><b>Maya Chen</b><small>N1-1031 · 1990-Oct-22</small></span></span><span>Note added · Yesterday</span><b>9</b><button type="button" data-patient-open>Open →</button></div>
+                            <div class="walk-patient-row" role="row" data-patient-row data-patient-search-name="samir patel n1-1027"><span class="walk-patient-identity"><i>SP</i><span><b>Samir Patel</b><small>N1-1027 · 1969-May-09</small></span></span><span>Review requested · 2 days ago</span><b>22</b><button type="button" data-patient-open>Open →</button></div>
+                          </div>
+                          <aside class="walk-patient-focus" aria-live="polite"><span><b>Jane Doe selected</b><small>17 records · 4 reports · access logged</small></span><span>Open workspace →</span></aside>
+                        </div>
                       </section>
                     </div>
                   </div>
@@ -3159,7 +3226,7 @@
       </div>
     </section>
 
-    <section class="tonal-close" id="contact"><div class="shell"><h2>See the full picture for each patient.</h2><p class="close-copy">Bring their records into one clear view. Follow changes over time. Check each source. Build the report around the way you work.</p><div class="close-actions"><a class="button" href="https://app.n1.care/signup">Start free trial <span aria-hidden="true">→</span></a><a class="button secondary" href="contact.html?intent=walkthrough">Book a demo</a></div></div></section>
+    <section class="tonal-close" id="contact"><div class="shell"><h2>See the full picture for each patient.</h2><div class="close-actions"><a class="button" href="https://app.n1.care/signup">Start free trial <span aria-hidden="true">→</span></a><a class="button secondary" href="https://calendly.com/leah-n1/n1-care-discovery-call">Book a walkthrough</a></div></div></section>
 
   </main>
 
@@ -3285,7 +3352,8 @@
       var globalCursor = root.querySelector('.walk-global-cursor');
       var cursorAnimation = null;
       var active = 0;
-      var stageDurations = [14000, 10000, 13000, 10000, 56000];
+      // The dedicated patient-management chapter begins at 1:30.
+      var stageDurations = [14000, 10000, 13000, 10000, 43000, 15000];
       var tourTotal = stageDurations.reduce(function (total, duration) { return total + duration; }, 0);
       var delay = stageDurations[0];
       var remaining = delay;
@@ -3296,6 +3364,7 @@
       var guidedActions = {};
       var guidedNote = 'Patient confirms metformin twice daily and stable home blood pressure.';
       var guidedRewritePrompt = 'Make this clearer and more concise.';
+      var guidedPatientSearch = 'Jane Doe';
       var sourceReportScroll = 0;
       var patientNames = ['John Doe', 'Jane Doe', 'John Doe', 'Jane Doe', 'John Doe', 'Jane Doe', 'John Doe', 'Jane Doe', 'John Doe', 'Jane Doe'];
       var currentPatientIndex = 0;
@@ -3322,6 +3391,7 @@
         if (step === 0) return root.querySelector('[data-walkthrough-tab="0"]');
         if (step === 1) return root.querySelector('[data-walkthrough-tab="1"]');
         if (step === 2) return root.querySelector('[data-walk-aux="diagnoses"]');
+        if (step === 5) return root.querySelector('[data-walkthrough-tab="5"]');
         return root.querySelector('[data-walkthrough-tab="3"]');
       }
 
@@ -3522,12 +3592,20 @@
           if (progress >= .71) performGuidedAction('report-approve', panel.querySelector('[data-walk-approve]'));
           if (progress >= .75) performGuidedAction('send-open', panel.querySelector('[data-walk-send-open]'));
           if (progress >= .78) performGuidedAction('send-submit', panel.querySelector('[data-walk-send-submit]'));
-          if (progress >= .82) performGuidedAction('add-patient-open', root.querySelector('[data-walk-add-patient]'));
+        } else if (active === 5) {
+          var patientSearch = panel.querySelector('[data-walk-patient-search]');
+          if (progress >= .1) performGuidedAction('patient-search-focus', patientSearch);
+          if (patientSearch && progress >= .11 && progress < .38) {
+            typeToLength(patientSearch, guidedPatientSearch, Math.floor((progress - .11) / .27 * guidedPatientSearch.length));
+          }
+          if (progress >= .38) typeToLength(patientSearch, guidedPatientSearch, guidedPatientSearch.length);
+          if (progress >= .42) performGuidedAction('patient-select', panel.querySelector('[data-patient-open]'));
+          if (progress >= .55) performGuidedAction('add-patient-open', panel.querySelector('[data-walk-manage-add]'));
           var newPatientName = root.querySelector('[data-walk-new-patient-name]');
-          if (progress >= .85) performGuidedAction('new-patient-focus', newPatientName);
-          if (newPatientName && progress >= .86 && progress < .93) {
+          if (progress >= .65) performGuidedAction('new-patient-focus', newPatientName);
+          if (newPatientName && progress >= .66 && progress < .88) {
             var nextName = patientNames[pendingPatientIndex];
-            var patientNameLength = Math.min(nextName.length, Math.floor((progress - .86) / .06 * nextName.length));
+            var patientNameLength = Math.min(nextName.length, Math.floor((progress - .66) / .22 * nextName.length));
             if (newPatientName.value.length < patientNameLength) {
               var patientCharacter = nextName.charAt(newPatientName.value.length);
               newPatientName.dispatchEvent(new InputEvent('beforeinput', { bubbles: true, inputType: 'insertText', data: patientCharacter }));
@@ -3535,11 +3613,11 @@
               newPatientName.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertText', data: patientCharacter }));
             }
           }
-          if (newPatientName && progress >= .93 && newPatientName.value !== patientNames[pendingPatientIndex]) {
+          if (newPatientName && progress >= .88 && newPatientName.value !== patientNames[pendingPatientIndex]) {
             newPatientName.value = patientNames[pendingPatientIndex];
             newPatientName.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertText', data: patientNames[pendingPatientIndex] }));
           }
-          if (progress >= .95) performGuidedAction('create-patient', root.querySelector('[data-walk-create-patient]'));
+          if (progress >= .92) performGuidedAction('create-patient', root.querySelector('[data-walk-create-patient]'));
         }
       }
 
@@ -3702,7 +3780,7 @@
             cursorFrame(panel.querySelector('.walk-report-generate'), .72, .62, .6),
             cursorFrame(panel.querySelector('.walk-report-generate'), 1, .62, .6)
           ];
-        } else {
+        } else if (step === 4) {
           var evidenceDrawer = panel.querySelector('.walk-evidence-drawer');
           var reasoningDrawer = panel.querySelector('.walk-reasoning-drawer');
           var evidenceOpenShift = evidenceDrawer ? -evidenceDrawer.offsetWidth * 1.02 : 0;
@@ -3721,9 +3799,18 @@
             cursorFrame(panel.querySelector('[data-walk-approve]'), .71, .55, .55),
             cursorFrame(panel.querySelector('[data-walk-send-open]'), .75, .55, .55),
             cursorFrame(panel.querySelector('[data-walk-send-submit]'), .78, .6, .55),
-            cursorFrame(root.querySelector('[data-walk-add-patient]'), .82, .55, .55),
-            cursorFrame(root.querySelector('[data-walk-new-patient-name]'), .85, .3, .55),
-            cursorFrame(root.querySelector('[data-walk-create-patient]'), .95, .6, .55),
+            cursorFrame(panel.querySelector('[data-walk-send-submit]'), 1, .6, .55)
+          ];
+        } else {
+          frames = [
+            cursorFrame(menuItem, 0, .78, .55),
+            cursorFrame(panel.querySelector('[data-walk-patient-search]'), .1, .32, .55),
+            cursorFrame(panel.querySelector('[data-walk-patient-search]'), .38, .32, .55),
+            cursorFrame(panel.querySelector('[data-patient-open]'), .42, .62, .55),
+            cursorFrame(panel.querySelector('[data-walk-manage-add]'), .55, .62, .55),
+            cursorFrame(root.querySelector('[data-walk-new-patient-name]'), .65, .3, .55),
+            cursorFrame(root.querySelector('[data-walk-new-patient-name]'), .88, .3, .55),
+            cursorFrame(root.querySelector('[data-walk-create-patient]'), .92, .6, .55),
             cursorFrame(root.querySelector('[data-walk-create-patient]'), 1, .6, .55)
           ];
         }
@@ -3786,7 +3873,7 @@
           item.classList.toggle('is-active', index === active);
           item.setAttribute('aria-pressed', index === active ? 'true' : 'false');
         });
-        if (narrationCount) narrationCount.textContent = '0' + (active + 1) + ' / 05';
+        if (narrationCount) narrationCount.textContent = '0' + (active + 1) + ' / 06';
         if (restart) {
           remaining = delay;
           guidedActions = {};
@@ -3854,6 +3941,12 @@
             resetGenerate.disabled = true;
             resetGenerate.setAttribute('aria-label', 'Select a report first');
           }
+          if (active === 5) {
+            selectedPanel.classList.remove('is-patient-selected');
+            var patientSearch = selectedPanel.querySelector('[data-walk-patient-search]');
+            if (patientSearch) patientSearch.value = '';
+            selectedPanel.querySelectorAll('[data-patient-row]').forEach(function (row) { row.hidden = false; });
+          }
           selectedTab.classList.remove('is-active');
           selectedPanel.classList.remove('is-active');
           void root.offsetWidth;
@@ -3861,7 +3954,7 @@
           selectedPanel.classList.add('is-active');
         }
         root.setAttribute('data-walk-step', String(active));
-        if (active !== 4) product.classList.remove('is-add-patient-open');
+        if (active !== 5) product.classList.remove('is-add-patient-open');
         positionNarration(active, false);
         clearTimer();
         startedAt = performance.now();
@@ -4100,6 +4193,19 @@
         addPatientModal.setAttribute('aria-hidden', 'false');
       }
       addPatientButton.addEventListener('click', openAddPatient);
+      var patientManagementPanel = panels[5];
+      var manageAddPatientButton = patientManagementPanel.querySelector('[data-walk-manage-add]');
+      var patientSearchInput = patientManagementPanel.querySelector('[data-walk-patient-search]');
+      if (manageAddPatientButton) manageAddPatientButton.addEventListener('click', openAddPatient);
+      if (patientSearchInput) patientSearchInput.addEventListener('input', function () {
+        var query = patientSearchInput.value.trim().toLowerCase();
+        patientManagementPanel.querySelectorAll('[data-patient-row]').forEach(function (row) {
+          row.hidden = query && row.getAttribute('data-patient-search-name').indexOf(query) === -1;
+        });
+      });
+      patientManagementPanel.querySelectorAll('[data-patient-open]').forEach(function (button) {
+        button.addEventListener('click', function () { patientManagementPanel.classList.add('is-patient-selected'); });
+      });
       addPatientForm.addEventListener('submit', function (event) {
         event.preventDefault();
         var enteredName = newPatientNameInput.value.trim();
@@ -4122,7 +4228,8 @@
         if (cursorAnimation) cursorAnimation.currentTime = delay * ratio;
         if (step === 2 && ratio >= .61) typeToLength(panels[2].querySelector('[data-walk-note]'), guidedNote, guidedNote.length);
         if (step === 4 && ratio >= .42) typeToLength(panels[4].querySelector('[data-walk-rewrite-prompt]'), guidedRewritePrompt, guidedRewritePrompt.length);
-        if (step === 4 && ratio >= .98) {
+        if (step === 5 && ratio >= .38) typeToLength(panels[5].querySelector('[data-walk-patient-search]'), guidedPatientSearch, guidedPatientSearch.length);
+        if (step === 5 && ratio >= .88) {
           pendingPatientIndex = (currentPatientIndex + 1) % patientNames.length;
           var patientInput = root.querySelector('[data-walk-new-patient-name]');
           patientInput.value = patientNames[pendingPatientIndex];
@@ -4368,9 +4475,7 @@
           line.setAttribute('class', 'spark-line');
           line.setAttribute('d', smoothChartPath(points, .5));
           compact.appendChild(line);
-          var status = data.customReference
-            ? { min: data.customReference[0], max: data.customReference[1] }
-            : reference;
+          var status = reference;
           points.forEach(function (point) {
             var abnormal = (status.min != null && point.value < status.min) || (status.max != null && point.value > status.max);
             if (!abnormal) return;
@@ -4392,8 +4497,9 @@
           : referenceValues.length === 1 && data.reference.trim().charAt(0) === '<'
             ? [0, referenceValues[0]]
             : [];
-        var statusRange = data.customReference || referenceBounds;
-        var domainValues = values.concat(referenceBounds);
+        var customRangeIsActive = panel.classList.contains('is-range-edited') && data.customReference;
+        var statusRange = customRangeIsActive ? data.customReference : referenceBounds;
+        var domainValues = values.concat(statusRange);
         var high = Math.max.apply(Math, domainValues);
         var low = Math.min.apply(Math, domainValues);
         var rawSpread = high - low || Math.max(Math.abs(high) * .1, 1);
@@ -4425,9 +4531,9 @@
           pointGroup.appendChild(circle);
         });
         var rangeBand = svg.querySelector('.walk-chart-range');
-        if (rangeBand && referenceBounds.length === 2) {
-          var refTop = 15 + ((plotHigh - referenceBounds[1]) / spread) * 100;
-          var refBottom = 15 + ((plotHigh - referenceBounds[0]) / spread) * 100;
+        if (rangeBand && statusRange.length === 2) {
+          var refTop = 15 + ((plotHigh - statusRange[1]) / spread) * 100;
+          var refBottom = 15 + ((plotHigh - statusRange[0]) / spread) * 100;
           rangeBand.setAttribute('y', Math.max(15, refTop));
           rangeBand.setAttribute('height', Math.max(2, Math.min(115, refBottom) - Math.max(15, refTop)));
           rangeBand.style.display = '';
@@ -4473,9 +4579,12 @@
         });
       }
 
+      var activeMarkerKey = 'hba1c';
+
       function renderMarker(key) {
         var data = markerData[key];
         if (!data) return;
+        activeMarkerKey = key;
         rows.forEach(function (row) {
           var selected = row.getAttribute('data-marker') === key;
           row.classList.toggle('is-selected', selected);
@@ -4504,6 +4613,12 @@
           renderMarker(row.getAttribute('data-marker'));
         });
       });
+      var rangeButton = panel.querySelector('.walk-range-editor button');
+      if (rangeButton) {
+        rangeButton.addEventListener('click', function () {
+          renderMarker(activeMarkerKey);
+        });
+      }
       renderCompactSparklines();
       renderMarker('hba1c');
     })();
@@ -5097,6 +5212,7 @@
       var status = editor.querySelector('[data-approval-status]');
       var apply = editor.querySelector('.approval-apply');
       var report = document.querySelector('.approval-report');
+      var demo = report ? report.closest('.approval-demo') : null;
       var reportState = report ? report.querySelector(':scope > header > i') : null;
       var shareButton = report ? report.querySelector('.approval-share-button') : null;
       var shareModal = document.querySelector('.approval-share-modal');
@@ -5157,6 +5273,13 @@
         summary.style.minHeight = Math.ceil(maxHeight) + 'px';
         promptBox.style.minHeight = Math.ceil(maxPromptHeight + 2) + 'px';
         resultBox.style.minHeight = Math.ceil(maxResultHeight + 2) + 'px';
+        if (demo && report) {
+          demo.style.height = '';
+          report.classList.add('is-measuring-edit');
+          var expandedHeight = Math.ceil(report.scrollHeight + 2);
+          report.classList.remove('is-measuring-edit');
+          demo.style.height = expandedHeight + 'px';
+        }
       }
       function reset() {
         var scenario = currentScenario();

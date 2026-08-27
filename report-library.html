@@ -6,6 +6,12 @@
   <title>Shared report library | n1.care</title>
   <meta name="description" content="Explore anonymised, consent-led health report examples in a searchable learning library.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23376361'/%3E%3Ctext x='6' y='22' fill='white' font-family='Arial' font-weight='700' font-size='16'%3En1%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="art-directions.css">
+  <link rel="stylesheet" href="marketing-pages.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="brand-tokens.css">
+  <link rel="stylesheet" href="smoked-birch-copper-patina.css">
+  <script defer src="marketing-pages.js"></script>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap");
     :root { --ink:#202523; --teal:#376361; --bright:#48a9a6; --deep:#244b49; --cream:#f3ede2; --paper:#fffdf9; --mist:#c9d8d4; --muted:#64706c; --serif:Georgia,'Times New Roman',serif; --sans:'Work Sans',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; }
@@ -76,16 +82,28 @@
     @media (max-width:620px) { .shell{width:min(100% - 28px,1240px)} .site-head{padding:8px 0}.nav{padding:0 14px}.nav a:not(.brand):not(.cta){display:none}.hero{padding:58px 0 42px}.toolbar{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.report{min-height:240px}.library-head{align-items:start;flex-direction:column;gap:8px}.footer-row{flex-direction:column} }
   </style>
 </head>
-<body>
-  <header class="site-head"><div class="shell"><nav class="nav" aria-label="Primary"><a class="brand" href="index.html"><b>n1.</b>care</a><a href="index.html#reports">Reports</a><a href="compliance.html">Compliance</a><a class="cta" href="index.html#contact">Book a walkthrough</a></nav></div></header>
-  <main>
+<body class="tonal marketing-page report-library-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="marketing-nav" aria-label="Primary navigation">
+    <div class="shell marketing-nav-inner">
+      <a href="index.html" aria-label="n1.care home"><span class="logo" aria-hidden="true"></span></a>
+      <div class="marketing-links">
+        <a href="product.html">Product</a><a href="clinicians.html">Clinicians</a><a href="patients.html">Patients</a><a href="labs.html">Labs</a><a href="reports.html" aria-current="page">Reports</a><a href="compliance.html">Compliance</a><a href="pricing.html">Pricing</a><a href="about.html">About</a>
+      </div>
+      <div class="marketing-actions">
+        <a class="login-link" href="https://app.n1.care/login">Log in</a><a class="button" href="https://app.n1.care/signup">Start free trial</a>
+      </div>
+      <button class="marketing-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span></button>
+    </div>
+  </nav>
+  <main id="main">
     <section class="hero shell">
       <div><p class="eyebrow">Shared report library · Sample</p><h1>Learn from reports shared by choice.</h1></div>
       <div><p class="hero-copy">A patient may choose to share a report after a doctor checks it. Others can learn from the layout, trends, and care path. We do not show names, ID details, or source files.</p><div class="consent-note"><i aria-hidden="true">✓</i><span><b>Shared by choice</b>This sample shows how the library will work. The reports use made-up data until shared reports are ready.</span></div></div>
     </section>
     <section class="library shell" aria-labelledby="library-title">
       <header class="library-head"><h2 id="library-title">Reports you can read</h2><span class="count" data-count>56 sample reports</span></header>
-      <div class="toolbar"><label class="search"><span hidden>Search reports</span><input type="search" data-search placeholder="Search by topic or report type"></label><label><span hidden>Sort reports</span><select data-sort><option value="recent">New first</option><option value="oldest">Old first</option><option value="type">Report type</option><option value="sources">Most source files</option></select></label></div>
+      <div class="toolbar"><label class="search"><span hidden>Search reports</span><input type="search" name="report-search" data-search placeholder="Search by topic or report type"></label><label><span hidden>Sort reports</span><select name="report-sort" data-sort><option value="recent">New first</option><option value="oldest">Old first</option><option value="type">Report type</option><option value="sources">Most source files</option></select></label></div>
       <div class="filters" data-filters aria-label="Filter by health topic"></div>
       <div class="grid" data-grid></div>
       <div class="more-wrap"><button class="more" type="button" data-more>Show more reports</button></div>
