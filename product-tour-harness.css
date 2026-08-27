@@ -2,7 +2,9 @@
 .product-hero-sticky { position: sticky; top: 0; height: 100svh; min-height: 0; overflow: hidden; }
 .product-hero-inner { position: relative; height: 100%; }
 .product-hero-copy { position: absolute; z-index: 2; top: clamp(100px,11svh,116px); left: 50%; width: min(900px,100%); display: block; opacity: var(--hero-copy-opacity,1); text-align: center; transform: translate3d(-50%,var(--hero-copy-y,0),0); will-change: transform,opacity; }
-.product-page .product-hero h1 { max-width: 820px; margin: 0 auto; font-size: clamp(46px,4.25vw,62px); line-height: 1; text-wrap: balance; }
+.product-page .product-hero h1,
+.product-page .product-hero-title-heading { max-width: 820px; margin: 0 auto; font-family: var(--serif); font-size: clamp(46px,4.25vw,62px); font-weight: 400; line-height: 1; letter-spacing: -.04em; text-wrap: balance; }
+.product-page .product-hero-title-heading em { color: var(--wine); font-style: normal; }
 .product-hero-copy .page-actions { justify-content: center; margin-top: 28px; }
 .product-hero-story { position: absolute; z-index: 3; top: 50%; left: 0; width: min(340px,29vw); opacity: var(--hero-story-opacity,0); pointer-events: none; transform: translate3d(0,calc(-50% + var(--hero-story-y,24px)),0); will-change: transform,opacity; }
 .product-hero-story .page-kicker { display: block; margin-bottom: 17px; }
@@ -1126,7 +1128,8 @@
   .data-capture-table > header,.data-capture-table > article { grid-template-columns: minmax(150px,1fr) minmax(220px,1.55fr) minmax(190px,1.25fr) minmax(120px,.8fr); gap: 14px; }
   .data-capture-table > article { padding-inline: 16px; }
   .product-page .product-hero { height: 650svh; min-height: 4300px; }
-  .product-page .product-hero h1 { font-size: clamp(44px,5.4vw,56px); }
+  .product-page .product-hero h1,
+  .product-page .product-hero-title-heading { font-size: clamp(44px,5.4vw,56px); }
   .product-hero-story { width: min(320px,35vw); }
   .product-hero-story h2 { font-size: 38px; }
   .product-tour-feature, .product-tour-feature:nth-child(even) { grid-template-columns: 1fr; gap: 30px; }
@@ -1159,7 +1162,8 @@
   .product-hero-sticky { min-height: 600px; }
   .product-hero-inner { width: calc(100% - 32px); }
   .product-hero-copy { top: 104px; }
-  .product-page .product-hero h1 { font-size: 38px; }
+  .product-page .product-hero h1,
+  .product-page .product-hero-title-heading { font-size: 38px; }
   .product-hero-copy .page-actions { flex-direction: column; align-items: stretch; width: min(310px,100%); margin-inline: auto; }
   .product-hero-story { top: 105px; left: 0; width: 100%; transform: translate3d(0,var(--hero-story-y,24px),0); }
   .product-hero-story h2 { font-size: 38px; }
@@ -1345,11 +1349,31 @@
   --type-label: clamp(11px,calc(10.5px + .08vw),12px);
 }
 .product-page main { position: relative; z-index: 2; background: #fbfaf7; }
+/* On the combined clinician page the product experience begins well below the
+   first hero. Keep the shared floating navigation legible until that embedded
+   experience is reached instead of inheriting the standalone product page's
+   transparent opening treatment. */
+.clinician-product-combined .marketing-nav:not(.is-past-hero) { color: var(--cream); }
+.clinician-product-combined .marketing-nav:not(.is-past-hero) .marketing-nav-inner {
+  background: #376361;
+  box-shadow: 0 12px 30px rgba(23,24,23,.18);
+  --button-bg: var(--cream);
+  --button-fg: var(--ink);
+  --button-border: var(--cream);
+  --button-bg-hover: var(--paper);
+  --button-fg-hover: var(--ink);
+  --button-border-hover: var(--paper);
+  --button-secondary-fg: var(--cream);
+  --button-focus: var(--cream);
+}
+.clinician-product-combined .marketing-nav:not(.is-past-hero) .logo { color: currentColor; }
+.clinician-product-combined .marketing-nav:not(.is-past-hero) .marketing-links a[aria-current="page"] { color: #d3e7e3; }
 .product-page .marketing-links,
 .product-page .marketing-actions { font-size: clamp(15px,calc(14px + .12vw),16px); }
 .product-page .marketing-actions .button { font-size: clamp(14px,calc(13px + .12vw),15px); }
 .product-page .page-kicker { font-size: var(--type-label); }
-.product-page .product-hero h1 { max-width: 980px; font-size: var(--type-display-xl); }
+.product-page .product-hero h1,
+.product-page .product-hero-title-heading { max-width: 980px; font-size: var(--type-display-xl); }
 .product-page .product-hero-story h2 { font-size: clamp(36px,calc(30px + 1.2vw),54px); }
 .product-page .product-hero-story p { font-size: var(--type-body); }
 .product-page .product-hero-story li { font-size: var(--type-body-sm); }
@@ -1416,7 +1440,8 @@
 .product-page .product-hero-window small { font-size: clamp(8px,calc(7px + .08vw),9px); }
 
 @media (max-width: 720px) {
-  .product-page .product-hero h1 { font-size: 42px; }
+  .product-page .product-hero h1,
+  .product-page .product-hero-title-heading { font-size: 42px; }
   .product-page .product-hero-story h2 { font-size: 38px; }
   .product-page .process-intro h2 { font-size: 46px; }
   .product-page .process-copy h3 { font-size: 42px; }
