@@ -96,8 +96,8 @@
     .tonal-motion .nav.is-past-hero.is-light-phase .nav-inner { background: var(--berry); box-shadow: 0 12px 30px rgba(36,21,28,.22); }
     .tonal-motion .nav.is-past-hero.is-light-phase .button { color: var(--wine); background: var(--cream); border-color: var(--cream); }
 
-    .doctor-features { position: relative; padding: clamp(80px,8vw,112px) 0 96px; overflow: clip; background: var(--paper); }
-    .doctor-features::before { position: absolute; z-index: 0; top: 0; right: 0; left: 0; height: 56px; background: linear-gradient(180deg,var(--cream),var(--paper)); content: ""; pointer-events: none; }
+    .doctor-features { position: relative; padding: clamp(80px,8vw,112px) 0 96px; overflow: clip; border-top: 1px solid var(--mist); background: var(--paper); }
+    .doctor-features::before { display: none; }
     .doctor-features > .shell { position: relative; z-index: 1; }
     #features, #product, #reports, #security, #roadmap, #contact { scroll-margin-top: 84px; }
     .section-head { max-width: 760px; margin: 0 auto 52px; text-align: center; }
