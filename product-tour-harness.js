@@ -393,8 +393,10 @@
       const availableSplitWidth = Math.max(1, innerWidth - storyRight - 75);
       const targetScale = mobile ? 1.07 : clamp(availableSplitWidth / baseWindowWidth, .66, .93);
       const initialScale = mobile ? 1 : Math.max(.78, targetScale - .06);
-      const finalWindowWidth = baseWindowWidth * targetScale;
-      const targetShift = mobile ? 0 : Math.max(0, innerWidth / 2 - 15 - finalWindowWidth / 2);
+      const splitGap = clamp(innerWidth * .045, 56, 92);
+      const edgeGutter = clamp(innerWidth * .04, 48, 96);
+      const splitCenter = (storyRight + splitGap + innerWidth - edgeGutter) / 2;
+      const targetShift = mobile ? 0 : Math.max(0, splitCenter - innerWidth / 2);
       const baseWindowCenter = (heroWindow?.offsetTop || 0) + (heroWindow?.offsetHeight || 0) / 2;
       const fixedWindowY = mobile ? 0 : Math.min(0, innerHeight * .5 - baseWindowCenter);
       const modalShift = 0;
