@@ -714,5 +714,12 @@
     }
     document.addEventListener('visibilitychange', () => document.hidden ? stopShowcase() : startShowcase());
   }
+  const revealFooter = document.querySelector('.product-footer-reveal')?.closest('.marketing-footer');
+  if (revealFooter && 'IntersectionObserver' in window) {
+    const footerObserver = new IntersectionObserver(([entry]) => {
+      document.body.classList.toggle('is-footer-revealing', entry.isIntersecting);
+    });
+    footerObserver.observe(revealFooter);
+  }
   document.addEventListener('visibilitychange', () => instances.forEach((instance) => document.hidden ? instance.stop() : instance.start()));
 })();
