@@ -28,7 +28,7 @@
       height: 100%;
       max-width: none;
       object-fit: cover;
-      object-position: 58% center;
+      object-position: center;
       filter: none;
     }
     .tonal-hero-video::after {
@@ -1819,7 +1819,7 @@
     }
     @media (max-width: 900px) {
       .tonal-motion .tonal-scroll-sequence { height: auto; }
-      .tonal-hero-video video { object-position: 64% center; }
+      .tonal-hero-video video { object-position: center; }
       .tonal-hero-video::after { background: linear-gradient(180deg,rgba(13,22,20,.18),transparent 34%,rgba(10,18,16,.82)); }
       .tonal-motion .nav-inner { position: relative; display: flex; justify-content: space-between; }
       .nav-toggle { display: block; }
@@ -2094,7 +2094,14 @@
       .tonal-hero-video {
         background:
           linear-gradient(90deg, rgba(10, 18, 17, .82), rgba(10, 18, 17, .24)),
-          url("assets/videos/clinical-check-poster.webp") 58% center / cover no-repeat;
+          url("assets/videos/trust-montage-poster.jpg") center / cover no-repeat;
+      }
+    }
+    @media (max-width: 620px) and (prefers-reduced-motion: reduce) {
+      .tonal-hero-video {
+        background:
+          linear-gradient(180deg, rgba(10, 18, 17, .18), transparent 34%, rgba(10, 18, 17, .82)),
+          url("assets/videos/trust-montage-poster-portrait.jpg") center / cover no-repeat;
       }
     }
   </style>
@@ -2606,8 +2613,9 @@
       <div class="tonal-scroll-sticky">
         <section class="tonal-hero" id="top" aria-labelledby="tonal-title">
           <div class="tonal-hero-video" aria-hidden="true">
-            <video data-autoplay muted loop playsinline preload="metadata" poster="assets/videos/clinical-check-poster.webp">
-              <source src="assets/videos/clinical-check.mp4" type="video/mp4">
+            <video data-autoplay muted loop playsinline preload="metadata" poster="assets/videos/trust-montage-poster.jpg">
+              <source media="(max-width: 620px)" src="assets/videos/trust-montage-portrait.mp4" type="video/mp4">
+              <source src="assets/videos/trust-montage.mp4" type="video/mp4">
             </video>
           </div>
           <div class="shell tonal-hero-inner">
@@ -2617,7 +2625,7 @@
               <a class="home-hero-scroll" href="#features">Scroll to see how</a>
             </div>
           </div>
-          <p class="home-hero-credit">Concept footage · cottonbro studio / Pexels</p>
+          <p class="home-hero-credit">Concept footage · Pexels contributors</p>
         </section>
       </div>
     </section>

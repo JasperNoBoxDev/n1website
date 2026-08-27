@@ -14,5 +14,10 @@ which permits free use, website use, and modification without required attributi
 | `laboratory-analysis.mp4` | [Automated analysers in a laboratory](https://www.pexels.com/video/automated-analysers-in-a-laboratory-8381327/) | Pavel Danilyuk |
 | `sunlit-park.mp4` | [Sunny park stroll with people and trees](https://www.pexels.com/video/sunny-park-stroll-with-people-and-trees-30507205/) | Evgenij Mikhailov |
 | `patient-seashore.mp4` | [Woman walking by the seashore](https://www.pexels.com/video/a-woman-walking-by-the-seashore-5418386/) | Yaroslav Shuraev |
+| `trust-montage*.mp4` | [A couple crossing the river](https://www.pexels.com/video/a-couple-crossing-the-river-8968040/) | Yaroslav Shuraev |
+| `trust-montage*.mp4` | [Woman working out at the gym](https://www.pexels.com/video/woman-working-out-at-the-gym-4859748/) | Ketut Subiyanto |
+| `trust-montage*.mp4` | [A barber shaving a customer with a razor](https://www.pexels.com/video/a-barber-shaving-a-customer-with-a-razor-8867469/) | Los Muertos Crew |
+| `trust-montage*.mp4` | [A blind man walking with his dog](https://www.pexels.com/video/a-blind-man-walking-with-his-dog-5390255/) | Gustavo Fring |
+| `trust-montage*.mp4` | [A man teaching his adopted child to ride a bike](https://www.pexels.com/video/a-man-teaching-his-adopted-child-to-ride-a-bike-8799163/) | RDNE Stock project |
 
 The matching WebP or JPEG files are poster frames generated from these clips.
