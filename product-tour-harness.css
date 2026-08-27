@@ -1331,3 +1331,115 @@
   .process-step.is-active .micro-review > strong,
   .process-step.is-active .micro-report footer strong { opacity: 1; transform: none; animation: none; }
 }
+
+/* Responsive typography calibration
+   Content type scales continuously from phone to wide desktop. Product mockups
+   keep a denser scale, but important labels never drop below a readable floor. */
+.product-page {
+  --type-display-xl: clamp(42px,calc(34px + 2vw),78px);
+  --type-display-lg: clamp(42px,calc(32px + 2.35vw),76px);
+  --type-section: clamp(40px,calc(30px + 2.2vw),72px);
+  --type-lead: clamp(16px,calc(15px + .2vw),19px);
+  --type-body: clamp(15px,calc(14.2px + .16vw),17px);
+  --type-body-sm: clamp(14px,calc(13.4px + .12vw),15px);
+  --type-label: clamp(11px,calc(10.5px + .08vw),12px);
+}
+.product-page main { position: relative; z-index: 2; background: #fbfaf7; }
+.product-page .marketing-links,
+.product-page .marketing-actions { font-size: clamp(15px,calc(14px + .12vw),16px); }
+.product-page .marketing-actions .button { font-size: clamp(14px,calc(13px + .12vw),15px); }
+.product-page .page-kicker { font-size: var(--type-label); }
+.product-page .product-hero h1 { max-width: 980px; font-size: var(--type-display-xl); }
+.product-page .product-hero-story h2 { font-size: clamp(36px,calc(30px + 1.2vw),54px); }
+.product-page .product-hero-story p { font-size: var(--type-body); }
+.product-page .product-hero-story li { font-size: var(--type-body-sm); }
+.product-page .process-intro { max-width: 920px; }
+.product-page .process-intro h2 { font-size: clamp(48px,calc(32px + 2.6vw),82px); }
+.product-page .process-intro p { max-width: 680px; font-size: var(--type-lead); }
+.product-page .process-number { font-size: var(--type-label); }
+.product-page .process-copy h3 { font-size: clamp(44px,calc(30px + 2.3vw),76px); }
+.product-page .process-copy p { font-size: var(--type-body); }
+.product-page .process-copy li { font-size: var(--type-body-sm); }
+.product-page .process-next small { font-size: 10px; }
+.product-page .process-next b { font-size: clamp(12px,calc(11px + .1vw),13px); }
+.product-page .process-demo > header { font-size: clamp(11px,calc(10px + .1vw),12px); }
+.product-page .workflow-steps span { font-size: clamp(8px,calc(7px + .08vw),9px); }
+.product-page .process-demo small,
+.product-page .process-demo dt,
+.product-page .process-demo figcaption { font-size: clamp(8px,calc(7px + .08vw),9px); }
+.product-page .patient-showcase-head h2 { font-size: clamp(42px,calc(31px + 2.2vw),72px); }
+.product-page .patient-showcase-head p { font-size: var(--type-lead); }
+.product-page .patient-showcase-points h3 { font-size: clamp(19px,calc(18px + .14vw),21px); }
+.product-page .patient-showcase-points p { font-size: var(--type-body-sm); }
+.product-page .patient-showcase-app small { font-size: clamp(8px,calc(7px + .1vw),9px); }
+.product-page .patient-showcase-progress span { font-size: clamp(8px,calc(7px + .08vw),9px); }
+.product-page .mini-testimonials-head h2 { font-size: clamp(36px,calc(29px + 1.55vw),54px); }
+.product-page .mini-testimonials-head > p { font-size: var(--type-body-sm); }
+.product-page .mini-testimonial-grid blockquote p { font-size: clamp(20px,calc(17px + .4vw),24px); }
+.product-page .mini-testimonial-grid cite { font-size: 12px; }
+.product-page .mini-testimonial-grid footer span { font-size: 10px; }
+.product-page .mini-testimonials-note,
+.product-page .data-capture-footnote,
+.product-page .practice-credit,
+.product-page .clinician-voices-note { font-size: 12px; }
+.product-page .data-capture-head h2 { font-size: clamp(44px,calc(30px + 2.5vw),80px); }
+.product-page .data-capture-head > p { font-size: var(--type-body); }
+.product-page .data-capture-summary span { font-size: clamp(12px,calc(11px + .1vw),13px); }
+.product-page .data-capture-summary b { font-size: clamp(13px,calc(12px + .1vw),14px); }
+.product-page .data-capture-table > header { font-size: 10px; }
+.product-page .data-capture-type b { font-size: clamp(14px,calc(13px + .12vw),15px); }
+.product-page .data-capture-type small { font-size: 11px; }
+.product-page .data-capture-tags span { font-size: 10px; }
+.product-page .data-capture-table article > p { font-size: clamp(13px,calc(12px + .1vw),14px); }
+.product-page .data-capture-table article > strong,
+.product-page .data-capture-footnote { font-size: clamp(11px,calc(10px + .1vw),12px); }
+.product-page .product-faq-head h2 { font-size: clamp(46px,calc(31px + 2.55vw),80px); }
+.product-page .product-faq-head p { font-size: var(--type-body); }
+.product-page .product-faq-list summary { font-size: clamp(19px,calc(17px + .45vw),25px); }
+.product-page .product-faq-list details > p { font-size: var(--type-body-sm); }
+.product-page .page-media-copy h2 { font-size: clamp(34px,calc(27px + 1.45vw),58px); }
+.product-page .page-media-copy p,
+.product-page .section-head > p,
+.product-page .section-head > div:last-child > p { font-size: var(--type-body); }
+.product-page .section-head h2 { font-size: clamp(40px,calc(29px + 2.25vw),72px); }
+.product-page .clinical-questions h3 { font-size: clamp(28px,calc(25px + .3vw),31px); }
+.product-page .clinical-questions p,
+.product-page .boundary-list p,
+.product-page .practice-strip span { font-size: var(--type-body-sm); }
+.product-page .control-boundary h2 { font-size: clamp(40px,calc(29px + 2vw),64px); }
+.product-page .product-final-cta h2 { font-size: clamp(40px,calc(31px + 1.75vw),64px); }
+.product-page .product-final-cta p { font-size: var(--type-lead); }
+.product-page .marketing-footer-brand p,
+.product-page .marketing-footer-links a { font-size: var(--type-body-sm); }
+.product-page .marketing-footer-links strong,
+.product-page .marketing-footer-bottom { font-size: var(--type-label); }
+.product-page .product-hero-window small { font-size: clamp(8px,calc(7px + .08vw),9px); }
+
+@media (max-width: 720px) {
+  .product-page .product-hero h1 { font-size: 42px; }
+  .product-page .product-hero-story h2 { font-size: 38px; }
+  .product-page .process-intro h2 { font-size: 46px; }
+  .product-page .process-copy h3 { font-size: 42px; }
+  .product-page .patient-showcase-head h2 { font-size: 42px; }
+  .product-page .data-capture-head h2 { font-size: 44px; }
+  .product-page .product-faq-head h2 { font-size: 46px; }
+  .product-page .data-capture-table article > p { font-size: 14px; }
+  .product-page .product-faq-list details > p { font-size: 14px; }
+}
+
+@media (min-width: 1800px) {
+  .product-page main .shell { width: min(1520px,calc(100% - 128px)); }
+  .product-page .product-hero-copy { width: min(1060px,100%); }
+  .product-page .product-hero-story { width: min(400px,26vw); }
+  .product-page .product-hero-window { width: min(1280px,calc(100vw - 128px),calc((100svh - 72px) * 1.7778)); }
+  .product-page .process-step { grid-template-columns: minmax(320px,480px) minmax(0,660px); gap: 90px; }
+  .product-page .process-step:nth-child(even) { grid-template-columns: minmax(0,660px) minmax(320px,480px); }
+  .product-page .process-copy { max-width: 480px; }
+  .product-page .process-copy p,
+  .product-page .process-copy ul,
+  .product-page .process-next { max-width: 430px; }
+  .product-page .process-demo { width: min(100%,660px); }
+  .product-page .patient-showcase-app { width: min(940px,78%); }
+  .product-page .product-faq-head { max-width: 860px; }
+  .product-page .marketing-footer > .shell { padding-right: max(64px,calc((100vw - 1520px)/2)); padding-left: max(64px,calc((100vw - 1520px)/2)); }
+}
