@@ -38,11 +38,12 @@ button { font: inherit; }
 .logo { width: 104px; aspect-ratio: 258/87; display: block; background: currentColor; -webkit-mask: url("assets/n1-care-dark-green.svg") center/contain no-repeat; mask: url("assets/n1-care-dark-green.svg") center/contain no-repeat; }
 .nav { position: absolute; z-index: 40; inset: 0 0 auto; height: 90px; display: flex; align-items: center; }
 .nav-inner { width: min(1440px, calc(100% - 64px)); margin: auto; display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: center; gap: 24px; }
-.nav-links, .nav-actions { display: flex; align-items: center; gap: 22px; font-size: 13px; }
+.nav-links, .nav-actions { display: flex; align-items: center; gap: 22px; font-size: 15px; }
 .nav-links { justify-self: center; }
 .nav-actions { justify-self: end; gap: 10px; }
 .nav-actions .login,
 .nav-actions .button { flex: none; white-space: nowrap; }
+.nav-actions .button { font-size: 14px; }
 /* CTAs use the same restrained corner radius as the navigation and compact
    interface surfaces. They stay clearly button-shaped without becoming pills. */
 .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 13px; padding: 10px 19px; border: 1px solid currentColor; border-radius: var(--n1-radius-2xl); font-size: 13px; font-weight: 600; transition: transform .2s ease, background .2s ease; }
@@ -53,6 +54,13 @@ button { font: inherit; }
 .footer p { max-width: 450px; margin: 14px 0 0; font-size: 13px; line-height: 1.6; opacity: .65; }
 .footer-links { display: flex; gap: 22px; font-size: 13px; }
 .media-credit { position: absolute; right: 20px; bottom: 16px; z-index: 4; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
+
+@media (min-width: 1281px) and (max-width: 1450px) {
+  .nav-links, .marketing-page .marketing-links { gap: 14px; font-size: 15px; }
+  .nav-actions, .marketing-page .marketing-actions { font-size: 15px; }
+  .tonal-motion .nav .button,
+  .tonal.marketing-page .marketing-actions .button { padding-inline: 14px; font-size: 14px; }
+}
 
 /* 01 — Neko-informed cinematic care. White editorial space, a saturated chapter and film-led storytelling. */
 .cinema { --ink: #15322e; --chalk: #f6f3eb; --lime: #9fe3d4; --aqua: #70c9e8; --brick: #c75f49; background: #fff; color: var(--ink); }
@@ -252,14 +260,14 @@ button { font: inherit; }
 .tonal-strip strong { font-family: var(--serif); font-size: 34px; font-weight: 400; }
 .tonal-motion .tonal-hero-bottom { transition: opacity .4s ease, transform .6s var(--ease); }
 .tonal-motion .tonal-scroll-sequence.is-engaged .tonal-hero-bottom { opacity: 0; transform: translateY(-18px); }
-.tonal-motion .nav { position: fixed; padding-top: 0; height: 64px; transition: padding-top .4s var(--ease); }
+.tonal-motion .nav { position: fixed; padding-top: 12px; height: 64px; }
 .tonal-motion .nav.is-past-hero { padding-top: 12px; }
 /* The floating bar is a container, so it softens — but to --n1-radius-2xl, the
    top of the scale, not to a 999px pill. A full-bleed nav is not an avatar or a
    badge, and at 1360px wide the pill radius rounded the ends into something
    generic that fought the sharp type. The CTA inside it keeps the square base;
    only its height and padding shrink for the bar. */
-.tonal-motion .nav-inner { border-radius: var(--n1-radius-2xl); transition: background-color .4s ease, box-shadow .4s ease, padding .4s var(--ease); }
+.tonal-motion .nav-inner { padding: 8px 20px; border-radius: var(--n1-radius-2xl); transition: background-color .4s ease, box-shadow .4s ease; }
 .tonal-motion .nav .button { min-height: 40px; padding: 8px 18px; }
 .tonal-motion .logo { width: 88px; }
 .tonal-motion .nav.is-past-hero .nav-inner { background: var(--berry); padding: 8px 20px; box-shadow: 0 12px 30px rgba(36,21,28,.22); }
@@ -372,17 +380,17 @@ button { font: inherit; }
 .report-card.is-center:focus-visible .report-cover { box-shadow: 0 0 0 3px var(--peach), 0 40px 70px -30px rgba(0,0,0,.6); }
 
 .report-cover { background: #fff; color: var(--ink); border-radius: var(--n1-radius-4xl); overflow: hidden; box-shadow: 0 44px 74px -34px rgba(0,0,0,.66), 0 14px 30px rgba(0,0,0,.28); display: flex; flex-direction: column; height: 380px; }
-.report-cover-head { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; background: var(--wine); color: var(--cream); }
+.report-cover-head { display: flex; flex: none; align-items: center; justify-content: space-between; padding: 16px 20px; background: var(--wine); color: var(--cream); }
 .report-cover-tag { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .report-cover-no { font-size: 10px; letter-spacing: .12em; opacity: .7; }
-.report-cover-body { padding: 24px; flex: 1; display: flex; gap: 28px; align-items: stretch; }
+.report-cover-body { min-height: 0; padding: 24px; flex: 1; display: flex; gap: 28px; align-items: stretch; }
 .report-cover-text { flex: 1; display: flex; flex-direction: column; justify-content: center; }
 .report-cover-title { margin: 0 0 10px; font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1.18; color: var(--ink); }
 .report-cover-desc { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--ink); opacity: .62; }
 .report-cover-proof { display: flex; align-items: center; gap: 8px; width: fit-content; margin-top: 18px; padding: 7px 9px; border: 1px solid #c7dbd6; border-radius: 7px; color: #49625d; background: #eef6f4; font-size: 8px; font-weight: 700; }
 .report-cover-proof i { width: 17px; height: 17px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: #48a987; font-size: 8px; font-style: normal; }
 .report-cover-proof span { color: inherit; }
-.report-cover-foot { padding: 4px 20px 18px; border-top: 1px solid #efe4d2; }
+.report-cover-foot { flex: none; padding: 4px 20px 18px; border-top: 1px solid #efe4d2; }
 /* A button, not a badge — it opens the report modal — so it takes the square
    control radius like every other CTA, not the pill radius. */
 .report-cover-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; padding: 9px 16px; border: 0; border-radius: var(--n1-radius-sm); background: var(--wine); color: var(--cream); font-family: inherit; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: background .25s var(--ease), transform .25s var(--ease); }
@@ -491,9 +499,10 @@ button { font: inherit; }
 
 @media (max-width: 800px) {
   .report-card { width: 300px; margin-left: -150px; }
-  .report-track { height: 440px; }
-  .report-cover { height: 440px; }
+  .report-track { height: 570px; }
+  .report-cover { height: 570px; }
   .report-cover-body { flex-direction: column; gap: 14px; padding: 18px 18px 0; }
+  .report-thumb { flex-basis: auto; }
   .cover-art { flex: none; width: 100%; }
   .report-card.is-left { transform: translateX(-48%) translateZ(-120px) rotateY(38deg) scale(.84); }
   .report-card.is-right { transform: translateX(48%) translateZ(-120px) rotateY(-38deg) scale(.84); }

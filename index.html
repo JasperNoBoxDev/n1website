@@ -1182,7 +1182,7 @@
     .walkthrough-panel.is-range-edited .walk-range-custom-value, .walkthrough-panel.is-range-edited .walk-range-label-custom, .walkthrough-panel.is-range-edited .walk-reference-custom, .walkthrough-panel.is-range-edited .walk-range-saved { animation: none; opacity: 1; }
     .walkthrough-panel.is-range-edited .walk-reference-card [data-marker-reference] { opacity: 0; }
     .walkthrough-panel.is-range-edited .walk-range-editor > span:first-child::before, .walkthrough-panel.is-range-edited .walk-chart-legend::before { background: rgba(168,85,247,.12); }
-    .walkthrough-panel.is-range-edited .walk-chart-range { fill: rgba(168,85,247,.08); transform: scaleY(.8); transition: transform .55s cubic-bezier(.22,.8,.28,1), fill .3s ease; }
+    .walkthrough-panel.is-range-edited .walk-chart-range { fill: rgba(168,85,247,.08); transition: fill .3s ease; }
     .walkthrough-panel.is-range-edited .walk-chart-range-boundary { stroke: #a855f7; stroke-dasharray: 2 3; stroke-opacity: .6; }
     .walkthrough-panel.is-range-edited .walk-outlier { fill: #ef4444; stroke: #ef4444; color: #ef4444; }
     .walkthrough-panel.is-active .walk-source-review-layout.is-evidence-open > .walk-evidence-drawer, .walkthrough-panel.is-active .walk-source-review-layout.is-reasoning-open > .walk-reasoning-drawer { animation: none; opacity: 1; transform: none; }
@@ -1542,7 +1542,7 @@
 
     .approval-summary { padding: 96px 0; background: #e8f0ee; }
     .approval-demo { position: relative; display: grid; grid-template-columns: 1.12fr .88fr; overflow: hidden; margin-bottom: 30px; border: 1px solid #b8cbc6; border-radius: 22px; background: #fff; box-shadow: 0 24px 55px rgba(35,56,50,.09); }
-    .approval-report { padding: clamp(30px,4vw,52px); border-right: 1px solid #d4dfdc; background: #fff; }
+    .approval-report { min-height: 0; display: flex; flex-direction: column; padding: clamp(30px,4vw,52px); border-right: 1px solid #d4dfdc; background: #fff; }
     .approval-report > header { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-bottom: 20px; border-bottom: 1px solid #dce4e1; }
     .approval-report header small, .approval-report header b { display: block; }
     .approval-report header small { color: #7b8783; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
@@ -1550,7 +1550,7 @@
     .approval-report header > i { padding: 6px 9px; border-radius: 999px; color: #8a5f21; background: #fff1cf; font-size: 10px; font-style: normal; font-weight: 800; }
     .approval-report.is-accepted > header > i,
     .approval-report.is-share-ready > header > i { color: #22654e; background: #e4f4eb; }
-    .approval-report-body { padding-top: 28px; }
+    .approval-report-body { min-height: 0; flex: 1; padding-top: 28px; }
     .approval-report-body > small { color: #2f7773; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
     .approval-report-body > p { max-width: 920px; margin: 13px 0 0; color: #3f4946; font: 400 clamp(16px,1.45vw,20px)/1.55 var(--serif); }
     .approval-report-body > p.approval-summary-detail { max-width: 880px; margin-top: 12px; color: #69746f; font: 500 clamp(11px,1vw,13px)/1.6 var(--sans); }
@@ -1558,7 +1558,9 @@
     .approval-report-body mark.is-selected { background-size: 100% 100%; box-shadow: 0 0 0 2px rgba(72,169,166,.12); }
     .approval-report-body mark.is-changing { opacity: 0; }
     .approval-edit { max-height: 0; display: grid; gap: 12px; margin-top: 0; overflow: hidden; padding: 0 15px; border: 1px solid transparent; border-radius: 14px; opacity: 0; background: rgba(255,255,255,.98); box-shadow: none; transform: translateY(-7px); pointer-events: none; transition: max-height .46s cubic-bezier(.22,.75,.25,1), margin-top .46s ease, padding .46s ease, border-color .3s ease, opacity .28s ease, transform .4s ease, box-shadow .35s ease; }
-    .approval-report.is-editing .approval-edit { max-height: 390px; margin-top: 22px; padding: 15px; border-color: #a9c8c2; opacity: 1; box-shadow: 0 18px 42px -28px rgba(31,52,47,.3); transform: none; pointer-events: auto; }
+    .approval-report.is-editing .approval-edit,
+    .approval-report.is-measuring-edit .approval-edit { max-height: 390px; margin-top: 22px; padding: 15px; border-color: #a9c8c2; opacity: 1; box-shadow: 0 18px 42px -28px rgba(31,52,47,.3); transform: none; pointer-events: auto; }
+    .approval-report.is-measuring-edit .approval-edit { visibility: hidden; transition: none; }
     .approval-edit > header { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #244b49; }
     .approval-edit > header b { font: 400 22px/1.1 var(--serif); }
     .approval-edit > header span { color: #74817d; font-size: 9px; font-weight: 700; }
@@ -1720,10 +1722,10 @@
       .nav-toggle { display: block; }
       .nav-menu { position: absolute; top: 54px; left: 0; right: 0; display: none; padding: 18px; border-radius: 18px; background: var(--berry); box-shadow: 0 18px 45px rgba(36,21,28,.35); }
       .nav-menu.is-open { display: block; }
-      .nav-menu .nav-links { display: grid; gap: 0; }
+      .nav-menu .nav-links { display: grid; gap: 0; font-size: 15px; }
       .nav-menu .nav-links a { min-height: 44px; display: flex; align-items: center; border-bottom: 1px solid rgba(244,237,223,.14); }
-      .nav-menu .nav-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 14px; }
-      .nav-menu .nav-actions .button { width: 100%; }
+      .nav-menu .nav-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 14px; font-size: 15px; }
+      .nav-menu .nav-actions .button { width: 100%; font-size: 14px; }
       .nav-menu .nav-actions .login { min-height: 40px; display: flex; grid-column: 1 / -1; grid-row: 2; align-items: center; justify-content: center; }
     }
     @media (max-width: 1100px) {
@@ -1735,25 +1737,38 @@
       .trust-showcase .privacy-choice-setting,
       .trust-showcase .security-assurance { grid-row: 4; }
     }
+    @media (min-width: 901px) and (max-height: 1100px) {
+      .doctor-features { padding: 56px 0 44px; }
+      .feature-study-head { margin-bottom: 18px; }
+      .feature-study-head h2 { font-size: clamp(40px,3.8vw,50px); }
+      .walkthrough-narration { margin-top: 30px; }
+      .product-walkthrough, .walkthrough-product { min-height: 540px; }
+      .walk-product-main { min-height: 482px; }
+      .walk-report-page { height: 420px; }
+      .walk-aux-default, .walk-note-view { min-height: 410px; }
+      .walk-demo-access { margin-top: 14px; }
+    }
     @media (min-width: 901px) and (max-height: 950px) {
-      .doctor-features { padding: 76px 0 64px; }
-      .feature-study-head { margin-bottom: 26px; }
-      .feature-study-head h2 { font-size: clamp(42px,4.2vw,58px); }
-      .walkthrough-narration { margin-top: 42px; }
-      .product-walkthrough, .walkthrough-product { min-height: 560px; }
-      .walk-product-main { min-height: 502px; }
-      .walk-report-page { height: 440px; }
-      .walk-aux-default, .walk-note-view { min-height: 430px; }
+      .doctor-features { padding: 48px 0 38px; }
+      .feature-study-head { margin-bottom: 14px; }
+      .feature-study-head h2 { font-size: clamp(38px,3.5vw,46px); }
+      .walkthrough-narration { margin-top: 26px; }
+      .product-walkthrough, .walkthrough-product { min-height: 500px; }
+      .walk-product-main { min-height: 442px; }
+      .walk-report-page { height: 390px; }
+      .walk-aux-default, .walk-note-view { min-height: 380px; }
     }
     @media (min-width: 901px) and (max-height: 820px) {
-      .doctor-features { padding: 68px 0 48px; }
-      .feature-study-head { margin-bottom: 18px; }
-      .feature-study-head h2 { max-width: 960px; font-size: clamp(40px,3.6vw,48px); }
-      .walkthrough-narration { margin-top: 42px; }
-      .product-walkthrough, .walkthrough-product { min-height: 536px; }
-      .walk-product-main { min-height: 478px; }
-      .walk-report-page { height: 426px; }
-      .walk-aux-default, .walk-note-view { min-height: 416px; }
+      .doctor-features { padding: 38px 0 32px; }
+      .feature-study-head { margin-bottom: 10px; }
+      .feature-study-head h2 { max-width: 960px; font-size: clamp(36px,3.2vw,42px); }
+      .doctor-features .feature-concept { width: min(1273px,113.636%); zoom: .88; }
+      .walkthrough-narration { margin-top: 22px; }
+      .product-walkthrough, .walkthrough-product { min-height: 460px; }
+      .walk-product-main { min-height: 402px; }
+      .walk-report-page { height: 350px; }
+      .walk-aux-default, .walk-note-view { min-height: 340px; }
+      .walk-demo-access { margin-top: 10px; }
     }
     @media (max-width: 900px) {
       .tonal-motion .tonal-scroll-sequence { height: auto; }
@@ -1767,10 +1782,10 @@
       .nav-toggle { display: block; }
       .nav-menu { position: absolute; top: 54px; left: 0; right: 0; display: none; padding: 18px; border-radius: 18px; background: var(--berry); box-shadow: 0 18px 45px rgba(36,21,28,.35); }
       .nav-menu.is-open { display: block; }
-      .nav-menu .nav-links { display: grid; gap: 0; }
+      .nav-menu .nav-links { display: grid; gap: 0; font-size: 15px; }
       .nav-menu .nav-links a { min-height: 44px; display: flex; align-items: center; border-bottom: 1px solid rgba(244,237,223,.14); }
-      .nav-menu .nav-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 14px; }
-      .nav-menu .nav-actions .button { width: 100%; }
+      .nav-menu .nav-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 14px; font-size: 15px; }
+      .nav-menu .nav-actions .button { width: 100%; font-size: 14px; }
       .nav-menu .nav-actions .login { min-height: 40px; display: flex; grid-column: 1 / -1; grid-row: 2; align-items: center; justify-content: center; }
       .proof-grid { grid-template-columns: repeat(2, 1fr); }
       .proof-item:nth-child(3) { padding-left: 0; border-left: 0; }
@@ -2306,9 +2321,9 @@
   .report-card.is-left { transform: translateX(-52%) scale(.7); }
   .report-card.is-right { transform: translateX(52%) scale(.7); }
   @media (min-width: 801px) {
-    .report-track { height: 432px; }
+    .report-track { height: 464px; }
     .report-card { width: 720px; margin-left: -360px; }
-    .report-cover { height: 432px; }
+    .report-cover { height: 464px; }
     .report-nav.prev { left: max(14px,calc(50% - 400px)); }
     .report-nav.next { right: max(14px,calc(50% - 400px)); }
   }
@@ -2537,8 +2552,8 @@
       <a href="#top" aria-label="n1.care home"><span class="logo" aria-hidden="true"></span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open navigation"><span></span></button>
       <div class="nav-menu" id="primary-menu">
-        <div class="nav-links"><a href="product.html">Product</a><a href="clinicians.html">For clinicians</a><a href="patients.html">For patients</a><a href="labs.html">For labs</a><a href="reports.html">Reports</a><a href="compliance.html">Compliance</a><a href="pricing.html">Pricing</a><a href="about.html">About</a></div>
-        <div class="nav-actions"><a class="login" href="https://app.n1.care/login">Log in</a><a class="button" href="https://app.n1.care/signup">Start free trial</a><a class="button secondary" href="contact.html?intent=walkthrough">Book a walkthrough</a></div>
+        <div class="nav-links"><a href="product.html">Product</a><a href="clinicians.html">Clinicians</a><a href="patients.html">Patients</a><a href="labs.html">Labs</a><a href="reports.html">Reports</a><a href="compliance.html">Compliance</a><a href="pricing.html">Pricing</a><a href="about.html">About</a></div>
+        <div class="nav-actions"><a class="login" href="https://app.n1.care/login">Log in</a><a class="button" href="https://app.n1.care/signup">Start free trial</a></div>
       </div>
     </div>
   </nav>
@@ -2559,7 +2574,7 @@
               <div class="tonal-hero-bottom hero-actions-only">
                 <div class="hero-actions">
                   <a class="button" href="https://app.n1.care/signup">Start free trial <span aria-hidden="true">→</span></a>
-                  <a class="button secondary" href="contact.html?intent=walkthrough">Book a walkthrough</a>
+                  <a class="button secondary" href="https://calendly.com/leah-n1/n1-care-discovery-call">Book a walkthrough</a>
                 </div>
               </div>
             </div>
@@ -3159,7 +3174,7 @@
       </div>
     </section>
 
-    <section class="tonal-close" id="contact"><div class="shell"><h2>See the full picture for each patient.</h2><p class="close-copy">Bring their records into one clear view. Follow changes over time. Check each source. Build the report around the way you work.</p><div class="close-actions"><a class="button" href="https://app.n1.care/signup">Start free trial <span aria-hidden="true">→</span></a><a class="button secondary" href="contact.html?intent=walkthrough">Book a demo</a></div></div></section>
+    <section class="tonal-close" id="contact"><div class="shell"><h2>See the full picture for each patient.</h2><div class="close-actions"><a class="button" href="https://app.n1.care/signup">Start free trial <span aria-hidden="true">→</span></a><a class="button secondary" href="https://calendly.com/leah-n1/n1-care-discovery-call">Book a walkthrough</a></div></div></section>
 
   </main>
 
@@ -4368,9 +4383,7 @@
           line.setAttribute('class', 'spark-line');
           line.setAttribute('d', smoothChartPath(points, .5));
           compact.appendChild(line);
-          var status = data.customReference
-            ? { min: data.customReference[0], max: data.customReference[1] }
-            : reference;
+          var status = reference;
           points.forEach(function (point) {
             var abnormal = (status.min != null && point.value < status.min) || (status.max != null && point.value > status.max);
             if (!abnormal) return;
@@ -4392,8 +4405,9 @@
           : referenceValues.length === 1 && data.reference.trim().charAt(0) === '<'
             ? [0, referenceValues[0]]
             : [];
-        var statusRange = data.customReference || referenceBounds;
-        var domainValues = values.concat(referenceBounds);
+        var customRangeIsActive = panel.classList.contains('is-range-edited') && data.customReference;
+        var statusRange = customRangeIsActive ? data.customReference : referenceBounds;
+        var domainValues = values.concat(statusRange);
         var high = Math.max.apply(Math, domainValues);
         var low = Math.min.apply(Math, domainValues);
         var rawSpread = high - low || Math.max(Math.abs(high) * .1, 1);
@@ -4425,9 +4439,9 @@
           pointGroup.appendChild(circle);
         });
         var rangeBand = svg.querySelector('.walk-chart-range');
-        if (rangeBand && referenceBounds.length === 2) {
-          var refTop = 15 + ((plotHigh - referenceBounds[1]) / spread) * 100;
-          var refBottom = 15 + ((plotHigh - referenceBounds[0]) / spread) * 100;
+        if (rangeBand && statusRange.length === 2) {
+          var refTop = 15 + ((plotHigh - statusRange[1]) / spread) * 100;
+          var refBottom = 15 + ((plotHigh - statusRange[0]) / spread) * 100;
           rangeBand.setAttribute('y', Math.max(15, refTop));
           rangeBand.setAttribute('height', Math.max(2, Math.min(115, refBottom) - Math.max(15, refTop)));
           rangeBand.style.display = '';
@@ -4473,9 +4487,12 @@
         });
       }
 
+      var activeMarkerKey = 'hba1c';
+
       function renderMarker(key) {
         var data = markerData[key];
         if (!data) return;
+        activeMarkerKey = key;
         rows.forEach(function (row) {
           var selected = row.getAttribute('data-marker') === key;
           row.classList.toggle('is-selected', selected);
@@ -4504,6 +4521,12 @@
           renderMarker(row.getAttribute('data-marker'));
         });
       });
+      var rangeButton = panel.querySelector('.walk-range-editor button');
+      if (rangeButton) {
+        rangeButton.addEventListener('click', function () {
+          renderMarker(activeMarkerKey);
+        });
+      }
       renderCompactSparklines();
       renderMarker('hba1c');
     })();
@@ -5097,6 +5120,7 @@
       var status = editor.querySelector('[data-approval-status]');
       var apply = editor.querySelector('.approval-apply');
       var report = document.querySelector('.approval-report');
+      var demo = report ? report.closest('.approval-demo') : null;
       var reportState = report ? report.querySelector(':scope > header > i') : null;
       var shareButton = report ? report.querySelector('.approval-share-button') : null;
       var shareModal = document.querySelector('.approval-share-modal');
@@ -5157,6 +5181,13 @@
         summary.style.minHeight = Math.ceil(maxHeight) + 'px';
         promptBox.style.minHeight = Math.ceil(maxPromptHeight + 2) + 'px';
         resultBox.style.minHeight = Math.ceil(maxResultHeight + 2) + 'px';
+        if (demo && report) {
+          demo.style.height = '';
+          report.classList.add('is-measuring-edit');
+          var expandedHeight = Math.ceil(report.scrollHeight + 2);
+          report.classList.remove('is-measuring-edit');
+          demo.style.height = expandedHeight + 'px';
+        }
       }
       function reset() {
         var scenario = currentScenario();

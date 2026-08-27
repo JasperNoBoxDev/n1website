@@ -5,20 +5,68 @@ body.marketing-page { color: var(--ink); background: var(--cream); }
 .marketing-page main { min-height: 70vh; }
 .marketing-page .shell { width: min(1320px, calc(100% - 64px)); }
 
-.marketing-nav { position: sticky; z-index: 80; top: 0; padding: 12px 0; background: color-mix(in srgb, var(--cream) 92%, transparent); backdrop-filter: blur(18px); }
+.marketing-nav { position: fixed; z-index: 80; inset: 0 0 auto; height: 64px; padding-top: 12px; color: var(--cream); background: transparent; transition: color .25s ease; }
 /* Container radius, matching .tonal-motion .nav-inner: the top of the scale,
    not a pill. Keeping these two navbars on the same value is what makes the
    marketing pages and the homepage read as one product. */
-.marketing-nav-inner { min-height: 56px; display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: center; gap: 28px; padding: 0 20px; border-radius: var(--n1-radius-2xl); color: var(--cream); background: var(--berry); box-shadow: 0 18px 35px rgba(47,29,37,.16); }
-.marketing-nav .logo { color: var(--cream); }
-.marketing-links { display: flex; align-items: center; gap: 18px; font-size: 12px; }
-.marketing-links a { padding: 19px 0; }
-.marketing-links a[aria-current="page"] { color: #ffe3d4; }
-.marketing-actions { display: flex; justify-content: flex-end; gap: 9px; }
-.marketing-actions .login-link { min-height: 40px; display: inline-flex; align-items: center; padding: 0 10px; font-size: 12px; }
-.marketing-toggle { width: 44px; height: 44px; display: none; place-items: center; border: 1px solid rgba(244,237,223,.45); border-radius: 50%; color: var(--cream); background: transparent; cursor: pointer; }
+.marketing-page .marketing-nav-inner { width: min(1440px, calc(100% - 64px)); }
+.marketing-nav-inner { min-height: 56px; display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: center; gap: 24px; padding: 8px 20px; border-radius: var(--n1-radius-2xl); background: #376361; box-shadow: 0 12px 30px rgba(23,24,23,.18); transition: background-color .25s ease, box-shadow .25s ease; }
+.marketing-nav .logo { width: 88px; color: currentColor; }
+.marketing-page .marketing-nav-inner,
+.marketing-nav.is-open .marketing-menu {
+  --button-bg: var(--cream);
+  --button-fg: var(--ink);
+  --button-border: var(--cream);
+  --button-bg-hover: var(--paper);
+  --button-fg-hover: var(--ink);
+  --button-border-hover: var(--paper);
+  --button-secondary-fg: var(--cream);
+  --button-focus: var(--cream);
+}
+.marketing-nav.is-over-dark { color: var(--ink); }
+.marketing-nav.is-over-dark .marketing-nav-inner { background: color-mix(in srgb, var(--cream) 96%, transparent); box-shadow: 0 12px 30px rgba(23,24,23,.22); }
+.marketing-nav.is-over-dark .marketing-nav-inner {
+  --button-bg: var(--ink);
+  --button-fg: var(--cream);
+  --button-border: var(--ink);
+  --button-bg-hover: var(--deep);
+  --button-fg-hover: var(--cream);
+  --button-border-hover: var(--deep);
+  --button-secondary-fg: var(--ink);
+  --button-focus: var(--ink);
+}
+.marketing-menu { display: contents; }
+.marketing-links { display: flex; align-items: center; justify-self: center; gap: 22px; font-size: 15px; }
+.marketing-links a { padding: 0; }
+.marketing-links a[aria-current="page"] { color: #d3e7e3; }
+.marketing-nav.is-over-dark .marketing-links a[aria-current="page"] { color: #2f7773; }
+.marketing-actions { display: flex; justify-self: end; justify-content: flex-end; align-items: center; gap: 10px; font-size: 15px; }
+.marketing-actions .login-link { min-height: 40px; display: inline-flex; align-items: center; }
+.marketing-actions .login-link,
+.marketing-actions .button { flex: none; white-space: nowrap; }
+.marketing-page .marketing-actions .button { min-height: 40px; padding: 8px 18px; font-size: 14px; }
+.marketing-toggle { width: 44px; height: 44px; display: none; place-items: center; border: 1px solid currentColor; border-radius: 50%; color: inherit; background: transparent; cursor: pointer; }
 .marketing-toggle span, .marketing-toggle::before, .marketing-toggle::after { width: 17px; height: 1px; display: block; background: currentColor; content: ""; }
 .marketing-toggle span { margin: 4px 0; }
+
+/* The Product hero is a light, continuous canvas, so its initial navigation
+   uses that canvas instead of placing a second coloured slab on top. Geometry
+   remains identical to the floating bar; once the hero has passed, the shared
+   scrolled treatment takes over without moving a single item. */
+.product-page .marketing-nav:not(.is-past-hero) { color: var(--ink); }
+.product-page .marketing-nav:not(.is-past-hero) .marketing-nav-inner { background: transparent; box-shadow: none; }
+.product-page .marketing-nav:not(.is-past-hero) .logo { color: #376361; }
+.product-page .marketing-nav:not(.is-past-hero) .marketing-links a[aria-current="page"] { color: #2f7773; }
+.product-page .marketing-nav:not(.is-past-hero) .marketing-nav-inner {
+  --button-bg: var(--ink);
+  --button-fg: var(--cream);
+  --button-border: var(--ink);
+  --button-bg-hover: var(--deep);
+  --button-fg-hover: var(--cream);
+  --button-border-hover: var(--deep);
+  --button-secondary-fg: var(--ink);
+  --button-focus: var(--ink);
+}
 
 .page-hero { padding: clamp(88px,10vw,145px) 0 clamp(72px,8vw,110px); }
 .page-hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(54px,8vw,120px); align-items: end; }
@@ -451,14 +499,20 @@ body.marketing-page { color: var(--ink); background: var(--cream); }
 .marketing-footer-links a { display: block; margin-top: 13px; color: #d7d2cb; font-size: 13px; }
 .marketing-footer-bottom { padding-top: 27px; border-top: 1px solid #47413a; color: #bcb6af; font-size: 11px; }
 
-@media (max-width: 1160px) {
+@media (max-width: 1280px) {
   .marketing-page .shell { width: min(100% - 38px, 1320px); }
-  .marketing-nav-inner { grid-template-columns: 1fr auto; }
+  .marketing-page .marketing-nav-inner { width: min(1440px, calc(100% - 64px)); }
+  .marketing-nav-inner { position: relative; display: flex; grid-template-columns: none; justify-content: space-between; }
   .marketing-toggle { display: grid; }
-  .marketing-links, .marketing-actions { display: none; }
-  .marketing-nav.is-open .marketing-links { position: absolute; top: 76px; right: 19px; left: 19px; display: grid; gap: 0; padding: 18px; border-radius: var(--n1-radius-4xl); color: var(--cream); background: var(--berry); box-shadow: 0 24px 45px rgba(42,27,33,.25); }
+  .marketing-menu { display: none; }
+  .marketing-nav.is-open .marketing-menu { position: absolute; top: 54px; right: 0; left: 0; display: block; padding: 18px; border-radius: var(--n1-radius-4xl); color: var(--cream); background: #376361; box-shadow: 0 24px 45px rgba(42,27,33,.25); }
+  .marketing-nav.is-open .marketing-links { display: grid; gap: 0; font-size: 15px; }
   .marketing-nav.is-open .marketing-links a { padding: 14px 3px; border-bottom: 1px solid rgba(244,237,223,.16); }
   .marketing-nav.is-open .marketing-links a:last-child { border-bottom: 0; }
+  .marketing-nav.is-open .marketing-actions { width: 100%; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); justify-content: stretch; justify-self: stretch; gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(244,237,223,.16); font-size: 15px; }
+  .marketing-nav.is-open .marketing-actions .button { font-size: 14px; }
+  .product-page .marketing-nav.is-open:not(.is-past-hero) .marketing-links a[aria-current="page"] { color: #d3e7e3; }
+  .marketing-nav.is-open .marketing-actions .login-link { grid-column: 1 / -1; justify-content: center; border: 1px solid rgba(244,237,223,.45); border-radius: var(--n1-radius-2xl); }
 }
 
 @media (max-width: 980px) {
@@ -506,12 +560,18 @@ body.marketing-page { color: var(--ink); background: var(--cream); }
   .principle-questions li:nth-child(4) { border-top: 1px solid var(--line); }
 }
 
+@media (max-width: 900px) {
+  .marketing-page .marketing-nav-inner { width: calc(100% - 34px); }
+}
+
 @media (max-width: 620px) {
   .marketing-page .shell { width: min(100% - 32px, 1320px); }
+  .marketing-page .marketing-nav-inner { width: calc(100% - 34px); }
   .plan-grid { grid-template-columns: 1fr; }
   .pricing-flag { flex-direction: column; gap: 8px; }
-  .marketing-nav { padding: 12px 0; }
-  .marketing-nav-inner { min-height: 60px; padding: 0 18px; }
+  .marketing-nav-inner { min-height: 60px; }
+  .marketing-nav.is-open .marketing-actions { grid-template-columns: 1fr; }
+  .marketing-nav.is-open .marketing-actions .login-link { grid-column: auto; }
   .page-hero { padding: 70px 0 64px; }
   .page-hero h1 { font-size: 45px; }
   .product-page .page-hero { padding: 58px 0 56px; }
