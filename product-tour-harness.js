@@ -261,24 +261,41 @@
     const storyLead = heroStory?.querySelector('p');
     const storyList = heroStory?.querySelector('ul');
     const heroRecordStatus = (delay) => `<em class="hero-record-live-status" style="--hero-record-delay:${delay}s"><i><u>✓</u></i><span><u class="is-preparing">Preparing</u><u class="is-queued">Queued</u><u class="is-routing">Routing</u><u class="is-parsing">Parsing</u><u class="is-grouping">Grouping</u><u class="is-storing">Storing</u><u class="is-complete">Complete</u></span><b></b></em>`;
+    const heroPencilIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>';
+    const heroTrashIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 11v6M14 11v6M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>';
     const heroEditDetails = {
-      Biomarkers: { title: 'Edit LDL cholesterol', meta: 'Blood · Metro Pathology · page 3', fields: [['Result','116 mg/dL'],['Measured','14 Mar 2025'],['Patient target','≤100 mg/dL'],['Lab range','≤130 mg/dL'],['Fasting','Yes'],['Review state','Clinician check']], note: 'Cardiovascular prevention target agreed at consultation.' },
-      Diagnoses: { title: 'Edit insulin resistance', meta: 'Consultation note · page 4', fields: [['Status','Under review'],['Diagnosed','11 Mar 2025'],['Resolved','Not resolved'],['Clinical code','E88.819'],['Confidence','Probable'],['Source','Dr Chen consult']], note: 'Confirm against repeat HbA1c and fasting insulin.' },
-      Procedures: { title: 'Edit cardiac CT', meta: 'Imaging report · page 1', fields: [['Date','22 Nov 2024'],['Type','Diagnostic imaging'],['Provider','Northside Imaging'],['Body site','Coronary arteries'],['Outcome','No obstruction'],['Follow-up','Risk review']], note: 'Calcium score 18. No flow-limiting coronary disease.' },
-      Medications: { title: 'Edit metformin', meta: 'Medication plan · active', fields: [['Brand','Glucophage'],['Dose','500 mg'],['Form','Tablet'],['Frequency','Twice daily'],['Started','22 Nov 2024'],['Stopped','Still active']], note: 'Take with food. Review tolerance at next consultation.' },
-      Supplements: { title: 'Edit magnesium glycinate', meta: 'Care plan · active', fields: [['Brand','Pure Encapsulations'],['Dose','200 mg'],['Form','Capsule'],['Frequency','Nightly'],['Timing','Before bed'],['Started','14 Mar 2025']], note: 'Separate from morning medication by at least two hours.' },
-      Genetics: { title: 'Edit APOE finding', meta: 'Lab-confirmed · clinician review', fields: [['Gene','APOE'],['Variant','rs429358'],['Chromosome','19'],['Position','45,411,941'],['Genome build','GRCh38'],['Genotype','C/T'],['Zygosity','Heterozygous'],['Alleles','ε3 / ε4'],['Classification','Risk allele'],['Evidence tier','Tier 1'],['Inheritance','Autosomal'],['Review status','Reviewed']], note: 'One APOE ε4 allele is associated with increased late-onset Alzheimer disease risk. This is a susceptibility finding, not a diagnosis.', source: 'APOE laboratory report · 18 pages · variant call quality 99.8% · page 6' }
+      Procedures: {
+        title: 'Edit Procedure',
+        description: 'Update the procedure information below.',
+        fields: [['Procedure Name','Cardiac CT'],['Date','22 Nov 2024']],
+        notes: [['Explanation (Optional)','Coronary risk investigation'],['Outcome (Optional)','No obstructive disease']],
+        submit: 'Update Procedure'
+      },
+      Medications: {
+        title: 'Edit Medication',
+        description: 'Update the details of this medication below.',
+        fields: [['Classification','Medication'],['Name','Metformin'],['Brand Name (Optional)','Glucophage'],['Dosage','500'],['Unit','mg'],['Type','tablet'],['Frequency','Twice daily'],['Started From','22 Nov 2024'],['Stopped On (Optional)','Select date']],
+        notes: [['Reason (Optional)','Insulin resistance'],['Note (Optional)','Take with food. Review tolerance at the next consultation.']],
+        submit: 'Update'
+      },
+      Supplements: {
+        title: 'Edit Supplement',
+        description: 'Update the details of this supplement below.',
+        fields: [['Classification','Supplement'],['Name','Magnesium glycinate'],['Brand Name (Optional)','Pure Encapsulations'],['Dosage','200'],['Unit','mg'],['Type','capsule'],['Frequency','Nightly'],['Started From','14 Mar 2025'],['Stopped On (Optional)','Select date']],
+        notes: [['Reason (Optional)','Magnesium support'],['Note (Optional)','Separate from morning medication by at least two hours.']],
+        submit: 'Update'
+      }
     };
     const heroMenuDefinitions = [
       { view: 'dashboard', label: 'Dashboard', kicker: 'Patient dashboard', title: 'See the full record.', lead: 'Start with the key facts. See source files, open checks, new reports and test alerts.', bullets: ['Switch patients without losing your place','Add files or start a report','Open any item that needs a check'], badge: 'John Doe', stats: [['Records','14'],['Biomarkers','48'],['Diagnoses','6'],['Procedures','3']] },
       { view: 'list', label: 'Medical Records', kicker: 'Source record library', title: 'Upload, parse and keep every source.', lead: 'Add the source files, follow each record while n1 parses it, then review the structured data beside the original page.', bullets: ['Upload PDFs together in one secure step','See Preparing, Parsing and Storing progress','Review extracted data beside each source PDF'], badge: '14 records', action: '+ Upload Records', filters: ['Search records…','Status: All','Uploaded ↓'], columns: ['Record Name','Uploaded','Test Date','Pages','Status','Insights'], rows: [['metro-pathology-mar-2025.pdf','14 Mar 2025','14 Mar 2025','12',heroRecordStatus(2.15),'View insights'],['consult-note-2025.pdf','11 Mar 2025','11 Mar 2025','6',heroRecordStatus(2.3),'View insights'],['cardiac-ct-2024.pdf','22 Nov 2024','22 Nov 2024','18',heroRecordStatus(2.45),'View insights']] },
       { view: 'reports', label: 'Reports', kicker: 'Report workspace', title: 'Build reports your way.', lead: 'Choose a report type, set its scope and add a short brief. Keep drafts and approved reports in one place.', bullets: ['Use a set report or save your own','Move between Reports and Archive','Check status, access and who it is for'], badge: '4 reports', action: '+ Generate Report', columns: ['Report name','Created','Type','Status'], rows: [['Health Summary','26 Aug 2026','Health Summary','Complete'],['Health Over Time','25 Aug 2026','Longitudinal','Generating'],['Supplement Review','20 Aug 2026','Supplements','Complete']] },
-      { view: 'list', label: 'Biomarkers', editable: true, kicker: 'Biomarker readings', title: 'Track each result over time.', lead: 'Filter tests by source or field. See the latest result, then open past values and ranges.', bullets: ['See the latest value and date','Check the source and trend','Open or edit ranges and notes'], badge: '48 biomarkers', action: '+ Add Reading', filters: ['Search biomarkers…','Source: All','Specialty: All','Latest reading'], columns: ['Name','Source','Latest','Latest Date','Trend','Insights'], rows: [['LDL cholesterol','Blood','116 mg/dL','14 Mar 2025','↘ 4 readings','View history'],['Vitamin D','Blood','71 nmol/L','6 Jun 2025','↗ 6 readings','View history'],['HbA1c','Blood','5.8%','14 Mar 2025','→ 3 readings','View history']] },
-      { view: 'list', label: 'Diagnoses', editable: true, kicker: 'Diagnosis history', title: 'See each issue in context.', lead: 'See current and past diagnoses. Check each start date, end date, status, note and source page.', bullets: ['See when each issue began','Check if it is current or resolved','Edit the clinical note and source'], badge: '6 diagnoses', action: '+ Add Diagnosis', filters: ['Search diagnoses…','Status: All','Source: All','Newest first'], columns: ['Name','Date','Date Resolved','Status','Explanation'], rows: [['Insulin resistance','11 Mar 2025','—','Review','Clinical note requires confirmation'],['Hyperlipidaemia','14 Mar 2025','—','Current','Elevated LDL across two lab records'],['Vitamin D insufficiency','22 Nov 2024','6 Jun 2025','Resolved','Improved following supplementation']] },
-      { view: 'list', label: 'Procedures', editable: true, kicker: 'Procedure history', title: 'See care in date order.', lead: 'View each test or procedure by date. Open its note, outcome and source file.', bullets: ['Search the full history','Read or edit the reason and result','Open the linked source PDF'], badge: '3 procedures', action: '+ Add Procedure', filters: ['Search procedures…','Type: All','Outcome: All','Newest first'], columns: ['Name','Date','Explanation','Outcome'], rows: [['Cardiac CT','22 Nov 2024','Coronary risk investigation','No obstructive disease'],['DEXA scan','6 Aug 2024','Baseline bone-density assessment','Within expected range'],['Clinical examination','11 Mar 2025','Cardiometabolic review','Follow-up planned']] },
-      { view: 'genetics', label: 'Genetics', editable: true, kicker: 'Genetic findings', title: 'Keep the complete finding in view.', lead: 'Review the variant, genotype, classification, evidence, interpretation and source together before editing the clinician record.', bullets: ['Separate raw calls from confirmed lab findings','Review classification, inheritance and phenotype','Edit interpretation, evidence and source details'], badge: '12 findings', action: '+ Add Finding', filters: ['Search genes or variants…','Evidence: All','Origin: All','Reviewed: All'], columns: ['Gene','Variant','Genotype','Classification','Evidence'], rows: [['APOE','rs429358','C/T','Risk allele','Tier 1'],['MTHFR','rs1801133','A/G','Reduced activity','Tier 2'],['SLCO1B1','rs4149056','T/T','Normal function','Tier 2']] },
-      { view: 'list', label: 'Medications', editable: true, kicker: 'Medication list', title: 'Check every medicine.', lead: 'See current and past medications in one list. Check the dose, form, schedule and dates, then open a row to edit it.', bullets: ['See when each drug was used','Edit dose, form, timing and notes','Spot a missing end date'], badge: '7 medications', action: '+ Add Medication', filters: ['Search medications…','Status: All','Type: All','Current + past'], columns: ['Name','Brand Name','Dosage','Type','Frequency','Started','Stopped On'], rows: [['Metformin','Glucophage','500 mg','Tablet','Twice daily','22 Nov 2024','—'],['Rosuvastatin','Crestor','10 mg','Tablet','Daily','14 Mar 2025','—'],['Aspirin','—','81 mg','Tablet','Daily','22 Nov 2024','18 Feb 2025']] },
-      { view: 'list', label: 'Supplements', editable: true, kicker: 'Supplement list', title: 'Keep the full plan in view.', lead: 'See the brand, dose, form, schedule and dates for each supplement. Open a row to change the plan.', bullets: ['Use one view for supplements','Edit dose, timing and instructions','Upload a file or add one by hand'], badge: '4 supplements', action: '+ Add Supplement', filters: ['Search supplements…','Status: All','Type: All','Current + past'], columns: ['Name','Brand Name','Dosage','Type','Frequency','Started','Stopped On'], rows: [['Magnesium glycinate','Pure Encapsulations','200 mg','Capsule','Nightly','14 Mar 2025','—'],['Vitamin D3','Thorne','2,000 IU','Softgel','Daily','6 Jun 2025','—'],['Omega-3','Nordic Naturals','1 g','Softgel','With food','14 Mar 2025','—']] }
+      { view: 'list', label: 'Biomarkers', kicker: 'Biomarker readings', title: 'Track each result over time.', lead: 'Filter tests by source or field. See the latest result, then open past values and ranges.', bullets: ['See the latest value and date','Check the source and trend','Open readings and patient ranges'], badge: '48 biomarkers', filters: ['Search by name…','All Sources','Specialty'], columns: ['Name','Source','Latest','Latest Date','Trend','Insights'], rows: [['LDL cholesterol','Blood','116 mg/dL','14 Mar 2025','↘','View all 4'],['Vitamin D','Blood','71 nmol/L','6 Jun 2025','→','View all 6'],['HbA1c','Blood','5.8%','14 Mar 2025','→','View all 3']] },
+      { view: 'list', label: 'Diagnoses', editable: true, kicker: 'Diagnosis history', title: 'See each issue in context.', lead: 'See current and past diagnoses. Check each start date, end date, status, note and source page.', bullets: ['See when each issue began','Check if it is current or resolved','Edit the clinical note'], badge: '6 diagnoses', action: '+ Add Manually', filters: ['Search diagnoses…'], columns: ['Name','Date','Date Resolved','Status','Explanation'], rows: [['Insulin resistance','11 Mar 2025','—','Review','Clinical note requires confirmation'],['Hyperlipidaemia','14 Mar 2025','—','Current','Elevated LDL across two lab records'],['Vitamin D insufficiency','22 Nov 2024','6 Jun 2025','Resolved','Improved following supplementation']] },
+      { view: 'list', label: 'Procedures', editable: true, kicker: 'Procedure history', title: 'See care in date order.', lead: 'View each test or procedure by date. Open its explanation, outcome and source file.', bullets: ['Search the full history','Read or edit the explanation and outcome','Open the linked source PDF'], badge: '3 procedures', action: '+ Add Manually', filters: ['Search procedures…'], columns: ['Name','Date','Explanation','Outcome'], rows: [['Cardiac CT','22 Nov 2024','Coronary risk investigation','No obstructive disease'],['DEXA scan','6 Aug 2024','Baseline bone-density assessment','Within expected range'],['Clinical examination','11 Mar 2025','Cardiometabolic review','Follow-up planned']] },
+      { view: 'genetics', label: 'Genetics', kicker: 'Genetic findings', title: 'Review findings by evidence tier.', lead: 'Move between raw DNA and lab findings, then expand a gene to see its variants, context and literature.', bullets: ['Separate raw DNA from lab data','Review findings by evidence tier','Expand each gene for variant context'], badge: '12 findings', action: 'Upload Records' },
+      { view: 'list', label: 'Medications', editable: true, kicker: 'Medication list', title: 'Check every medicine.', lead: 'See current and past medications in one list. Check the dosage, type, frequency and dates, then open a row to edit it.', bullets: ['See when each drug was used','Edit the real medication fields','Spot a missing stop date'], badge: '7 medications', action: '+ Add', filters: ['Search medications…'], columns: ['Name','Brand Name','Dosage','Type','Frequency','Started','Stopped On'], rows: [['Metformin','Glucophage','500 mg','Tablet','Twice daily','22 Nov 2024','—'],['Rosuvastatin','Crestor','10 mg','Tablet','Daily','14 Mar 2025','—'],['Aspirin','—','81 mg','Tablet','Daily','22 Nov 2024','18 Feb 2025']] },
+      { view: 'list', label: 'Supplements', editable: true, kicker: 'Supplement list', title: 'Keep the full plan in view.', lead: 'See the brand, dosage, type, frequency and dates for each supplement. Open a row to change it.', bullets: ['Use one view for supplements','Edit the real supplement fields','Upload a file or add one manually'], badge: '4 supplements', action: '+ Add', filters: ['Search supplements…'], columns: ['Name','Brand Name','Dosage','Type','Frequency','Started','Stopped On'], rows: [['Magnesium glycinate','Pure Encapsulations','200 mg','Capsule','Nightly','14 Mar 2025','—'],['Vitamin D3','Thorne','2,000 IU','Softgel','Daily','6 Jun 2025','—'],['Omega-3','Nordic Naturals','1 g','Softgel','With food','14 Mar 2025','—']] }
     ];
     const clinicianPageSummaries = {
       Dashboard: 'One patient record. One clear view.',
@@ -302,18 +319,18 @@
     const renderHeroEditModal = (definition) => {
       const detail = heroEditDetails[definition.label];
       if (!detail) return '';
-      return `<div class="hero-data-modal${definition.label === 'Genetics' ? ' is-genetics' : ''}"><div class="hero-data-modal-shade"></div><section><header><div><small>CLINICIAN EDIT</small><b>${detail.title}</b><span>${detail.meta}</span></div><i>×</i></header><div class="hero-data-modal-fields">${detail.fields.map(([label,value]) => `<label><span>${label}</span><strong>${value}</strong></label>`).join('')}</div><label class="hero-data-modal-note"><span>${definition.label === 'Genetics' ? 'Clinical interpretation' : 'Clinical note'}</span><strong>${detail.note}</strong></label>${detail.source ? `<div class="hero-data-modal-source"><b>Linked evidence</b><span>${detail.source}</span><strong>Open source PDF ↗</strong></div>` : ''}<footer><span>Changes are recorded in the patient audit trail.</span><div><b>Cancel</b><strong>Save changes</strong></div></footer></section></div>`;
+      return `<div class="hero-data-modal"><div class="hero-data-modal-shade"></div><section><header><div><b>${detail.title}</b><span>${detail.description}</span></div><i>×</i></header><div class="hero-data-modal-fields">${detail.fields.map(([label,value]) => `<label><span>${label}</span><strong>${value}</strong></label>`).join('')}</div><div class="hero-data-modal-notes">${detail.notes.map(([label,value]) => `<label class="hero-data-modal-note"><span>${label}</span><strong>${value}</strong></label>`).join('')}</div><footer><div></div><div><b>Cancel</b><strong>${detail.submit}</strong></div></footer></section></div>`;
     };
     const renderHeroTable = (definition) => {
       const columns = definition.editable ? [...definition.columns,''] : definition.columns;
-      const rows = definition.rows.map((row, rowIndex) => definition.editable ? [...row,`<button class="hero-data-edit-button" type="button">Edit</button>`] : row);
+      const rows = definition.rows.map((row, rowIndex) => definition.editable ? [...row,`<button class="hero-data-edit-button" type="button" aria-label="Edit">${heroPencilIcon}</button>`] : row);
       const motion = definition.editable ? renderHeroEditModal(definition) : heroMotionPanels[definition.label] || '';
       return `<div class="product-hero-menu-toolbar">${definition.filters.map((filter, index) => `<span class="${index === 0 ? 'is-search' : index > 0 ? 'is-filter' : ''}">${filter}</span>`).join('')}</div><div class="product-hero-data-table${definition.editable ? ' is-editable' : ''}" style="--hero-columns:${columns.length};--hero-data-columns:${definition.columns.length}"><header>${columns.map((column) => `<b>${column}</b>`).join('')}</header>${rows.map((row, rowIndex) => `<div class="${rowIndex === 0 ? 'is-demo-row' : ''}">${row.map((cell, index) => `<${index === 0 ? 'b' : 'span'}>${cell}</${index === 0 ? 'b' : 'span'}>`).join('')}</div>`).join('')}</div>${motion}`;
     };
     const renderHeroPageBodyBase = (definition) => {
       if (definition.view === 'dashboard') return `<div class="product-hero-dashboard-stats">${definition.stats.map((stat) => `<article><i></i><div><b>${stat[1]}</b><span>${stat[0]}</span></div></article>`).join('')}</div><div class="product-hero-dashboard-body"><section><header><b>Quick Actions</b></header><div class="product-hero-quick-actions"><article><i>↑</i><div><b>Upload Records</b><span>Add PDFs and supported data files</span></div><strong>→</strong></article><article><i>▤</i><div><b>Generate Report</b><span>Choose a report and set its scope</span></div><strong>→</strong></article></div></section><section><header><b>Recent Reports</b><span>View all →</span></header><div class="product-hero-dashboard-list"><article><b>Health Summary</b><span>26 Aug 2026</span><strong>Complete</strong></article><article><b>Health Over Time</b><span>25 Aug 2026</span><strong>Generating</strong></article></div></section><section><header><b>Biomarker Alerts</b><span>2 need review</span></header><div class="product-hero-dashboard-list"><article><b>LDL cholesterol</b><span>116 mg/dL · target ≤100</span><strong>Review</strong></article><article><b>Vitamin D</b><span>71 nmol/L · range 50–125</span><strong>In range</strong></article></div></section></div>`;
       if (definition.view === 'reports') return `<div class="product-hero-report-market"><header><b>Generate a Report</b><span>Choose a report type</span></header><div><article><b>Health Summary</b><small>Current record and care plan</small></article><article><b>Health Over Time</b><small>Longitudinal changes</small></article><article><b>Supplement Review</b><small>Regimen and monitoring</small></article><article><b>Custom Report</b><small>Saved sections and brief</small></article></div></div><div class="product-hero-menu-tabs"><b>Reports</b><span>Archive</span></div>${renderHeroTable({ ...definition, filters: ['Search reports…','Status: All'] })}`;
-      if (definition.view === 'genetics') return `<div class="product-hero-menu-tabs"><b>All findings <em>12</em></b><span>Raw calls <em>8</em></span><span>Lab confirmed <em>4</em></span></div><div class="product-hero-genetic-summary"><span><b>1</b> clinically actionable</span><span><b>7</b> supported associations</span><span><b>4</b> research findings</span><strong>GRCh38 · 2 source files</strong></div>${renderHeroTable(definition)}`;
+      if (definition.view === 'genetics') return `<div class="product-hero-menu-tabs hero-genetics-tabs"><b>Raw data <em>8</em></b><span>Lab data <em>4</em></span></div><div class="hero-genetics-tier"><header><div><small>TIER 1</small><b>Strong clinical evidence <em>2</em></b><span>Well-supported findings with potential clinical relevance.</span></div><i>⌃</i></header><section><article><div><b>APOE</b><span>1 variant</span></div><p>Associated with lipid transport and late-onset Alzheimer disease susceptibility.</p><strong>›</strong></article><article><div><b>SLCO1B1</b><span>1 variant</span></div><p>Drug-response finding relevant to statin transport.</p><strong>›</strong></article></section></div><div class="hero-genetics-tier is-secondary"><header><div><small>TIER 2</small><b>Moderate evidence <em>6</em></b><span>Supported associations that may add patient context.</span></div><i>⌄</i></header></div>`;
       return renderHeroTable(definition);
     };
     const renderHeroRecordUpload = () => {
@@ -340,15 +357,15 @@
       <aside class="hero-custom-report-generator"><header><div><b>Create a custom report</b><span>Choose the content and visual evidence</span></div><i>×</i></header><div class="hero-custom-report-name"><span>Report name</span><b>Metabolic Trend Brief</b></div><div class="hero-custom-report-layout"><nav><b>Sections</b><span>Patient overview</span><span>Key findings</span><span class="is-selected">＋ Add chart</span></nav><section><header><b>Add a chart</b><span>Biomarker · HbA1c</span></header><div class="hero-custom-chart"><svg viewBox="0 0 300 92" preserveAspectRatio="none"><path d="M8 18 C58 23 86 38 145 43 S245 59 292 72" fill="none" stroke="#376361" stroke-width="3"/><g fill="#fff" stroke="#376361" stroke-width="2"><circle cx="8" cy="18" r="4"/><circle cx="145" cy="43" r="4"/><circle cx="292" cy="72" r="4"/></g></svg><span>7.1% · 2023</span><span>6.8% · 2024</span><span>6.4% · 2025</span></div></section></div><footer><span>1 chart selected · sources included</span><b>Generate custom report</b></footer><div class="hero-custom-report-generating"><i></i><b>Generating custom report</b><span>Building the chart and linking its source readings…</span></div></aside>
     </div>`;
     const renderHeroBiomarkerFlow = () => `<div class="hero-biomarker-demo">
-      <div class="hero-bio-toolbar"><span>Search biomarkers…</span><span>Source: All</span><span>Specialty: All</span></div>
-      <div class="hero-bio-table"><header><b>Name</b><b>Source</b><b>Latest</b><b>Trend</b><b>Setup</b></header><article class="hero-bio-focus"><span><b>HbA1c</b><small>3 readings</small></span><span>Blood</span><span><b>6.4%</b><small class="hero-bio-lab-range">Range 4.0–5.6%</small><small class="hero-bio-custom-range">Custom range 4.8–5.6%</small></span><span><svg viewBox="0 0 60 22"><path d="M2 4 C16 7 23 11 35 13 S50 17 58 19" fill="none" stroke="#376361" stroke-width="2"/></svg></span><span><b>Edit setup</b><i>⌄</i></span></article><article><span><b>LDL cholesterol</b><small>4 readings</small></span><span>Blood</span><span>116 mg/dL</span><span>↘ Improving</span><span><i>⌄</i></span></article><article><span><b>Vitamin D</b><small>6 readings</small></span><span>Blood</span><span>71 nmol/L</span><span>→ Stable</span><span><i>⌄</i></span></article></div>
+      <div class="hero-bio-toolbar"><span>Search by name…</span><span>All Sources</span><span>Specialty</span></div>
+      <div class="hero-bio-table"><header><b>Name</b><b>Source</b><b>Latest</b><b>Latest Date</b><b>Trend</b><b>Insights</b><b></b></header><article class="hero-bio-focus"><span><b>HbA1c</b></span><span>Blood</span><span><b>6.4%</b><small class="hero-bio-lab-range">Range 4.0–5.6%</small><small class="hero-bio-custom-range">Custom range 4.8–5.6%</small></span><span>14 Mar 2025</span><span><svg viewBox="0 0 60 22"><path d="M2 4 C16 7 23 11 35 13 S50 17 58 19" fill="none" stroke="#376361" stroke-width="2"/></svg></span><span><b>View all 3</b></span><span><i>${heroTrashIcon}</i></span></article><article><span><b>LDL cholesterol</b></span><span>Blood</span><span>116 mg/dL</span><span>14 Mar 2025</span><span>↘</span><span>View all 4</span><span><i>${heroTrashIcon}</i></span></article><article><span><b>Vitamin D</b></span><span>Blood</span><span>71 nmol/L</span><span>6 Jun 2025</span><span>→</span><span>View all 6</span><span><i>${heroTrashIcon}</i></span></article></div>
       <aside class="hero-bio-detail"><header><div><b>HbA1c</b><span>Blood · 3 readings</span></div><strong>6.4% <small>Latest · 14 Mar 2025</small></strong><i>×</i></header><section><div class="hero-bio-chart"><header><b>Trend Chart</b><span>Reference range shown where available</span></header><svg viewBox="0 0 420 130" preserveAspectRatio="none"><rect x="0" y="48" width="420" height="40" fill="#dff1e9"/><path d="M15 24 C90 34 133 48 210 59 S344 74 405 82" fill="none" stroke="#376361" stroke-width="3"/><g fill="#fff" stroke="#376361" stroke-width="2"><circle cx="15" cy="24" r="5"/><circle cx="210" cy="59" r="5"/><circle cx="405" cy="82" r="5"/></g></svg><footer><span>7.1% · 2023</span><span>6.8% · 2024</span><span>6.4% · 2025</span></footer></div><div class="hero-bio-review"><header><b>Readings</b><span>Review values and source ranges</span></header><div><span>14 Mar 2025</span><b>6.4%</b><span>Metro Pathology · p.3</span><em>Above range</em></div><div><span>11 Mar 2024</span><b>6.8%</b><span>Cardiology consult · p.6</span><em>Above range</em></div></div></section></aside>
       <aside class="hero-bio-range-modal"><header><div><b>Set Custom Reference Range</b><span>Set a custom range for HbA1c across this patient's readings.</span></div><i>×</i></header><p>Values in %</p><div><label><span>Custom Ref. Range Min</span><b><i class="hero-bio-range-placeholder">Enter minimum</i><i class="hero-bio-range-min">4.8</i><em>%</em></b></label><label><span>Custom Ref. Range Max</span><b><i class="hero-bio-range-placeholder">Enter maximum</i><i class="hero-bio-range-max">5.6</i><em>%</em></b></label></div><footer><span>Cancel</span><b>Save Range</b></footer></aside>
       <div class="hero-bio-saved">✓ Custom reference range saved</div>
     </div>`;
     const renderHeroDiagnosisFlow = () => `<div class="hero-diagnosis-demo">
-      <div class="hero-diag-toolbar"><span>Search diagnoses…</span><span>Status: All</span><span>Newest first</span></div>
-      <div class="hero-diag-table"><header><b>Name</b><b>Date</b><b>Date Resolved</b><b>Status</b><b>Explanation</b><b></b></header><article class="hero-diag-focus"><span><b>Hyperlipidaemia</b><small>Source linked</small></span><span>14 Mar 2025</span><span><i class="hero-diag-open-date">—</i><i class="hero-diag-resolved-date">24 Aug 2026</i></span><span><i class="hero-diag-current-status">Current</i><i class="hero-diag-resolved-status">Resolved</i></span><span>Elevated LDL across two lab records…</span><span><i>✎</i></span></article><article><span><b>Vitamin D insufficiency</b><small>Source linked</small></span><span>22 Nov 2024</span><span>6 Jun 2025</span><span>Resolved</span><span>Improved following supplementation</span><span><i>✎</i></span></article><article><span><b>Insulin resistance</b><small>Needs review</small></span><span>11 Mar 2025</span><span>—</span><span>Review</span><span>Clinical note requires confirmation</span><span><i>✎</i></span></article></div>
+      <div class="hero-diag-toolbar"><span>Search diagnoses…</span></div>
+      <div class="hero-diag-table"><header><b>Name</b><b>Date</b><b>Date Resolved</b><b>Status</b><b>Explanation</b><b></b></header><article class="hero-diag-focus"><span><b>Hyperlipidaemia</b><small>Source linked</small></span><span>14 Mar 2025</span><span><i class="hero-diag-open-date">—</i><i class="hero-diag-resolved-date">24 Aug 2026</i></span><span><i class="hero-diag-current-status">Current</i><i class="hero-diag-resolved-status">Resolved</i></span><span>Elevated LDL across two lab records…</span><span><i>${heroPencilIcon}</i></span></article><article><span><b>Vitamin D insufficiency</b><small>Source linked</small></span><span>22 Nov 2024</span><span>6 Jun 2025</span><span>Resolved</span><span>Improved following supplementation</span><span><i>${heroPencilIcon}</i></span></article><article><span><b>Insulin resistance</b><small>Needs review</small></span><span>11 Mar 2025</span><span>—</span><span>Review</span><span>Clinical note requires confirmation</span><span><i>${heroPencilIcon}</i></span></article></div>
       <aside class="hero-diag-tooltip"><header><b>Hyperlipidaemia</b><span>Current diagnosis</span></header><p>Elevated LDL across two lab records. Monitor response to treatment and repeat the lipid panel at follow-up.</p><footer>Metro Pathology · 14 Mar 2025 · page 3</footer></aside>
       <aside class="hero-diag-edit"><header><b>Edit Diagnosis</b><i>×</i></header><div class="hero-diag-form"><label class="is-wide"><span>Diagnosis Name</span><b>Hyperlipidaemia</b></label><label><span>Diagnosis Date</span><b>14 Mar 2025</b></label><label class="hero-diag-resolved-field"><span>Date Resolved <em>(optional)</em></span><b><i class="hero-diag-date-placeholder">Select date</i><i class="hero-diag-date-value">24 Aug 2026</i><strong>▣</strong></b></label><label class="is-wide"><span>Status</span><b><i class="hero-diag-modal-current">Current</i><i class="hero-diag-modal-resolved">Resolved</i><strong>⌄</strong></b></label><label class="is-wide"><span>Explanation <em>(optional)</em></span><b class="is-textarea">Elevated LDL across two lab records. Monitor response to treatment and repeat the lipid panel at follow-up.</b></label></div><footer><span>Cancel</span><b>Save Changes</b></footer><div class="hero-diag-calendar"><header><b>August 2026</b><span>‹　›</span></header><div><i>M</i><i>T</i><i>W</i><i>T</i><i>F</i><i>S</i><i>S</i><i>17</i><i>18</i><i>19</i><i>20</i><i>21</i><i>22</i><i>23</i><i class="is-picked">24</i><i>25</i><i>26</i><i>27</i><i>28</i><i>29</i><i>30</i></div></div></aside>
       <div class="hero-diag-saved">✓ Diagnosis updated successfully</div>
@@ -467,8 +484,7 @@
       heroFrame = 0;
       if (!sticky) return;
       if (reducedMotion) {
-        if (scrollHero.classList.contains('clinician-product-hero')) resetHeroMenu();
-        else setHeroMenu(0);
+        setHeroMenu(0);
         return;
       }
       if (!heroLayout) {
@@ -476,13 +492,16 @@
         const mobile = innerWidth <= 720;
         const baseWindowWidth = heroWindow?.offsetWidth || 1180;
         const storyRight = heroStory?.getBoundingClientRect().right || 0;
-        const availableSplitWidth = Math.max(1, innerWidth - storyRight - 75);
+        const isClinicianHero = scrollHero.classList.contains('clinician-product-hero');
+        const heroInnerRight = sticky.querySelector('.product-hero-inner')?.getBoundingClientRect().right || innerWidth;
+        const splitRight = isClinicianHero ? heroInnerRight : innerWidth;
+        const availableSplitWidth = Math.max(1, splitRight - storyRight - 75);
         const targetScale = mobile ? 1.07 : clamp(availableSplitWidth / baseWindowWidth, .66, .93);
         const initialScale = mobile ? 1 : Math.max(.78, targetScale - .06);
         const splitGap = clamp(innerWidth * .045, 56, 92);
-        const edgeGutter = clamp(innerWidth * .04, 48, 96);
-        const splitCenter = (storyRight + splitGap + innerWidth - edgeGutter) / 2;
-        const targetShift = mobile ? 0 : Math.max(0, splitCenter - innerWidth / 2);
+        const edgeGutter = isClinicianHero ? 0 : clamp(innerWidth * .04, 48, 96);
+        const splitCenter = (storyRight + splitGap + splitRight - edgeGutter) / 2;
+        const targetShift = mobile ? 0 : splitCenter - innerWidth / 2;
         const baseWindowCenter = (heroWindow?.offsetTop || 0) + (heroWindow?.offsetHeight || 0) / 2;
         const fixedWindowY = mobile ? 0 : Math.min(0, innerHeight * .5 - baseWindowCenter);
         heroLayout = { scrollDistance, scrollTop: scrollHero.offsetTop, mobile, targetScale, initialScale, targetShift, fixedWindowY };
@@ -511,15 +530,16 @@
       sticky.style.setProperty('--hero-modal-x', `${modalShift * move}px`);
       sticky.style.setProperty('--hero-story-opacity', String(storyIn));
       sticky.style.setProperty('--hero-story-y', `${24 * (1 - storyIn)}px`);
-      const menuStart = .34;
+      const menuStart = .24;
       const menuEnd = .96;
       if (!mobile && targetProgress >= menuStart) {
         const menuProgress = clamp((targetProgress - menuStart) / (menuEnd - menuStart));
         const menuIndex = Math.min(heroMenuDefinitions.length - 1, Math.floor(menuProgress * heroMenuDefinitions.length));
         setHeroMenu(menuIndex);
       } else if (!mobile) {
-        if (scrollHero.classList.contains('clinician-product-hero')) resetHeroMenu();
-        else setHeroMenu(0);
+        setHeroMenu(0);
+      } else if (targetProgress < .27) {
+        setHeroMenu(0);
       } else {
         resetHeroMenu();
       }
@@ -732,6 +752,7 @@
     const views = [...patientShowcase.querySelectorAll('[data-patient-showcase-view]')];
     const progress = [...patientShowcase.querySelectorAll('[data-patient-showcase-step]')];
     const toggle = patientShowcase.querySelector('.patient-showcase-toggle');
+    const demoCursor = patientShowcase.querySelector('.patient-showcase-cursor');
     const dwellTimes = [5200,6500,5800,5200];
     let phase = 0;
     let timer = 0;
@@ -759,6 +780,7 @@
       timer = 0;
       clickTimer = 0;
       patientShowcase.querySelectorAll('.is-demo-click').forEach((item) => item.classList.remove('is-demo-click'));
+      demoCursor?.classList.remove('is-clicking');
     };
     const startShowcase = () => {
       stopShowcase();
@@ -767,9 +789,11 @@
         timer = 0;
         const action = views[phase]?.querySelector('[data-patient-showcase-next]');
         if (action) action.classList.add('is-demo-click');
+        demoCursor?.classList.add('is-clicking');
         clickTimer = window.setTimeout(() => {
           clickTimer = 0;
           if (action) action.classList.remove('is-demo-click');
+          demoCursor?.classList.remove('is-clicking');
           renderShowcase(phase + 1);
           startShowcase();
         }, 460);
@@ -808,6 +832,90 @@
     }
     document.addEventListener('visibilitychange', () => document.hidden ? stopShowcase() : startShowcase());
   }
+
+  const whiteLabelDemo = document.querySelector('[data-whitelabel-demo]');
+  if (whiteLabelDemo) {
+    const controls = [...whiteLabelDemo.querySelectorAll('[data-whitelabel-step]')];
+    const toggle = whiteLabelDemo.querySelector('.whitelabel-demo-toggle');
+    const cursor = whiteLabelDemo.querySelector('.whitelabel-demo-cursor');
+    const shareLayer = whiteLabelDemo.querySelector('.whitelabel-share-layer');
+    const dwellTimes = [3600,4300,5200,3600];
+    let phase = reducedMotion ? 1 : 0;
+    let timer = 0;
+    let clickTimer = 0;
+    let paused = false;
+    let inView = false;
+
+    const renderWhiteLabel = (next) => {
+      phase = (next + controls.length) % controls.length;
+      whiteLabelDemo.dataset.phase = String(phase);
+      controls.forEach((control, index) => {
+        control.classList.toggle('is-active', index === phase);
+        control.classList.toggle('is-complete', index < phase);
+        control.setAttribute('aria-current', index === phase ? 'step' : 'false');
+      });
+      shareLayer?.setAttribute('aria-hidden', phase >= 2 ? 'false' : 'true');
+    };
+    const stopWhiteLabel = () => {
+      if (timer) window.clearTimeout(timer);
+      if (clickTimer) window.clearTimeout(clickTimer);
+      timer = 0;
+      clickTimer = 0;
+      cursor?.classList.remove('is-clicking');
+      whiteLabelDemo.querySelectorAll('.is-demo-click').forEach((item) => item.classList.remove('is-demo-click'));
+    };
+    const startWhiteLabel = () => {
+      stopWhiteLabel();
+      if (!inView || paused || reducedMotion || document.hidden) return;
+      timer = window.setTimeout(() => {
+        timer = 0;
+        const action = phase === 1
+          ? whiteLabelDemo.querySelector('.whitelabel-report-footer [data-whitelabel-next]')
+          : phase === 2
+            ? whiteLabelDemo.querySelector('.whitelabel-share-dialog [data-whitelabel-next]')
+            : null;
+        action?.classList.add('is-demo-click');
+        cursor?.classList.add('is-clicking');
+        clickTimer = window.setTimeout(() => {
+          clickTimer = 0;
+          action?.classList.remove('is-demo-click');
+          cursor?.classList.remove('is-clicking');
+          renderWhiteLabel(phase + 1);
+          startWhiteLabel();
+        }, 430);
+      }, dwellTimes[phase]);
+    };
+    const setWhiteLabelPaused = (next) => {
+      paused = next;
+      toggle.textContent = paused ? '▶' : 'Ⅱ';
+      toggle.setAttribute('aria-label', paused ? 'Play white-label walkthrough' : 'Pause white-label walkthrough');
+      startWhiteLabel();
+    };
+
+    toggle?.addEventListener('click', () => setWhiteLabelPaused(!paused));
+    controls.forEach((control) => control.addEventListener('click', () => {
+      renderWhiteLabel(Number(control.dataset.whitelabelStep));
+      startWhiteLabel();
+    }));
+    whiteLabelDemo.querySelectorAll('[data-whitelabel-next]').forEach((action) => action.addEventListener('click', () => {
+      renderWhiteLabel(phase + 1);
+      startWhiteLabel();
+    }));
+    renderWhiteLabel(phase);
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(([entry]) => {
+        inView = entry.isIntersecting && entry.intersectionRatio >= .25;
+        if (inView) startWhiteLabel();
+        else stopWhiteLabel();
+      }, { threshold: [0,.25,.5], rootMargin: '-6% 0px -8% 0px' });
+      observer.observe(whiteLabelDemo);
+    } else {
+      inView = true;
+      startWhiteLabel();
+    }
+    document.addEventListener('visibilitychange', () => document.hidden ? stopWhiteLabel() : startWhiteLabel());
+  }
+
   const revealFooter = document.querySelector('.product-footer-reveal')?.closest('.marketing-footer');
   if (revealFooter && 'IntersectionObserver' in window) {
     const footerObserver = new IntersectionObserver(([entry]) => {

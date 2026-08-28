@@ -8,21 +8,27 @@
     : path === 'report-library.html'
       ? 'reports.html'
       : path;
-  const videoPages = new Set(['index.html', 'clinicians.html', 'patients.html']);
+  const pricingIsCurrent = current === 'pricing.html' || current === 'pricing-patients.html';
   const links = [
     ['clinicians.html', 'For clinicians'],
     ['patients.html', 'For patients'],
     ['reports.html', 'Reports'],
-    ['compliance.html', 'Compliance'],
-    ['pricing.html', 'Pricing'],
     ['about.html', 'About'],
   ];
-  const linkMarkup = links.map(([href, label]) =>
-    `<a href="${href}"${current === href ? ' aria-current="page"' : ''}>${label}</a>`
-  ).join('');
+  const linkMarkup = links.map(([href, label], index) => {
+    const link = `<a href="${href}"${current === href ? ' aria-current="page"' : ''}>${label}</a>`;
+    if (index !== 2) return link;
+    return `${link}<div class="nav-dropdown${pricingIsCurrent ? ' is-current' : ''}">
+      <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="pricing-menu">Pricing<span aria-hidden="true"></span></button>
+      <div class="nav-dropdown-menu" id="pricing-menu">
+        <a href="pricing.html"${current === 'pricing.html' ? ' aria-current="page"' : ''}>Clinician</a>
+        <a href="pricing-patients.html"${current === 'pricing-patients.html' ? ' aria-current="page"' : ''}>Patient</a>
+      </div>
+    </div>`;
+  }).join('');
 
   const nav = document.createElement('nav');
-  nav.className = `nav site-nav-v2${videoPages.has(path) ? '' : ' is-past-hero'}`;
+  nav.className = 'nav site-nav-v2';
   nav.setAttribute('aria-label', 'Primary navigation');
   nav.setAttribute('data-n1-site-header', '');
   nav.innerHTML = `
@@ -38,44 +44,36 @@
 
   const toggle = nav.querySelector('.nav-toggle');
   const menu = nav.querySelector('.nav-menu');
+  const pricingDropdown = nav.querySelector('.nav-dropdown');
+  const pricingToggle = nav.querySelector('.nav-dropdown-toggle');
+  const setPricingMenu = (open) => {
+    pricingDropdown.classList.toggle('is-open', open);
+    pricingToggle.setAttribute('aria-expanded', String(open));
+  };
   const setMenu = (open) => {
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
     menu.classList.toggle('is-open', open);
+    if (!open) setPricingMenu(false);
   };
   toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+  pricingToggle.addEventListener('click', () => setPricingMenu(pricingToggle.getAttribute('aria-expanded') !== 'true'));
   menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('click', (event) => {
+    if (!pricingDropdown.contains(event.target)) setPricingMenu(false);
+  });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && menu.classList.contains('is-open')) {
       setMenu(false);
       toggle.focus();
+    }
+    if (event.key === 'Escape' && pricingDropdown.classList.contains('is-open')) {
+      setPricingMenu(false);
+      pricingToggle.focus();
     }
   });
   matchMedia('(min-width: 1281px)').addEventListener('change', (event) => {
     if (event.matches) setMenu(false);
   });
 
-  if (!videoPages.has(path)) return;
-  const initializeVideoState = () => {
-    const hero = document.querySelector('.tonal-hero, .doctor-hero, .patient-hero');
-    if (!hero) return;
-    let ticking = false;
-    const update = () => nav.classList.toggle('is-past-hero', hero.getBoundingClientRect().bottom <= 0);
-    const schedule = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        update();
-        ticking = false;
-      });
-    };
-    addEventListener('scroll', schedule, { passive: true });
-    addEventListener('resize', schedule);
-    update();
-  };
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeVideoState, { once: true });
-  } else {
-    initializeVideoState();
-  }
 })();

@@ -2111,7 +2111,7 @@
       .tonal-hero-video {
         background:
           linear-gradient(90deg, rgba(10, 18, 17, .82), rgba(10, 18, 17, .24)),
-          url("assets/videos/n1-hero2-poster.jpg") center / cover no-repeat;
+          url("assets/videos/trust-poster.jpg") center / cover no-repeat;
       }
     }
   </style>
@@ -2626,7 +2626,7 @@
     .home-trust-header .tonal-hero-video {
       z-index: -2;
       overflow: hidden;
-      background: #172421 url("assets/videos/n1-hero2-poster.jpg") center / cover no-repeat !important;
+      background: #172421 url("assets/videos/trust-poster.jpg") center / cover no-repeat !important;
       opacity: 1 !important;
       transform: none !important;
       filter: none !important;
@@ -2638,14 +2638,26 @@
       display: block;
       object-fit: cover;
       object-position: center center;
+      filter: saturate(.86) contrast(.94) brightness(1.06) sepia(.06);
       transform: scale(1.015);
       animation: home-trust-settle 18s cubic-bezier(.2,.75,.25,1) both;
     }
+    .home-trust-header .tonal-hero-video::before,
+    .home-trust-header .tonal-scroll-sequence.is-engaged .tonal-hero-video::before {
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      content: "";
+      background: linear-gradient(180deg,rgba(248,226,195,.14) 0%,rgba(236,210,177,.06) 42%,rgba(22,67,65,.14) 100%);
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
     .home-trust-header .tonal-hero-video::after,
     .home-trust-header .tonal-scroll-sequence.is-engaged .tonal-hero-video::after {
+      z-index: 2;
       background:
-        linear-gradient(180deg,rgba(9,18,16,.48) 0%,rgba(9,18,16,.08) 31%,rgba(9,18,16,.12) 53%,rgba(7,14,13,.86) 100%),
-        linear-gradient(90deg,rgba(8,17,15,.28) 0%,transparent 58%);
+        linear-gradient(180deg,rgba(9,18,16,.42) 0%,rgba(9,18,16,.06) 31%,rgba(9,18,16,.10) 53%,rgba(7,14,13,.80) 100%),
+        linear-gradient(90deg,rgba(8,17,15,.24) 0%,transparent 58%);
     }
     .home-trust-header .tonal-hero-inner,
     .home-trust-header .tonal-scroll-sequence.is-engaged .tonal-hero-inner {
@@ -2713,43 +2725,6 @@
       content: "";
       transform: rotate(45deg);
     }
-    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) {
-      height: 76px !important;
-      padding: 0 !important;
-      color: #fff !important;
-    }
-    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-inner {
-      width: 100% !important;
-      max-width: none !important;
-      min-height: 76px !important;
-      padding: 14px 32px !important;
-      border: 0;
-      border-radius: 0 !important;
-      color: #fff !important;
-      background: transparent !important;
-      box-shadow: none !important;
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
-    }
-    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .logo {
-      color: #fff;
-      background: currentColor !important;
-      filter: drop-shadow(0 2px 16px rgba(0,0,0,.34)) !important;
-    }
-    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-links,
-    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-actions {
-      color: #fff;
-      text-shadow: 0 2px 16px rgba(0,0,0,.42) !important;
-    }
-    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-actions .button {
-      color: #171817 !important;
-      background: #f7ece0 !important;
-      border-color: #f7ece0 !important;
-    }
-    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-toggle {
-      color: #fff !important;
-      border-color: rgba(255,255,255,.5) !important;
-    }
     @keyframes home-trust-settle {
       from { transform: scale(1.045); }
       to { transform: scale(1.015); }
@@ -2768,7 +2743,6 @@
         max-width: 720px;
         font-size: clamp(48px,10vw,76px);
       }
-      .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-inner { padding-inline: 20px !important; }
     }
     @media (max-width: 560px) {
       .home-trust-header .tonal-scroll-sequence,
@@ -2801,11 +2775,11 @@
     <section class="tonal-scroll-sequence" data-step="idle" aria-label="n1.care introduction">
       <div class="tonal-scroll-sticky">
         <section class="tonal-hero" id="top" aria-labelledby="tonal-title">
-          <!-- Homepage hero film supplied as latest-docs/N1-Hero2.mov. -->
+          <!-- Restored waterfall/trust film with the Lassie-style colour grade. -->
           <div class="tonal-hero-video" aria-hidden="true">
-            <video id="home-trust-video" data-autoplay autoplay muted loop playsinline preload="metadata" poster="assets/videos/n1-hero2-poster.jpg">
-              <source src="assets/videos/n1-hero2-mobile.mp4" type="video/mp4" media="(max-width: 640px)">
-              <source src="assets/videos/n1-hero2.mp4" type="video/mp4">
+            <video id="home-trust-video" data-autoplay autoplay muted loop playsinline preload="metadata" poster="assets/videos/trust-poster.jpg">
+              <source src="assets/videos/trust-compilation-mobile.mp4" type="video/mp4" media="(max-width: 640px)">
+              <source src="assets/videos/trust-compilation.mp4" type="video/mp4">
             </video>
           </div>
           <div class="shell tonal-hero-inner">
@@ -3105,7 +3079,7 @@
           </section>
         </div>
 
-        <div class="walk-demo-access"><a class="button" href="https://app.n1.care/demo?source=marketing-home">Try the live demo <span aria-hidden="true">→</span></a><span>Demo account · no sign-up required</span></div>
+        <div class="walk-demo-access"><a class="button" href="https://app.n1.care/demo">Try the live demo <span aria-hidden="true">→</span></a><span>Demo account · no sign-up required</span></div>
 
       </div>
     </section>
@@ -3140,7 +3114,7 @@
             <span class="security-implementation"><i><svg viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="13" width="7" height="7" rx="1"/><path d="M10 7h4M17 11v2"/></svg></i><span><b>Production kept separate</b><small>Production and staging run in separate environments. AI processing uses dedicated production infrastructure.</small></span></span>
           </div>
         </div>
-        <a class="security-feature-link" href="compliance.html">See security and data handling →</a>
+        <a class="security-feature-link" href="contact.html?intent=security">Ask about security and data handling →</a>
       </div>
     </section>
 
@@ -3320,7 +3294,7 @@
             <button class="report-dot" id="report-tab-3" type="button" role="tab" data-index="2" aria-selected="false" aria-controls="report-panel-3" aria-label="Supplement Report" tabindex="-1"></button>
             <button class="report-dot" id="report-tab-4" type="button" role="tab" data-index="3" aria-selected="false" aria-controls="report-panel-4" aria-label="Genetic Predisposition Report" tabindex="-1"></button>
           </div>
-          <a class="report-library-cta" href="report-library.html">Explore anonymized patient stories <span aria-hidden="true">→</span></a>
+          <a class="report-library-cta" href="report-library.html">Explore all reports from anonymized patients <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -3441,7 +3415,6 @@
             <h3>For clinicians</h3>
             <a href="clinicians.html#clinician-product-animation-title">How it works</a>
             <a href="reports.html">Reports</a>
-            <a href="compliance.html">Compliance</a>
             <a href="pricing.html">Pricing</a>
           </div>
           <div class="footer-col">

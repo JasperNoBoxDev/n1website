@@ -5,8 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#376361">
-<title>Pricing — n1.care</title>
-<meta name="description" content="Plans for clinicians and patients, priced by processed pages and generated reports.">
+<title>Clinician pricing — n1.care</title>
+<meta name="description" content="Clinician plans priced by processed pages and generated reports across your patient list.">
+<script>
+if (location.hash === '#patient-plans' || new URLSearchParams(location.search).get('audience') === 'patient') {
+  location.replace('pricing-patients.html');
+}
+</script>
 <link rel="icon" href="assets/n1-logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="art-directions.css">
 <link rel="stylesheet" href="marketing-pages.css">
@@ -20,13 +25,7 @@
 .pricing-hero .page-kicker { margin-bottom: 22px; color: #2f7773; }
 .pricing-hero h1 { margin: 0; color: #202523; font: 400 clamp(52px,5.35vw,76px)/.98 var(--serif); letter-spacing: -.045em; text-wrap: balance; }
 .pricing-hero-copy { max-width: 620px; margin: 20px auto 0; color: #747b77; font-size: clamp(16px,1.25vw,18px); line-height: 1.5; text-wrap: pretty; }
-.pricing-audience-switcher { width: max-content; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 28px auto 0; padding: 4px; border: 1px solid #dce3e0; border-radius: 999px; background: #f7f8f7; }
-.pricing-audience-switcher button { min-width: 154px; min-height: 46px; padding: 0 22px; border: 0; border-radius: 999px; color: #5d6864; background: transparent; font: 700 13px var(--sans); cursor: pointer; transition: color .2s ease,background-color .2s ease,box-shadow .2s ease; }
-.pricing-audience-switcher button:hover { color: #244b49; }
-.pricing-audience-switcher button[aria-selected="true"] { color: #244b49; background: #e3eeeb; box-shadow: inset 0 0 0 1px rgba(55,99,97,.12); }
-.pricing-audience-switcher button:focus-visible { outline: 3px solid #48a9a6; outline-offset: 3px; }
 .pricing-plan-panel { padding: 0 0 clamp(88px,9vw,132px); background: var(--paper); }
-.pricing-plan-panel[hidden] { display: none !important; }
 .pricing-page .plan-grid { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 0; overflow: hidden; border: 1px solid #d6ddda; border-radius: 16px; }
 .pricing-page .plan-card { min-height: 450px; padding: 26px; border: 0; border-left: 1px solid #d6ddda; border-radius: 0; background: #fff; }
 .pricing-page .plan-card:first-child { border-left: 0; }
@@ -54,8 +53,6 @@
 @media (max-width: 620px) {
   .pricing-hero { padding-top: 124px; }
   .pricing-hero h1 { font-size: 48px; }
-  .pricing-audience-switcher { width: 100%; box-sizing: border-box; }
-  .pricing-audience-switcher button { min-width: 0; padding-inline: 12px; }
   .pricing-page .plan-grid { grid-template-columns: 1fr; }
   .pricing-page .plan-card,.pricing-page .plan-card:first-child { min-height: 0; }
   .pricing-extras { grid-template-columns: 1fr; }
@@ -71,16 +68,12 @@
 <main id="main">
 <header class="pricing-hero">
 <div class="shell pricing-hero-inner">
-<span class="page-kicker">Pricing</span>
-<h1 id="pricing-audience-title">One account for all your patients.</h1>
-<p class="pricing-hero-copy" id="pricing-audience-copy">Each limit is shared across all of that doctor's patients. We charge per unit for anything above it.</p>
-<div class="pricing-audience-switcher" role="tablist" aria-label="Choose pricing audience">
-<button id="doctor-pricing-tab" type="button" role="tab" aria-selected="true" aria-controls="clinician-plans" data-pricing-audience="doctor">For doctors</button>
-<button id="patient-pricing-tab" type="button" role="tab" aria-selected="false" aria-controls="patient-plans" data-pricing-audience="patient" tabindex="-1">For patients</button>
-</div>
+<span class="page-kicker">Clinician pricing</span>
+<h1>Pricing that fits your practice.</h1>
+<p class="pricing-hero-copy">Your monthly allowance is shared across every patient, with clear rates for additional use.</p>
 </div>
 </header>
-<section class="pricing-plan-panel" id="clinician-plans" role="tabpanel" aria-labelledby="doctor-pricing-tab" data-pricing-panel="doctor">
+<section class="pricing-plan-panel" id="clinician-plans" aria-label="Clinician plans">
 <div class="shell">
 <div class="plan-grid">
 <article class="plan-card">
@@ -93,7 +86,7 @@
 <li><b>1 report</b> in total</li>
 <li>Full source-linking and review</li>
 </ul>
-<a class="text-link" href="https://app.n1.care/login">Start the trial →</a>
+<a class="text-link" href="https://app.n1.care/signup">Start the trial →</a>
 </article>
 <article class="plan-card">
 <span>Tier 1</span>
@@ -155,124 +148,43 @@
 </div>
 </div>
 </section>
-<section class="pricing-plan-panel" id="patient-plans" role="tabpanel" aria-labelledby="patient-pricing-tab" data-pricing-panel="patient" hidden>
-<div class="shell">
-<div class="plan-grid">
-<article class="plan-card">
-<span>Trial</span>
-<h3>Free Trial</h3>
-<p class="plan-price">Free</p>
-<p>No credit card required.</p>
-<ul class="plan-included">
-<li><b>50 pages</b> in total</li>
-<li><b>1 report</b> in total</li>
-</ul>
-</article>
-<article class="plan-card">
-<span>Standard</span>
-<h3>Standard</h3>
-<p class="plan-price">$10<small>per month</small>
-</p>
-<p>For keeping a personal record current.</p>
-<ul class="plan-included">
-<li><b>100 pages</b> processed each month</li>
-<li><b>1 report</b> generated each month</li>
-</ul>
-</article>
-<article class="plan-card is-featured">
-<span>Plus</span>
-<h3>Plus</h3>
-<p class="plan-price">$29<small>per month</small>
-</p>
-<p>More room for a longer or more active history.</p>
-<ul class="plan-included">
-<li><b>500 pages</b> processed each month</li>
-<li><b>5 reports</b> generated each month</li>
-</ul>
-</article>
-<article class="plan-card">
-<span>Premium</span>
-<h3>Premium</h3>
-<p class="plan-price">$59<small>per month</small>
-</p>
-<p>For a large or complex personal record.</p>
-<ul class="plan-included">
-<li><b>1,000 pages</b> processed each month</li>
-<li><b>10 reports</b> generated each month</li>
-</ul>
-</article>
-</div>
-<p class="plan-footnote">A patient plan is separate from a clinician’s. Work your doctor does on your record draws on their allowance, not yours.</p>
-</div>
-</section>
-<section class="page-section paper" id="estimate">
-<div class="shell">
-<div class="section-head split">
-<div>
-<span class="page-kicker">Pricing basis</span>
-<h2>Start with the work <em>you do now.</em>
-</h2>
-</div>
-<p>You cannot buy a plan on this website yet. We will confirm the applicable plan, price, tax and terms with you directly.</p>
-</div>
-<div class="control-list pricing-basis">
-<article>
-<b>Processed pages each month</b>
-<p>Estimate how many pages of source files you want n1 to read.</p>
-</article>
-<article>
-<b>Generated reports each month</b>
-<p>Guess how many full or focused reports you expect to make.</p>
-</article>
-<article>
-<b>One doctor account</b>
-<p>Limits are shared across all of that doctor's patients. You cannot add more doctors to one account yet. For a practice-wide plan, talk to us.</p>
-</article>
-</div>
-<div class="pricing-estimate-callout">
-<div>
-<span class="page-kicker">For an accurate estimate</span>
-<h3>Bring two monthly numbers.</h3>
-<p>To start a price talk, we just need the pages you expect to process and the reports you expect to make.</p>
-</div>
-<a class="button" href="contact.html?intent=pricing">Share your expected volume</a>
-</div>
-</div>
-</section>
-<section class="page-section">
-<div class="shell">
-<div class="section-head">
-<span class="page-kicker">How usage is counted</span>
-<h2>Nothing is metered <em>until you choose it.</em>
-</h2>
-</div>
-<div class="control-list">
-<article>
-<b>Pages count when extraction begins</b>
-<p>Adding a file does not use your limit. We show the page count before n1 reads it.</p>
-</article>
-<article>
-<b>Reports count when generation begins</b>
-<p>You use one report each time you create a full or focused report.</p>
-</article>
-<article>
-<b>Patients are not the meter</b>
-<p>Pricing is based on how much you process and report, not on how many patients you have.</p>
-</article>
-<article>
-<b>Nothing renews by surprise</b>
-<p>We set your limit, extra fees, and new term dates before you sign up.</p>
-</article>
-</div>
-</div>
-</section>
-<section class="page-close">
-<div class="shell">
-<h2>Talk about price based on real use.</h2>
-<p>Tell us your expected monthly page and report volume. We will confirm the current plan and terms.</p>
-<div class="page-actions">
-<a class="button" href="contact.html?intent=pricing">Discuss your expected usage</a>
-<a class="button secondary" href="https://app.n1.care/signup">Start free trial</a>
+<section class="pricing-faq" aria-labelledby="clinician-pricing-faq-title">
+<div class="shell pricing-faq-layout">
+<header class="pricing-faq-head">
+<span class="page-kicker">Pricing FAQ</span>
+<h2 id="clinician-pricing-faq-title">Questions about clinician pricing.</h2>
+<p>Clear answers on allowances, patient volume and plans for larger teams.</p>
+<a class="text-link" href="contact.html?intent=pricing">Ask us another question →</a>
+</header>
+<div class="pricing-faq-list">
+<details>
+<summary><span>What counts as a processed page?</span><i aria-hidden="true"></i></summary>
+<p>A page counts when you choose to begin extraction. Simply adding a file does not use your allowance, and n1 shows you the page count before processing begins.</p>
+</details>
+<details>
+<summary><span>What counts as a generated report?</span><i aria-hidden="true"></i></summary>
+<p>One report is counted each time you create a full or focused report. Opening or reviewing a report you have already generated does not create another report.</p>
+</details>
+<details>
+<summary><span>Are allowances shared across my patients?</span><i aria-hidden="true"></i></summary>
+<p>Yes. The page and report allowances belong to the clinician account and are shared across all of that clinician's patients. The number of patients itself is not metered.</p>
+</details>
+<details>
+<summary><span>Can multiple doctors use one plan?</span><i aria-hidden="true"></i></summary>
+<p>The plans shown here are for one doctor account. If you need access for a practice or a larger team, <a href="contact.html?intent=enterprise">talk to us about an enterprise plan</a>.</p>
+</details>
+<details>
+<summary><span>Is white-label branding included?</span><i aria-hidden="true"></i></summary>
+<p>White-label branding is an optional add-on to a paid plan. It lets you adapt the patient experience with your organisation's name, colours and identity.</p>
+</details>
+<details>
+<summary><span>Can I try n1 before choosing a paid plan?</span><i aria-hidden="true"></i></summary>
+<p>Yes. The free trial includes 50 processed pages and one generated report, with no card required.</p>
+</details>
+<details>
+<summary><span>Are the displayed prices and terms final?</span><i aria-hidden="true"></i></summary>
+<p>Not yet. You cannot buy a clinician plan on this website today. We confirm the current plan, price, applicable tax and terms with you directly before you sign up.</p>
+</details>
 </div>
 </div>
 </section>
@@ -292,13 +204,13 @@
 <strong>For clinicians</strong>
 <a href="clinicians.html#clinician-product-animation-title">How it works</a>
 <a href="reports.html">Reports</a>
-<a href="compliance.html">Compliance</a>
-<a href="pricing.html">Pricing</a>
+<a href="pricing.html">Clinician pricing</a>
 </div>
 <div>
 <strong>For</strong>
 <a href="clinicians.html">For clinicians</a>
 <a href="patients.html">For patients</a>
+<a href="pricing-patients.html">Patient pricing</a>
 </div>
 <div>
 <strong>Explore</strong>
@@ -313,56 +225,5 @@
 <div class="marketing-footer-bottom">© 2026 N1 Research, LLC</div>
 </div>
 </footer>
-<script>
-(() => {
-  const tabs = [...document.querySelectorAll('[data-pricing-audience]')];
-  const panels = [...document.querySelectorAll('[data-pricing-panel]')];
-  const heroTitle = document.querySelector('#pricing-audience-title');
-  const heroCopy = document.querySelector('#pricing-audience-copy');
-  const audienceCopy = {
-    doctor: {
-      title: 'One account for all your patients.',
-      copy: "Each limit is shared across all of that doctor's patients. We charge per unit for anything above it."
-    },
-    patient: {
-      title: 'Your records, your account.',
-      copy: 'Reading and sorting what you hold stays free. A paid plan adds your own limit for processing and reports.'
-    }
-  };
-  if (!tabs.length || !panels.length || !heroTitle || !heroCopy) return;
-
-  const activate = (audience, { focus = false, updateUrl = true } = {}) => {
-    tabs.forEach((tab) => {
-      const selected = tab.dataset.pricingAudience === audience;
-      tab.setAttribute('aria-selected', String(selected));
-      tab.tabIndex = selected ? 0 : -1;
-      if (selected && focus) tab.focus();
-    });
-    panels.forEach((panel) => {
-      panel.hidden = panel.dataset.pricingPanel !== audience;
-    });
-    heroTitle.textContent = audienceCopy[audience].title;
-    heroCopy.textContent = audienceCopy[audience].copy;
-    if (updateUrl) {
-      const hash = audience === 'patient' ? '#patient-plans' : '#clinician-plans';
-      history.replaceState(null, '', `${location.pathname}${location.search}${hash}`);
-    }
-  };
-
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activate(tab.dataset.pricingAudience));
-    tab.addEventListener('keydown', (event) => {
-      if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
-      event.preventDefault();
-      const direction = event.key === 'ArrowRight' ? 1 : -1;
-      const next = tabs[(index + direction + tabs.length) % tabs.length];
-      activate(next.dataset.pricingAudience, { focus: true });
-    });
-  });
-
-  const initialAudience = location.hash === '#patient-plans' || new URLSearchParams(location.search).get('audience') === 'patient' ? 'patient' : 'doctor';
-  activate(initialAudience, { updateUrl: false });
-})();
-</script>
 </body>
 </html>

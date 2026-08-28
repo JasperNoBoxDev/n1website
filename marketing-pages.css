@@ -313,6 +313,25 @@ body.marketing-page { color: var(--ink); background: var(--cream); }
 .pricing-estimate-callout p { max-width: 620px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
 .pricing-estimate-callout .button { flex: 0 0 auto; }
 
+.pricing-faq { padding: clamp(72px, 8vw, 112px) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #f3f7f5; }
+.pricing-faq-layout { display: grid; grid-template-columns: minmax(240px, .72fr) minmax(0, 1.28fr); gap: clamp(48px, 7vw, 108px); align-items: start; }
+.pricing-faq-head { position: sticky; top: 118px; }
+.pricing-faq-head .page-kicker { display: block; margin-bottom: 17px; }
+.pricing-faq-head h2 { max-width: 470px; margin: 0; font-family: var(--serif); font-size: clamp(40px, 4.6vw, 62px); font-weight: 400; line-height: 1; letter-spacing: -.035em; }
+.pricing-faq-head p { max-width: 440px; margin: 20px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+.pricing-faq-head .text-link { display: inline-block; margin-top: 24px; color: var(--wine); font-size: 13px; font-weight: 700; }
+.pricing-faq-list { border-top: 1px solid var(--line); }
+.pricing-faq-list details { border-bottom: 1px solid var(--line); }
+.pricing-faq-list summary { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; color: var(--ink); cursor: pointer; list-style: none; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.3; }
+.pricing-faq-list summary::-webkit-details-marker { display: none; }
+.pricing-faq-list summary i { position: relative; width: 28px; height: 28px; flex: 0 0 28px; border: 1px solid var(--wine); border-radius: 50%; transition: background-color .2s ease, transform .25s ease; }
+.pricing-faq-list summary i::before, .pricing-faq-list summary i::after { position: absolute; top: 50%; left: 50%; width: 9px; height: 1px; background: var(--wine); content: ""; transform: translate(-50%, -50%); }
+.pricing-faq-list summary i::after { transform: translate(-50%, -50%) rotate(90deg); }
+.pricing-faq-list details[open] summary { color: var(--wine); }
+.pricing-faq-list details[open] summary i { background: rgba(55, 99, 97, .12); transform: rotate(45deg); }
+.pricing-faq-list details > p { max-width: 720px; margin: -2px 0 0; padding: 0 54px 26px 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.pricing-faq-list details > p a { color: var(--wine); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
 /* PLACEHOLDER PRICING. Every number on pricing.html is indicative and none of it
    is commercially signed off — the doctor figures are read out of
    billing-service's plan catalog and the patient figures do not exist yet at
@@ -609,6 +628,11 @@ body.marketing-page { color: var(--ink); background: var(--cream); }
   .pricing-basis article:nth-child(n) { border-right: 0; }
   .pricing-estimate-callout { align-items: stretch; flex-direction: column; gap: 22px; padding: 26px; }
   .pricing-estimate-callout .button { align-self: flex-start; }
+  .pricing-faq-layout { grid-template-columns: 1fr; gap: 42px; }
+  .pricing-faq-head { position: static; }
+  .pricing-faq-head h2 { font-size: 42px; }
+  .pricing-faq-list summary { min-height: 72px; gap: 18px; font-size: 17px; }
+  .pricing-faq-list details > p { padding: 0 44px 24px 0; font-size: 13px; }
   .workflow-step h3 { margin-top: 25px; }
   .product-page .workflow-step { min-height: 0; display: grid; grid-template-columns: minmax(0,1fr) 104px; grid-template-rows: auto auto 1fr; gap: 0 16px; padding: 24px; }
   .product-page .workflow-step > span, .product-page .workflow-step h3, .product-page .workflow-step p { grid-column: 1; }
