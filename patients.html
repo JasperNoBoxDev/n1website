@@ -97,24 +97,24 @@
 
 /* Patient health-data convergence story */
 .patient-gather-section { min-height: 100svh; overflow: clip; padding: 0; background: #f7f4ed; }
-.patient-gather-scroll { height: 430svh; position: relative; }
+.patient-gather-scroll { height: 350svh; position: relative; }
 .patient-gather-sticky { height: 100svh; min-height: 680px; position: sticky; top: 0; overflow: hidden; }
 .patient-gather-heading { width: min(760px,calc(100% - 40px)); position: absolute; z-index: 30; top: clamp(38px,6vh,68px); left: 50%; opacity: var(--gather-heading-opacity,1); text-align: center; transform: translateX(-50%); transition: opacity .16s linear; }
 .patient-gather-heading .page-kicker { display: block; margin-bottom: 12px; }
 .patient-gather-heading h2 { margin: 0; color: #252925; font: 400 clamp(38px,4.2vw,66px)/.98 var(--serif); letter-spacing: -.035em; text-wrap: balance; }
 .patient-gather-scene { width: min(1500px,100vw); height: 100%; position: relative; left: 50%; transform: translateX(-50%); }
 .patient-gather-aura { width: min(650px,94vw); aspect-ratio: 1; position: absolute; z-index: 0; top: 55%; left: 50%; border: 0; border-radius: 50%; background: radial-gradient(circle,rgba(219,235,230,.82) 0%,rgba(232,241,238,.5) 48%,rgba(247,244,237,0) 72%); opacity: var(--aura-opacity,0); transform: translate(-50%,-50%) scale(var(--aura-scale,.72)); will-change: opacity,transform; }
-.patient-gather-board { width:min(1180px,76vw); height:min(500px,62vh); min-height:420px; position:absolute; z-index:3; top:54%; left:50%; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); grid-template-rows:1.08fr 1fr 1fr .86fr; gap:10px; padding:12px; overflow:visible; border-radius:34px; transform:translate(-50%,-50%); }
+.patient-gather-board { width:min(760px,40vw); height:min(800px,86vh); min-height:720px; position:absolute; z-index:3; top:54%; left:50%; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-rows:1.35fr 1.05fr 1.05fr 1.18fr 1.25fr 1.1fr; gap:10px; padding:12px; overflow:visible; border-radius:34px; transform:translate(-50%,-50%); }
 .patient-gather-board::before { position:absolute; z-index:-1; inset:0; border:1px solid rgba(55,99,97,.2); border-radius:34px; background:rgba(231,240,237,.72); box-shadow:0 30px 90px rgba(34,54,47,.18); content:''; opacity:var(--board-shell-opacity,0); transition:opacity .15s linear; }
 .patient-data-widget,.patient-gather-hub { min-width:0; position:relative; z-index:4; top:auto; left:auto; overflow:hidden; border:1px solid rgba(55,99,97,.16); border-radius:18px; background:#fffdf9; box-shadow:0 9px 24px rgba(34,54,47,.08); color:#303531; transform-origin:center; will-change:transform,opacity; }
 .patient-data-widget { width:auto; padding:12px 14px; }
-.widget-records { grid-column:1 / span 2; grid-row:2; }
+.widget-records { grid-column:1 / span 2; grid-row:2 / span 3; }
 .widget-medications { grid-column:3 / span 2; grid-row:2; }
-.widget-labs { grid-column:5 / span 2; grid-row:2; }
-.widget-diagnoses { grid-column:1 / span 2; grid-row:3; }
-.widget-wearable { grid-column:3 / span 2; grid-row:3; }
-.widget-imaging { grid-column:5 / span 2; grid-row:3; }
-.widget-appointment { grid-column:1 / -1; grid-row:4; }
+.widget-diagnoses { grid-column:3 / span 2; grid-row:3; }
+.widget-wearable { grid-column:3 / span 2; grid-row:4; }
+.widget-labs { grid-column:1 / span 2; grid-row:5; }
+.widget-imaging { grid-column:3 / span 2; grid-row:5; }
+.widget-appointment { grid-column:1 / -1; grid-row:6; }
 .patient-widget-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-bottom: 11px; border-bottom: 1px solid #e2e3dd; }
 .patient-widget-title { display: flex; align-items: center; gap: 9px; min-width: 0; }
 .patient-widget-icon { width: 30px; height: 30px; display: grid; flex: 0 0 30px; place-items: center; border-radius: 10px; color: #2f7773; background: #e3f1ee; font-size: 15px; }
@@ -138,13 +138,20 @@
 .patient-record-files { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; padding-top: 12px; }
 .patient-record-files span { display: grid; gap: 5px; place-items: center; padding: 9px 4px; border-radius: 10px; color: #5f6863; background: #f1f5f3; font-size: 7px; }
 .patient-record-files b { color: #2f7773; font-size: 12px; }
-.patient-gather-hub { width:auto; z-index:3; grid-column:1 / -1; grid-row:1; padding:20px 24px; border-color:rgba(36,77,72,.35); border-radius:20px; background:#376361; color:#fff; box-shadow:0 12px 30px rgba(31,61,57,.18); }
+.widget-records .patient-record-files { height:calc(100% - 44px); grid-template-columns:1fr; align-content:stretch; gap:8px; }
+.widget-records .patient-record-files span { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; text-align:left; }
+.widget-records .patient-record-files b { order:2; font-size:16px; }
+.widget-medications,.widget-diagnoses,.widget-wearable,.widget-appointment { padding:9px 12px; }
+.widget-medications .patient-widget-head,.widget-diagnoses .patient-widget-head,.widget-wearable .patient-widget-head,.widget-appointment .patient-widget-head { padding-bottom:7px; }
+.widget-medications .patient-widget-icon,.widget-diagnoses .patient-widget-icon,.widget-wearable .patient-widget-icon,.widget-appointment .patient-widget-icon { width:24px; height:24px; flex-basis:24px; border-radius:8px; font-size:12px; }
+.widget-medications .patient-widget-row,.widget-diagnoses .patient-widget-row,.widget-wearable .patient-widget-row,.widget-appointment .patient-widget-row { padding:5px 0; font-size:8px; }
+.patient-gather-hub { width:auto; z-index:3; grid-column:1 / -1; grid-row:1; padding:15px 18px; border-color:rgba(36,77,72,.35); border-radius:20px; background:#376361; color:#fff; box-shadow:0 12px 30px rgba(31,61,57,.18); }
 .patient-hub-logo { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .patient-hub-logo b { font-size: 20px; letter-spacing: -.04em; }
 .patient-hub-logo span { padding: 5px 8px; border-radius: 999px; color: #376361; background: #dceee9; font-size: 7px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
-.patient-gather-hub h3 { margin: 28px 0 5px; color: #fff; font: 400 25px/1.02 var(--serif); }
+.patient-gather-hub h3 { margin: 12px 0 3px; color: #fff; font: 400 25px/1.02 var(--serif); }
 .patient-gather-hub p { margin: 0; color: rgba(255,255,255,.72); font-size: 9px; line-height: 1.5; }
-.patient-hub-status { display: flex; align-items: center; gap: 7px; margin-top: 20px; padding-top: 13px; border-top: 1px solid rgba(255,255,255,.18); font-size: 8px; font-weight: 700; }
+.patient-hub-status { display: flex; align-items: center; gap: 7px; margin-top: 9px; padding-top: 7px; border-top: 1px solid rgba(255,255,255,.18); font-size: 8px; font-weight: 700; }
 .patient-hub-status::before { width: 7px; height: 7px; border-radius: 50%; background: #7dd3bc; content: ''; box-shadow: 0 0 0 4px rgba(125,211,188,.15); }
 .patient-gather-copy { width: min(330px,calc(100% - 32px)); position: absolute; z-index: 40; left: clamp(24px,6vw,96px); bottom: clamp(28px,6vh,66px); opacity: var(--gather-copy-opacity,1); transition: opacity .16s linear; }
 .patient-gather-copy article { position: absolute; bottom: 0; left: 0; opacity: 0; transform: translateY(18px); transition: opacity .25s ease,transform .25s ease; pointer-events: none; }
@@ -162,10 +169,21 @@
   .patient-gather-sticky { min-height: 620px; }
   .patient-gather-heading { top: 30px; }
   .patient-gather-heading h2 { font-size: clamp(34px,7vw,51px); }
-  .patient-gather-board { width:min(780px,calc(100vw - 24px)); height:min(520px,68vh); min-height:450px; gap:8px; padding:9px; }
+  .patient-gather-board { width:min(780px,calc(100vw - 24px)); height:min(680px,78vh); min-height:600px; grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-rows:1.12fr 1fr 1fr 1fr 1.08fr; gap:8px; padding:9px; }
+  .patient-gather-hub { grid-column:1 / -1; grid-row:1; }
+  .widget-records { grid-column:1 / span 2; grid-row:2; }
+  .widget-medications { grid-column:3 / span 2; grid-row:2; }
+  .widget-labs { grid-column:1 / span 2; grid-row:3; }
+  .widget-diagnoses { grid-column:3 / span 2; grid-row:3; }
+  .widget-imaging { grid-column:1 / span 2; grid-row:4; }
+  .widget-wearable { grid-column:3 / span 2; grid-row:4; }
+  .widget-appointment { grid-column:1 / -1; grid-row:5; }
+  .widget-records .patient-record-files { height:auto; grid-template-columns:repeat(3,1fr); gap:4px; }
+  .widget-records .patient-record-files span { display:grid; place-items:center; padding:7px 3px; text-align:center; }
+  .widget-records .patient-record-files b { order:0; font-size:11px; }
   .patient-data-widget { padding: 11px; }
-  .patient-gather-hub { padding:16px; }
-  .patient-gather-hub h3 { margin-top: 18px; font-size: 21px; }
+  .patient-gather-hub { padding:12px 14px; }
+  .patient-gather-hub h3 { margin-top:9px; font-size:21px; }
   .patient-gather-copy { left: 20px; bottom: 28px; }
   .patient-gather-copy article { padding: 15px 17px; border: 1px solid rgba(55,99,97,.14); border-radius: 18px; background: rgba(247,244,237,.93); backdrop-filter: blur(10px); }
   .patient-gather-copy h3 { font-size: 25px; }
@@ -394,10 +412,9 @@
 <article class="is-active" data-stage="0"><span>01 · Upload</span><h3>Upload all your health data</h3><p>Bring laboratory reports, letters, scans, wearable exports, and notes into one secure account.</p></article>
 <article data-stage="1"><span>02 · Understand</span><h3>See what’s going well—and what needs attention</h3><p>Results, medicines, diagnoses, and daily data sit together so meaningful changes are easier to spot.</p></article>
 <article data-stage="2"><span>03 · Summarize</span><h3>Create quick overviews of your most important data</h3><p>Turn a long record into a concise, source-linked view of key changes, questions, and gaps.</p></article>
-<article data-stage="3"><span>04 · Share</span><h3>Share and discuss with your doctor</h3><p>Send a protected report when you choose, then review the important detail together.</p></article>
 </div>
 <div class="patient-gather-footer"><a class="text-link" href="Health_summary_demo-1.html">Open the full synthetic report →</a></div>
-<div class="patient-gather-progress" aria-hidden="true"><i class="is-active"></i><i></i><i></i><i></i></div>
+<div class="patient-gather-progress" aria-hidden="true"><i class="is-active"></i><i></i><i></i></div>
 </div>
 </div>
 </section>
