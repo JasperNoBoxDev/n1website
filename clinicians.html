@@ -73,7 +73,7 @@
 .doctor-hero-credit { position: absolute; z-index: 2; right: 20px; bottom: 18px; margin: 0; color: rgba(255,255,255,.82); font-size: 8px; letter-spacing: .04em; text-shadow: 0 1px 5px rgba(0,0,0,.55); }
 .prepared-story { height: 360svh; position: relative; margin-top: clamp(50px,7vw,96px); }
 .clinician-prepared-block .prepared-story { margin-top: 0; }
-.prepared-story-card { width: min(700px,74%,calc((100svh - 220px)*1.56)); aspect-ratio: 1.56; position: relative; z-index: 2; grid-column: 1; grid-row: 2; justify-self: center; overflow: visible; transform: translate3d(0,var(--story-y,0),0) scale(var(--story-scale,1)); transform-origin: center; will-change: transform; }
+.prepared-story-card { width: min(700px,100%,calc((100svh - 220px)*1.56)); aspect-ratio: 1.56; position: relative; z-index: 2; grid-column: 2; grid-row: 1; justify-self: center; overflow: visible; transform: translate3d(0,var(--story-y,0),0) scale(var(--story-scale,1)); transform-origin: center; will-change: transform; }
 .prepared-story-card::before { display: none; }
 .prepared-story-frame { width: 100%; height: 100%; position: relative; overflow: hidden; border: 1px solid #bfd1cc; border-radius: clamp(28px,3vw,48px); background: #eef3f0; }
 .prepared-story-media { position: absolute; inset: 0; overflow: hidden; background: linear-gradient(135deg,#f7f4ed 0%,#eef3f0 56%,#e4efec 100%); }
@@ -161,18 +161,24 @@
 @keyframes story-point-in { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
 @keyframes story-report-ready { from { opacity: 0; transform: translateY(5px) scale(.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
 .prepared-story-steps { height: calc(100svh - 88px); position: sticky; top: 88px; }
-.prepared-story-step { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr; grid-template-rows: auto auto; gap: clamp(18px,2vw,28px); align-content: center; padding-bottom: clamp(80px,12svh,92px); box-sizing: border-box; pointer-events: none; }
+.prepared-story-step { position: absolute; inset: 0; display: grid; grid-template-columns: minmax(250px,360px) minmax(0,1fr); grid-template-rows: 1fr; align-items: center; gap: clamp(32px,3vw,56px); padding: clamp(40px,7svh,72px) 0; box-sizing: border-box; pointer-events: none; }
 .prepared-story-step:nth-child(1) { z-index: 4; }
 .prepared-story-step:nth-child(2) { z-index: 3; }
 .prepared-story-step:nth-child(3) { z-index: 2; }
 .prepared-story-step:nth-child(4) { z-index: 1; }
-.prepared-story-copy { width: min(980px,90%); max-width: none; z-index: 1; grid-column: 1; grid-row: 1; justify-self: center; visibility: hidden; text-align: center; opacity: 0; transform: translateY(16px); will-change: opacity,transform; }
+.prepared-story-copy { width: 100%; max-width: 360px; z-index: 1; grid-column: 1; grid-row: 1; justify-self: start; visibility: hidden; text-align: left; opacity: 0; transform: translateY(16px); will-change: opacity,transform; }
 .prepared-story-copy.is-current { visibility: visible; animation: prepared-story-title-in .62s cubic-bezier(.22,1,.36,1) both; }
 @keyframes prepared-story-title-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 .prepared-story-copy span { color: #2f7773; font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-.prepared-story-copy h3 { margin: 8px 0 0; color: #202523; font: 400 clamp(34px,3.55vw,52px)/1 var(--serif); letter-spacing: -.04em; text-wrap: balance; }
-.prepared-story-copy p { max-width: 540px; margin: 11px auto 0; color: #767a76; font-size: 14px; line-height: 1.5; }
+.prepared-story-copy h3 { margin: 12px 0 0; color: #202523; font: 400 clamp(36px,3.15vw,50px)/1.02 var(--serif); letter-spacing: -.04em; text-wrap: balance; }
+.prepared-story-copy p { max-width: 360px; margin: 13px 0 0; color: #767a76; font-size: 14px; line-height: 1.5; }
 .prepared-story-footer { display: flex; justify-content: center; margin-top: 42px; position: relative; z-index: 3; }
+@media (max-width: 1100px) {
+  .prepared-story-step { grid-template-columns: 1fr; grid-template-rows: auto auto; align-content: center; gap: clamp(18px,2vw,28px); padding-bottom: clamp(64px,9svh,82px); }
+  .prepared-story-card { width: min(700px,74%,calc((100svh - 220px)*1.56)); grid-column: 1; grid-row: 2; justify-self: center; }
+  .prepared-story-copy { width: min(760px,88%); max-width: none; grid-column: 1; grid-row: 1; justify-self: center; text-align: center; }
+  .prepared-story-copy p { margin-right: auto; margin-left: auto; }
+}
 .prepared-story-footer .text-link { color: #2f7773; }
 .signoff-edit { width: 100%; min-height: 94px; box-sizing: border-box; margin-top: 8px; padding: 14px 15px; border: 1px solid #b8cbc6; border-radius: 12px; color: #2d3734; background: #fff; font: 500 13px/1.55 var(--sans); transition: border-color .35s ease,box-shadow .35s ease; }
 .clinician-inline-review { padding: clamp(84px,9vw,132px) 0; background: #dfefeb; }
