@@ -61,7 +61,13 @@ where they appear and must not be presented as photographs of the quoted people.
 | Local asset | Source |
 | --- | --- |
 | `n1-patient-consultation.webp` | Credited on `patients.html` as "Concept photography · Pexels" |
+| `patient-story-walk.jpg` | [Smiling couple walking in park, Katerina Holmes / Pexels](https://www.pexels.com/photo/smiling-couple-walking-in-park-5910960/) |
+| `patient-story-prepare.jpg` | [Focused woman writing in notebook in park, Anete Lusina / Pexels](https://www.pexels.com/photo/focused-woman-writing-in-notebook-in-park-4792249/) |
+| `patient-story-discuss.jpg` | [A doctor talking to a patient, Cedric Fauntleroy / Pexels](https://www.pexels.com/photo/a-doctor-talking-to-a-patient-4266940/) |
 
 The specific Pexels URL and creator for this one were never recorded — **confirm the
 source before this goes public.** It is used decoratively (`alt=""`) and captioned as
 concept photography, so it is not presented as a photograph of an n1 patient.
+
+The three `patient-story-*.jpg` images are used as concept photography and do not
+depict n1 patients. Their Pexels source pages and creators are recorded above.
