@@ -49,15 +49,12 @@
     .tonal-hero h1 { max-width: 1100px; color: #fff; font-family: var(--sans); font-size: clamp(54px,5.55vw,80px); font-weight: 400; line-height: 1.02; letter-spacing: -.045em; text-shadow: 0 3px 24px rgba(0,0,0,.24) !important; }
     .tonal-hero h1 .hero-trust-line { display: inline; color: inherit; }
     .tonal-hero h1 em { color: inherit; font-style: normal; }
-    .home-hero-scroll { display: inline-flex; align-items: center; gap: 11px; margin-top: clamp(34px,5vh,54px); color: #fff; font-size: 15px; font-weight: 700; text-shadow: 0 2px 12px rgba(0,0,0,.45); }
-    .home-hero-scroll::after { width: 7px; height: 7px; margin-top: -4px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; content: ''; transform: rotate(45deg); }
-    .home-hero-credit { position: absolute; z-index: 2; right: 20px; bottom: 18px; margin: 0; color: rgba(255,255,255,.82); font-size: 8px; letter-spacing: .04em; text-shadow: 0 1px 5px rgba(0,0,0,.55); }
     .tonal-motion .nav, .tonal-motion .nav.is-past-hero { height: 72px; padding-top: 0; }
     .tonal-motion .nav .nav-inner, .tonal-motion .nav.is-past-hero .nav-inner { width: 100%; max-width: none; min-height: 72px; padding: 12px 32px; border-radius: 0; }
     .tonal-motion .nav:not(.is-past-hero) .nav-inner { color: var(--cream); background: transparent; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
     .tonal-motion .nav:not(.is-past-hero) .nav-links, .tonal-motion .nav:not(.is-past-hero) .nav-actions { font-family: "Work Sans",var(--sans); text-shadow: 0 1px 10px rgba(0,0,0,.32); }
     .tonal-motion .nav:not(.is-past-hero) .button { color: var(--ink); background: var(--cream); border-color: var(--cream); }
-    @media (max-width: 620px) { .tonal-hero-inner { width: var(--n1-page-width); } .tonal-hero h1 { max-width: 360px; font-size: 48px; line-height: 1.03; } .home-hero-scroll { margin-top: 30px; font-size: 13px; } }
+    @media (max-width: 620px) { .tonal-hero-inner { width: var(--n1-page-width); } .tonal-hero h1 { max-width: 360px; font-size: 48px; line-height: 1.03; } }
     /* Wide enough for the subtitle's three authored lines to hold at 18px
        (623px / 630px / 393px), so the <br>s land where they are written. */
     .tonal-hero-bottom p { max-width: 648px; }
@@ -2114,7 +2111,7 @@
       .tonal-hero-video {
         background:
           linear-gradient(90deg, rgba(10, 18, 17, .82), rgba(10, 18, 17, .24)),
-          url("assets/videos/clinical-check-poster.webp") 58% center / cover no-repeat;
+          url("assets/videos/n1-hero2-poster.jpg") center / cover no-repeat;
       }
     }
   </style>
@@ -2606,8 +2603,196 @@
   .footer p { color: #6a6864 !important; }
   </style>
   <link rel="stylesheet" href="site-nav.css">
+  <style>
+    /* N1 Hero 2 homepage header. */
+    .home-trust-header .tonal-scroll-sequence {
+      height: 100svh !important;
+      min-height: 640px;
+    }
+    .home-trust-header .tonal-scroll-sticky {
+      position: relative !important;
+      height: 100% !important;
+      overflow: hidden !important;
+    }
+    .home-trust-header .tonal-hero {
+      width: 100%;
+      height: 100%;
+      min-height: 640px !important;
+      display: block;
+      padding: 0 !important;
+      isolation: isolate;
+      background: #172421;
+    }
+    .home-trust-header .tonal-hero-video {
+      z-index: -2;
+      overflow: hidden;
+      background: #172421 url("assets/videos/n1-hero2-poster.jpg") center / cover no-repeat !important;
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+      transition: none;
+    }
+    .home-trust-header .tonal-hero-video video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center center;
+      transform: scale(1.015);
+      animation: home-trust-settle 18s cubic-bezier(.2,.75,.25,1) both;
+    }
+    .home-trust-header .tonal-hero-video::after,
+    .home-trust-header .tonal-scroll-sequence.is-engaged .tonal-hero-video::after {
+      background:
+        linear-gradient(180deg,rgba(9,18,16,.48) 0%,rgba(9,18,16,.08) 31%,rgba(9,18,16,.12) 53%,rgba(7,14,13,.86) 100%),
+        linear-gradient(90deg,rgba(8,17,15,.28) 0%,transparent 58%);
+    }
+    .home-trust-header .tonal-hero-inner,
+    .home-trust-header .tonal-scroll-sequence.is-engaged .tonal-hero-inner {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      bottom: clamp(34px,6vh,64px);
+      width: min(1180px,calc(100vw - 64px));
+      min-height: 0 !important;
+      display: block;
+      padding: 0;
+      opacity: 1;
+      transform: translateX(-50%);
+      transition: none;
+    }
+    .home-trust-header .tonal-copy-block {
+      max-width: 1060px;
+      display: block;
+      opacity: 0;
+      animation: home-trust-copy-reveal 1.05s cubic-bezier(.2,.75,.25,1) 1s both;
+    }
+    .home-trust-header .tonal-hero .eyebrow {
+      width: auto;
+      display: block;
+      margin: 0 0 17px;
+      padding: 0;
+      border: 0;
+      color: #fff !important;
+      background: transparent;
+      font-size: 11px;
+      font-weight: 760;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 14px rgba(0,0,0,.5) !important;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+    .home-trust-header .tonal-hero h1 {
+      max-width: 1060px;
+      margin: 0;
+      color: #fff !important;
+      font-family: var(--sans);
+      font-size: clamp(52px,6.2vw,86px);
+      font-weight: 410;
+      line-height: .98;
+      letter-spacing: -.052em;
+      text-wrap: balance;
+      text-shadow: 0 4px 30px rgba(0,0,0,.3) !important;
+    }
+    .home-hero-note {
+      margin: clamp(28px,4.5vh,48px) 0 0;
+      color: #fff !important;
+      font-size: 13px;
+      font-weight: 630;
+      letter-spacing: .01em;
+      text-shadow: 0 2px 14px rgba(0,0,0,.56) !important;
+    }
+    .home-hero-note::after {
+      width: 7px;
+      height: 7px;
+      display: inline-block;
+      margin: 0 0 3px 11px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      content: "";
+      transform: rotate(45deg);
+    }
+    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) {
+      height: 76px !important;
+      padding: 0 !important;
+      color: #fff !important;
+    }
+    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-inner {
+      width: 100% !important;
+      max-width: none !important;
+      min-height: 76px !important;
+      padding: 14px 32px !important;
+      border: 0;
+      border-radius: 0 !important;
+      color: #fff !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .logo {
+      color: #fff;
+      background: currentColor !important;
+      filter: drop-shadow(0 2px 16px rgba(0,0,0,.34)) !important;
+    }
+    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-links,
+    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-actions {
+      color: #fff;
+      text-shadow: 0 2px 16px rgba(0,0,0,.42) !important;
+    }
+    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-actions .button {
+      color: #171817 !important;
+      background: #f7ece0 !important;
+      border-color: #f7ece0 !important;
+    }
+    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-toggle {
+      color: #fff !important;
+      border-color: rgba(255,255,255,.5) !important;
+    }
+    @keyframes home-trust-settle {
+      from { transform: scale(1.045); }
+      to { transform: scale(1.015); }
+    }
+    @keyframes home-trust-copy-reveal {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 900px) {
+      .home-trust-header .tonal-hero-inner,
+      .home-trust-header .tonal-scroll-sequence.is-engaged .tonal-hero-inner {
+        width: calc(100vw - 40px);
+        bottom: 30px;
+      }
+      .home-trust-header .tonal-hero h1 {
+        max-width: 720px;
+        font-size: clamp(48px,10vw,76px);
+      }
+      .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-inner { padding-inline: 20px !important; }
+    }
+    @media (max-width: 560px) {
+      .home-trust-header .tonal-scroll-sequence,
+      .home-trust-header .tonal-hero { min-height: 620px !important; }
+      .home-trust-header .tonal-hero-video video { object-position: 58% center; }
+      .home-trust-header .tonal-hero .eyebrow { margin-bottom: 12px; }
+      .home-trust-header .tonal-hero h1 { max-width: 410px; font-size: clamp(46px,13.8vw,66px); line-height: 1; }
+      .home-hero-note { margin-top: 28px; font-size: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .home-trust-header .tonal-hero-video video {
+        display: block;
+        animation: none !important;
+        transform: scale(1.015);
+      }
+      .home-trust-header .tonal-copy-block {
+        opacity: 1;
+        transform: none;
+        animation: none !important;
+      }
+    }
+  </style>
 </head>
-<body class="tonal tonal-motion">
+<body class="tonal tonal-motion home-trust-header">
   <div class="scroll-bg" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to content</a>
   <script src="site-header.js"></script>
@@ -2616,19 +2801,20 @@
     <section class="tonal-scroll-sequence" data-step="idle" aria-label="n1.care introduction">
       <div class="tonal-scroll-sticky">
         <section class="tonal-hero" id="top" aria-labelledby="tonal-title">
+          <!-- Homepage hero film supplied as latest-docs/N1-Hero2.mov. -->
           <div class="tonal-hero-video" aria-hidden="true">
-            <video data-autoplay muted loop playsinline preload="metadata" poster="assets/videos/clinical-check-poster.webp">
-              <source src="assets/videos/clinical-check.mp4" type="video/mp4">
+            <video id="home-trust-video" data-autoplay autoplay muted loop playsinline preload="metadata" poster="assets/videos/n1-hero2-poster.jpg">
+              <source src="assets/videos/n1-hero2-mobile.mp4" type="video/mp4" media="(max-width: 640px)">
+              <source src="assets/videos/n1-hero2.mp4" type="video/mp4">
             </video>
           </div>
           <div class="shell tonal-hero-inner">
             <div class="tonal-copy-block">
               <p class="eyebrow">Secure AI for clinicians</p>
-              <h1 id="tonal-title">Health data<br><span class="hero-trust-line">you can <em>trust.</em></span></h1>
-              <a class="home-hero-scroll" href="#features">Scroll to see how</a>
+              <h1 id="tonal-title">Health data<br>you can trust.</h1>
+              <p class="home-hero-note">A clearer view of every patient</p>
             </div>
           </div>
-          <p class="home-hero-credit">Concept footage · cottonbro studio / Pexels</p>
         </section>
       </div>
     </section>
@@ -3296,8 +3482,16 @@
   </div>
 
   <script>
-    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reducedMotionQuery = matchMedia('(prefers-reduced-motion: reduce)');
+    const reduceMotion = reducedMotionQuery.matches;
+    const homeTrustVideo = document.querySelector('#home-trust-video');
     if (!reduceMotion) document.querySelectorAll('video[data-autoplay]').forEach(video => video.play().catch(() => {}));
+    if (reduceMotion && homeTrustVideo) homeTrustVideo.pause();
+    reducedMotionQuery.addEventListener('change', (event) => {
+      if (!homeTrustVideo) return;
+      if (event.matches) homeTrustVideo.pause();
+      else homeTrustVideo.play().catch(() => {});
+    });
     addEventListener('load', () => {
       if (!location.hash) return;
       const anchorTarget = document.querySelector(location.hash);
