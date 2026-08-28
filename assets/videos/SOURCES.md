@@ -14,5 +14,7 @@ which permits free use, website use, and modification without required attributi
 | `laboratory-analysis.mp4` | [Automated analysers in a laboratory](https://www.pexels.com/video/automated-analysers-in-a-laboratory-8381327/) | Pavel Danilyuk |
 | `sunlit-park.mp4` | [Sunny park stroll with people and trees](https://www.pexels.com/video/sunny-park-stroll-with-people-and-trees-30507205/) | Evgenij Mikhailov |
 | `patient-seashore.mp4` | [Woman walking by the seashore](https://www.pexels.com/video/a-woman-walking-by-the-seashore-5418386/) | Yaroslav Shuraev |
+| `log-crossing*.mp4` | [A couple crossing the river](https://www.pexels.com/video/a-couple-crossing-the-river-8968040/) | Yaroslav Shuraev |
+| `doctor-examining-patient*.mp4` | [A doctor examining her patient](https://www.pexels.com/video/a-doctor-examining-her-patient-7423727/) | Gustavo Fring |
 
 The matching WebP or JPEG files are poster frames generated from these clips.
