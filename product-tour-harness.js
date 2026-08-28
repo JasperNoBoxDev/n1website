@@ -280,6 +280,17 @@
       { view: 'list', label: 'Medications', editable: true, kicker: 'Medication list', title: 'Check every medicine.', lead: 'See current and past medications in one list. Check the dose, form, schedule and dates, then open a row to edit it.', bullets: ['See when each drug was used','Edit dose, form, timing and notes','Spot a missing end date'], badge: '7 medications', action: '+ Add Medication', filters: ['Search medications…','Status: All','Type: All','Current + past'], columns: ['Name','Brand Name','Dosage','Type','Frequency','Started','Stopped On'], rows: [['Metformin','Glucophage','500 mg','Tablet','Twice daily','22 Nov 2024','—'],['Rosuvastatin','Crestor','10 mg','Tablet','Daily','14 Mar 2025','—'],['Aspirin','—','81 mg','Tablet','Daily','22 Nov 2024','18 Feb 2025']] },
       { view: 'list', label: 'Supplements', editable: true, kicker: 'Supplement list', title: 'Keep the full plan in view.', lead: 'See the brand, dose, form, schedule and dates for each supplement. Open a row to change the plan.', bullets: ['Use one view for supplements','Edit dose, timing and instructions','Upload a file or add one by hand'], badge: '4 supplements', action: '+ Add Supplement', filters: ['Search supplements…','Status: All','Type: All','Current + past'], columns: ['Name','Brand Name','Dosage','Type','Frequency','Started','Stopped On'], rows: [['Magnesium glycinate','Pure Encapsulations','200 mg','Capsule','Nightly','14 Mar 2025','—'],['Vitamin D3','Thorne','2,000 IU','Softgel','Daily','6 Jun 2025','—'],['Omega-3','Nordic Naturals','1 g','Softgel','With food','14 Mar 2025','—']] }
     ];
+    const clinicianPageSummaries = {
+      Dashboard: 'One patient record. One clear view.',
+      'Medical Records': 'Upload records. n1 builds the history.',
+      Reports: 'Create, review and approve each report.',
+      Biomarkers: 'Track results, ranges and sources.',
+      Diagnoses: 'Review each diagnosis in context.',
+      Procedures: 'See tests and procedures by date.',
+      Genetics: 'Review findings, evidence and sources.',
+      Medications: 'See every medicine in one list.',
+      Supplements: 'See every supplement in one list.'
+    };
     const heroMotionPanels = {
       'Medical Records': `<div class="hero-record-upload-card"><header><b><i>↑</i>Upload records</b><span>×</span></header><div class="hero-record-upload-drop">＋ Drop or click to add more files</div><div class="hero-record-upload-file"><i>PDF</i><span><b>metro-pathology-mar-2025.pdf</b><small>12 pages · 2.4 MB</small></span><em>×</em></div><div class="hero-record-upload-file"><i>PDF</i><span><b>consult-note-2025.pdf</b><small>6 pages · 1.1 MB</small></span><em>×</em></div><div class="hero-record-upload-file"><i>PDF</i><span><b>cardiac-ct-2024.pdf</b><small>18 pages · 3.8 MB</small></span><em>×</em></div><footer><span>3 files · 36 pages · 7.3 MB</span><strong>↑ Upload 3 records</strong></footer></div><div class="hero-record-complete"><i>✓</i><div><header><b>All record data is ready</b><small>3 documents parsed and linked to their sources</small></header><section><span><b>83</b>Biomarkers</span><span><b>2</b>Diagnoses</span><span><b>1</b>Procedure</span><span><b>5</b>Medications</span><span><b>7</b>Supplements</span><span><b>1</b>Genetics</span></section></div></div>`,
       'Biomarkers': `<div class="product-hero-native-motion is-biomarkers"><div class="hero-native-dropdown"><b>Source: Blood</b><span>All sources</span><span>Blood</span><span>Urine</span></div><div class="hero-native-detail"><b>LDL cholesterol history</b><span>142 → 116 mg/dL · patient target ≤100</span><strong>Metro Pathology · page 3</strong></div></div>`,
@@ -407,10 +418,12 @@
         }
       });
       heroSidebarItems.forEach((item, itemIndex) => item.classList.toggle('is-active', itemIndex === index));
-      if (storyKicker) storyKicker.textContent = definition.kicker;
-      if (storyTitle) storyTitle.textContent = definition.title;
-      if (storyLead) storyLead.textContent = definition.lead;
-      if (storyList) storyList.innerHTML = definition.bullets.map((bullet) => `<li>${bullet}</li>`).join('');
+      if (scrollHero.classList.contains('clinician-product-hero')) {
+        if (storyKicker) storyKicker.textContent = definition.label;
+        if (storyTitle) storyTitle.textContent = clinicianPageSummaries[definition.label] || definition.title;
+        if (storyLead) storyLead.textContent = '';
+        if (storyList) storyList.innerHTML = '';
+      }
     };
     const resetHeroMenu = () => {
       heroMenuIndex = -1;
@@ -454,7 +467,8 @@
       heroFrame = 0;
       if (!sticky) return;
       if (reducedMotion) {
-        setHeroMenu(0);
+        if (scrollHero.classList.contains('clinician-product-hero')) resetHeroMenu();
+        else setHeroMenu(0);
         return;
       }
       if (!heroLayout) {
@@ -504,7 +518,8 @@
         const menuIndex = Math.min(heroMenuDefinitions.length - 1, Math.floor(menuProgress * heroMenuDefinitions.length));
         setHeroMenu(menuIndex);
       } else if (!mobile) {
-        setHeroMenu(0);
+        if (scrollHero.classList.contains('clinician-product-hero')) resetHeroMenu();
+        else setHeroMenu(0);
       } else {
         resetHeroMenu();
       }
@@ -715,15 +730,18 @@
   const patientShowcase = document.querySelector('[data-patient-showcase]');
   if (patientShowcase) {
     const views = [...patientShowcase.querySelectorAll('[data-patient-showcase-view]')];
-    const progress = [...patientShowcase.querySelectorAll('.patient-showcase-progress span')];
+    const progress = [...patientShowcase.querySelectorAll('[data-patient-showcase-step]')];
     const toggle = patientShowcase.querySelector('.patient-showcase-toggle');
+    const dwellTimes = [5200,6500,5800,5200];
     let phase = 0;
     let timer = 0;
+    let clickTimer = 0;
     let paused = false;
     let inView = false;
     views.forEach((view) => { view.hidden = false; });
     const renderShowcase = (next) => {
       phase = (next + views.length) % views.length;
+      patientShowcase.dataset.phase = String(phase);
       views.forEach((view, index) => {
         const active = index === phase;
         view.classList.toggle('is-active', active);
@@ -732,16 +750,30 @@
       progress.forEach((item, index) => {
         item.classList.toggle('is-active', index === phase);
         item.classList.toggle('is-complete', index < phase);
+        item.setAttribute('aria-current', index === phase ? 'step' : 'false');
       });
     };
     const stopShowcase = () => {
-      if (timer) window.clearInterval(timer);
+      if (timer) window.clearTimeout(timer);
+      if (clickTimer) window.clearTimeout(clickTimer);
       timer = 0;
+      clickTimer = 0;
+      patientShowcase.querySelectorAll('.is-demo-click').forEach((item) => item.classList.remove('is-demo-click'));
     };
     const startShowcase = () => {
       stopShowcase();
       if (!inView || paused || reducedMotion || document.hidden) return;
-      timer = window.setInterval(() => renderShowcase(phase + 1), 3200);
+      timer = window.setTimeout(() => {
+        timer = 0;
+        const action = views[phase]?.querySelector('[data-patient-showcase-next]');
+        if (action) action.classList.add('is-demo-click');
+        clickTimer = window.setTimeout(() => {
+          clickTimer = 0;
+          if (action) action.classList.remove('is-demo-click');
+          renderShowcase(phase + 1);
+          startShowcase();
+        }, 460);
+      }, dwellTimes[phase] || 5600);
     };
     const setShowcasePaused = (next) => {
       paused = next;
@@ -750,6 +782,16 @@
       startShowcase();
     };
     toggle.addEventListener('click', () => setShowcasePaused(!paused));
+    views.forEach((view) => {
+      view.querySelector('[data-patient-showcase-next]')?.addEventListener('click', () => {
+        renderShowcase(phase + 1);
+        startShowcase();
+      });
+    });
+    progress.forEach((control) => control.addEventListener('click', () => {
+      renderShowcase(Number(control.dataset.patientShowcaseStep));
+      startShowcase();
+    }));
     renderShowcase(reducedMotion ? views.length - 1 : 0);
     if ('IntersectionObserver' in window) {
       const showcaseObserver = new IntersectionObserver((entries) => {

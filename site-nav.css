@@ -1,3 +1,5 @@
+@import url("site-layout.css");
+
 /* Shared n1 marketing navigation.
    One control layer across video heroes, with a stable material surface after
    scroll. Keep page-specific art direction out of this component. */
@@ -122,14 +124,14 @@
 }
 
 .site-nav-v2 .nav-links a::after {
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
   position: absolute;
   right: 0;
   bottom: 4px;
   left: 0;
   margin: auto;
-  border-radius: 50%;
+  border-radius: 0;
   background: #8ed8d2;
   content: "";
   opacity: 0;
@@ -145,11 +147,6 @@
 .site-nav-v2 .nav-links a[aria-current="page"] {
   color: #fff;
   background: rgba(255,255,255,.1);
-}
-
-.site-nav-v2 .nav-links a[aria-current="page"]::after {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .site-nav-v2 .nav-actions {
@@ -201,6 +198,23 @@
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
+
+.site-nav-v2 .nav-toggle span,
+.site-nav-v2 .nav-toggle::before,
+.site-nav-v2 .nav-toggle::after {
+  width: 18px;
+  height: 2px;
+  display: block;
+  margin: 4px auto;
+  border-radius: 2px;
+  background: currentColor;
+  content: "";
+  transition: transform .2s ease,opacity .2s ease;
+}
+
+.site-nav-v2 .nav-toggle[aria-expanded="true"] span { opacity: 0; }
+.site-nav-v2 .nav-toggle[aria-expanded="true"]::before { transform: translateY(6px) rotate(45deg); }
+.site-nav-v2 .nav-toggle[aria-expanded="true"]::after { transform: translateY(-6px) rotate(-45deg); }
 
 @media (max-width: 1280px) {
   .site-nav-v2 .nav-inner,
@@ -379,12 +393,12 @@
    after the hero, when it has to remain legible over changing page sections. */
 .site-nav-v2.nav:not(.is-past-hero) .nav-inner,
 .tonal-motion .site-nav-v2.nav.is-light-phase:not(.is-past-hero) .nav-inner {
-  border-color: transparent;
+  border-color: rgba(255,255,255,.16);
   color: #fff !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
+  background: rgba(20,35,32,.2) !important;
+  box-shadow: 0 8px 28px rgba(8,20,18,.1) !important;
+  -webkit-backdrop-filter: saturate(108%) blur(12px);
+  backdrop-filter: saturate(108%) blur(12px);
 }
 
 .site-nav-v2.nav:not(.is-past-hero) .logo,
@@ -396,6 +410,8 @@
 
 .site-nav-v2.nav:not(.is-past-hero) .nav-links,
 .site-nav-v2.nav:not(.is-past-hero) .nav-actions { color: #fff; }
+
+.site-nav-v2.nav:not(.is-past-hero) .nav-links a[aria-current="page"] { color: #48a9a6; }
 
 .site-nav-v2.nav:not(.is-past-hero) .nav-links a:hover,
 .site-nav-v2.nav:not(.is-past-hero) .nav-actions .login:hover { background: rgba(0,0,0,.14); }
@@ -411,4 +427,42 @@
   border-color: rgba(255,255,255,.78) !important;
   color: #244b49 !important;
   background: rgba(255,253,249,.96) !important;
+}
+
+/* The active-page point closes the label instead of sitting beneath it. */
+.site-nav-v2 .nav-links a::after,
+.site-nav-v2 .nav-menu .nav-links a::after {
+  width: 0;
+  height: 5px;
+  flex: 0 0 auto;
+  position: static;
+  margin: 0;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.site-nav-v2 .nav-links a[aria-current="page"],
+.site-nav-v2.nav:not(.is-past-hero) .nav-links a[aria-current="page"] {
+  color: inherit;
+  font-weight: 700;
+}
+
+/* The glass may extend beyond the page grid, while its contents align to it. */
+.marketing-page .site-nav-v2.nav,
+.marketing-page .site-nav-v2.nav.is-past-hero,
+.tonal-motion .site-nav-v2.nav,
+.tonal-motion .site-nav-v2.nav.is-past-hero {
+  padding-inline: 0 !important;
+}
+
+.marketing-page .site-nav-v2 .nav-inner,
+.marketing-page .site-nav-v2.nav.is-past-hero .nav-inner,
+.tonal-motion .site-nav-v2 .nav-inner,
+.tonal-motion .site-nav-v2.nav.is-past-hero .nav-inner {
+  width: var(--n1-nav-surface-width) !important;
+  max-width: none !important;
+  flex: 0 1 var(--n1-nav-surface-width);
+  margin-inline: auto;
+  padding-right: var(--n1-nav-surface-inset) !important;
+  padding-left: var(--n1-nav-surface-inset) !important;
 }

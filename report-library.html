@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
   <title>Anonymized patient report library | n1.care</title>
   <meta name="description" content="Explore anonymized patient profiles with related health summaries, longitudinal reports, and focused clinical reviews.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23376361'/%3E%3Ctext x='6' y='22' fill='white' font-family='Arial' font-weight='700' font-size='16'%3En1%3C/text%3E%3C/svg%3E">
@@ -21,12 +22,6 @@
     button,input,select { font:inherit; }
     a { color:inherit; }
     .shell { width:min(1240px,calc(100% - 40px)); margin-inline:auto; }
-    .site-head { position:sticky; z-index:20; top:0; padding:12px 0; }
-    .nav { min-height:58px; display:flex; align-items:center; gap:28px; padding:0 20px; border:1px solid rgba(255,255,255,.16); border-radius:8px; color:#fff; background:var(--teal); box-shadow:0 14px 35px rgba(28,49,45,.13); }
-    .brand { margin-right:auto; color:#fff; font:400 29px/1 var(--sans); text-decoration:none; letter-spacing:-.04em; }
-    .brand b { font-weight:800; }
-    .nav a:not(.brand) { font-size:12px; text-decoration:none; }
-    .nav .cta { padding:10px 13px; border-radius:6px; color:var(--ink); background:var(--cream); font-weight:800; }
     .hero { display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(40px,8vw,110px); align-items:end; padding:88px 0 68px; }
     .eyebrow { margin:0 0 16px; color:#2f7773; font-size:10px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; }
     h1 { max-width:760px; margin:0; font:400 clamp(48px,7vw,82px)/.94 var(--serif); letter-spacing:-.045em; }
@@ -101,23 +96,12 @@
     footer.site-footer { padding:30px 0; color:#cfdfdc; background:#244b49; font-size:10px; }
     .footer-row { display:flex; justify-content:space-between; gap:20px; }
     @media (max-width:980px) { .people-grid{grid-template-columns:1fr} .hero{grid-template-columns:1fr;gap:26px} }
-    @media (max-width:620px) { .shell{width:min(100% - 28px,1240px)} .site-head{padding:8px 0}.nav{padding:0 14px}.nav a:not(.brand):not(.cta){display:none}.hero{padding:58px 0 42px}.toolbar{grid-template-columns:1fr}.person-head{grid-template-columns:46px minmax(0,1fr);padding:18px 16px 15px}.person-avatar{width:46px;height:46px;font-size:13px}.report-count{grid-column:2;justify-self:start}.person-context{padding:16px}.person-reports{margin:0 16px 16px}.person-reports>header{display:none}.person-report{grid-template-columns:minmax(0,1fr) auto}.person-report>span{display:none}.library-head{align-items:start;flex-direction:column;gap:8px}.footer-row{flex-direction:column} }
+    @media (max-width:620px) { .shell{width:min(100% - 28px,1240px)} .hero{padding:58px 0 42px}.toolbar{grid-template-columns:1fr}.person-head{grid-template-columns:46px minmax(0,1fr);padding:18px 16px 15px}.person-avatar{width:46px;height:46px;font-size:13px}.report-count{grid-column:2;justify-self:start}.person-context{padding:16px}.person-reports{margin:0 16px 16px}.person-reports>header{display:none}.person-report{grid-template-columns:minmax(0,1fr) auto}.person-report>span{display:none}.library-head{align-items:start;flex-direction:column;gap:8px}.footer-row{flex-direction:column} }
   </style>
 </head>
 <body class="tonal marketing-page report-library-page">
   <a class="skip-link" href="#main">Skip to content</a>
-  <nav class="marketing-nav" aria-label="Primary navigation">
-    <div class="shell marketing-nav-inner">
-      <a href="index.html" aria-label="n1.care home"><span class="logo" aria-hidden="true"></span></a>
-      <div class="marketing-links">
-        <a href="product.html">Product</a><a href="clinicians.html">For clinicians</a><a href="patients.html">For patients</a><a href="reports.html" aria-current="page">Reports</a><a href="compliance.html">Compliance</a><a href="pricing.html">Pricing</a><a href="about.html">About</a>
-      </div>
-      <div class="marketing-actions">
-        <a class="login-link" href="https://app.n1.care/login">Log in</a><a class="button" href="https://app.n1.care/signup">Start free trial</a>
-      </div>
-      <button class="marketing-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span></button>
-    </div>
-  </nav>
+  <script src="site-header.js"></script>
   <main id="main">
     <section class="hero shell">
       <div><p class="eyebrow">Patient report library · Sample</p><h1>Follow the person, not just the report.</h1></div>

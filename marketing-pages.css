@@ -1,15 +1,18 @@
+@import url("site-layout.css");
+@import url("site-nav.css");
+
 /* Brand tokens live in brand-tokens.css (synced from n1-design-system). */
 
 html { background: var(--cream); }
 body.marketing-page { color: var(--ink); background: var(--cream); }
 .marketing-page main { min-height: 70vh; }
-.marketing-page .shell { width: min(1320px, calc(100% - 64px)); }
+.marketing-page .shell { width: var(--n1-page-width); }
 
 .marketing-nav { position: fixed; z-index: 80; inset: 0 0 auto; height: 64px; padding-top: 12px; color: var(--cream); background: transparent; transition: color .25s ease; }
 /* Container radius, matching .tonal-motion .nav-inner: the top of the scale,
    not a pill. Keeping these two navbars on the same value is what makes the
    marketing pages and the homepage read as one product. */
-.marketing-page .marketing-nav-inner { width: min(1440px, calc(100% - 64px)); }
+.marketing-page .marketing-nav-inner { width: var(--n1-nav-surface-width); padding-right: var(--n1-nav-surface-inset); padding-left: var(--n1-nav-surface-inset); }
 .marketing-nav-inner { min-height: 56px; display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: center; gap: 24px; padding: 8px 20px; border-radius: var(--n1-radius-2xl); background: #376361; box-shadow: 0 12px 30px rgba(23,24,23,.18); transition: background-color .25s ease, box-shadow .25s ease; }
 .marketing-nav .logo { width: 88px; color: currentColor; }
 .marketing-page .marketing-nav-inner,
@@ -501,8 +504,8 @@ body.marketing-page { color: var(--ink); background: var(--cream); }
 .marketing-footer-bottom { padding-top: 27px; border-top: 1px solid #47413a; color: #bcb6af; font-size: 11px; }
 
 @media (max-width: 1280px) {
-  .marketing-page .shell { width: min(100% - 38px, 1320px); }
-  .marketing-page .marketing-nav-inner { width: min(1440px, calc(100% - 64px)); }
+  .marketing-page .shell { width: var(--n1-page-width); }
+  .marketing-page .marketing-nav-inner { width: var(--n1-nav-surface-width); }
   .marketing-nav-inner { position: relative; display: flex; grid-template-columns: none; justify-content: space-between; }
   .marketing-toggle { display: grid; }
   .marketing-menu { display: none; }
@@ -562,12 +565,12 @@ body.marketing-page { color: var(--ink); background: var(--cream); }
 }
 
 @media (max-width: 900px) {
-  .marketing-page .marketing-nav-inner { width: calc(100% - 34px); }
+  .marketing-page .marketing-nav-inner { width: var(--n1-nav-surface-width); }
 }
 
 @media (max-width: 620px) {
-  .marketing-page .shell { width: min(100% - 32px, 1320px); }
-  .marketing-page .marketing-nav-inner { width: calc(100% - 34px); }
+  .marketing-page .shell { width: var(--n1-page-width); }
+  .marketing-page .marketing-nav-inner { width: var(--n1-nav-surface-width); }
   .plan-grid { grid-template-columns: 1fr; }
   .pricing-flag { flex-direction: column; gap: 8px; }
   .marketing-nav-inner { min-height: 60px; }

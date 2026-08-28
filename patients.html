@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#376361">
 <title>n1 for patients — n1.care</title>
 <meta name="description" content="Upload your records, review results over time, choose how files are handled, and share a source-linked report when you decide.">
@@ -49,8 +50,8 @@
 .prepared-story-frame { width: 100%; height: 100%; position: relative; overflow: hidden; border-radius: clamp(28px,3vw,48px); background: #9aa797; box-shadow: 0 28px 70px rgba(37,54,47,.16); }
 .prepared-story-media { width: 100%; height: 100%; display: block; object-fit: cover; }
 .prepared-story-step:nth-child(1) .prepared-story-media { object-position: center 42%; }
-.prepared-story-step:nth-child(2) .prepared-story-media { object-position: center 66%; }
-.prepared-story-step:nth-child(3) .prepared-story-media { object-position: center 60%; }
+.prepared-story-step:nth-child(2) .prepared-story-media { object-position: center 30%; }
+.prepared-story-step:nth-child(3) .prepared-story-media { object-position: center 56%; }
 .prepared-story-frame::after { position: absolute; inset: 0; background: linear-gradient(180deg,rgba(15,32,26,.04) 35%,rgba(15,32,26,.42) 100%); content: ''; }
 .patient-product-card { width: min(310px,44%); position: absolute; z-index: 2; right: clamp(18px,3vw,34px); bottom: clamp(18px,3vw,34px); padding: 18px; border: 1px solid rgba(255,255,255,.58); border-radius: 20px; background: rgba(255,253,249,.94); box-shadow: 0 18px 50px rgba(25,40,34,.22); backdrop-filter: blur(16px); color: #303431; }
 .prepared-story-step:nth-child(2) .patient-product-card { right: auto; left: clamp(18px,3vw,34px); }
@@ -85,22 +86,12 @@
 @media (max-width: 620px) { .patient-hero.patient-hero-photo { min-height: max(680px,100svh); padding: 120px 0 48px; } .patient-hero-media video { object-position: 60% center; } .patients-page .patient-hero-photo h1 { max-width: 340px; font-size: 48px; line-height: 1.03; } .patient-hero-scroll { margin-top: 30px; font-size: 13px; } .patient-hero-credit { right: 12px; bottom: 10px; } .prepared-story-card { width: 100%; aspect-ratio: .94; } .prepared-story-frame { border-radius: 27px; } .prepared-story-copy, .prepared-story-step:nth-child(n) .prepared-story-copy { width: calc(100% - 28px); margin-bottom: 14px; padding: 16px 17px; } .prepared-story-copy h3 { font-size: 25px; } .prepared-story-copy p { font-size: 11px; } .patient-product-card { width: min(255px,70%); top: 16px; right: 16px; padding: 14px; } .prepared-story-step:nth-child(2) .patient-product-card { left: 16px; } .patient-product-head > span { display: none; } .patient-photo-credit { display: none; } }
 @media (prefers-reduced-motion: reduce) { .prepared-story-card, .prepared-story-copy { transition: none; } }
 </style>
-<link rel="stylesheet" href="site-nav.css">
 <script defer src="marketing-pages.js">
 </script>
 </head>
 <body class="tonal tonal-motion marketing-page patients-page">
 <a class="skip-link" href="#main">Skip to content</a>
-<nav class="nav site-nav-v2" aria-label="Primary navigation">
-<div class="nav-inner">
-<a href="index.html" aria-label="n1.care home"><span class="logo" aria-hidden="true"></span></a>
-<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open navigation"><span></span></button>
-<div class="nav-menu" id="primary-menu">
-<div class="nav-links"><a href="clinicians.html">For clinicians</a><a href="patients.html" aria-current="page">For patients</a><a href="reports.html">Reports</a><a href="compliance.html">Compliance</a><a href="pricing.html">Pricing</a><a href="about.html">About</a></div>
-<div class="nav-actions"><a class="login" href="https://app.n1.care/login">Log in</a><a class="button" href="https://app.n1.care/signup">Start free trial</a></div>
-</div>
-</div>
-</nav>
+<script src="site-header.js"></script>
 <main id="main">
 <header class="page-hero patient-hero patient-hero-photo">
 <div class="patient-hero-media" aria-hidden="true"><video data-autoplay muted loop playsinline preload="metadata" poster="assets/videos/patient-seashore-poster.jpg"><source src="assets/videos/patient-seashore.mp4" type="video/mp4"></video></div>
@@ -126,11 +117,11 @@
 </article>
 <article class="prepared-story-step">
 <div class="prepared-story-copy"><span>02 · Prepare</span><h3>Bring the right questions</h3><p>Turn the record into a short list of things you want to understand at your next visit.</p></div>
-<div class="prepared-story-card" aria-label="A woman preparing notes outdoors with an illustrative appointment-question card"><div class="prepared-story-frame"><img class="prepared-story-media" src="assets/patient-story-prepare.jpg" alt="A woman writing notes at a park table" loading="lazy" decoding="async"><section class="patient-product-card"><div class="patient-product-head"><div><b>For my appointment</b><small>Questions from my record</small></div><span>Private draft</span></div><div class="patient-question-list"><span><i>1</i>What explains the change since 2023?</span><span><i>2</i>Is another result missing?</span><span><i>3</i>What should we watch next?</span></div></section><small class="patient-photo-credit">Concept photography · Anete Lusina / Pexels</small></div></div>
+<div class="prepared-story-card" aria-label="A person reflecting outdoors with an illustrative appointment-question card"><div class="prepared-story-frame"><img class="prepared-story-media" src="assets/patient-story-notes.jpg" alt="A person reflecting on a bench in a green park" loading="lazy" decoding="async"><section class="patient-product-card"><div class="patient-product-head"><div><b>For my appointment</b><small>Questions from my record</small></div><span>Private draft</span></div><div class="patient-question-list"><span><i>1</i>What explains the change since 2023?</span><span><i>2</i>Is another result missing?</span><span><i>3</i>What should we watch next?</span></div></section><small class="patient-photo-credit">Concept photography · Mizuno K / Pexels</small></div></div>
 </article>
 <article class="prepared-story-step">
 <div class="prepared-story-copy"><span>03 · Discuss</span><h3>Show where it came from</h3><p>Open the exact test, date, range, and source page while you talk it through with your doctor.</p></div>
-<div class="prepared-story-card" aria-label="A patient talking with a doctor alongside an illustrative source detail using synthetic data"><div class="prepared-story-frame"><img class="prepared-story-media" src="assets/patient-story-discuss.jpg" alt="A patient talking with a doctor" loading="lazy" decoding="async"><section class="patient-product-card"><div class="patient-product-head"><div><b>Source detail</b><small>Linked to the original record</small></div><span>Source linked</span></div><div class="patient-source"><div><span>Test</span><b>HbA1c · 6.4%</b></div><div><span>Collected</span><b>14 Mar 2025</b></div><small>Metro Pathology · PDF p.3 ↗</small></div></section><small class="patient-photo-credit">Concept photography · Cedric Fauntleroy / Pexels</small></div></div>
+<div class="prepared-story-card" aria-label="Two people talking at home alongside an illustrative source detail using synthetic data"><div class="prepared-story-frame"><img class="prepared-story-media" src="assets/patient-story-conversation.jpg" alt="Two people having a relaxed conversation at home" loading="lazy" decoding="async"><section class="patient-product-card"><div class="patient-product-head"><div><b>Source detail</b><small>Linked to the original record</small></div><span>Source linked</span></div><div class="patient-source"><div><span>Test</span><b>HbA1c · 6.4%</b></div><div><span>Collected</span><b>14 Mar 2025</b></div><small>Metro Pathology · PDF p.3 ↗</small></div></section><small class="patient-photo-credit">Concept photography · Ketut Subiyanto / Pexels</small></div></div>
 </article>
 </div>
 </div>
@@ -228,27 +219,6 @@
 </div>
 </footer>
 <script>
-(() => {
-  const nav = document.querySelector('.nav');
-  const toggle = document.querySelector('.nav-toggle');
-  const menu = document.getElementById('primary-menu');
-  const hero = document.querySelector('.patient-hero');
-  if (!nav || !toggle || !menu || !hero) return;
-
-  const setMenu = (open) => {
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-    menu.classList.toggle('is-open', open);
-  };
-  const updateNav = () => nav.classList.toggle('is-past-hero', hero.getBoundingClientRect().bottom <= 0);
-
-  toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
-  menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
-  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') setMenu(false); });
-  window.addEventListener('scroll', updateNav, { passive: true });
-  updateNav();
-})();
-
 (() => {
   const story = document.querySelector('.prepared-story');
   if (!story) return;
