@@ -94,12 +94,12 @@
 .patient-gather-section { min-height: 100svh; overflow: clip; padding: 0; background: #f7f4ed; }
 .patient-gather-scroll { height: 350svh; position: relative; }
 .patient-gather-sticky { height: 100svh; min-height: 680px; position: sticky; top: 0; overflow: hidden; }
-.patient-gather-heading { width: min(760px,calc(100% - 40px)); position: absolute; z-index: 30; top: clamp(38px,6vh,68px); left: 50%; opacity: var(--gather-heading-opacity,1); text-align: center; transform: translateX(-50%); transition: opacity .16s linear; }
+.patient-gather-heading { width: min(760px,calc(100% - 40px)); position: absolute; z-index: 30; top: clamp(96px,11vh,118px); left: 50%; opacity: var(--gather-heading-opacity,1); text-align: center; transform: translateX(-50%); transition: opacity .16s linear; }
 .patient-gather-heading .page-kicker { display: block; margin-bottom: 12px; }
 .patient-gather-heading h2 { margin: 0; color: #252925; font: 400 clamp(38px,4.2vw,66px)/.98 var(--serif); letter-spacing: -.035em; text-wrap: balance; }
 .patient-gather-scene { width: min(1500px,100vw); height: 100%; position: relative; left: 50%; transform: translateX(-50%); }
 .patient-gather-aura { width: min(650px,94vw); aspect-ratio: 1; position: absolute; z-index: 0; top: 55%; left: 50%; border: 0; border-radius: 50%; background: radial-gradient(circle,rgba(219,235,230,.82) 0%,rgba(232,241,238,.5) 48%,rgba(247,244,237,0) 72%); opacity: var(--aura-opacity,0); transform: translate(-50%,-50%) scale(var(--aura-scale,.72)); will-change: opacity,transform; }
-.patient-gather-board { width:min(760px,40vw); height:min(800px,86vh); min-height:720px; position:absolute; z-index:3; top:54%; left:50%; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-rows:1.35fr 1.05fr 1.05fr 1.18fr 1.25fr 1.1fr; gap:10px; padding:12px; overflow:visible; border-radius:34px; transform:translate(-50%,-50%); }
+.patient-gather-board { width:min(700px,38vw); height:min(800px,86vh); min-height:774px; position:absolute; z-index:3; top:var(--gather-board-top,62%); left:50%; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-rows:1.35fr 1.05fr 1.05fr 1.18fr 1.25fr 1.1fr; gap:10px; padding:12px; overflow:visible; border-radius:34px; transform:translate(-50%,-50%) scale(var(--gather-fit-scale,1)); transform-origin:center; will-change:transform; }
 .patient-gather-board::before { position:absolute; z-index:-1; inset:0; border:1px solid rgba(55,99,97,.2); border-radius:34px; background:rgba(231,240,237,.72); box-shadow:0 30px 90px rgba(34,54,47,.18); content:''; opacity:var(--board-shell-opacity,0); transition:opacity .15s linear; }
 .patient-data-widget,.patient-gather-hub { min-width:0; position:relative; z-index:4; top:auto; left:auto; overflow:hidden; border:1px solid rgba(55,99,97,.16); border-radius:18px; background:#fffdf9; box-shadow:0 9px 24px rgba(34,54,47,.08); color:#303531; transform-origin:center; will-change:transform,opacity; }
 .patient-data-widget { width:auto; padding:12px 14px; }
@@ -162,9 +162,9 @@
 @media (max-width: 900px) {
   .patient-gather-scroll { height: 390svh; }
   .patient-gather-sticky { min-height: 620px; }
-  .patient-gather-heading { top: 30px; }
+  .patient-gather-heading { top: 96px; }
   .patient-gather-heading h2 { font-size: clamp(34px,7vw,51px); }
-  .patient-gather-board { width:min(780px,calc(100vw - 24px)); height:min(680px,78vh); min-height:600px; grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-rows:1.12fr 1fr 1fr 1fr 1.08fr; gap:8px; padding:9px; }
+  .patient-gather-board { width:min(660px,80vw); height:min(680px,78vh); min-height:675px; grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-rows:1.12fr 1fr 1fr 1fr 1.08fr; gap:8px; padding:9px; }
   .patient-gather-hub { grid-column:1 / -1; grid-row:1; }
   .widget-records { grid-column:1 / span 2; grid-row:2; }
   .widget-medications { grid-column:3 / span 2; grid-row:2; }
@@ -187,11 +187,11 @@
   .patient-gather-footer { display: none; }
 }
 @media (max-width: 560px) {
-  .patient-gather-heading { width: calc(100% - 28px); top: 88px; }
+  .patient-gather-heading { width: calc(100% - 28px); top: 100px; }
   .patient-gather-heading .page-kicker { margin-bottom: 8px; }
   .patient-gather-heading h2 { font-size: 34px; }
   .patient-gather-scene { transform: translateX(-50%); }
-  .patient-gather-board { width:calc(100vw - 12px); height:min(680px,80vh); min-height:620px; top:52%; grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-rows:1.08fr 1fr 1fr 1fr 1fr; gap:7px; padding:7px; border-radius:27px; }
+  .patient-gather-board { width:calc(100vw - 12px); height:min(680px,80vh); min-height:620px; top:var(--gather-board-top,62%); grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-rows:1.08fr 1fr 1fr 1fr 1fr; gap:7px; padding:7px; border-radius:27px; }
   .patient-gather-board::before { border-radius:27px; }
   .patient-gather-hub { grid-column:1 / -1; grid-row:1; border-radius:17px; }
   .widget-records { grid-column:1 / span 2; grid-row:2; }
@@ -352,17 +352,17 @@
 <div class="patient-gather-aura" aria-hidden="true"></div>
 <div class="patient-gather-board">
 
-<article class="patient-data-widget widget-records" data-sx="-510" data-sy="-170" data-ex="-114" data-ey="-85" data-ss="1.08" data-es=".82" data-delay=".02" data-arc-x="-36" data-arc-y="-54" data-rotate="-7" data-tilt-y="12">
+<article class="patient-data-widget widget-records" data-sx="-510" data-sy="-30" data-ex="-114" data-ey="-85" data-ss="1.08" data-es=".82" data-delay=".02" data-arc-x="-36" data-arc-y="-54" data-rotate="-7" data-tilt-y="12">
 <div class="patient-widget-head"><div class="patient-widget-title"><span class="patient-widget-icon">↥</span><div><b>Medical records</b><small>Securely uploaded</small></div></div><span class="patient-widget-tag">14 files</span></div>
 <div class="patient-record-files"><span><b>8</b>Lab reports</span><span><b>4</b>Letters</span><span><b>2</b>Scans</span></div>
 </article>
 
-<article class="patient-data-widget widget-labs" data-sx="-455" data-sy="75" data-ex="-114" data-ey="30" data-ss="1" data-es=".82" data-delay=".11" data-arc-x="38" data-arc-y="-32" data-rotate="5" data-tilt-y="-10">
+<article class="patient-data-widget widget-labs" data-sx="-120" data-sy="240" data-ex="-114" data-ey="30" data-ss="1" data-es=".82" data-delay=".11" data-arc-x="38" data-arc-y="-32" data-rotate="5" data-tilt-y="-10">
 <div class="patient-widget-head"><div class="patient-widget-title"><span class="patient-widget-icon">⌁</span><div><b>Laboratory results</b><small>Synthetic example</small></div></div><span class="patient-widget-tag">Trend</span></div>
 <div class="patient-widget-value"><div><strong>6.4%</strong><small>HbA1c · 2025</small></div><svg class="patient-mini-chart" viewBox="0 0 92 38" aria-hidden="true"><rect class="range" x="0" y="16" width="92" height="13" rx="4"></rect><path class="line" d="M4 6 L31 11 L59 19 L88 25"></path><circle cx="4" cy="6" r="3"></circle><circle cx="31" cy="11" r="3"></circle><circle cx="59" cy="19" r="3"></circle><circle cx="88" cy="25" r="3"></circle></svg></div>
 </article>
 
-<article class="patient-data-widget widget-medications" data-sx="420" data-sy="-200" data-ex="114" data-ey="-95" data-ss="1.04" data-es=".82" data-delay=".06" data-arc-x="42" data-arc-y="-48" data-rotate="6" data-tilt-y="-14">
+<article class="patient-data-widget widget-medications" data-sx="420" data-sy="10" data-ex="114" data-ey="-95" data-ss="1.04" data-es=".82" data-delay=".06" data-arc-x="42" data-arc-y="-48" data-rotate="6" data-tilt-y="-14">
 <div class="patient-widget-head"><div class="patient-widget-title"><span class="patient-widget-icon">＋</span><div><b>Medications</b><small>Synthetic example</small></div></div><span class="patient-widget-tag">Current</span></div>
 <div class="patient-widget-row"><span>Metformin</span><b>500 mg</b></div><div class="patient-widget-row"><span>Atorvastatin</span><b>20 mg</b></div>
 </article>
@@ -600,6 +600,7 @@
   const dots = [...story.querySelectorAll('.patient-gather-progress i')];
   const aura = story.querySelector('.patient-gather-aura');
   const board = story.querySelector('.patient-gather-board');
+  const heading = story.querySelector('.patient-gather-heading');
   const footer = story.querySelector('.patient-gather-footer');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let storyTop = 0;
@@ -619,6 +620,12 @@
     const gatherProgress = smoothstep(clamp((rawProgress - .06) / .82, 0, 1));
     const compact = window.innerWidth <= 900;
     const mobileScale = compact ? Math.max(.68, Math.min(.88, window.innerWidth / 720)) : 1;
+    const safeTop = heading.getBoundingClientRect().bottom + 28;
+    const safeBottom = window.innerHeight - 24;
+    const safeHeight = Math.max(1, safeBottom - safeTop);
+    const fitScale = Math.min(1, safeHeight / board.offsetHeight);
+    board.style.setProperty('--gather-fit-scale', Math.max(.08, fitScale).toFixed(4));
+    board.style.setProperty('--gather-board-top', `${((safeTop + safeBottom) / 2).toFixed(2)}px`);
 
     items.forEach(item => {
       let startX = Number(item.dataset.sx);

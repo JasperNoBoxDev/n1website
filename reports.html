@@ -82,7 +82,7 @@
 .reports-library .person { min-width:0; border-bottom:1px solid #cbd5d1; background:transparent; transition:background-color .2s ease; }
 .reports-library .person:hover { background:rgba(255,253,249,.62); }
 .reports-library .person-select { width:100%; min-height:94px; display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:16px; padding:15px 10px; border:0; color:inherit; background:transparent; text-align:left; text-decoration:none; cursor:pointer; }
-.reports-library .person-head { display:grid; grid-template-columns:34px minmax(0,1fr); gap:11px; align-items:center; }
+.reports-library .person-head { display:grid; grid-template-columns:minmax(0,1fr); align-items:center; }
 .reports-library .person-avatar { width:34px; height:34px; display:grid; place-items:center; border-radius:50%; color:#315957; background:#dceae6; font-size:9px; font-weight:800; letter-spacing:.03em; }
 .reports-library .person-name span,.reports-library .person-name b,.reports-library .person-name small { display:block; }
 .reports-library .person-name span { color:#2f7773; font-size:7px; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
@@ -175,7 +175,7 @@
 <div class="report-thumb is-trend" aria-hidden="true"><div class="thumb-body">
 <div class="thumb-kicker"><span>Patient timeline</span><b>2018–2026</b></div>
 <div class="thumb-timeline">
-<div class="thumb-timeline-item"><time>2023-Mar-08</time><span><b>HbA1c reviewed</b><small>Metro Pathology · Page 3</small></span><em>7.1%</em></div>
+<div class="thumb-timeline-item"><time>2023-Mar-08</time><span><b>HbA1c reviewed</b><small>Example Laboratory 01 · Page 3</small></span><em>7.1%</em></div>
 <div class="thumb-timeline-item"><time>2024-Nov-22</time><span><b>Treatment updated</b><small>Metformin plan confirmed</small></span><em>Plan</em></div>
 <div class="thumb-timeline-item is-latest"><time>2025-Mar-14</time><span><b>HbA1c improved</b><small>Source-linked result</small></span><em>6.4%</em></div>
 <div class="thumb-timeline-item"><time>2026-Aug-14</time><span><b>Health Summary</b><small>Clinician reviewed</small></span><em>Report</em></div>
@@ -237,7 +237,7 @@
 <section class="reports-library" id="report-directory" aria-labelledby="library-title">
 <div class="shell">
 <header class="library-head"><h2 id="library-title">People and their reports</h2><span class="count" data-count>50 anonymized people · 168 reports</span></header>
-<div class="toolbar"><label class="search"><span hidden>Search people and reports</span><input type="search" name="report-search" data-search placeholder="Search people, health topics, or reports"></label><label><span hidden>Sort people</span><select name="report-sort" data-sort><option value="name">Name A–Z</option><option value="reports">Most reports</option><option value="sources">Most source records</option></select></label></div>
+<div class="toolbar"><label class="search"><span hidden>Search profiles and reports</span><input type="search" name="report-search" data-search placeholder="Search age, sex, health topics, or reports"></label><label><span hidden>Sort profiles</span><select name="report-sort" data-sort><option value="age">Age · youngest first</option><option value="reports">Most reports</option><option value="sources">Most source records</option></select></label></div>
 <div class="filters" data-filters aria-label="Filter people by health focus"></div>
 <div class="people-grid" data-grid></div>
 <div class="directory-footer"><span data-visible-count>Showing 20 of 50 people</span><button class="directory-more" type="button" data-more>Show 20 more</button></div>

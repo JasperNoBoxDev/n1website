@@ -482,8 +482,12 @@
 
 .marketing-page .site-nav-v2 .nav-inner,
 .marketing-page .site-nav-v2.nav.is-past-hero .nav-inner,
+.marketing-page .site-nav-v2.nav.is-light-phase .nav-inner,
+.marketing-page .site-nav-v2.nav.is-past-hero.is-light-phase .nav-inner,
 .tonal-motion .site-nav-v2 .nav-inner,
-.tonal-motion .site-nav-v2.nav.is-past-hero .nav-inner {
+.tonal-motion .site-nav-v2.nav.is-past-hero .nav-inner,
+.tonal-motion .site-nav-v2.nav.is-light-phase .nav-inner,
+.tonal-motion .site-nav-v2.nav.is-past-hero.is-light-phase .nav-inner {
   width: var(--n1-nav-surface-width) !important;
   max-width: none !important;
   flex: 0 1 var(--n1-nav-surface-width);
