@@ -1,45 +1,45 @@
 (() => {
   const grid = document.querySelector('[data-grid]');
   const people = [
-    { alias: 'Maya R.', age: 46, sex: 'female', context: 'Tracking cardiometabolic change after a new care plan, with repeat laboratory panels over two years.', focus: ['Metabolic', 'Longitudinal', 'Supplements'], reports: [
+    { age: 46, sex: 'female', context: 'Tracking cardiometabolic change after a new care plan, with repeat laboratory panels over two years.', focus: ['Metabolic', 'Longitudinal', 'Supplements'], reports: [
       { title: 'Health Summary', type: 'Complete record', date: 'Aug 2026', sources: 14, summary: 'Current findings, history, open questions, and care priorities.' },
       { title: 'Health Over Time', type: 'Longitudinal', date: 'Aug 2026', sources: 11, summary: 'HbA1c, lipids, weight, and treatment changes across 24 months.' },
       { title: 'Supplement Review', type: 'Focused review', date: 'Jul 2026', sources: 7, summary: 'Current regimen, safety checks, and follow-up monitoring.' },
       { title: 'Metabolic Follow-up', type: 'Custom brief', date: 'Jun 2026', sources: 9, summary: 'Response since the care-plan change and remaining data gaps.' }
     ] },
-    { alias: 'Marcus T.', age: 55, sex: 'male', context: 'Reviewing blood pressure, lipid markers, medication changes, and cardiovascular risk context.', focus: ['Cardiovascular', 'Longitudinal'], reports: [
+    { age: 55, sex: 'male', context: 'Reviewing blood pressure, lipid markers, medication changes, and cardiovascular risk context.', focus: ['Cardiovascular', 'Longitudinal'], reports: [
       { title: 'Health Summary', type: 'Complete record', date: 'Aug 2026', sources: 18, summary: 'A single view of cardiovascular history and current priorities.' },
       { title: 'Cardiovascular Review', type: 'Focused review', date: 'Jul 2026', sources: 12, summary: 'Risk markers, treatment periods, and clinician-defined targets.' },
       { title: 'Health Over Time', type: 'Longitudinal', date: 'May 2026', sources: 15, summary: 'Blood pressure and lipid change around medication adjustments.' }
     ] },
-    { alias: 'Lena K.', age: 34, sex: 'female', context: 'Connecting iron status, thyroid markers, symptoms, and care events without separating them into different records.', focus: ['Women’s health', 'Endocrine', 'Longitudinal'], reports: [
+    { age: 34, sex: 'female', context: 'Connecting iron status, thyroid markers, symptoms, and care events without separating them into different records.', focus: ['Women’s health', 'Endocrine', 'Longitudinal'], reports: [
       { title: 'Health Summary', type: 'Complete record', date: 'Aug 2026', sources: 13, summary: 'Relevant history, recent results, and questions for the next visit.' },
       { title: 'Iron Status Over Time', type: 'Longitudinal', date: 'Aug 2026', sources: 10, summary: 'Ferritin and related markers alongside symptoms and treatment.' },
       { title: 'Thyroid Review', type: 'Focused review', date: 'Jul 2026', sources: 8, summary: 'Thyroid results, ranges, medication history, and source checks.' },
       { title: 'Consultation Brief', type: 'Custom brief', date: 'Jun 2026', sources: 11, summary: 'A concise preparation view for a complex follow-up visit.' }
     ] },
-    { alias: 'Noah B.', age: 42, sex: 'male', context: 'Placing genetic findings beside family history, biomarkers, and the clinical evidence that supports interpretation.', focus: ['Genetics', 'Cardiovascular'], reports: [
+    { age: 42, sex: 'male', context: 'Placing genetic findings beside family history, biomarkers, and the clinical evidence that supports interpretation.', focus: ['Genetics', 'Cardiovascular'], reports: [
       { title: 'Health Summary', type: 'Complete record', date: 'Aug 2026', sources: 16, summary: 'Clinical history and current findings with genetics in context.' },
       { title: 'Genetic Predisposition', type: 'Genetics', date: 'Jul 2026', sources: 6, summary: 'Selected variants, evidence strength, phenotype, and limitations.' },
       { title: 'Family Risk Review', type: 'Focused review', date: 'Jun 2026', sources: 9, summary: 'Family history, cardiovascular markers, and follow-up questions.' }
     ] },
-    { alias: 'Amara J.', age: 53, sex: 'female', context: 'Following thyroid and metabolic markers through changing doses, symptoms, and repeat testing.', focus: ['Endocrine', 'Metabolic', 'Longitudinal'], reports: [
+    { age: 53, sex: 'female', context: 'Following thyroid and metabolic markers through changing doses, symptoms, and repeat testing.', focus: ['Endocrine', 'Metabolic', 'Longitudinal'], reports: [
       { title: 'Health Summary', type: 'Complete record', date: 'Aug 2026', sources: 20, summary: 'Current diagnoses, treatment history, and unresolved questions.' },
       { title: 'Endocrine Over Time', type: 'Longitudinal', date: 'Jul 2026', sources: 17, summary: 'Thyroid and metabolic markers aligned to dose changes.' },
       { title: 'Medication Review', type: 'Focused review', date: 'Jun 2026', sources: 12, summary: 'Current and past regimens, response, and monitoring plan.' }
     ] },
-    { alias: 'Daniel S.', age: 64, sex: 'male', context: 'Bringing a long record into one view before a complex consultation with several active care priorities.', focus: ['Longitudinal', 'Cardiovascular', 'Metabolic'], reports: [
+    { age: 64, sex: 'male', context: 'Bringing a long record into one view before a complex consultation with several active care priorities.', focus: ['Longitudinal', 'Cardiovascular', 'Metabolic'], reports: [
       { title: 'Health Summary', type: 'Complete record', date: 'Aug 2026', sources: 26, summary: 'A concise orientation to a long and complex patient history.' },
       { title: 'Five-year Timeline', type: 'Longitudinal', date: 'Aug 2026', sources: 22, summary: 'Major results, diagnoses, procedures, and treatment events.' },
       { title: 'Cardiometabolic Review', type: 'Focused review', date: 'Jul 2026', sources: 18, summary: 'Related cardiovascular and metabolic patterns in one report.' },
       { title: 'Consultation Priorities', type: 'Custom brief', date: 'Jul 2026', sources: 20, summary: 'Open questions and source-linked priorities for the next visit.' }
     ] },
-    { alias: 'Sofia L.', age: 37, sex: 'female', context: 'Reviewing supplement use against laboratory results, symptoms, and planned follow-up tests.', focus: ['Supplements', 'Women’s health'], reports: [
+    { age: 37, sex: 'female', context: 'Reviewing supplement use against laboratory results, symptoms, and planned follow-up tests.', focus: ['Supplements', 'Women’s health'], reports: [
       { title: 'Health Summary', type: 'Complete record', date: 'Aug 2026', sources: 12, summary: 'Health history, recent findings, and the current care plan.' },
       { title: 'Supplement Review', type: 'Focused review', date: 'Aug 2026', sources: 9, summary: 'Regimen, interactions, evidence, and planned monitoring.' },
       { title: 'Laboratory Follow-up', type: 'Custom brief', date: 'Jun 2026', sources: 8, summary: 'Results to repeat and the questions each test is intended to answer.' }
     ] },
-    { alias: 'Thomas C.', age: 58, sex: 'male', context: 'Understanding what changed before and after several medications were started, stopped, or adjusted.', focus: ['Metabolic', 'Cardiovascular', 'Longitudinal'], reports: [
+    { age: 58, sex: 'male', context: 'Understanding what changed before and after several medications were started, stopped, or adjusted.', focus: ['Metabolic', 'Cardiovascular', 'Longitudinal'], reports: [
       { title: 'Health Summary', type: 'Complete record', date: 'Aug 2026', sources: 19, summary: 'Current health state with medication periods kept visible.' },
       { title: 'Medication Timeline', type: 'Longitudinal', date: 'Jul 2026', sources: 15, summary: 'Doses, start and stop dates, responses, and monitoring events.' },
       { title: 'Metabolic Review', type: 'Focused review', date: 'Jul 2026', sources: 13, summary: 'Laboratory change around each treatment period.' },
@@ -47,19 +47,7 @@
     ] }
   ];
 
-  const generatedAliases = [
-    'Aisha P.', 'Ben H.', 'Clara M.', 'David L.', 'Elena V.', 'Felix G.', 'Grace W.',
-    'Hugo N.', 'Iris D.', 'James P.', 'Kara M.', 'Liam O.', 'Mia F.', 'Nathan R.',
-    'Olivia B.', 'Peter G.', 'Quinn J.', 'Rosa M.', 'Samuel K.', 'Tara N.', 'Uma S.',
-    'Victor L.', 'Willow P.', 'Xavier D.', 'Yasmin H.', 'Zachary C.', 'Ava N.', 'Caleb S.',
-    'Diana W.', 'Ethan B.', 'Freya L.', 'George M.', 'Hana T.', 'Isaac R.', 'Julia P.',
-    'Kevin D.', 'Layla F.', 'Mateo S.', 'Nina C.', 'Oscar V.', 'Priya K.', 'Rowan H.'
-  ];
-  const femaleAliases = new Set([
-    'Aisha P.', 'Clara M.', 'Elena V.', 'Grace W.', 'Iris D.', 'Kara M.', 'Mia F.',
-    'Olivia B.', 'Quinn J.', 'Rosa M.', 'Tara N.', 'Uma S.', 'Willow P.', 'Yasmin H.',
-    'Ava N.', 'Diana W.', 'Freya L.', 'Hana T.', 'Julia P.', 'Layla F.', 'Nina C.', 'Priya K.'
-  ]);
+  const generatedProfileCount = 42;
   const generatedFocus = [
     ['Metabolic', 'Longitudinal'],
     ['Cardiovascular', 'Longitudinal'],
@@ -87,7 +75,7 @@
     Longitudinal: 'Health Over Time'
   };
 
-  generatedAliases.forEach((alias, index) => {
+  Array.from({ length: generatedProfileCount }, (_, index) => index).forEach((index) => {
     const focus = generatedFocus[index % generatedFocus.length];
     const sources = 9 + (index % 15);
     const reports = [
@@ -97,9 +85,8 @@
     ];
     if (index % 3 === 0) reports.push({ title: 'Consultation Brief', type: 'Custom brief', date: 'May 2026', sources: Math.max(5, sources - 5), summary: 'A focused preparation view for the next clinician discussion.' });
     people.push({
-      alias,
       age: 24 + ((index * 7) % 48),
-      sex: femaleAliases.has(alias) ? 'female' : 'male',
+      sex: index % 2 === 0 ? 'female' : 'male',
       context: generatedContexts[index % generatedContexts.length],
       focus,
       reports
@@ -154,16 +141,16 @@
   function render() {
     const list = current();
     const reportTotal = list.reduce((total, person) => total + person.reports.length, 0);
-    count.textContent = `${list.length} anonymized ${list.length === 1 ? 'person' : 'people'} · ${reportTotal} ${reportTotal === 1 ? 'report' : 'reports'}`;
+    count.textContent = `${list.length} synthetic ${list.length === 1 ? 'profile' : 'profiles'} · ${reportTotal} ${reportTotal === 1 ? 'report' : 'reports'}`;
     grid.innerHTML = '';
     list.slice(0, shown).forEach((person) => {
       const card = document.createElement('article');
       card.className = 'person';
-      card.innerHTML = `<a class="person-select" href="report-profile.html?person=${person.id}" aria-label="Open reports for ${person.label}"><span class="person-head"><span class="person-name"><b>${person.label}</b><small>Anonymized profile</small></span></span><span class="person-card-foot"><span class="person-tags"><span>${person.focus[0]}</span></span><span class="report-count">${person.reports.length} reports →</span></span></a>`;
+      card.innerHTML = `<a class="person-select" href="report-profile.html?person=${person.id}" aria-label="Open reports for ${person.label}"><span class="person-head"><span class="person-name"><b>${person.label}</b><small>Synthetic profile</small></span></span><span class="person-card-foot"><span class="person-tags"><span>${person.focus[0]}</span></span><span class="report-count">${person.reports.length} reports →</span></span></a>`;
       grid.appendChild(card);
     });
     if (!list.length) grid.innerHTML = '<p class="empty">No profiles or reports match this search.</p>';
-    if (visibleCount) visibleCount.textContent = list.length ? `Showing ${Math.min(shown, list.length)} of ${list.length} people` : 'No people found';
+    if (visibleCount) visibleCount.textContent = list.length ? `Showing ${Math.min(shown, list.length)} of ${list.length} profiles` : 'No profiles found';
     if (more) more.hidden = shown >= list.length;
   }
 

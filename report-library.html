@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Anonymized patient report library | n1.care</title>
-  <meta name="description" content="Explore anonymized patient profiles with related health summaries, longitudinal reports, and focused clinical reviews.">
+  <title>Synthetic patient report library | n1.care</title>
+  <meta name="description" content="Explore fictional patient profiles with related health summaries, longitudinal reports, and focused clinical reviews.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23376361'/%3E%3Ctext x='6' y='22' fill='white' font-family='Arial' font-weight='700' font-size='16'%3En1%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="art-directions.css">
   <link rel="stylesheet" href="marketing-pages.css">
@@ -105,53 +105,53 @@
   <main id="main">
     <section class="hero shell">
       <div><p class="eyebrow">Patient report library · Sample</p><h1>Follow the person, not just the report.</h1></div>
-      <div><p class="hero-copy">Each anonymized profile brings one person’s related reports together. Move from their health summary to change over time and focused clinical reviews without losing the patient context.</p><div class="consent-note"><i aria-hidden="true">✓</i><span><b>Anonymized by design</b>Profiles use only age and sex. Names, identifying details, and source files are never displayed.</span></div></div>
+      <div><p class="hero-copy">Each synthetic profile brings one person’s related reports together. Move from their health summary to change over time and focused clinical reviews without losing the patient context.</p><div class="consent-note"><i aria-hidden="true">✓</i><span><b>Synthetic by design</b>Profiles are fictional and display only age and sex. No real patient information or source files are used.</span></div></div>
     </section>
     <section class="library shell" aria-labelledby="library-title">
-      <header class="library-head"><h2 id="library-title">People and their reports</h2><span class="count" data-count>8 anonymized people · 28 reports</span></header>
+      <header class="library-head"><h2 id="library-title">Profiles and their reports</h2><span class="count" data-count>8 synthetic profiles · 28 reports</span></header>
       <div class="toolbar"><label class="search"><span hidden>Search profiles and reports</span><input type="search" name="report-search" data-search placeholder="Search age, sex, health topics, or reports"></label><label><span hidden>Sort profiles</span><select name="report-sort" data-sort><option value="age">Age · youngest first</option><option value="reports">Most reports</option><option value="sources">Most source records</option></select></label></div>
-      <div class="filters" data-filters aria-label="Filter people by health focus"></div>
+      <div class="filters" data-filters aria-label="Filter profiles by health focus"></div>
       <div class="people-grid" data-grid></div>
-      <div class="more-wrap"><button class="more" type="button" data-more>Show more people</button></div>
+      <div class="more-wrap"><button class="more" type="button" data-more>Show more profiles</button></div>
     </section>
   </main>
-  <footer class="site-footer"><div class="shell footer-row"><span>Sample library · anonymized patient profiles</span><span>Age and sex only · no names or source files</span></div></footer>
-  <dialog data-dialog><div class="dialog-head"><b>Report sample</b><button type="button" data-close aria-label="Close">×</button></div><div class="dialog-body"><p class="eyebrow" data-dialog-person>Anonymized patient</p><h3 data-dialog-title></h3><p data-dialog-copy></p><div class="placeholder-sheet" aria-label="Report sample"><b>Doctor-checked report</b><span></span><span></span><span></span><span></span></div></div></dialog>
+  <footer class="site-footer"><div class="shell footer-row"><span>Sample library · synthetic patient profiles</span><span>Age and sex only · no real patient data</span></div></footer>
+  <dialog data-dialog><div class="dialog-head"><b>Report sample</b><button type="button" data-close aria-label="Close">×</button></div><div class="dialog-body"><p class="eyebrow" data-dialog-person>Synthetic patient</p><h3 data-dialog-title></h3><p data-dialog-copy></p><div class="placeholder-sheet" aria-label="Report sample"><b>Doctor-checked report</b><span></span><span></span><span></span><span></span></div></div></dialog>
   <script>
     (() => {
       const people=[
-        {alias:'Maya R.',age:46,sex:'female',context:'Tracking cardiometabolic change after a new care plan, with repeat laboratory panels over two years.',focus:['Metabolic','Longitudinal','Supplements'],reports:[
+        {age:46,sex:'female',context:'Tracking cardiometabolic change after a new care plan, with repeat laboratory panels over two years.',focus:['Metabolic','Longitudinal','Supplements'],reports:[
           {title:'Health Summary',type:'Complete record',date:'Aug 2026',sources:14,summary:'Current findings, history, open questions, and care priorities.'},
           {title:'Health Over Time',type:'Longitudinal',date:'Aug 2026',sources:11,summary:'HbA1c, lipids, weight, and treatment changes across 24 months.'},
           {title:'Supplement Review',type:'Focused review',date:'Jul 2026',sources:7,summary:'Current regimen, safety checks, and follow-up monitoring.'},
           {title:'Metabolic Follow-up',type:'Custom brief',date:'Jun 2026',sources:9,summary:'Response since the care-plan change and remaining data gaps.'}]},
-        {alias:'Marcus T.',age:55,sex:'male',context:'Reviewing blood pressure, lipid markers, medication changes, and cardiovascular risk context.',focus:['Cardiovascular','Longitudinal'],reports:[
+        {age:55,sex:'male',context:'Reviewing blood pressure, lipid markers, medication changes, and cardiovascular risk context.',focus:['Cardiovascular','Longitudinal'],reports:[
           {title:'Health Summary',type:'Complete record',date:'Aug 2026',sources:18,summary:'A single view of cardiovascular history and current priorities.'},
           {title:'Cardiovascular Review',type:'Focused review',date:'Jul 2026',sources:12,summary:'Risk markers, treatment periods, and clinician-defined targets.'},
           {title:'Health Over Time',type:'Longitudinal',date:'May 2026',sources:15,summary:'Blood pressure and lipid change around medication adjustments.'}]},
-        {alias:'Lena K.',age:34,sex:'female',context:'Connecting iron status, thyroid markers, symptoms, and care events without separating them into different records.',focus:['Women’s health','Endocrine','Longitudinal'],reports:[
+        {age:34,sex:'female',context:'Connecting iron status, thyroid markers, symptoms, and care events without separating them into different records.',focus:['Women’s health','Endocrine','Longitudinal'],reports:[
           {title:'Health Summary',type:'Complete record',date:'Aug 2026',sources:13,summary:'Relevant history, recent results, and questions for the next visit.'},
           {title:'Iron Status Over Time',type:'Longitudinal',date:'Aug 2026',sources:10,summary:'Ferritin and related markers alongside symptoms and treatment.'},
           {title:'Thyroid Review',type:'Focused review',date:'Jul 2026',sources:8,summary:'Thyroid results, ranges, medication history, and source checks.'},
           {title:'Consultation Brief',type:'Custom brief',date:'Jun 2026',sources:11,summary:'A concise preparation view for a complex follow-up visit.'}]},
-        {alias:'Noah B.',age:42,sex:'male',context:'Placing genetic findings beside family history, biomarkers, and the clinical evidence that supports interpretation.',focus:['Genetics','Cardiovascular'],reports:[
+        {age:42,sex:'male',context:'Placing genetic findings beside family history, biomarkers, and the clinical evidence that supports interpretation.',focus:['Genetics','Cardiovascular'],reports:[
           {title:'Health Summary',type:'Complete record',date:'Aug 2026',sources:16,summary:'Clinical history and current findings with genetics in context.'},
           {title:'Genetic Predisposition',type:'Genetics',date:'Jul 2026',sources:6,summary:'Selected variants, evidence strength, phenotype, and limitations.'},
           {title:'Family Risk Review',type:'Focused review',date:'Jun 2026',sources:9,summary:'Family history, cardiovascular markers, and follow-up questions.'}]},
-        {alias:'Amara J.',age:53,sex:'female',context:'Following thyroid and metabolic markers through changing doses, symptoms, and repeat testing.',focus:['Endocrine','Metabolic','Longitudinal'],reports:[
+        {age:53,sex:'female',context:'Following thyroid and metabolic markers through changing doses, symptoms, and repeat testing.',focus:['Endocrine','Metabolic','Longitudinal'],reports:[
           {title:'Health Summary',type:'Complete record',date:'Aug 2026',sources:20,summary:'Current diagnoses, treatment history, and unresolved questions.'},
           {title:'Endocrine Over Time',type:'Longitudinal',date:'Jul 2026',sources:17,summary:'Thyroid and metabolic markers aligned to dose changes.'},
           {title:'Medication Review',type:'Focused review',date:'Jun 2026',sources:12,summary:'Current and past regimens, response, and monitoring plan.'}]},
-        {alias:'Daniel S.',age:64,sex:'male',context:'Bringing a long record into one view before a complex consultation with several active care priorities.',focus:['Longitudinal','Cardiovascular','Metabolic'],reports:[
+        {age:64,sex:'male',context:'Bringing a long record into one view before a complex consultation with several active care priorities.',focus:['Longitudinal','Cardiovascular','Metabolic'],reports:[
           {title:'Health Summary',type:'Complete record',date:'Aug 2026',sources:26,summary:'A concise orientation to a long and complex patient history.'},
           {title:'Five-year Timeline',type:'Longitudinal',date:'Aug 2026',sources:22,summary:'Major results, diagnoses, procedures, and treatment events.'},
           {title:'Cardiometabolic Review',type:'Focused review',date:'Jul 2026',sources:18,summary:'Related cardiovascular and metabolic patterns in one report.'},
           {title:'Consultation Priorities',type:'Custom brief',date:'Jul 2026',sources:20,summary:'Open questions and source-linked priorities for the next visit.'}]},
-        {alias:'Sofia L.',age:37,sex:'female',context:'Reviewing supplement use against laboratory results, symptoms, and planned follow-up tests.',focus:['Supplements','Women’s health'],reports:[
+        {age:37,sex:'female',context:'Reviewing supplement use against laboratory results, symptoms, and planned follow-up tests.',focus:['Supplements','Women’s health'],reports:[
           {title:'Health Summary',type:'Complete record',date:'Aug 2026',sources:12,summary:'Health history, recent findings, and the current care plan.'},
           {title:'Supplement Review',type:'Focused review',date:'Aug 2026',sources:9,summary:'Regimen, interactions, evidence, and planned monitoring.'},
           {title:'Laboratory Follow-up',type:'Custom brief',date:'Jun 2026',sources:8,summary:'Results to repeat and the questions each test is intended to answer.'}]},
-        {alias:'Thomas C.',age:58,sex:'male',context:'Understanding what changed before and after several medications were started, stopped, or adjusted.',focus:['Metabolic','Cardiovascular','Longitudinal'],reports:[
+        {age:58,sex:'male',context:'Understanding what changed before and after several medications were started, stopped, or adjusted.',focus:['Metabolic','Cardiovascular','Longitudinal'],reports:[
           {title:'Health Summary',type:'Complete record',date:'Aug 2026',sources:19,summary:'Current health state with medication periods kept visible.'},
           {title:'Medication Timeline',type:'Longitudinal',date:'Jul 2026',sources:15,summary:'Doses, start and stop dates, responses, and monitoring events.'},
           {title:'Metabolic Review',type:'Focused review',date:'Jul 2026',sources:13,summary:'Laboratory change around each treatment period.'},
@@ -163,8 +163,8 @@
       ['All',...areas].forEach(area=>{const button=document.createElement('button');button.type='button';button.className='filter'+(area==='All'?' is-active':'');button.textContent=area;button.addEventListener('click',()=>{active=area;shown=6;[...filters.children].forEach(item=>item.classList.toggle('is-active',item===button));render();});filters.appendChild(button);});
       function sourceTotal(person){return person.reports.reduce((total,report)=>total+report.sources,0);}
       function current(){const query=search.value.trim().toLowerCase();const result=people.filter(person=>(active==='All'||person.focus.includes(active))&&(!query||[person.label,person.age,person.sex,person.context,...person.focus,...person.reports.flatMap(report=>[report.title,report.type,report.summary])].join(' ').toLowerCase().includes(query)));return result.sort((a,b)=>sort.value==='reports'?b.reports.length-a.reports.length||a.age-b.age:sort.value==='sources'?sourceTotal(b)-sourceTotal(a):a.age-b.age);}
-      function openReport(person,report){dialog.querySelector('[data-dialog-person]').textContent=`${person.label} · anonymized profile`;dialog.querySelector('[data-dialog-title]').textContent=report.title;dialog.querySelector('[data-dialog-copy]').textContent=`${report.summary} This sample contains no names, identifying details, or source files.`;dialog.showModal();}
-      function render(){const list=current();const reportTotal=list.reduce((total,person)=>total+person.reports.length,0);count.textContent=`${list.length} anonymized ${list.length===1?'person':'people'} · ${reportTotal} ${reportTotal===1?'report':'reports'}`;grid.innerHTML='';list.slice(0,shown).forEach(person=>{const card=document.createElement('article');card.className='person';card.innerHTML=`<header class="person-head"><div class="person-name"><span>Anonymized profile</span><b>${person.label}</b></div><span class="report-count">${person.reports.length} reports</span></header><div class="person-context"><p>${person.context}</p><div class="person-tags">${person.focus.map(area=>`<span>${area}</span>`).join('')}</div></div><div class="person-reports"><header><span>Report</span><span>Updated</span><span></span></header>${person.reports.map((report,index)=>`<article class="person-report"><div><b>${report.title}</b><small>${report.type} · ${report.sources} source records</small></div><span>${report.date}</span><button type="button" data-report-index="${index}" aria-label="Open ${report.title} for ${person.label}">Open →</button></article>`).join('')}</div>`;card.querySelectorAll('[data-report-index]').forEach(button=>button.addEventListener('click',()=>openReport(person,person.reports[Number(button.dataset.reportIndex)])));grid.appendChild(card);});if(!list.length)grid.innerHTML='<p class="empty">No profiles or reports match this search.</p>';more.hidden=shown>=list.length;}
+      function openReport(person,report){dialog.querySelector('[data-dialog-person]').textContent=`${person.label} · synthetic profile`;dialog.querySelector('[data-dialog-title]').textContent=report.title;dialog.querySelector('[data-dialog-copy]').textContent=`${report.summary} This fictional sample contains no real patient information or source files.`;dialog.showModal();}
+      function render(){const list=current();const reportTotal=list.reduce((total,person)=>total+person.reports.length,0);count.textContent=`${list.length} synthetic ${list.length===1?'profile':'profiles'} · ${reportTotal} ${reportTotal===1?'report':'reports'}`;grid.innerHTML='';list.slice(0,shown).forEach(person=>{const card=document.createElement('article');card.className='person';card.innerHTML=`<header class="person-head"><div class="person-name"><span>Synthetic profile</span><b>${person.label}</b></div><span class="report-count">${person.reports.length} reports</span></header><div class="person-context"><p>${person.context}</p><div class="person-tags">${person.focus.map(area=>`<span>${area}</span>`).join('')}</div></div><div class="person-reports"><header><span>Report</span><span>Updated</span><span></span></header>${person.reports.map((report,index)=>`<article class="person-report"><div><b>${report.title}</b><small>${report.type} · ${report.sources} source records</small></div><span>${report.date}</span><button type="button" data-report-index="${index}" aria-label="Open ${report.title} for ${person.label}">Open →</button></article>`).join('')}</div>`;card.querySelectorAll('[data-report-index]').forEach(button=>button.addEventListener('click',()=>openReport(person,person.reports[Number(button.dataset.reportIndex)])));grid.appendChild(card);});if(!list.length)grid.innerHTML='<p class="empty">No profiles or reports match this search.</p>';more.hidden=shown>=list.length;}
       search.addEventListener('input',()=>{shown=6;render();});sort.addEventListener('change',render);more.addEventListener('click',()=>{shown+=4;render();});dialog.querySelector('[data-close]').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});render();
     })();
   </script>

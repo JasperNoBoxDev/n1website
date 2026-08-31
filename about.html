@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#376361">
-<title>About n1.care — trusted AI for health care</title>
-<meta name="description" content="n1 builds trusted, source-linked AI tools that help clinicians understand long health records and spend more time on patient care.">
+<title>About n1.care — doctors and engineers building trusted AI</title>
+<meta name="description" content="Meet the doctors, researchers, designers, and engineers building source-linked AI for clearer patient records and more useful time in care.">
 <link rel="icon" href="assets/n1-logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="art-directions.css">
 <link rel="stylesheet" href="marketing-pages.css">
@@ -14,168 +14,154 @@
 <link rel="stylesheet" href="brand-tokens.css">
 <link rel="stylesheet" href="smoked-birch-copper-patina.css">
 <style>
-.about-page { color:#202523; background:#f7f4ed; }
-.about-hero { padding:clamp(132px,13vw,184px) 0 clamp(72px,8vw,112px); }
-.about-hero-grid { display:grid; grid-template-columns:minmax(320px,.8fr) minmax(0,1.2fr); gap:clamp(48px,7vw,104px); align-items:center; }
-.about-hero-copy h1 { max-width:620px; margin:18px 0 0; font:400 clamp(56px,6.6vw,94px)/.94 var(--serif); letter-spacing:-.05em; text-wrap:balance; }
-.about-hero-copy p { max-width:500px; margin:28px 0 0; color:#64706c; font-size:15px; line-height:1.7; }
-.about-hero-photo { margin:0; overflow:hidden; border:1px solid #b8cbc6; border-radius:30px; background:#dce8e5; }
-.about-hero-photo img { width:100%; height:clamp(480px,48vw,650px); display:block; object-fit:cover; object-position:center; }
-.about-hero-photo figcaption { padding:13px 18px; color:#66736f; background:#fffdf9; font-size:9px; }
-.about-mission { padding:clamp(88px,11vw,154px) 0; border-top:1px solid #c4d0cc; border-bottom:1px solid #c4d0cc; background:#fffdf9; }
-.about-mission-grid { display:grid; grid-template-columns:minmax(190px,.42fr) minmax(0,1.58fr); gap:clamp(48px,9vw,140px); align-items:start; }
-.about-mission h2 { max-width:970px; margin:0; font:400 clamp(35px,4.2vw,60px)/1.12 var(--serif); letter-spacing:-.035em; }
-.about-origin { padding:clamp(88px,11vw,154px) 0; }
-.about-origin-grid { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr); gap:clamp(48px,8vw,122px); align-items:center; }
-.about-origin-photo { margin:0; overflow:hidden; border-radius:28px; background:#dce8e5; }
-.about-origin-photo img { width:100%; height:clamp(470px,45vw,620px); display:block; object-fit:cover; }
-.about-origin-copy h2 { max-width:650px; margin:17px 0 0; font:400 clamp(42px,5vw,70px)/.97 var(--serif); letter-spacing:-.045em; }
-.about-origin-copy p { max-width:610px; margin:28px 0 0; color:#64706c; font-size:14px; line-height:1.75; }
-.about-origin-copy .founder-name { display:block; margin-top:32px; padding-top:20px; border-top:1px solid #c5d0cd; color:#244b49; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
-.about-team { padding:clamp(88px,10vw,142px) 0; background:#e8f0ed; }
-.about-team-head { display:flex; align-items:end; justify-content:space-between; gap:42px; margin-bottom:clamp(42px,6vw,72px); }
-.about-team-head h2 { max-width:700px; margin:15px 0 0; font:400 clamp(44px,5.2vw,72px)/.98 var(--serif); letter-spacing:-.045em; }
-.about-team-head p { max-width:440px; margin:0; color:#64706c; font-size:14px; line-height:1.7; }
-.about-team-composition { height:clamp(560px,54vw,760px); display:grid; grid-template-columns:repeat(12,1fr); grid-template-rows:1fr 1fr; gap:12px; }
-.about-team-composition figure { position:relative; margin:0; overflow:hidden; border-radius:22px; background:#d2dfdb; }
-.about-team-composition figure:nth-child(1) { grid-column:1 / span 7; grid-row:1 / span 2; }
-.about-team-composition figure:nth-child(2) { grid-column:8 / span 5; grid-row:1; }
-.about-team-composition figure:nth-child(3) { grid-column:8 / span 5; grid-row:2; }
-.about-team-composition img { width:100%; height:100%; display:block; object-fit:cover; transition:transform .7s ease; }
-.about-team-composition figure:hover img { transform:scale(1.012); }
-.about-team-composition figcaption { position:absolute; right:12px; bottom:12px; padding:7px 10px; border-radius:999px; color:#fff; background:rgba(29,51,46,.68); backdrop-filter:blur(8px); font-size:8px; }
-.about-team-directory { margin-top:clamp(72px,9vw,122px); padding-top:clamp(42px,6vw,72px); border-top:1px solid #b8c9c4; }
-.about-team-directory-head { display:flex; align-items:end; justify-content:space-between; gap:32px; margin-bottom:34px; }
-.about-team-directory-head h3 { margin:12px 0 0; font:400 clamp(34px,4vw,54px)/1 var(--serif); letter-spacing:-.04em; }
-.about-team-directory-head p { max-width:430px; margin:0; color:#64706c; font-size:13px; line-height:1.65; }
-.about-team-cards { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(30px,4vw,58px) clamp(20px,3vw,42px); }
-.about-team-card { min-width:0; text-align:center; }
-.about-team-card img { width:88%; height:auto; aspect-ratio:1; display:block; margin:0 auto; border:1px solid #c0cfca; border-radius:50%; object-fit:cover; background:#fffdf9; box-shadow:0 14px 34px rgba(39,65,58,.08); }
-.about-team-card div { min-height:72px; padding:17px 8px 0; }
-.about-team-card b,.about-team-card span { display:block; }
-.about-team-card b { font:400 20px/1.05 var(--serif); }
-.about-team-card span { margin-top:7px; color:#64706c; font-size:9px; line-height:1.4; }
-.about-principles { padding:clamp(88px,10vw,142px) 0; background:#f7f4ed; }
-.about-principles h2 { max-width:800px; margin:15px 0 clamp(48px,6vw,76px); font:400 clamp(43px,5vw,70px)/.98 var(--serif); letter-spacing:-.045em; }
-.about-principle-grid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid #bdc9c5; border-bottom:1px solid #bdc9c5; }
-.about-principle-grid article { min-height:225px; padding:30px; border-left:1px solid #bdc9c5; }
-.about-principle-grid article:first-child { border-left:0; padding-left:0; }
-.about-principle-grid span { color:#2f7773; font-size:9px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
-.about-principle-grid h3 { margin:34px 0 12px; font:400 clamp(25px,2.5vw,34px)/1 var(--serif); }
-.about-principle-grid p { max-width:350px; margin:0; color:#64706c; font-size:13px; line-height:1.65; }
-.about-close { padding:0 0 clamp(88px,10vw,140px); background:#f7f4ed; }
-.about-close-card { display:flex; align-items:center; justify-content:space-between; gap:48px; padding:clamp(38px,5vw,64px); border:1px solid #adc5bf; border-radius:28px; background:#376361; }
-.about-close-card h2 { max-width:720px; margin:0; color:#fff; font:400 clamp(38px,4.5vw,62px)/.98 var(--serif); letter-spacing:-.04em; }
-.about-close-card .button { flex:none; color:#244b49; border-color:#fffdf9; background:#fffdf9; }
-@media(max-width:900px) {
-  .about-hero-grid,.about-origin-grid { grid-template-columns:1fr; }
-  .about-hero-photo { grid-row:1; }
-  .about-hero-copy { grid-row:2; }
-  .about-mission-grid { grid-template-columns:1fr; gap:28px; }
-  .about-team-head { align-items:flex-start; flex-direction:column; }
-  .about-team-directory-head { align-items:flex-start; flex-direction:column; }
-  .about-team-composition { height:auto; grid-template-columns:repeat(2,1fr); grid-template-rows:none; }
-  .about-team-composition figure:nth-child(n) { grid-column:auto; grid-row:auto; aspect-ratio:1.35; }
-  .about-team-composition figure:first-child { grid-column:1 / -1; aspect-ratio:1.6; }
-  .about-team-cards { grid-template-columns:repeat(3,minmax(0,1fr)); }
+:root { --about-ink:#202523; --about-muted:#62706b; --about-line:#c8d2ce; --about-paper:#f7f4ed; --about-mint:#e7efec; --about-green:#376361; }
+.about-page { color:var(--about-ink); background:var(--about-paper); }
+.about-rail { color:#52615c; font-size:9px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.about-rail b { display:inline-grid; width:24px; height:24px; place-items:center; margin-right:9px; border:1px solid #aebfba; border-radius:50%; color:#2f7773; font-size:8px; }
+.about-display { margin:0; font:400 clamp(44px,5.2vw,76px)/.97 var(--serif); letter-spacing:-.048em; text-wrap:balance; }
+.about-opening { min-height:100svh; position:relative; display:flex; align-items:flex-end; overflow:hidden; padding:clamp(152px,17vw,218px) 0 clamp(64px,7vw,96px); color:#fff; background:#172421 url("assets/videos/log-crossing-wide-poster.jpg") center/cover no-repeat; }
+.about-opening-media { position:absolute; inset:0; }
+.about-opening-media video { width:100%; height:100%; display:block; object-fit:cover; object-position:center 58%; }
+.about-opening::before { position:absolute; z-index:1; inset:0; background:linear-gradient(180deg,rgba(12,24,21,.08) 26%,rgba(12,24,21,.25) 58%,rgba(12,24,21,.82) 100%); content:""; }
+.about-opening .shell { position:relative; z-index:2; }
+.about-opening h1 { max-width:1120px; margin:0; color:#fff; font:400 clamp(66px,8.4vw,124px)/.9 var(--serif); letter-spacing:-.06em; text-shadow:0 2px 28px rgba(8,18,16,.22); }
+.about-opening p { max-width:620px; margin:18px 0 0; color:rgba(255,255,255,.9); font-size:clamp(19px,1.7vw,25px); line-height:1.4; }
+.about-mission { padding:clamp(92px,12vw,170px) 0; border-top:1px solid var(--about-line); background:#fffdf9; }
+.about-mission > .shell { width:min(1820px,calc(100% - 80px)); max-width:none; }
+.about-editorial-grid { display:grid; grid-template-columns:minmax(105px,.22fr) minmax(0,1.78fr); gap:clamp(30px,4vw,68px); align-items:start; }
+.about-mission h2 { max-width:none; font-size:clamp(36px,3.35vw,50px); line-height:1.06; }
+.about-mission-note { max-width:650px; margin:34px 0 0 auto; color:var(--about-muted); font-size:15px; line-height:1.72; }
+.about-gallery { padding:0 0 clamp(100px,12vw,170px); background:#fffdf9; }
+.about-gallery-grid { height:clamp(610px,65vw,860px); display:grid; grid-template-columns:1.05fr .82fr .72fr; grid-template-rows:1.08fr .92fr; gap:12px; }
+.about-gallery figure { position:relative; margin:0; overflow:hidden; border-radius:24px; background:#d8e3df; }
+.about-gallery figure:first-child { grid-row:1 / span 2; }
+.about-gallery figure:nth-child(2) { grid-column:2 / span 2; }
+.about-gallery img { width:100%; height:100%; display:block; object-fit:cover; transition:transform .7s cubic-bezier(.22,.8,.28,1); }
+.about-gallery figure:hover img { transform:scale(1.012); }
+.about-gallery figcaption { position:absolute; right:12px; bottom:12px; max-width:calc(100% - 24px); padding:7px 10px; border-radius:999px; color:#fff; background:rgba(25,48,43,.7); backdrop-filter:blur(8px); font-size:8px; }
+.about-vision { padding:clamp(100px,12vw,176px) 0; background:var(--about-paper); }
+.about-vision-head { text-align:center; }
+.about-vision-head .about-rail { margin-bottom:clamp(34px,5vw,62px); }
+.about-vision-quote { max-width:1080px; margin:0 auto; }
+.about-vision-quote p { margin:0; color:#171817; font:400 clamp(34px,4.3vw,58px)/1.1 var(--serif); letter-spacing:-.03em; text-wrap:balance; }
+.about-vision-quote cite { display:block; margin-top:24px; color:#45635f; font-size:10px; font-style:normal; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.about-vision-copy { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(36px,7vw,108px); margin:clamp(60px,8vw,104px) 0 0 calc(18% + 68px); }
+.about-vision-copy p { margin:0; color:var(--about-muted); font-size:14px; line-height:1.75; }
+.about-timeline { margin-top:clamp(78px,10vw,132px); padding-top:30px; border-top:1px solid var(--about-line); }
+.about-timeline ol { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin:0; padding:0; list-style:none; }
+.about-timeline li { min-height:130px; padding:0 26px; border-left:1px solid var(--about-line); }
+.about-timeline li:first-child { padding-left:0; border-left:0; }
+.about-timeline time { color:#2f7773; font-size:9px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+.about-timeline b { display:block; margin-top:22px; font:400 clamp(20px,2vw,28px)/1.05 var(--serif); }
+.about-timeline span { display:block; max-width:230px; margin-top:9px; color:var(--about-muted); font-size:10px; line-height:1.55; }
+.about-story { padding:clamp(90px,10vw,142px) 0; color:#fff; background:#171a19; }
+.about-story-head { display:grid; grid-template-columns:.36fr 1.64fr; gap:clamp(42px,8vw,128px); align-items:start; margin-bottom:clamp(42px,6vw,74px); }
+.about-story .about-rail { color:#adc8c0; }
+.about-story .about-rail b { border-color:#55736b; color:#cce3dc; }
+.about-story h2 { max-width:860px; color:#fff; }
+.about-story-media { position:relative; height:clamp(500px,58vw,790px); margin:0; overflow:hidden; background:#29332f; }
+.about-story-media img { width:100%; height:100%; display:block; object-fit:cover; }
+.about-story-media::after { position:absolute; inset:45% 0 0; background:linear-gradient(transparent,rgba(17,23,21,.78)); content:""; }
+.about-story-card { width:min(520px,calc(100% - 40px)); position:absolute; z-index:2; right:clamp(20px,5vw,70px); bottom:clamp(22px,5vw,70px); padding:clamp(24px,3vw,40px); color:var(--about-ink); background:#fffdf9; }
+.about-story-card span { color:#2f7773; font-size:9px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.about-story-card h3 { margin:18px 0 12px; font:400 clamp(30px,3.4vw,48px)/.98 var(--serif); letter-spacing:-.04em; }
+.about-story-card p { margin:0; color:var(--about-muted); font-size:13px; line-height:1.65; }
+.about-story-points { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid #404744; border-bottom:1px solid #404744; }
+.about-story-points article { min-height:205px; padding:30px; border-left:1px solid #404744; }
+.about-story-points article:first-child { padding-left:0; border-left:0; }
+.about-story-points span { color:#89aaa0; font-size:9px; font-weight:800; letter-spacing:.12em; }
+.about-story-points h3 { margin:38px 0 11px; color:#fff; font:400 clamp(23px,2.4vw,32px)/1 var(--serif); }
+.about-story-points p { max-width:340px; margin:0; color:#aeb9b5; font-size:12px; line-height:1.65; }
+.about-people { padding:clamp(100px,12vw,176px) 0; background:#fffdf9; }
+.about-people-head { display:grid; grid-template-columns:.36fr 1.1fr .54fr; gap:clamp(38px,6vw,96px); align-items:end; }
+.about-people-head p { margin:0 0 3px; color:var(--about-muted); font-size:14px; line-height:1.7; }
+.about-leads { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:clamp(46px,6vw,74px); }
+.about-lead-card { position:relative; min-width:0; margin:0; overflow:hidden; background:#e2eae7; }
+.about-lead-card img { width:100%; aspect-ratio:.86; display:block; object-fit:cover; object-position:center top; }
+.about-lead-card figcaption { min-height:78px; padding:17px 18px; background:var(--about-paper); }
+.about-lead-card b,.about-lead-card span { display:block; }
+.about-lead-card b { font:400 20px/1.05 var(--serif); }
+.about-lead-card span { margin-top:7px; color:var(--about-muted); font-size:9px; line-height:1.4; }
+.about-whole-team { padding:clamp(92px,11vw,158px) 0; background:var(--about-mint); }
+.about-whole-team-head { display:grid; grid-template-columns:.36fr 1.64fr; gap:clamp(42px,8vw,128px); align-items:start; }
+.about-whole-team h2 { max-width:800px; }
+.about-team-orbit { width:min(780px,82vw); aspect-ratio:1; position:relative; margin:clamp(58px,7vw,96px) auto 0; border:1px solid #aebfba; border-radius:50%; }
+.about-team-orbit::before,.about-team-orbit::after { position:absolute; border:1px solid rgba(92,122,114,.26); border-radius:50%; content:""; }
+.about-team-orbit::before { inset:14%; }
+.about-team-orbit::after { inset:31%; }
+.about-orbit-centre { position:absolute; z-index:2; inset:38%; display:grid; place-items:center; border-radius:50%; color:#fff; background:var(--about-green); text-align:center; }
+.about-orbit-centre b { font:400 clamp(24px,3vw,42px)/.95 var(--serif); }
+.about-team-orbit ul { position:absolute; inset:0; margin:0; padding:0; list-style:none; }
+.about-team-orbit li { --angle:calc(var(--i) * 25.714deg - 90deg); position:absolute; z-index:3; top:50%; left:50%; transform:rotate(var(--angle)) translateX(calc(min(390px,41vw) - 28px)) rotate(calc(var(--angle) * -1)); }
+.about-team-orbit li span { width:56px; height:56px; display:grid; place-items:center; border:1px solid #a8bdb7; border-radius:50%; color:#284f4d; background:#fffdf9; font-size:8px; font-weight:800; text-align:center; box-shadow:0 9px 24px rgba(35,66,58,.08); }
+.about-directory { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(34px,5vw,66px) clamp(18px,3vw,42px); margin-top:clamp(90px,10vw,138px); padding-top:clamp(48px,6vw,76px); border-top:1px solid #b6c7c2; }
+.about-person { min-width:0; text-align:center; }
+.about-person img { width:86%; height:auto; aspect-ratio:1; display:block; margin:0 auto; border:1px solid #b7c8c3; border-radius:50%; object-fit:cover; object-position:center top; background:#fff; }
+.about-person b,.about-person span { display:block; }
+.about-person b { margin-top:16px; font:400 19px/1.08 var(--serif); }
+.about-person span { margin:7px auto 0; color:var(--about-muted); font-size:9px; line-height:1.4; }
+.about-locations { padding:clamp(100px,12vw,176px) 0; background:var(--about-paper); }
+.about-locations-head { display:grid; grid-template-columns:.36fr 1.64fr; gap:clamp(42px,8vw,128px); }
+.about-location-grid { display:grid; grid-template-columns:1.15fr .85fr; margin-top:clamp(50px,7vw,86px); }
+.about-location { min-height:clamp(430px,44vw,620px); position:relative; overflow:hidden; background:#d9e5e1; }
+.about-location img { width:100%; height:100%; display:block; object-fit:cover; }
+.about-location::after { position:absolute; inset:45% 0 0; background:linear-gradient(transparent,rgba(21,39,35,.78)); content:""; }
+.about-location-copy { position:absolute; z-index:2; right:26px; bottom:25px; left:26px; color:#fff; }
+.about-location-copy span { font-size:9px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+.about-location-copy h3 { margin:10px 0 8px; font:400 clamp(30px,3vw,44px)/.98 var(--serif); }
+.about-location-copy p { max-width:410px; margin:0; color:rgba(255,255,255,.82); font-size:11px; line-height:1.55; }
+.about-next { padding:clamp(100px,12vw,176px) 0; background:#fffdf9; }
+.about-next-head { display:grid; grid-template-columns:.36fr 1.64fr; gap:clamp(42px,8vw,128px); }
+.about-next-list { margin-top:clamp(50px,6vw,76px); border-top:1px solid var(--about-line); }
+.about-next-list a { display:grid; grid-template-columns:1fr auto auto; gap:28px; align-items:center; min-height:94px; border-bottom:1px solid var(--about-line); color:var(--about-ink); text-decoration:none; }
+.about-next-list b { font:400 clamp(23px,2.4vw,32px)/1 var(--serif); }
+.about-next-list span { color:var(--about-muted); font-size:11px; }
+.about-next-list i { color:#2f7773; font-size:18px; font-style:normal; transition:transform .2s ease; }
+.about-next-list a:hover i { transform:translateX(5px); }
+.about-close { padding:0 0 clamp(100px,12vw,170px); background:#fffdf9; }
+.about-close-card { display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center; padding:clamp(42px,6vw,80px); color:#fff; background:var(--about-green); }
+.about-close-card h2 { max-width:820px; margin:0; color:#fff; font:400 clamp(42px,5vw,72px)/.96 var(--serif); letter-spacing:-.045em; }
+.about-close-card .button { color:#244b49; border-color:#fffdf9; background:#fffdf9; }
+@media(max-width:960px) {
+  .about-editorial-grid,.about-vision-head,.about-story-head,.about-whole-team-head,.about-locations-head,.about-next-head { grid-template-columns:1fr; gap:26px; }
+  .about-vision-copy { margin-left:0; }
+  .about-people-head { grid-template-columns:1fr; gap:24px; align-items:start; }
+  .about-leads { grid-template-columns:repeat(2,1fr); }
+  .about-directory { grid-template-columns:repeat(3,1fr); }
+  .about-location-grid { grid-template-columns:1fr; }
+  .about-location { min-height:480px; }
 }
-@media(max-width:650px) {
-  .about-hero { padding-top:116px; }
-  .about-hero-copy h1 { font-size:50px; }
-  .about-hero-photo,.about-origin-photo { border-radius:23px; }
-  .about-hero-photo img,.about-origin-photo img { height:360px; }
-  .about-team-composition { grid-template-columns:1fr; }
-  .about-team-composition figure:first-child { grid-column:auto; aspect-ratio:1.25; }
-  .about-team-composition figure:nth-child(n) { aspect-ratio:1.4; }
-  .about-team-cards { grid-template-columns:repeat(2,minmax(0,1fr)); gap:30px 14px; }
-  .about-team-card div { min-height:70px; padding:13px 4px 0; }
-  .about-team-card b { font-size:17px; }
-  .about-principle-grid { grid-template-columns:1fr; }
-  .about-principle-grid article,.about-principle-grid article:first-child { min-height:0; padding:28px 0; border-top:1px solid #bdc9c5; border-left:0; }
-  .about-principle-grid article:first-child { border-top:0; }
-  .about-principle-grid h3 { margin-top:22px; }
-  .about-close-card { align-items:flex-start; flex-direction:column; }
+@media(max-width:700px) {
+  .about-mission > .shell { width:calc(100% - 32px); }
+  .about-opening { min-height:100svh; padding:130px 0 54px; }
+  .about-opening-media video { object-position:center 58%; }
+  .about-opening h1 { font-size:clamp(56px,17vw,74px); }
+  .about-gallery-grid { height:auto; grid-template-columns:1fr; grid-template-rows:none; }
+  .about-gallery figure:nth-child(n) { grid-column:auto; grid-row:auto; aspect-ratio:1.28; }
+  .about-gallery figure:first-child { aspect-ratio:1; }
+  .about-vision-copy { grid-template-columns:1fr; gap:24px; }
+  .about-timeline ol { grid-template-columns:1fr 1fr; }
+  .about-timeline li { min-height:150px; padding:22px; border-top:1px solid var(--about-line); }
+  .about-timeline li:nth-child(odd) { padding-left:0; border-left:0; }
+  .about-story-media { height:600px; }
+  .about-story-points { grid-template-columns:1fr; }
+  .about-story-points article,.about-story-points article:first-child { min-height:0; padding:28px 0; border-top:1px solid #404744; border-left:0; }
+  .about-story-points article:first-child { border-top:0; }
+  .about-story-points h3 { margin-top:22px; }
+  .about-leads { gap:8px; }
+  .about-lead-card figcaption { min-height:92px; padding:14px; }
+  .about-lead-card b { font-size:17px; }
+  .about-team-orbit { width:90vw; }
+  .about-team-orbit li { transform:rotate(var(--angle)) translateX(calc(45vw - 24px)) rotate(calc(var(--angle) * -1)); }
+  .about-team-orbit li span { width:48px; height:48px; font-size:7px; }
+  .about-directory { grid-template-columns:repeat(2,1fr); gap:34px 12px; }
+  .about-location { min-height:390px; }
+  .about-next-list a { grid-template-columns:1fr auto; gap:14px; padding:18px 0; }
+  .about-next-list span { grid-column:1; grid-row:2; }
+  .about-next-list i { grid-column:2; grid-row:1 / span 2; }
+  .about-close-card { grid-template-columns:1fr; }
 }
-
-/* About page — trusted AI, grounded in care */
-.trust-hero { padding:92px 20px 20px; }
-.trust-hero-frame { height:calc(100svh - 112px); min-height:650px; position:relative; overflow:hidden; padding:0; border-radius:34px; background:#294945; }
-.trust-hero-frame figure { position:absolute; inset:0; margin:0; }
-.trust-hero-frame figure::after { position:absolute; inset:0; background:linear-gradient(90deg,rgba(22,40,36,.82) 0%,rgba(22,40,36,.52) 43%,rgba(22,40,36,.08) 76%),linear-gradient(0deg,rgba(18,31,28,.45),transparent 48%); content:''; }
-.trust-hero-frame img { width:100%; height:100%; display:block; object-fit:cover; object-position:center; }
-.trust-hero-copy { width:min(680px,calc(100% - 80px)); position:absolute; z-index:2; left:clamp(32px,6vw,92px); bottom:clamp(58px,9vh,100px); color:#fff; }
-.trust-hero-copy .page-kicker { color:#cce8df; }
-.trust-hero-copy h1 { margin:18px 0 0; color:#fff; font:400 clamp(58px,7vw,104px)/.92 var(--serif); letter-spacing:-.055em; text-wrap:balance; }
-.trust-hero-copy p { max-width:570px; margin:26px 0 0; color:rgba(255,255,255,.88); font-size:clamp(14px,1.25vw,18px); line-height:1.6; }
-.trust-hero-frame > small { position:absolute; z-index:2; right:22px; bottom:18px; color:rgba(255,255,255,.75); font-size:8px; }
-
-.trust-intro { padding:clamp(100px,12vw,176px) 0; background:#fffdf9; }
-.trust-intro-grid { display:grid; grid-template-columns:.45fr 1.05fr .8fr; gap:clamp(38px,6vw,96px); align-items:start; }
-.trust-intro h2 { margin:0; font:400 clamp(44px,5vw,72px)/.98 var(--serif); letter-spacing:-.045em; text-wrap:balance; }
-.trust-intro-grid > div { padding-top:4px; }
-.trust-intro p { margin:0; color:#61706b; font-size:15px; line-height:1.72; }
-.trust-intro p + p { margin-top:22px; }
-
-.trust-founder { padding:clamp(96px,11vw,160px) 0; background:#e5efec; }
-.trust-founder-grid { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr); gap:clamp(48px,8vw,118px); align-items:center; }
-.trust-founder figure,.trust-work-photo { position:relative; margin:0; overflow:hidden; border-radius:28px; background:#cadbd6; }
-.trust-founder figure img { width:100%; height:clamp(520px,50vw,700px); display:block; object-fit:cover; }
-.trust-founder figcaption,.trust-work-photo figcaption { position:absolute; right:14px; bottom:14px; padding:7px 10px; border-radius:999px; color:#fff; background:rgba(25,48,43,.68); font-size:8px; }
-.trust-founder-copy h2 { max-width:600px; margin:16px 0 0; font:400 clamp(44px,5vw,72px)/.96 var(--serif); letter-spacing:-.045em; }
-.trust-founder-copy > p { max-width:590px; margin:24px 0 0; color:#5d6b67; font-size:14px; line-height:1.72; }
-.trust-founder blockquote { margin:34px 0 0; padding:26px 0 0; border-top:1px solid #b7c9c3; color:#2e5551; font:400 clamp(24px,2.4vw,34px)/1.08 var(--serif); }
-.trust-founder cite { display:block; margin-top:16px; color:#5d6b67; font:700 9px/1.4 var(--sans); letter-spacing:.08em; text-transform:uppercase; }
-
-.trust-work { padding:clamp(100px,12vw,176px) 0; background:#f7f4ed; }
-.trust-work header { display:grid; grid-template-columns:.45fr 1.55fr; gap:48px; align-items:start; margin-bottom:clamp(44px,6vw,74px); }
-.trust-work header h2 { max-width:900px; margin:0; font:400 clamp(46px,5.5vw,78px)/.96 var(--serif); letter-spacing:-.05em; }
-.trust-work-photo { height:clamp(470px,48vw,680px); }
-.trust-work-photo img { width:100%; height:100%; display:block; object-fit:cover; }
-.trust-work-grid { display:grid; grid-template-columns:repeat(3,1fr); margin-top:18px; border-top:1px solid #bdc9c5; border-bottom:1px solid #bdc9c5; }
-.trust-work-grid article { min-height:245px; padding:30px; border-left:1px solid #bdc9c5; }
-.trust-work-grid article:first-child { border-left:0; padding-left:0; }
-.trust-work-grid span { color:#2f7773; font-size:9px; font-weight:800; letter-spacing:.12em; }
-.trust-work-grid h3 { margin:46px 0 13px; font:400 clamp(25px,2.4vw,34px)/1 var(--serif); }
-.trust-work-grid p { max-width:330px; margin:0; color:#61706b; font-size:13px; line-height:1.65; }
-
-.trust-team { padding:clamp(100px,11vw,160px) 0; background:#e8f0ed; }
-.trust-team-head { display:grid; grid-template-columns:1.2fr .8fr; gap:64px; align-items:end; margin-bottom:clamp(46px,6vw,74px); }
-.trust-team-head h2 { margin:16px 0 0; font:400 clamp(48px,5.5vw,78px)/.96 var(--serif); letter-spacing:-.05em; }
-.trust-team-head p { max-width:460px; margin:0; color:#61706b; font-size:14px; line-height:1.7; }
-.trust-team .about-team-directory { margin-top:0; padding-top:0; border-top:0; }
-.trust-team .about-team-card img { background:#fff; }
-
-.trust-close { padding:clamp(100px,12vw,176px) 0; text-align:center; background:#f7f4ed; }
-.trust-close .shell > div { max-width:970px; margin:0 auto; }
-.trust-close h2 { margin:16px 0 0; font:400 clamp(52px,6vw,88px)/.94 var(--serif); letter-spacing:-.055em; }
-.trust-close p { max-width:610px; margin:26px auto 30px; color:#61706b; font-size:15px; line-height:1.65; }
-
-@media(max-width:900px) {
-  .trust-hero-frame { min-height:720px; }
-  .trust-intro-grid,.trust-founder-grid,.trust-work header,.trust-team-head { grid-template-columns:1fr; }
-  .trust-intro-grid { gap:28px; }
-  .trust-founder-grid { gap:48px; }
-  .trust-founder-copy { max-width:700px; }
-  .trust-work header,.trust-team-head { gap:24px; align-items:start; }
-  .trust-work-grid { grid-template-columns:1fr; }
-  .trust-work-grid article,.trust-work-grid article:first-child { min-height:0; padding:28px 0; border-top:1px solid #bdc9c5; border-left:0; }
-  .trust-work-grid article:first-child { border-top:0; }
-  .trust-work-grid h3 { margin-top:22px; }
-}
-@media(max-width:650px) {
-  .trust-hero { padding:84px 8px 8px; }
-  .trust-hero-frame { height:calc(100svh - 92px); min-height:650px; border-radius:24px; }
-  .trust-hero-frame img { object-position:60% center; }
-  .trust-hero-frame figure::after { background:linear-gradient(0deg,rgba(20,38,34,.9),rgba(20,38,34,.12) 72%); }
-  .trust-hero-copy { width:calc(100% - 40px); left:20px; bottom:45px; }
-  .trust-hero-copy h1 { font-size:51px; }
-  .trust-hero-copy p { font-size:13px; }
-  .trust-hero-frame > small { display:none; }
-  .trust-founder figure img { height:380px; }
-  .trust-founder-copy h2,.trust-work header h2,.trust-team-head h2 { font-size:44px; }
-  .trust-work-photo { height:360px; border-radius:22px; }
-  .trust-close h2 { font-size:52px; }
-}
+@media(prefers-reduced-motion:reduce) { .about-gallery img,.about-next-list i { transition:none; } }
 </style>
 <script defer src="marketing-pages.js"></script>
 </head>
@@ -183,27 +169,23 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <script src="site-header.js"></script>
 <main id="main">
-<header class="trust-hero" id="top-scroll"><div class="shell trust-hero-frame"><figure><img src="assets/team-life/n1-team-together.webp" alt="The n1 team working together around a table" width="1800" height="1014" decoding="async"></figure><div class="trust-hero-copy"><span class="page-kicker">About n1</span><h1>Doctors and engineers, building AI you can trust.</h1><p>Every finding links to its source. Every report can be reviewed and edited. The clinician makes the final call.</p></div><small>The n1 team · Kuala Lumpur</small></div></header>
-<section class="trust-founder" aria-labelledby="trust-founder-title"><div class="shell trust-founder-grid"><figure><img src="assets/team-life/n1-founder-workshop.webp" alt="Jean-Yves Sireau presenting the n1 health record to the team" width="1200" height="675" loading="lazy" decoding="async"><figcaption>Jean‑Yves reviewing the product with the team</figcaption></figure><div class="trust-founder-copy"><span class="page-kicker">Why Jean‑Yves started n1</span><h2 id="trust-founder-title">Give doctors the full picture. Give patients a clearer path.</h2><p>After 25 years at Deriv, Jean‑Yves chose a new problem. A patient’s story is often split across hundreds of pages and many systems. The facts exist. The clear picture does not.</p><p>n1 started with a simple belief: AI can do the slow work of joining that story, as long as people can check its work. n1 links each finding to its source. Every report stays open to review.</p><p>The goal is not to put AI in charge. It is to help doctors prepare with better context, help patients understand what changed, and make their time together more useful.</p><blockquote>“Health care has no shortage of data. The challenge is making sense of it.”<cite>Jean‑Yves Sireau · Founder &amp; CEO</cite></blockquote></div></div></section>
-<section class="trust-work" aria-labelledby="trust-work-title"><div class="shell"><header><span class="page-kicker">What trusted AI looks like</span><h2 id="trust-work-title">Useful work. Clear limits. Human decisions.</h2></header><figure class="trust-work-photo"><img src="assets/team-life/n1-product-review.webp" alt="The n1 team reviewing a source-linked health timeline" width="1200" height="675" loading="lazy" decoding="async"><figcaption>Reviewing a source-linked patient timeline</figcaption></figure><div class="trust-work-grid"><article><span>01</span><h3>Bring the record together</h3><p>n1 reads many files and builds one health timeline. The source files stay close at hand.</p></article><article><span>02</span><h3>Show what changed</h3><p>Trends, gaps, and key events are easier to check before and during a visit.</p></article><article><span>03</span><h3>Keep people in control</h3><p>The doctor checks, edits, and approves the report. n1 does not make the clinical call.</p></article></div></div></section>
-<section class="trust-team" id="team" aria-labelledby="team-title"><div class="shell"><header class="trust-team-head"><div><span class="page-kicker">Meet the team</span><h2 id="team-title">The people building n1.</h2></div><p>Our health, research, product, and software teams work side by side. We check the details together because each detail can matter to a patient.</p></header>
-<div class="about-team-directory"><div class="about-team-cards">
-<article class="about-team-card"><img src="assets/team/jean-yves-sireau.webp" alt="Jean-Yves Sireau" width="320" height="320" loading="lazy"><div><b>Jean‑Yves Sireau</b><span>Founder &amp; CEO</span></div></article>
-<article class="about-team-card"><img src="assets/team/leah-elise.webp" alt="Leah Elise" width="320" height="320" loading="lazy"><div><b>Leah Elise</b><span>Director of Clinical Partnerships and Marketing</span></div></article>
-<article class="about-team-card"><img src="assets/team/dannette-kallay.webp" alt="Dr. Dannette Kallay" width="320" height="275" loading="lazy"><div><b>Dr. Dannette Kallay</b><span>Integrative Physician</span></div></article>
-<article class="about-team-card"><img src="assets/team/neshalini-sathiabalan.webp" alt="Neshalini Sathiabalan" width="320" height="320" loading="lazy"><div><b>Neshalini Sathiabalan</b><span>Clinical Research Coordinator</span></div></article>
-<article class="about-team-card"><img src="assets/team/siew-mei-lau.webp" alt="Siew Mei Lau" width="320" height="320" loading="lazy"><div><b>Siew Mei Lau</b><span>Clinical Research Coordinator</span></div></article>
-<article class="about-team-card"><img src="assets/team/arun-venkataraman.webp" alt="Arun Venkataraman" width="320" height="320" loading="lazy"><div><b>Arun Venkataraman</b><span>Principal Engineer</span></div></article>
-<article class="about-team-card"><img src="assets/team/jasper-middendorp.webp" alt="Jasper Middendorp" width="320" height="320" loading="lazy"><div><b>Jasper Middendorp</b><span>Engineering Manager</span></div></article>
-<article class="about-team-card"><img src="assets/team/aniruddha-deshpande.webp" alt="Aniruddha Deshpande" width="320" height="320" loading="lazy"><div><b>Aniruddha Deshpande</b><span>Senior AI Engineer</span></div></article>
-<article class="about-team-card"><img src="assets/team/umar-shah.webp" alt="Umar Shah" width="320" height="320" loading="lazy"><div><b>Umar Shah</b><span>Senior AI Engineer</span></div></article>
-<article class="about-team-card"><img src="assets/team/coen-elferink.webp" alt="Coen Elferink" width="320" height="320" loading="lazy"><div><b>Coen Elferink</b><span>Senior Frontend Developer</span></div></article>
-<article class="about-team-card"><img src="assets/team/darpan-bafana.webp" alt="Darpan Bafana" width="320" height="320" loading="lazy"><div><b>Darpan Bafana</b><span>DevOps Engineer</span></div></article>
-<article class="about-team-card"><img src="assets/team/yousuf-sarfraz.webp" alt="Yousuf Sarfraz" width="320" height="320" loading="lazy"><div><b>Yousuf Sarfraz</b><span>AI Engineer</span></div></article>
-<article class="about-team-card"><img src="assets/team/jun-an-tan.webp" alt="Jun An Tan" width="320" height="320" loading="lazy"><div><b>Jun An Tan</b><span>AI Engineer</span></div></article>
-<article class="about-team-card"><img src="assets/team/paawan-purdhani.webp" alt="Paawan Purdhani" width="320" height="320" loading="lazy"><div><b>Paawan Purdhani</b><span>AI Engineer</span></div></article>
-</div></div></div></section>
-<section class="trust-close"><div class="shell"><div><span class="page-kicker">See the work</span><h2>Start with one patient record.</h2><p>See how n1 turns scattered files into a report that a clinician can check and a patient can understand.</p><a class="button" href="Health_summary_demo-1.html">Open a sample report</a></div></div></section>
+<header class="about-opening" id="top-scroll"><div class="about-opening-media" aria-hidden="true"><video data-autoplay autoplay muted loop playsinline preload="metadata" poster="assets/videos/log-crossing-wide-poster.jpg"><source src="assets/videos/log-crossing-portrait.mp4" type="video/mp4" media="(max-width: 640px)"><source src="assets/videos/log-crossing-wide.mp4?v=20260831-1" type="video/mp4"></video></div><div class="shell"><h1>Doctors + engineers</h1><p>Building AI you can trust.</p></div></header>
+<section class="about-mission" aria-labelledby="about-mission-title"><div class="shell about-editorial-grid"><div class="about-rail"><b>01</b>Mission</div><div><h2 class="about-display" id="about-mission-title">Our mission is to give doctors AI they can trust. Better decisions, more human care, and longer, healthier lives.</h2></div></div></section>
+<section class="about-gallery" aria-label="Inside n1"><div class="shell about-gallery-grid">
+<figure><img src="assets/team-life/n1-team-building.webp" alt="n1 colleagues reviewing work together at a laptop" width="1200" height="675" decoding="async"></figure>
+<figure><img src="assets/team-life/n1-product-review.webp" alt="The n1 team reviewing the product together" width="1200" height="675" loading="lazy" decoding="async"></figure>
+<figure><img src="assets/team-life/n1-clinical-collaboration.webp" alt="n1 colleagues collaborating on clinical work" width="1200" height="675" loading="lazy" decoding="async"></figure>
+<figure><img src="assets/team-life/n1-team-conversation.webp" alt="n1 colleagues in conversation" width="1200" height="675" loading="lazy" decoding="async"></figure>
+</div></section>
+<section class="about-vision" aria-labelledby="about-vision-title"><div class="shell"><header class="about-vision-head"><div class="about-rail"><b>02</b>Vision</div><h2 class="sr-only" id="about-vision-title">What n1 calls trusted AI</h2><blockquote class="about-vision-quote"><p>“AI earns a place in care when its work is useful, its limits are clear, and people can check what it says.”</p><cite>n1</cite></blockquote></header></div></section>
+<section class="about-story" aria-labelledby="about-story-title"><div class="shell"><header class="about-story-head"><div class="about-rail"><b>03</b>The work</div><h2 class="about-display" id="about-story-title">AI should support the conversation—not take it over.</h2></header><figure class="about-story-media"><img src="assets/team-life/n1-founder-workshop.webp" alt="Jean-Yves Sireau and the n1 team reviewing the product" width="1200" height="675" loading="lazy" decoding="async"></figure><div class="about-story-points"><article><span>01 · Record</span><h3>Bring the history together</h3><p>Laboratory results, imaging, notes, medicines, and genetics sit in one organised view.</p></article><article><span>02 · Evidence</span><h3>Keep every source close</h3><p>Each finding links back to the record it came from, ready for review.</p></article><article><span>03 · Care</span><h3>Clinician approval at every step</h3><p>The clinician reviews, edits, and approves the AI’s work before it is used in care.</p></article></div></div></section>
+<section class="about-next" aria-labelledby="about-next-title"><div class="shell"><header class="about-next-head"><div class="about-rail"><b>04</b>Explore</div><h2 class="about-display" id="about-next-title">See what we are building</h2></header><div class="about-next-list">
+<a href="clinicians.html"><b>For clinicians</b><span>Prepare with a complete, source-linked record</span><i>→</i></a>
+<a href="patients.html"><b>For patients</b><span>Understand and share your health history</span><i>→</i></a>
+<a href="reports.html"><b>Reports</b><span>See the report types n1 can prepare</span><i>→</i></a>
+<a href="Health_summary_demo-1.html"><b>Sample health summary</b><span>Open a synthetic, source-linked example</span><i>→</i></a>
+</div></div></section>
+<section class="about-close"><div class="shell"><div class="about-close-card"><h2>Better context for the clinician. More useful time for the patient.</h2><a class="button" href="contact.html">Talk with us</a></div></div></section>
 </main>
 <footer class="marketing-footer"><div class="shell"><div class="marketing-footer-top"><div class="marketing-footer-brand"><a href="index.html" aria-label="n1.care home"><span class="logo" aria-hidden="true"></span></a><p>Put health files in order. See what changed. Check each fact at its source.</p></div><div class="marketing-footer-links"><div><strong>For clinicians</strong><a href="clinicians.html#clinician-product-animation-title">How it works</a><a href="reports.html">Reports</a><a href="pricing.html">Pricing</a></div><div><strong>For</strong><a href="clinicians.html">For clinicians</a><a href="patients.html">For patients</a></div><div><strong>Explore</strong><a href="case-studies.html">Clinical workflows</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="https://app.n1.care/privacy-policy">Privacy</a><a href="https://app.n1.care/terms-of-service">Terms</a></div></div></div><div class="marketing-footer-bottom">© 2026 N1 Research, LLC</div></div></footer>
 </body>
