@@ -63,6 +63,7 @@ where they appear and must not be presented as photographs of the quoted people.
 | `n1-patient-consultation.webp` | Credited on `patients.html` as "Concept photography · Pexels" |
 | `patient-story-walk.jpg` | [Smiling couple walking in park, Katerina Holmes / Pexels](https://www.pexels.com/photo/smiling-couple-walking-in-park-5910960/) |
 | `patient-story-prepare.jpg` | [Focused woman writing in notebook in park, Anete Lusina / Pexels](https://www.pexels.com/photo/focused-woman-writing-in-notebook-in-park-4792249/) |
+| `patient-story-records-home.jpg` | [Woman reviewing documents at a home office desk, Mizuno K / Pexels](https://www.pexels.com/photo/woman-with-documents-on-table-12911858/) |
 | `patient-story-discuss.jpg` | [A doctor talking to a patient, Cedric Fauntleroy / Pexels](https://www.pexels.com/photo/a-doctor-talking-to-a-patient-4266940/) |
 | `patient-story-meditation.jpg` | [Woman meditating outdoors, Los Muertos Crew / Pexels](https://www.pexels.com/photo/woman-meditating-outdoors-8391701/) |
 | `patient-story-sport.jpg` | [Person jogging outdoors, Daniel Reche / Pexels](https://www.pexels.com/photo/person-jogging-3601094/) |
