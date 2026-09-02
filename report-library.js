@@ -141,12 +141,12 @@
   function render() {
     const list = current();
     const reportTotal = list.reduce((total, person) => total + person.reports.length, 0);
-    count.textContent = `${list.length} synthetic ${list.length === 1 ? 'profile' : 'profiles'} · ${reportTotal} ${reportTotal === 1 ? 'report' : 'reports'}`;
+    count.textContent = `${list.length} ${list.length === 1 ? 'profile' : 'profiles'} · ${reportTotal} ${reportTotal === 1 ? 'report' : 'reports'}`;
     grid.innerHTML = '';
     list.slice(0, shown).forEach((person) => {
       const card = document.createElement('article');
       card.className = 'person';
-      card.innerHTML = `<a class="person-select" href="report-profile.html?person=${person.id}" aria-label="Open reports for ${person.label}"><span class="person-head"><span class="person-name"><b>${person.label}</b><small>Anonymised synthetic patient</small></span></span><span class="person-context"><p>${person.context}</p></span><span class="person-report-list">${person.reports.map((report) => `<span>${report.title}</span>`).join('')}</span><span class="person-card-foot"><span class="person-tags">${person.focus.map((area) => `<span>${area}</span>`).join('')}</span><span class="report-count">Open ${person.reports.length} reports →</span></span></a>`;
+      card.innerHTML = `<a class="person-select" href="report-profile.html?person=${person.id}" aria-label="Open reports for ${person.label}"><span class="person-head"><span class="person-name"><b>${person.label}</b><small>Anonymised patient</small></span></span><span class="person-context"><p>${person.context}</p></span><span class="person-report-list">${person.reports.map((report) => `<span>${report.title}</span>`).join('')}</span><span class="person-card-foot"><span class="person-tags">${person.focus.map((area) => `<span>${area}</span>`).join('')}</span><span class="report-count">Open ${person.reports.length} reports →</span></span></a>`;
       grid.appendChild(card);
     });
     if (!list.length) grid.innerHTML = '<p class="empty">No profiles or reports match this search.</p>';

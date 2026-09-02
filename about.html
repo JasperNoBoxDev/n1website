@@ -89,12 +89,15 @@
 .about-team-orbit ul { position:absolute; inset:0; margin:0; padding:0; list-style:none; }
 .about-team-orbit li { --angle:calc(var(--i) * 25.714deg - 90deg); position:absolute; z-index:3; top:50%; left:50%; transform:rotate(var(--angle)) translateX(calc(min(390px,41vw) - 28px)) rotate(calc(var(--angle) * -1)); }
 .about-team-orbit li span { width:56px; height:56px; display:grid; place-items:center; border:1px solid #a8bdb7; border-radius:50%; color:#284f4d; background:#fffdf9; font-size:8px; font-weight:800; text-align:center; box-shadow:0 9px 24px rgba(35,66,58,.08); }
-.about-directory { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(34px,5vw,66px) clamp(18px,3vw,42px); margin-top:clamp(90px,10vw,138px); padding-top:clamp(48px,6vw,76px); border-top:1px solid #b6c7c2; }
-.about-person { min-width:0; text-align:center; }
+.about-directory { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(34px,5vw,66px) clamp(18px,3vw,42px); margin-top:clamp(54px,7vw,88px); padding-top:clamp(42px,5vw,64px); border-top:1px solid #b6c7c2; }
+.about-person { min-width:0; color:var(--about-ink); text-align:center; text-decoration:none; }
 .about-person img { width:86%; height:auto; aspect-ratio:1; display:block; margin:0 auto; border:1px solid #b7c8c3; border-radius:50%; object-fit:cover; object-position:center top; background:#fff; }
 .about-person b,.about-person span { display:block; }
 .about-person b { margin-top:16px; font:400 19px/1.08 var(--serif); }
-.about-person span { margin:7px auto 0; color:var(--about-muted); font-size:9px; line-height:1.4; }
+.about-person span { margin:8px auto 0; color:#2f7773; font-size:9px; font-weight:700; letter-spacing:.06em; line-height:1.4; text-transform:uppercase; }
+.about-person img,.about-person b { transition:transform .3s ease,color .2s ease; }
+.about-person:hover img { transform:translateY(-4px); }
+.about-person:hover b { color:#2f7773; }
 .about-locations { padding:clamp(100px,12vw,176px) 0; background:var(--about-paper); }
 .about-locations-head { display:grid; grid-template-columns:.36fr 1.64fr; gap:clamp(42px,8vw,128px); }
 .about-location-grid { display:grid; grid-template-columns:1.15fr .85fr; margin-top:clamp(50px,7vw,86px); }
@@ -165,7 +168,7 @@
 <script src="site-header.js"></script>
 <main id="main">
 <header class="about-opening" id="top-scroll"><div class="about-opening-media" aria-hidden="true"><video data-autoplay autoplay muted loop playsinline preload="metadata" poster="assets/videos/log-crossing-wide-poster.jpg"><source src="assets/videos/log-crossing-portrait.mp4" type="video/mp4" media="(max-width: 640px)"><source src="assets/videos/log-crossing-wide.mp4?v=20260831-1" type="video/mp4"></video></div><div class="shell"><h1>Doctors + engineers</h1><p>Building AI you can trust.</p></div></header>
-<section class="about-mission" aria-labelledby="about-mission-title"><div class="shell about-editorial-grid"><div><h2 class="about-display" id="about-mission-title">Our mission is to give doctors AI they can trust. Better decisions, more human care, and longer, healthier lives.</h2></div></div></section>
+<section class="about-mission" aria-labelledby="about-mission-title"><div class="shell about-editorial-grid"><div><h2 class="about-display" id="about-mission-title">Our mission is to give doctors and patients AI they can trust. Better decisions, more human care, and longer, healthier lives.</h2></div></div></section>
 <section class="about-gallery" aria-label="Inside n1"><div class="shell about-gallery-grid">
 <figure><img src="assets/team-life/n1-team-building.webp" alt="n1 colleagues reviewing work together at a laptop" width="1200" height="675" decoding="async"></figure>
 <figure><img src="assets/team-life/n1-product-review.webp" alt="The n1 team reviewing the product together" width="1200" height="675" loading="lazy" decoding="async"></figure>
@@ -174,11 +177,27 @@
 </div></section>
 <section class="about-vision" aria-labelledby="about-vision-title"><div class="shell"><header class="about-vision-head"><h2 class="sr-only" id="about-vision-title">What n1 calls trusted AI</h2><blockquote class="about-vision-quote"><p>“AI earns a place in care when its work is useful, its limits are clear, and people can check what it says.”</p><cite>n1</cite></blockquote></header></div></section>
 <section class="about-story" aria-labelledby="about-story-title"><div class="shell"><header class="about-story-head"><h2 class="about-display" id="about-story-title">AI should support the conversation—not take it over.</h2></header><figure class="about-story-media"><img src="assets/team-life/n1-founder-workshop.webp" alt="Jean-Yves Sireau and the n1 team reviewing the product" width="1200" height="675" loading="lazy" decoding="async"></figure><div class="about-story-points"><article><span>01 · Record</span><h3>Bring the history together</h3><p>Laboratory results, imaging, notes, medicines, and genetics sit in one organised view.</p></article><article><span>02 · Evidence</span><h3>Keep every source close</h3><p>Each finding links back to the record it came from, ready for review.</p></article><article><span>03 · Care</span><h3>Clinician approval at every step</h3><p>The clinician reviews, edits, and approves the AI’s work before it is used in care.</p></article></div></div></section>
+<section class="about-people" aria-labelledby="about-people-title"><div class="shell"><header class="about-people-head"><h2 class="about-display" id="about-people-title">The people building n1.</h2><p>Doctors, researchers, designers, and engineers working together to make health data more useful and care more human.</p></header><div class="about-directory">
+<a class="about-person" href="https://hk.linkedin.com/in/jeanyvessireau" target="_blank" rel="noopener noreferrer"><img src="assets/team/jean-yves-sireau.webp" alt="Jean-Yves Sireau" width="500" height="500" loading="lazy"><b>Jean-Yves Sireau</b><span>LinkedIn ↗</span></a>
+<a class="about-person" href="https://www.linkedin.com/in/leah-elise" target="_blank" rel="noopener noreferrer"><img src="assets/team/leah-elise.webp" alt="Leah Elise" width="500" height="500" loading="lazy"><b>Leah Elise</b><span>LinkedIn ↗</span></a>
+<a class="about-person" href="https://nl.linkedin.com/in/jaspermiddendorp" target="_blank" rel="noopener noreferrer"><img src="assets/team/jasper-middendorp.webp" alt="Jasper Middendorp" width="500" height="500" loading="lazy"><b>Jasper Middendorp</b><span>LinkedIn ↗</span></a>
+<a class="about-person" href="https://my.linkedin.com/in/arvktr" target="_blank" rel="noopener noreferrer"><img src="assets/team/arun-venkataraman.webp" alt="Arun Venkataraman" width="500" height="500" loading="lazy"><b>Arun Venkataraman</b><span>LinkedIn ↗</span></a>
+<a class="about-person" href="https://my.linkedin.com/in/neshalinisathiabalan" target="_blank" rel="noopener noreferrer"><img src="assets/team/neshalini-sathiabalan.webp" alt="Neshalini Sathiabalan" width="500" height="500" loading="lazy"><b>Neshalini Sathiabalan</b><span>LinkedIn ↗</span></a>
+<a class="about-person" href="https://my.linkedin.com/in/lau-siew-mei" target="_blank" rel="noopener noreferrer"><img src="assets/team/siew-mei-lau.webp" alt="Lau Siew Mei" width="500" height="500" loading="lazy"><b>Lau Siew Mei</b><span>LinkedIn ↗</span></a>
+<a class="about-person" href="https://my.linkedin.com/in/junantannn" target="_blank" rel="noopener noreferrer"><img src="assets/team/jun-an-tan.webp" alt="Jun An Tan" width="500" height="500" loading="lazy"><b>Jun An Tan</b><span>LinkedIn ↗</span></a>
+<a class="about-person" href="https://my.linkedin.com/in/yousuf-sarfraz" target="_blank" rel="noopener noreferrer"><img src="assets/team/yousuf-sarfraz.webp" alt="Yousuf Sarfraz" width="500" height="500" loading="lazy"><b>Yousuf Sarfraz</b><span>LinkedIn ↗</span></a>
+<a class="about-person" href="https://in.linkedin.com/in/paawan-purdhani" target="_blank" rel="noopener noreferrer"><img src="assets/team/paawan-purdhani.webp" alt="Paawan Purdhani" width="500" height="500" loading="lazy"><b>Paawan Purdhani</b><span>LinkedIn ↗</span></a>
+<a class="about-person" href="https://in.linkedin.com/in/darpanbafana" target="_blank" rel="noopener noreferrer"><img src="assets/team/darpan-bafana.webp" alt="Darpan Bafana" width="500" height="500" loading="lazy"><b>Darpan Bafana</b><span>LinkedIn ↗</span></a>
+<a class="about-person" href="https://www.linkedin.com/in/aniruddha-deshpande" target="_blank" rel="noopener noreferrer"><img src="assets/team/aniruddha-deshpande.webp" alt="Aniruddha Deshpande" width="500" height="500" loading="lazy"><b>Aniruddha Deshpande</b><span>LinkedIn ↗</span></a>
+<a class="about-person" href="https://nl.linkedin.com/in/coen-elferink-35a344104" target="_blank" rel="noopener noreferrer"><img src="assets/team/coen-elferink.webp" alt="Coen Elferink" width="500" height="500" loading="lazy"><b>Coen Elferink</b><span>LinkedIn ↗</span></a>
+<a class="about-person" href="https://www.linkedin.com/in/umar-shah" target="_blank" rel="noopener noreferrer"><img src="assets/team/umar-shah.webp" alt="Umar Shah" width="500" height="500" loading="lazy"><b>Umar Shah</b><span>LinkedIn ↗</span></a>
+<a class="about-person" href="https://www.linkedin.com/in/dannette-kallay-0b180b204" target="_blank" rel="noopener noreferrer"><img src="assets/team/dannette-kallay.webp" alt="Dr Dannette Kallay" width="500" height="500" loading="lazy"><b>Dr Dannette Kallay</b><span>LinkedIn ↗</span></a>
+</div></div></section>
 <section class="about-next" aria-labelledby="about-next-title"><div class="shell"><header class="about-next-head"><h2 class="about-display" id="about-next-title">See what we are building</h2></header><div class="about-next-list">
 <a href="clinicians.html"><b>For clinicians</b><span>Prepare with a complete, source-linked record</span><i>→</i></a>
 <a href="patients.html"><b>For patients</b><span>Understand and share your health history</span><i>→</i></a>
 <a href="reports.html"><b>Reports</b><span>See the report types n1 can prepare</span><i>→</i></a>
-<a href="Health_summary_demo-1.html"><b>Sample health summary</b><span>Open a synthetic, source-linked example</span><i>→</i></a>
+<a href="Health_summary_demo-1.html"><b>Health summary</b><span>Open a source-linked report</span><i>→</i></a>
 </div></div></section>
 <section class="about-close"><div class="shell"><div class="about-close-card"><h2>Better context. More time for care.</h2><a class="button" href="contact.html">Talk with us <span aria-hidden="true">→</span></a></div></div></section>
 </main>
