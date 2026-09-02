@@ -503,3 +503,86 @@
   border-radius: 6px;
   justify-content: flex-start;
 }
+
+/* Compact light navigation card for tablet and mobile. */
+@media (max-width: 1280px) {
+  .site-nav-v2 .nav-menu,
+  .site-nav-v2.nav:not(.is-past-hero) .nav-menu {
+    width: min(420px,calc(100vw - 32px));
+    right: 0;
+    left: auto;
+    max-height: calc(100svh - 96px);
+    padding: 10px;
+    border: 1px solid rgba(36,75,73,.14);
+    border-radius: 18px;
+    color: #27302d !important;
+    background: rgba(249,248,242,.98) !important;
+    box-shadow: 0 18px 50px rgba(18,35,31,.16);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+  }
+  .site-nav-v2 .nav-menu .nav-links,
+  .site-nav-v2.nav:not(.is-past-hero) .nav-menu .nav-links {
+    gap: 0;
+    color: #27302d !important;
+    text-shadow: none !important;
+  }
+  .site-nav-v2 .nav-menu .nav-links > a,
+  .site-nav-v2 .nav-menu .nav-dropdown-toggle {
+    min-height: 52px;
+    padding: 0 12px;
+    border-bottom: 1px solid rgba(36,75,73,.12) !important;
+    border-radius: 0;
+    color: #27302d !important;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .site-nav-v2 .nav-menu .nav-links > a:first-child { border-radius: 10px 10px 0 0; }
+  .site-nav-v2 .nav-menu .nav-links > a:hover,
+  .site-nav-v2 .nav-menu .nav-dropdown-toggle:hover { background: #edf2ee; }
+  .site-nav-v2 .nav-menu .nav-dropdown-menu {
+    margin: 6px 0;
+    border-color: rgba(36,75,73,.1);
+    background: #eef3f0;
+  }
+  .site-nav-v2 .nav-menu .nav-actions {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    margin-top: 10px;
+  }
+  .site-nav-v2 .nav-menu .nav-actions .button,
+  .tonal-motion .site-nav-v2.nav:not(.is-past-hero) .nav-menu .nav-actions .button {
+    min-height: 50px;
+    grid-row: 1;
+    border-color: #244b49 !important;
+    border-radius: 11px;
+    color: #fff !important;
+    background: #244b49 !important;
+    box-shadow: none;
+    font-size: 14px;
+  }
+  .site-nav-v2 .nav-menu .nav-actions .login,
+  .site-nav-v2.nav:not(.is-past-hero) .nav-menu .nav-actions .login {
+    min-height: 42px;
+    grid-row: 2;
+    color: #52635e !important;
+    font-size: 13px;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 620px) {
+  .site-nav-v2 .nav-menu,
+  .site-nav-v2.nav:not(.is-past-hero) .nav-menu {
+    width: auto;
+    right: 0;
+    left: 0;
+    max-height: calc(100svh - 84px);
+    padding: 8px;
+    border-radius: 15px;
+  }
+  .site-nav-v2 .nav-menu .nav-links > a,
+  .site-nav-v2 .nav-menu .nav-dropdown-toggle { min-height: 48px; }
+  .site-nav-v2 .nav-menu .nav-actions .button,
+  .tonal-motion .site-nav-v2.nav:not(.is-past-hero) .nav-menu .nav-actions .button { min-height: 48px; }
+}

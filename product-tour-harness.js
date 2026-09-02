@@ -113,7 +113,7 @@
         {
           label: 'Open plan',
           caption: 'See medications, supplements and monitoring dates on the same time axis.',
-          html: `${head('Regimen timeline','Current and past care timing','Synthetic schedule · Jan to Jun 2026',button('+ Add item'))}
+          html: `${head('Regimen timeline','Current and past care timing','Schedule · Jan to Jun 2026',button('+ Add item'))}
             <div class="pth-card pth-gantt"><div class="pth-gantt-head"><span></span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div><div class="pth-gantt-row"><div class="pth-gantt-label"><b>Metformin</b><small>500 mg twice daily</small></div><div class="pth-gantt-track"></div><div class="pth-gantt-bar" style="grid-column:2/8">Active</div></div><div class="pth-gantt-row"><div class="pth-gantt-label"><b>Atorvastatin</b><small>20 mg nightly</small></div><div class="pth-gantt-track"></div><div class="pth-gantt-bar" style="grid-column:4/8">Started 12 Mar</div></div><div class="pth-gantt-row"><div class="pth-gantt-label"><b>Vitamin D3</b><small>2,000 IU daily</small></div><div class="pth-gantt-track"></div><div class="pth-gantt-bar supp" style="grid-column:2/8">Active</div></div><div class="pth-gantt-row"><div class="pth-gantt-label"><b>Magnesium</b><small>200 mg daily</small></div><div class="pth-gantt-track"></div><div class="pth-gantt-bar pause" style="grid-column:2/5">Paused</div><div class="pth-gantt-bar supp" style="grid-column:5/8">Restarted</div></div></div>`
         },
         {
@@ -585,7 +585,7 @@
     if (!definition) return;
     mount.innerHTML = `
       <div class="pth-player" tabindex="0" role="region" aria-label="${definition.label} walkthrough">
-        <div class="pth-appbar"><span class="pth-brand"><b>n1.</b>care</span><div class="pth-patient"><i class="pth-avatar">JD</i><span><strong>John Doe</strong><small>Synthetic patient</small></span></div><span class="pth-appstatus">Encrypted record</span></div>
+        <div class="pth-appbar"><span class="pth-brand"><b>n1.</b>care</span><div class="pth-patient"><i class="pth-avatar">JD</i><span><strong>John Doe</strong><small>Patient record</small></span></div><span class="pth-appstatus">Encrypted record</span></div>
         <div class="pth-workspace"><aside class="pth-sidebar" aria-hidden="true">${sideItems(definition.nav)}</aside><div class="pth-stage">${definition.steps.map((step, index) => `<section class="pth-view${index === 0 ? ' is-active' : ''}" data-pth-view="${index}" aria-hidden="${index === 0 ? 'false' : 'true'}">${step.html}</section>`).join('')}</div></div>
         <div class="pth-caption" aria-live="polite"></div>
         <div class="pth-controls"><button class="pth-play" type="button" ${reducedMotion ? 'disabled' : ''} aria-label="${reducedMotion ? 'Automatic playback disabled because reduced motion is enabled' : 'Pause walkthrough'}">${reducedMotion ? '—' : 'Ⅱ'}</button><div class="pth-steps"><div class="pth-stepbuttons">${definition.steps.map((step,index) => `<button class="pth-step${index === 0 ? ' is-active' : ''}" type="button" data-pth-step="${index}">${step.label}</button>`).join('')}</div><div class="pth-progress"><i></i></div></div><span class="pth-count"></span></div>
