@@ -2299,7 +2299,7 @@
   /* ==========================================================================
      LAB VIDEO SECTION WITH HIGH-CONTRAST SCRIM (NO TEXT-SHADOW)
      ========================================================================== */
-  .tonal-lab { background: #f3ede2 !important; }
+  .tonal-lab { background: #f9f8f2 !important; }
   .tonal-lab-frame { background: #171817 !important; color: #ffffff !important; }
   .tonal-lab-frame::after {
     background: linear-gradient(90deg, rgba(23,24,23,.9), rgba(23,24,23,.68) 44%, rgba(23,24,23,.18) 76%, transparent 100%),
@@ -2601,6 +2601,7 @@
   .footer p { color: #6a6864 !important; }
   </style>
   <link rel="stylesheet" href="site-nav.css">
+  <link rel="stylesheet" href="prepared-story.css?v=20260902-3">
   <style>
     /* N1 Hero 2 homepage header. */
     .home-trust-header .tonal-scroll-sequence {
@@ -2632,12 +2633,13 @@
     }
     .home-trust-header .tonal-hero-video video {
       width: 100%;
-      height: 100%;
+      height: calc(100% - 168px);
       display: block;
-      object-fit: contain;
+      margin: 168px 0 0;
+      object-fit: cover;
       object-position: center center;
       filter: saturate(.86) contrast(.94) brightness(1.06) sepia(.06);
-      transform: scale(.95);
+      transform: scale(1.01);
       animation: home-trust-settle 18s cubic-bezier(.2,.75,.25,1) both;
     }
     .home-trust-header .tonal-hero-video::before,
@@ -2735,9 +2737,12 @@
       place-items: center;
       padding: clamp(96px,12vh,144px) 32px;
       color: #202523;
-      background: #fffdf5;
+      background: #f9f8f2;
       text-align: center;
     }
+    .home-purpose-flow { display: flex; flex-direction: column; }
+    .home-purpose-flow .clinician-prepared-block { order: 1; }
+    .home-purpose-flow .home-purpose-statement { order: 2; }
     .home-purpose-inner {
       width: min(1180px,100%);
       display: grid;
@@ -2751,6 +2756,13 @@
       letter-spacing: -.045em;
       text-wrap: balance;
     }
+    .home-purpose-animation { width: min(620px,78vw); aspect-ratio: 5 / 2; margin: 0 auto clamp(24px,4vh,42px); overflow: hidden; }
+    .home-purpose-animation video {
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: translateY(-30%);
+    }
     .home-purpose-stop {
       width: .16em;
       aspect-ratio: 1;
@@ -2760,15 +2772,70 @@
       background: #376361;
       vertical-align: 0;
     }
+    .home-trust-header .clinician-prepared-block {
+      position: relative;
+      z-index: 2;
+      background: #f9f8f2 !important;
+    }
+    .home-trust-header .clinician-prepared-block::before {
+      position: absolute;
+      z-index: -1;
+      inset: -2px 0;
+      background: #f9f8f2;
+      content: "";
+    }
+    .home-upload-moment { padding: clamp(86px,10vw,144px) 0; background: #fffdf9; }
+    .home-upload-moment-inner { width: min(1296px,calc(100% - 64px)); display: grid; grid-template-columns: minmax(280px,.72fr) minmax(560px,1.28fr); align-items: center; gap: clamp(56px,7vw,112px); margin: 0 auto; }
+    .home-upload-copy span { color: #2f7773; font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .home-upload-copy h3 { max-width: 430px; margin: 18px 0 0; color: #202523 !important; font: 400 clamp(45px,4vw,62px)/1 var(--serif); letter-spacing: -.04em; }
+    .home-upload-card { position: relative; min-height: 440px; display: grid; place-items: center; padding: clamp(30px,4vw,58px); overflow: visible; border: 1px solid #bfd1cc; border-radius: clamp(28px,3vw,48px); background: linear-gradient(135deg,#f7f4ed,#e8f1ef); }
+    .home-upload-card::before,.home-upload-card::after { position: absolute; z-index: -1; right: 12px; bottom: -12px; left: 12px; height: 42px; border: 1px solid #bfd1cc; border-radius: 0 0 38px 38px; background: #edf4f1; content: ""; }
+    .home-upload-card::after { right: 24px; bottom: -24px; left: 24px; z-index: -2; opacity: .72; }
+    .home-upload-panel { width: min(580px,100%); box-sizing: border-box; padding: 30px; border: 1px solid rgba(71,86,78,.12); border-radius: 20px; background: rgba(255,253,249,.96); box-shadow: 0 18px 45px rgba(52,80,74,.06); }
+    .home-upload-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid #d8dfdc; }
+    .home-upload-person { display: flex; align-items: center; gap: 11px; }
+    .home-upload-person > i { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: #376361; font: 800 9px var(--sans); }
+    .home-upload-person b,.home-upload-person small { display: block; }
+    .home-upload-person b { color: #29312f; font-size: 12px; }
+    .home-upload-person small { margin-top: 3px; color: #7a827f; font-size: 8px; }
+    .home-upload-head > b { color: #2f7773; font-size: 8px; letter-spacing: .11em; text-transform: uppercase; }
+    .home-upload-zone { position: relative; height: 122px; margin-top: 20px; overflow: hidden; border: 1px dashed #75aaa2; border-radius: 14px; background: #f1f8f6; }
+    .home-upload-stage { position: absolute; inset: 0; display: flex; align-items: center; padding: 26px 40px; box-sizing: border-box; opacity: 0; }
+    .home-upload-stage > i { width: 38px; height: 38px; display: grid; place-items: center; flex: 0 0 auto; margin-right: 13px; border-radius: 8px; color: #fff; background: #c67961; font: 800 9px var(--sans); }
+    .home-upload-stage b,.home-upload-stage small { display: block; }
+    .home-upload-stage b { color: #323a37; font-size: 13px; }
+    .home-upload-stage small { margin-top: 4px; color: #75807c; font-size: 8px; }
+    .home-upload-progress { position: absolute; right: 40px; bottom: 26px; left: 91px; height: 4px; overflow: hidden; border-radius: 4px; background: #d6e3df; }
+    .home-upload-progress i { width: 0; height: 100%; display: block; background: #48a9a6; }
+    .home-upload-choose { justify-content: center; color: #52766f; font-size: 12px; font-weight: 700; }
+    .home-upload-choose::before { margin-right: 9px; content: "↑"; font-size: 20px; }
+    .home-upload-complete { justify-content: center; flex-direction: column; color: #376361; text-align: center; }
+    .home-upload-complete b { color: #376361; }
+    .home-upload-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 11px; }
+    .home-upload-actions span { padding: 10px; border: 1px solid #bfd1cc; border-radius: 9px; color: #66736f; font-size: 8px; text-align: center; }
+    .home-upload-actions b { margin-right: 8px; color: #2f7773; }
+    .home-upload-choose { animation: home-upload-choose 6.4s ease-in-out infinite; }
+    .home-upload-file { animation: home-upload-file 6.4s ease-in-out infinite; }
+    .home-upload-complete { animation: home-upload-complete 6.4s ease-in-out infinite; }
+    .home-upload-progress i { animation: home-upload-progress 6.4s cubic-bezier(.22,.75,.28,1) infinite; }
+    @keyframes home-upload-choose { 0%,18% { opacity:1; transform:none } 27%,100% { opacity:0; transform:translateY(-8px) } }
+    @keyframes home-upload-file { 0%,20% { opacity:0; transform:translateY(8px) } 29%,72% { opacity:1; transform:none } 80%,100% { opacity:0; transform:translateY(-8px) } }
+    @keyframes home-upload-complete { 0%,74% { opacity:0; transform:scale(.96) } 83%,96% { opacity:1; transform:none } 100% { opacity:0 } }
+    @keyframes home-upload-progress { 0%,28% { width:0 } 68%,100% { width:100% } }
+    @media (max-width: 900px) { .home-upload-moment-inner { width: min(720px,calc(100% - 40px)); grid-template-columns: 1fr; gap: 38px; } .home-upload-copy { text-align: center; } .home-upload-copy h3 { margin-right: auto; margin-left: auto; } }
+    @media (max-width: 560px) { .home-upload-moment { padding: 76px 0 92px; } .home-upload-moment-inner { width: calc(100% - 28px); } .home-upload-copy h3 { font-size: 42px; } .home-upload-card { min-height: 350px; padding: 16px; border-radius: 25px; } .home-upload-panel { padding: 18px; } .home-upload-stage { padding: 20px 15px; } .home-upload-progress { right: 15px; left: 66px; } }
     .home-trust-header .nav:not(.is-past-hero) {
       color: #52766f !important;
     }
     .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-inner {
-      border-color: rgba(82,118,111,.16) !important;
-      background: rgba(255,253,245,.48) !important;
-      box-shadow: 0 10px 32px rgba(82,118,111,.07) !important;
-      -webkit-backdrop-filter: blur(14px) saturate(.9) !important;
-      backdrop-filter: blur(14px) saturate(.9) !important;
+      border-color: rgba(56,96,90,.2) !important;
+      background: rgba(239,245,241,.84) !important;
+      box-shadow: 0 14px 36px rgba(34,70,65,.12) !important;
+      -webkit-backdrop-filter: blur(18px) saturate(1.15) !important;
+      backdrop-filter: blur(18px) saturate(1.15) !important;
+    }
+    .home-trust-header .site-nav-v2.nav:not(.is-past-hero)::before {
+      opacity: 0;
     }
     .home-trust-header .nav:not(.is-past-hero) .logo {
       background: #52766f !important;
@@ -2783,14 +2850,30 @@
     .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-actions .login {
       color: #52766f !important;
     }
-    .home-trust-header .nav:not(.is-past-hero) .button {
+    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-links a:hover,
+    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-actions .login:hover,
+    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-dropdown-toggle:hover {
+      background: rgba(36,75,73,.07);
+    }
+    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-actions .button {
       color: #fffdf5 !important;
       border-color: #244b49 !important;
       background: #244b49 !important;
+      box-shadow: 0 7px 20px rgba(24,61,57,.18);
+    }
+    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-actions .button:hover {
+      color: #fff !important;
+      background: #173f3c !important;
+    }
+    .home-trust-header .site-nav-v2.nav:not(.is-past-hero) .nav-toggle {
+      color: #416a64 !important;
+      border-color: rgba(56,96,90,.22) !important;
+      background: rgba(255,253,249,.58) !important;
+      box-shadow: 0 5px 16px rgba(34,70,65,.08);
     }
     @keyframes home-trust-settle {
-      from { transform: scale(.975); }
-      to { transform: scale(.95); }
+      from { transform: scale(1.025); }
+      to { transform: scale(1.01); }
     }
     @keyframes home-trust-copy-reveal {
       from { opacity: 0; transform: translateY(22px); }
@@ -2807,13 +2890,49 @@
         font-size: clamp(48px,10vw,76px);
       }
     }
+    @media (max-width: 700px) {
+      .home-trust-header .tonal-scroll-sequence,
+      .home-trust-header .tonal-hero {
+        min-height: max(620px,100svh) !important;
+      }
+      .home-trust-header .tonal-hero-video video {
+        position: absolute;
+        top: 82px;
+        left: 0;
+        width: 100%;
+        height: clamp(245px,39svh,320px);
+        margin: 0;
+        object-fit: contain;
+        object-position: center center;
+        transform: translateX(-16%) scale(1.38);
+        animation: none;
+      }
+      .home-trust-header .tonal-hero-inner,
+      .home-trust-header .tonal-scroll-sequence.is-engaged .tonal-hero-inner {
+        top: clamp(430px,59svh,500px);
+        bottom: auto;
+      }
+      .home-trust-header .tonal-hero h1 {
+        max-width: 560px;
+        font-size: clamp(44px,9vw,58px);
+        line-height: .98;
+      }
+      .home-hero-note { margin-top: 22px; }
+    }
     @media (max-width: 560px) {
       .home-trust-header .tonal-scroll-sequence,
       .home-trust-header .tonal-hero { min-height: 620px !important; }
-      .home-trust-header .tonal-hero-video video { object-position: 58% center; }
+      .home-trust-header .tonal-hero-video video {
+        top: 76px;
+        left: 0;
+        width: 100%;
+        height: clamp(235px,38svh,300px);
+        object-position: center center;
+        transform: translateX(-18%) scale(1.48);
+      }
       .home-trust-header .tonal-hero .eyebrow { margin-bottom: 12px; }
-      .home-trust-header .tonal-hero h1 { max-width: 410px; font-size: clamp(46px,13.8vw,66px); line-height: 1; }
-      .home-hero-note { margin-top: 28px; font-size: 12px; }
+      .home-trust-header .tonal-hero h1 { max-width: 410px; font-size: clamp(42px,12vw,54px); line-height: 1; }
+      .home-hero-note { margin-top: 20px; font-size: 12px; }
       .home-purpose-statement { min-height: 82svh; padding-inline: 22px; }
       .home-purpose-statement h2 { max-width: 480px; font-size: clamp(48px,14vw,68px); }
       .home-trust-header .doctor-features .feature-study-head h2 { font-size: clamp(42px,11vw,52px); }
@@ -2822,15 +2941,20 @@
       .home-trust-header .tonal-hero-video video {
         display: block;
         animation: none !important;
-        transform: scale(.95);
+        transform: scale(1.01);
       }
       .home-trust-header .tonal-copy-block {
         opacity: 1;
         transform: none;
         animation: none !important;
       }
+      .home-upload-stage { animation: none !important; }
+      .home-upload-choose,.home-upload-complete { opacity: 0; }
+      .home-upload-file { opacity: 1; transform: none; }
+      .home-upload-progress i { width: 62%; animation: none !important; }
     }
   </style>
+  <script defer src="prepared-story.js?v=20260901-1"></script>
 </head>
 <body class="tonal tonal-motion home-trust-header">
   <div class="scroll-bg" aria-hidden="true"></div>
@@ -2858,18 +2982,64 @@
       </div>
     </section>
 
+    <div class="home-purpose-flow">
     <section class="home-purpose-statement" aria-labelledby="home-purpose-title">
       <div class="home-purpose-inner">
+        <div class="home-purpose-animation" aria-hidden="true"><video id="human-care-animation" data-autoplay muted playsinline preload="metadata" poster="assets/videos/human-care-ink-line-poster.jpg"><source src="assets/videos/human-care-ink-line.mp4" type="video/mp4"></video></div>
         <h2 id="home-purpose-title">AI for more human care<span class="home-purpose-stop" aria-hidden="true"></span><span class="sr-only">.</span></h2>
       </div>
     </section>
 
-    <section class="doctor-features" id="features" aria-labelledby="features-title">
+    <section class="page-section clinician-prepared-block" id="clinician-prepared">
+    <div class="shell">
+    <div class="prepared-story">
+    <div class="prepared-story-steps">
+    <article class="prepared-story-step">
+    <div class="prepared-story-card" aria-label="Illustrative two-step secure record upload"><div class="prepared-story-frame"><div class="prepared-story-media" aria-hidden="true"></div><div class="prepared-story-copy is-current"><h3>Upload records in two clicks.</h3></div><div class="prepared-story-ui"><section class="prepared-story-state"><div class="story-ui-head"><div><span class="story-ui-avatar">JR</span><span><b>Upload patient records</b><small>Jamie Rivera</small></span></div><span>Secure upload</span></div><div class="story-upload-zone"><div class="story-upload-stage story-upload-choose"><i>↑</i><b>Choose records</b><small>PDF, image, or exported health record</small></div><div class="story-upload-stage story-upload-selected"><div class="story-upload-selected-row"><i>PDF</i><span><b>lab-results-june.pdf</b><small>12 pages · 2.4 MB</small></span></div><div class="story-upload-meter"><span></span></div><small class="story-upload-status"><span>Uploading securely…</span><span>2.4 MB</span></small></div><div class="story-upload-stage story-upload-complete"><i>✓</i><b>Upload complete</b><small>1 record added securely</small></div></div><div class="story-upload-actions"><span><b>1</b> Choose files</span><span><b>2</b> Upload securely</span></div></section></div></div></div>
+    </article>
+    <article class="prepared-story-step">
+    <div class="prepared-story-card" aria-label="Animation showing clinical data extracted from a synthetic record"><div class="prepared-story-frame"><div class="prepared-story-media" aria-hidden="true"></div><div class="prepared-story-copy"><h3>Key data, pulled out for you.</h3></div><div class="prepared-story-ui"><section class="prepared-story-state"><div class="story-ui-head"><div><span class="story-ui-avatar">JR</span><span><b>Jamie Rivera</b><small>Synthetic patient history</small></span></div><span>Source-linked</span></div><div class="story-extract-body"><div class="story-extract-stage story-extract-start"><div class="story-extract-file"><i>PDF</i><span><b>complete-health-record.pdf</b><small>12 pages · synthetic record</small></span></div><span class="story-extract-button">Extract clinical data<i class="story-extract-pointer">↖</i></span></div><div class="story-extract-stage story-extract-typing"><div class="story-extract-scan"><span>Reading source pages</span><b class="story-extract-typed">Extracting clinical data…</b><div class="story-extract-scanbar"><i></i></div></div></div><div class="story-extract-stage story-extract-results"><div class="story-extract-result-head"><span><i>✓</i>6 data types found</span><small>Synthetic examples · sources attached</small></div><div class="story-data-table"><div class="story-data-row"><span>Biomarker</span><b>HbA1c · 6.4%</b><small>Page 2</small></div><div class="story-data-row"><span>Diagnosis</span><b>Hypertension</b><small>Page 4</small></div><div class="story-data-row"><span>Medication</span><b>Metformin · 500 mg</b><small>Page 4</small></div><div class="story-data-row"><span>Procedure</span><b>Echocardiogram · 2025</b><small>Page 6</small></div><div class="story-data-row"><span>Genetics</span><b>BRCA1/2 · negative</b><small>Page 8</small></div><div class="story-data-row"><span>Supplement</span><b>Vitamin D3 · 1,000 IU</b><small>Page 5</small></div></div></div></div></section></div></div></div>
+    </article>
+    <article class="prepared-story-step">
+    <div class="prepared-story-card" aria-label="Interactive longitudinal HbA1c view using synthetic data">
+    <div class="prepared-story-frame"><div class="prepared-story-media" aria-hidden="true"></div><div class="prepared-story-copy"><h3>See what changed.</h3></div><div class="prepared-story-ui"><section class="prepared-story-state">
+    <div class="story-ui-head"><div><span class="story-ui-avatar">JR</span><span><b>Changes across the record</b><small>Hover over each source-linked reading</small></span></div><span>Longitudinal view</span></div>
+    <div class="story-change-title"><span>Biomarker trend <em>Stated lab range 4.0–5.6%</em></span><b>HbA1c</b></div>
+    <div class="story-change-chart" role="group" aria-label="Three synthetic HbA1c readings compared with a stated laboratory reference range of 4.0 to 5.6 percent">
+    <svg viewBox="0 0 500 128" preserveAspectRatio="none">
+    <g class="story-chart-grid"><line x1="38" y1="18" x2="488" y2="18"/><line x1="38" y1="50" x2="488" y2="50"/><line x1="38" y1="82" x2="488" y2="82"/><line x1="38" y1="98" x2="488" y2="98"/></g>
+    <rect class="story-chart-reference" x="38" y="82" width="450" height="16" rx="2"/><line class="story-chart-reference-edge" x1="38" y1="82" x2="488" y2="82"/><line class="story-chart-reference-edge" x1="38" y1="98" x2="488" y2="98"/><text class="story-chart-range-label" x="484" y="78" text-anchor="end">REFERENCE 4.0–5.6%</text>
+    <g class="story-chart-axis"><text x="2" y="21">7.5</text><text x="2" y="53">6.5</text><text x="2" y="85">5.6</text><text x="2" y="101">4.0</text><text x="48" y="121">Mar 2023</text><text x="264" y="121" text-anchor="middle">Jun 2024</text><text x="478" y="121" text-anchor="end">Jan 2025</text></g>
+    <path class="story-chart-line" d="M48 29 C126 31 192 42 264 49 S406 59 478 65" vector-effect="non-scaling-stroke"/>
+    <g vector-effect="non-scaling-stroke"><circle class="story-chart-point is-outside" tabindex="0" role="button" aria-label="HbA1c 7.1 percent on 14 March 2023, above the stated range, source page 2" data-value="7.1%" data-date="14 Mar 2023" data-source="Above range · Source page 2" cx="48" cy="29" r="6"/><circle class="story-chart-point is-outside" tabindex="0" role="button" aria-label="HbA1c 6.8 percent on 20 June 2024, above the stated range, source page 5" data-value="6.8%" data-date="20 Jun 2024" data-source="Above range · Source page 5" cx="264" cy="49" r="6"/><circle class="story-chart-point is-outside" tabindex="0" role="button" aria-label="HbA1c 6.4 percent on 10 January 2025, above the stated range, source page 8" data-value="6.4%" data-date="10 Jan 2025" data-source="Above range · Source page 8" cx="478" cy="65" r="6"/></g>
+    </svg><div class="story-chart-tooltip" aria-hidden="true"><b></b><small></small></div>
+    </div></section></div></div></div>
+    </article>
+    <article class="prepared-story-step">
+    <div class="prepared-story-card" aria-label="Scrollable Health Summary preview using synthetic data">
+    <div class="prepared-story-frame"><div class="prepared-story-media" aria-hidden="true"></div><div class="prepared-story-copy"><h3>See a clear summary.</h3></div><div class="prepared-story-ui"><section class="prepared-story-state">
+    <div class="story-report-window"><div class="story-report-scroll" role="document" tabindex="0" aria-label="Scrollable synthetic Health Summary report">
+    <header class="story-report-cover"><span>Cross-panel findings &amp; clinical overview</span><h4>Health Summary</h4><p>Jamie Rivera · Synthetic demonstration</p><div class="story-report-meta"><span>Records<b>14 reviewed</b></span><span>Findings<b>6 prioritised</b></span><span>Sources<b>Attached</b></span></div></header>
+    <section class="story-report-section"><small>Section 1</small><h5>Executive summary</h5><p>The record shows an improving metabolic trend alongside findings that still need clinical review. Each statement remains connected to the source record and page from which it was prepared.</p><div class="story-report-markers"><span><small>HbA1c</small><b>6.4%</b><em>Down from 7.1%</em></span><span><small>LDL cholesterol</small><b>116 mg/dL</b><em>Review in context</em></span><span><small>hs-CRP</small><b>1.8 mg/L</b><em>Follow trend</em></span><span><small>Vitamin D</small><b>71 nmol/L</b><em>Improving</em></span></div></section>
+    <section class="story-report-section"><small>Section 2</small><h5>Body systems</h5><div class="story-report-system"><span><b>Metabolic</b><br>HbA1c trend and treatment context</span><em>Review</em></div><div class="story-report-system"><span><b>Cardiovascular</b><br>Lipids, blood pressure and family history</span><em>Review</em></div><div class="story-report-system"><span><b>Hepatic</b><br>Available liver markers</span><em>Stable</em></div><div class="story-report-system"><span><b>Renal</b><br>Creatinine and eGFR</span><em>Stable</em></div></section>
+    <section class="story-report-section"><small>Section 3</small><h5>Recommendations for review</h5><div class="story-report-recommendations"><div><b>Confirm patient-specific ranges</b><p>Check the range and target appropriate to this patient before interpreting the trend.</p></div><div><b>Reconcile treatment</b><p>Confirm medicines, supplements and recent changes against the source record.</p></div><div><b>Verify before sharing</b><p>Edit the draft, resolve gaps and check every material finding at its source.</p></div></div></section>
+    <section class="story-report-section"><small>Section 4</small><h5>Data gaps</h5><p>Home blood-pressure readings, current anthropometrics and complete family history are not confirmed in the available synthetic record.</p></section>
+    <span class="story-report-provenance">n1.care · Synthetic demonstration only. This fictional report is not medical advice, diagnosis or treatment.</span><a class="story-report-open" href="Health_summary_demo-1.html">Open full Health Summary →</a>
+    </div><span class="story-report-cue" aria-hidden="true">Scroll report ↓</span></div>
+    </section></div></div></div>
+    </article>
+    </div>
+    </div>
+    </div>
+    </section>
+    </div>
+
+    <section class="doctor-features" id="features" aria-labelledby="features-title" hidden>
       <div class="shell">
         <header class="feature-study-head">
           <div>
-            <p class="eyebrow">How it works</p>
-            <h2 id="features-title">From upload to verified report.</h2>
+            <p class="eyebrow">See it in action</p>
+            <h2 id="features-title">Inside the workflow, step by step.</h2>
           </div>
         </header>
         <div class="feature-concepts">
@@ -3241,9 +3411,9 @@
          place on this page that wants air rather than another panel. -->
     <section class="tonal-lab" id="method" aria-labelledby="lab-title">
       <div class="tonal-lab-frame">
-        <video data-autoplay muted loop playsinline preload="metadata" poster="assets/videos/cinematic-consultation-poster.webp" aria-hidden="true"><source src="assets/videos/cinematic-consultation.mp4" type="video/mp4"></video>
+        <video data-autoplay muted loop playsinline preload="metadata" poster="assets/videos/prepared-conversation-workspace-poster.jpg" aria-hidden="true"><source src="assets/videos/prepared-conversation-workspace.mp4" type="video/mp4"></video>
         <div class="tonal-lab-copy">
-          <div><p class="eyebrow">Trust at each step</p><h2 id="lab-title">Confidence comes<br><em>from evidence.</em></h2></div>
+          <div><p class="eyebrow">More time for patients</p><h2 id="lab-title">Walk into every conversation<br><em>prepared.</em></h2></div>
         </div>
       </div>
     </section>
@@ -3253,7 +3423,7 @@
         <div class="report-carousel-head">
           <p class="eyebrow">Pre-built or custom reports</p>
           <h2 id="reports-title">Build the right report<br><em>for each patient.</em></h2>
-          <p class="report-carousel-sub">Bring key records, trends, and sources into one clear view. Start with a validated template or build your own.</p>
+          <p class="report-carousel-sub">Turn preparation into a clearer conversation. Bring key records, trends, and sources into one view, then choose a validated template or build your own.</p>
         </div>
         <div class="report-carousel-stage" role="region" aria-roledescription="carousel" aria-label="Sample reports">
           <button class="report-nav prev" type="button" aria-label="Previous report">‹</button>
@@ -3370,45 +3540,45 @@
       </div>
     </section>
 
-    <section class="workflow-rail-wrap" id="workflows" aria-labelledby="workflows-title">
+    <section class="workflow-rail-wrap" id="workflows" aria-labelledby="workflows-title" hidden>
       <div class="shell">
         <header class="evidence-head">
           <div>
-            <p class="eyebrow">In doctors’ words</p>
-            <h2 id="workflows-title">How n1 helps in practice.</h2>
+            <p class="eyebrow">Designed for clinical judgment</p>
+            <h2 id="workflows-title">Technology that stays in its place.</h2>
           </div>
         </header>
         <div class="workflow-rail">
           <article class="workflow-card">
-            <figure class="workflow-card-media is-portrait"><img src="assets/testimonial-dannette-kallay-illustrative.webp" alt="Illustrative portrait accompanying Dr Avery Doe’s placeholder words" width="1200" height="600" loading="lazy" decoding="async"></figure>
+            <figure class="workflow-card-media is-portrait"><img src="assets/testimonial-dannette-kallay-illustrative.webp" alt="Illustrative clinician portrait" width="1200" height="600" loading="lazy" decoding="async"></figure>
             <blockquote class="workflow-quote">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae lectus sed lorem consequat faucibus. Donec posuere, augue at tincidunt facilisis, velit massa volutpat nibh, vitae tempor lorem arcu non justo. Suspendisse potenti; aliquam erat volutpat, quisque feugiat sapien vel sem.</p>
-              <footer><cite>Dr Avery Doe, MD · Placeholder Physician</cite><small>Placeholder clinician quote · Illustrative portrait.</small><button class="workflow-story-link" type="button" data-interview-unavailable>Read the interview →</button></footer>
+              <p>Arrive with the patient history already organised, so the conversation can begin with the person—not the paperwork.</p>
+              <footer><cite>Patient attention</cite><small>Prepare before the consultation.</small></footer>
             </blockquote>
           </article>
           <article class="workflow-card is-testimonial">
-            <figure class="workflow-card-media is-portrait"><img src="assets/testimonial-nathan-chen.webp" alt="Illustrative portrait accompanying Dr Jordan Doe’s placeholder words" width="1200" height="900" loading="lazy" decoding="async"></figure>
+            <figure class="workflow-card-media is-portrait"><img src="assets/testimonial-nathan-chen.webp" alt="Illustrative clinician portrait" width="1200" height="900" loading="lazy" decoding="async"></figure>
             <blockquote class="workflow-quote">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere metus vitae nibh faucibus, et ullamcorper augue aliquet. Praesent vitae sapien at lorem tincidunt facilisis. Aliquam erat volutpat, sed cursus nibh viverra.</p>
-              <footer><cite>Dr Jordan Doe, MD</cite><small>Placeholder clinician quote · Illustrative portrait.</small><button class="workflow-story-link" type="button" data-interview-unavailable>Read the interview →</button></footer>
+              <p>Use AI to prepare the draft, while every interpretation, edit, and final decision remains with the clinician.</p>
+              <footer><cite>Clinical judgment</cite><small>Review before anything is approved.</small></footer>
             </blockquote>
           </article>
           <article class="workflow-card">
-            <figure class="workflow-card-media is-portrait"><img src="assets/testimonial-priya-malhotra.webp" alt="Illustrative portrait accompanying Dr Taylor Doe’s placeholder words" width="1200" height="900" loading="lazy" decoding="async"></figure>
+            <figure class="workflow-card-media is-portrait"><img src="assets/testimonial-priya-malhotra.webp" alt="Illustrative clinician portrait" width="1200" height="900" loading="lazy" decoding="async"></figure>
             <blockquote class="workflow-quote">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae purus sed justo feugiat posuere. Curabitur blandit, eros vel tempor viverra, sem nibh facilisis lorem. Donec non urna vitae arcu malesuada interdum.</p>
-              <footer><cite>Dr Taylor Doe, MD</cite><small>Placeholder clinician quote · Illustrative portrait.</small><button class="workflow-story-link" type="button" data-interview-unavailable>Read the interview →</button></footer>
+              <p>Share a clear report only when it is ready, with the evidence and context the patient needs to understand it.</p>
+              <footer><cite>Clear communication</cite><small>Make the record useful to the patient.</small></footer>
             </blockquote>
           </article>
         </div>
-        <div class="workflow-stories-more"><a href="clinicians.html#clinician-voices">Read more clinician stories →</a></div>
+        <div class="workflow-stories-more"><a href="clinicians.html">Explore the clinician experience →</a></div>
       </div>
     </section>
 
     <section class="security-summary" id="security" aria-labelledby="security-title">
       <div class="shell">
         <header class="evidence-head">
-          <div><p class="eyebrow">From source file to linked report</p><h2 id="security-title">Every fact stays linked to its source.</h2></div>
+          <div><p class="eyebrow">Traceability in action</p><h2 id="security-title">Follow a finding all the way back.</h2></div>
         </header>
         <ol class="traceability-flow" aria-label="Five steps from a source record to a validated, source-linked report">
           <li class="traceability-step"><small>01 · Record</small><h3>Extract the record.</h3><div class="traceability-ui is-record"><b class="trace-record-name">Example Laboratory 01</b><span>Laboratory report <i>Page 3</i></span><div class="trace-extract-counts"><span><b>83</b> Biomarkers</span><span><b>2</b> Diagnoses</span><span><b>1</b> Procedure</span><span><b>5</b> Medications</span></div></div></li>
@@ -3469,7 +3639,29 @@
       </div>
     </section>
 
-    <section class="tonal-close" id="contact"><div class="shell"><h2>See the full picture for each patient.</h2><div class="close-actions"><a class="button" href="https://app.n1.care/signup">Start free trial <span aria-hidden="true">→</span></a><a class="button secondary" href="https://calendly.com/leah-n1/n1-care-discovery-call">Book a walkthrough</a></div></div></section>
+    <section class="tonal-close" id="contact" aria-labelledby="home-proof-title"><div class="shell"><p class="eyebrow">Trust built into the workflow</p><h2 id="home-proof-title">Every fact stays connected to its source.</h2><p class="close-copy">Open the original file and page behind a finding. Nothing becomes a finished report until a clinician checks, edits, and approves it.</p><div class="close-actions"><a class="button" href="https://app.n1.care/demo">Try the live demo <span aria-hidden="true">→</span></a><a class="button secondary" href="#security">See traceability in action</a></div></div></section>
+
+    <script>
+      // Homepage narrative: promise → product → human outcome → reports → proof → control.
+      (function () {
+        var main = document.querySelector('#main');
+        if (!main) return;
+        [
+          '.tonal-scroll-sequence',
+          '.home-purpose-flow',
+          '#method',
+          '#reports',
+          '.privacy-choice',
+          '#security',
+          '.approval-summary',
+          '#product',
+          '#contact'
+        ].forEach(function (selector) {
+          var section = main.querySelector(selector);
+          if (section) main.appendChild(section);
+        });
+      })();
+    </script>
 
   </main>
 
@@ -3529,13 +3721,78 @@
     const reducedMotionQuery = matchMedia('(prefers-reduced-motion: reduce)');
     const reduceMotion = reducedMotionQuery.matches;
     const homeTrustVideo = document.querySelector('#home-trust-video');
-    if (!reduceMotion) document.querySelectorAll('video[data-autoplay]').forEach(video => video.play().catch(() => {}));
+    if (!reduceMotion) document.querySelectorAll('video[data-autoplay]:not(#human-care-animation)').forEach(video => video.play().catch(() => {}));
     if (reduceMotion && homeTrustVideo) homeTrustVideo.pause();
     reducedMotionQuery.addEventListener('change', (event) => {
       if (!homeTrustVideo) return;
       if (event.matches) homeTrustVideo.pause();
       else homeTrustVideo.play().catch(() => {});
     });
+
+    // Begin in view, hold the completed hand, then hold the completed AI before looping.
+    (function () {
+      var video = document.querySelector('#human-care-animation');
+      if (!video || reduceMotion) return;
+      var handFrameTime = 6;
+      var aiFrameTime = 7.8;
+      var holding = false;
+      var handHeldThisLoop = false;
+      var aiHeldThisLoop = false;
+      var inView = false;
+      var holdTimer = null;
+      function holdFrame(time, onComplete) {
+        if (holding) return;
+        holding = true;
+        video.pause();
+        video.currentTime = time;
+        holdTimer = setTimeout(function () {
+          onComplete();
+          holding = false;
+          holdTimer = null;
+          if (inView && !document.hidden) video.play().catch(function () {});
+        }, 2000);
+      }
+      video.addEventListener('timeupdate', function () {
+        if (!handHeldThisLoop && video.currentTime >= handFrameTime) {
+          holdFrame(handFrameTime, function () { handHeldThisLoop = true; });
+        } else if (handHeldThisLoop && !aiHeldThisLoop && video.currentTime >= aiFrameTime) {
+          holdFrame(aiFrameTime, function () {
+            aiHeldThisLoop = true;
+            video.currentTime = 0;
+            handHeldThisLoop = false;
+            aiHeldThisLoop = false;
+          });
+        }
+      });
+      function reset() {
+        if (holdTimer !== null) clearTimeout(holdTimer);
+        holdTimer = null;
+        holding = false;
+        video.currentTime = 0;
+        handHeldThisLoop = false;
+        aiHeldThisLoop = false;
+      }
+      function syncPlayback() {
+        if (inView && !document.hidden) video.play().catch(function () {});
+        else {
+          video.pause();
+          reset();
+        }
+      }
+      video.pause();
+      reset();
+      document.addEventListener('visibilitychange', syncPlayback);
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          inView = entries[0].isIntersecting;
+          syncPlayback();
+        }, { threshold: .25 }).observe(video.closest('.home-purpose-statement'));
+      } else {
+        inView = true;
+        syncPlayback();
+      }
+    })();
+
     addEventListener('load', () => {
       if (!location.hash) return;
       const anchorTarget = document.querySelector(location.hash);
@@ -4901,9 +5158,9 @@
       });
     })();
 
-    const featureTour = document.querySelector('.doctor-features');
     const reportExamples = document.querySelector('.report-carousel');
-    if (featureTour && reportExamples) featureTour.insertAdjacentElement('afterend', reportExamples);
+    const humanOutcome = document.querySelector('.tonal-lab');
+    if (humanOutcome && reportExamples) humanOutcome.insertAdjacentElement('afterend', reportExamples);
     const privacyProof = document.querySelector('.privacy-choice');
     const sourceProof = document.querySelector('.security-summary');
     const approvalProof = document.querySelector('.approval-summary');
@@ -4931,11 +5188,14 @@
         </div>`;
       reportExamples.after(trustShowcase);
       const trustScenes = trustShowcase.querySelector('.trust-scenes');
-      const trustPanels = [privacyProof, sourceProof, approvalProof, extractionProof];
+      const trustPanels = [privacyProof, sourceProof, approvalProof];
       trustPanels.forEach(panel => {
         panel.classList.add('trust-scene');
         trustScenes.append(panel);
       });
+      trustShowcase.after(extractionProof);
+      const closingCta = document.querySelector('.tonal-close');
+      if (closingCta) extractionProof.after(closingCta);
     }
 
     // Scroll reveals — a restrained, one-time entrance. Keeping revealed content

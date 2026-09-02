@@ -47,7 +47,7 @@
     ] }
   ];
 
-  const generatedProfileCount = 42;
+  const generatedProfileCount = 0;
   const generatedFocus = [
     ['Metabolic', 'Longitudinal'],
     ['Cardiovascular', 'Longitudinal'],
@@ -109,7 +109,7 @@
   const more = document.querySelector('[data-more]');
   const visibleCount = document.querySelector('[data-visible-count]');
   let active = 'All';
-  let shown = 20;
+  let shown = 6;
 
   ['All', ...areas].forEach((area) => {
     const button = document.createElement('button');
@@ -118,7 +118,7 @@
     button.textContent = area;
     button.addEventListener('click', () => {
       active = area;
-      shown = 20;
+      shown = 6;
       [...filters.children].forEach((item) => item.classList.toggle('is-active', item === button));
       render();
     });
@@ -146,7 +146,7 @@
     list.slice(0, shown).forEach((person) => {
       const card = document.createElement('article');
       card.className = 'person';
-      card.innerHTML = `<a class="person-select" href="report-profile.html?person=${person.id}" aria-label="Open reports for ${person.label}"><span class="person-head"><span class="person-name"><b>${person.label}</b><small>Synthetic profile</small></span></span><span class="person-card-foot"><span class="person-tags"><span>${person.focus[0]}</span></span><span class="report-count">${person.reports.length} reports →</span></span></a>`;
+      card.innerHTML = `<a class="person-select" href="report-profile.html?person=${person.id}" aria-label="Open reports for ${person.label}"><span class="person-head"><span class="person-name"><b>${person.label}</b><small>Anonymised synthetic patient</small></span></span><span class="person-context"><p>${person.context}</p></span><span class="person-report-list">${person.reports.map((report) => `<span>${report.title}</span>`).join('')}</span><span class="person-card-foot"><span class="person-tags">${person.focus.map((area) => `<span>${area}</span>`).join('')}</span><span class="report-count">Open ${person.reports.length} reports →</span></span></a>`;
       grid.appendChild(card);
     });
     if (!list.length) grid.innerHTML = '<p class="empty">No profiles or reports match this search.</p>';
@@ -154,8 +154,8 @@
     if (more) more.hidden = shown >= list.length;
   }
 
-  search.addEventListener('input', () => { shown = 20; render(); });
-  sort.addEventListener('change', () => { shown = 20; render(); });
-  more?.addEventListener('click', () => { shown += 20; render(); });
+  search.addEventListener('input', () => { shown = 6; render(); });
+  sort.addEventListener('change', () => { shown = 6; render(); });
+  more?.addEventListener('click', () => { shown += 6; render(); });
   render();
 })();

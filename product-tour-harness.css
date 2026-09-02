@@ -536,10 +536,10 @@
 .product-hero-actions > span i { width: 7px; height: 7px; border-radius: 50%; background: #38a169; box-shadow: 0 0 0 4px #e5f4eb; }
 .product-hero-actions > em { width: 31px; height: 31px; display: grid; place-items: center; border: 1px solid #dce2e0; border-radius: 8px; color: #4e5a57; background: #fff; font-size: 14px; font-style: normal; }
 .product-hero-app { position: relative; height: calc(100% - 68px); display: grid; grid-template-columns: 200px minmax(0,1fr); background: #f7faf9; }
-.product-hero-sidebar { display: flex; flex-direction: column; padding: 25px 16px; border-right: 1px solid #d8e2df; background: #f3f7f6; }
-.product-hero-sidebar span { margin: 13px 11px 8px; color: #596560; font-size: 8px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.product-hero-sidebar { display: flex; flex-direction: column; padding: 18px 16px; border-right: 1px solid #d8e2df; background: #f3f7f6; }
+.product-hero-sidebar span { margin: 9px 11px 5px; color: #596560; font-size: 8px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .product-hero-sidebar span:first-child { margin-top: 0; }
-.product-hero-sidebar b { min-height: 34px; display: flex; align-items: center; gap: 8px; margin-bottom: 3px; padding: 0 11px; border-radius: 7px; color: #596560; font-size: 10px; font-weight: 700; }
+.product-hero-sidebar b { min-height: 31px; display: flex; align-items: center; gap: 8px; margin-bottom: 2px; padding: 0 11px; border-radius: 7px; color: #596560; font-size: 10px; font-weight: 700; }
 .product-hero-sidebar b::before { width: 12px; height: 12px; display: grid; place-items: center; color: #71827c; content: "□"; font-size: 10px; }
 .product-hero-sidebar b:has(svg)::before { display: none; }
 .product-hero-sidebar b svg { width: 14px; height: 14px; flex: 0 0 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
